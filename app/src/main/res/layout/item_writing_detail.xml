@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/detail_button1_cv"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/detail_button1_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ECECEC"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/detail_userNickname_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="1dp"
+        android:text="사용자 닉네임"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="normal"
+        app:layout_constraintTop_toTopOf="@id/detail_button1_cv"
+        app:layout_constraintStart_toEndOf="@id/detail_button1_cv"/>
+
+    <TextView
+        android:id="@+id/detail_type_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="잡담)"
+        android:textSize="17sp"
+        android:textColor="#EDC06D"
+        app:layout_constraintStart_toStartOf="@id/detail_button1_cv"
+        app:layout_constraintTop_toBottomOf="@id/detail_button1_cv" />
+
+    <TextView
+        android:id="@+id/detail_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:layout_marginStart="10dp"
+        android:text="강아지 자랑합니다!"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/detail_type_tv"
+        app:layout_constraintTop_toTopOf="@id/detail_type_tv"/>
+
+    <ImageView
+        android:id="@+id/detail_writingImg_iv"
+        android:layout_width="match_parent"
+        android:layout_height="330dp"
+        android:layout_margin="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detail_type_tv"
+        android:background="#ECECEC"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/detail_button2_cv"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="20dp"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="12dp"
+        app:layout_constraintStart_toStartOf="@id/detail_writingImg_iv"
+        app:layout_constraintTop_toBottomOf="@id/detail_writingImg_iv">
+
+        <ImageView
+            android:id="@+id/detail_button2_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ECECEC"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/detail_button3_cv"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="10dp"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="12dp"
+        app:layout_constraintStart_toEndOf="@id/detail_button2_cv"
+        app:layout_constraintTop_toTopOf="@id/detail_button2_cv">
+
+        <ImageView
+            android:id="@+id/detail_button3_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ECECEC"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/detail_moreBtn_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_more"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/detail_writingImg_iv"
+        app:layout_constraintTop_toTopOf="@id/detail_button2_cv"/>
+
+    <TextView
+        android:id="@+id/detail_writingContent_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="강아지강아지강아지강아지강아지강아지강아지강아지
+강아지강아지강아지강아지강아지강아지강아지강아지강아지강아지강아지강아지"
+        android:textStyle="normal"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/detail_button2_cv"
+        app:layout_constraintEnd_toEndOf="@id/detail_writingImg_iv"
+        app:layout_constraintTop_toBottomOf="@id/detail_button2_cv"
+        android:padding="20dp"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/detail_writingContent_tv"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/detail_commentNum_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="댓글 _____ 개"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:background="#E9E9E9"
+            android:padding="3dp"/>
+
+        <ImageView
+            android:id="@+id/detail_commentDown_iv"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/ic_down"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginEnd="5dp"/>
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

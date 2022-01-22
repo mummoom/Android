@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/mysetting_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="설정"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"/>
+
+    <View
+        android:id="@+id/mysetting_line_view"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="#EAEAEA"
+        app:layout_constraintTop_toBottomOf="@id/mysetting_title_tv"
+        android:layout_marginTop="15dp"/>
+
+
+    <TextView
+        android:id="@+id/mysetting_notice_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="공지사항"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mysetting_line_view"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"/>
+
+    <TextView
+        android:id="@+id/mysetting_update_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="업데이트 및 버전"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mysetting_notice_tv"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"/>
+
+    <TextView
+        android:id="@+id/mysetting_notification_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="알람 및 푸쉬 설정"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mysetting_update_tv"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"/>
+
+    <TextView
+        android:id="@+id/mysetting_ask_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="문의하기"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mysetting_notification_tv"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"/>
+
+    <TextView
+        android:id="@+id/mysetting_appInfo_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="앱 정보"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mysetting_ask_tv"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"/>
+
+    <TextView
+        android:id="@+id/mysetting_withdrawal_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="회원 탈퇴"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mysetting_appInfo_tv"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
