@@ -37,6 +37,32 @@
             android:exported="true"/>
 
 
+        // mypage 부분
+        <activity
+            android:name=".ui.main.mypage.MyProfileActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".ui.main.mypage.MyCommentActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".ui.main.mypage.MyCommunityActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".ui.main.mypage.MyLikedActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".ui.main.mypage.MyScrapActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".ui.main.mypage.MySettingActivity"
+            android:exported="true"/>
+
+
     </application>
 
 </manifest>

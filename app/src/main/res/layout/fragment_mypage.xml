@@ -1,6 +1,276 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    // 상단 버튼 3개
+    <androidx.cardview.widget.CardView
+        android:id="@+id/mypage_button1_cv"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/community_button1_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#C4C4C4"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/mypage_button2_cv"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="12dp"
+        app:layout_constraintEnd_toStartOf="@id/mypage_button3_cv"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/community_button2_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#C4C4C4"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/mypage_button3_cv"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <ImageView
+            android:id="@+id/community_button3_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#C4C4C4"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <FrameLayout
+        android:id="@+id/mypage_puppyInfo_frm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mypage_button1_cv">
+
+        // 강아지 이미지
+        <ImageView
+            android:id="@+id/mypage_puppyImg_iv"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="#FFD231" />
+
+        <ImageView
+            android:id="@+id/mypage_moreBtn_iv"
+            android:layout_width="65dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_more"
+            android:layout_marginStart="20dp"/>
+
+
+        // 강아지 정보
+        <androidx.cardview.widget.CardView
+            android:id="@+id/mypage_puppyInfo_cv"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="150dp"
+            app:cardBackgroundColor="#F4F4F4">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/mypage_nickname_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="닉네임"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="20dp"/>
+
+                <TextView
+                    android:id="@+id/mypage_puppyName_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="강아지 이름"
+                    android:textColor="#786E4C"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/mypage_nickname_tv"
+                    app:layout_constraintTop_toBottomOf="@id/mypage_nickname_tv"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+                    android:id="@+id/mypage_puppyInfo_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="강아지 종류 / 태어난 일자"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toStartOf="@id/mypage_nickname_tv"
+                    app:layout_constraintTop_toBottomOf="@id/mypage_puppyName_tv"
+                    android:layout_marginTop="25dp"/>
+
+                <ImageView
+                    android:id="@+id/mypage_plusBtn_iv"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_plus"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="15dp"/>
+
+                <TextView
+                    android:id="@+id/mypage_puppyGender_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="성별"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/mypage_puppyName_tv"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="5dp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </androidx.cardview.widget.CardView>
+
+    </FrameLayout>
+
+
+    <TextView
+        android:id="@+id/mypage_myProfile_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/mypage_menu_rounding"
+        android:padding="15dp"
+        android:text="내 프로필"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/mypage_myCommunity_tv"
+        app:layout_constraintTop_toBottomOf="@id/mypage_puppyInfo_frm" />
+
+    <TextView
+        android:id="@+id/mypage_myCommunity_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/mypage_menu_rounding"
+        android:padding="15dp"
+        android:text="내 게시글"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/mypage_myScrap_tv"
+        app:layout_constraintTop_toBottomOf="@id/mypage_myProfile_tv" />
+
+    <TextView
+        android:id="@+id/mypage_myScrap_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/mypage_menu_rounding"
+        android:padding="15dp"
+        android:text="스크랩한 글"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/mypage_myLike_tv"
+        app:layout_constraintTop_toBottomOf="@id/mypage_myCommunity_tv" />
+
+    <TextView
+        android:id="@+id/mypage_myLike_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/mypage_menu_rounding"
+        android:padding="15dp"
+        android:text="좋아요한 게시글"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/mypage_myComment_tv"
+        app:layout_constraintTop_toBottomOf="@id/mypage_myScrap_tv" />
+
+    <TextView
+        android:id="@+id/mypage_myComment_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/mypage_menu_rounding"
+        android:padding="15dp"
+        android:text="내가 쓴 댓글"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/mypage_mySetting_tv"
+        app:layout_constraintTop_toBottomOf="@id/mypage_myLike_tv" />
+
+    <TextView
+        android:id="@+id/mypage_mySetting_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/mypage_menu_rounding"
+        android:padding="15dp"
+        android:text="설정"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mypage_myComment_tv" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

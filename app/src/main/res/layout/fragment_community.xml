@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/community_mumoomIc_iv"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/mumoom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    // 상단 버튼 3개
+    <androidx.cardview.widget.CardView
+        android:id="@+id/item_detail_button1_cv"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/community_button1_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ECECEC"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/community_button2_cv"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="12dp"
+        app:layout_constraintEnd_toStartOf="@id/community_button3_cv"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/community_button2_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ECECEC"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/community_button3_cv"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <ImageView
+            android:id="@+id/community_button3_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ECECEC"/>
+
+    </androidx.cardview.widget.CardView>
+
+    // 카테고리 메뉴
+    <androidx.cardview.widget.CardView
+        android:id="@+id/community_category1_cv"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/community_category2_cv"
+        app:layout_constraintTop_toBottomOf="@id/item_detail_button1_cv">
+
+        <ImageView
+            android:id="@+id/community_category1_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#C4C4C4"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/community_category2_cv"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toStartOf="@id/community_category3_cv"
+        app:layout_constraintTop_toTopOf="@id/community_category1_cv"
+        app:layout_constraintStart_toEndOf="@id/community_category1_cv">
+
+        <ImageView
+            android:id="@+id/community_category2_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#C4C4C4"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/community_category3_cv"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toStartOf="@id/community_category4_cv"
+        app:layout_constraintStart_toEndOf="@id/community_category2_cv"
+        app:layout_constraintTop_toTopOf="@id/community_category1_cv">
+
+        <ImageView
+            android:id="@+id/community_category3_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#C4C4C4"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/community_category4_cv"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toStartOf="@id/community_category5_cv"
+        app:layout_constraintStart_toEndOf="@id/community_category3_cv"
+        app:layout_constraintTop_toTopOf="@id/community_category1_cv">
+
+        <ImageView
+            android:id="@+id/community_category4_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#C4C4C4"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/community_category5_cv"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintStart_toEndOf="@id/community_category4_cv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/community_category1_cv">
+
+        <ImageView
+            android:id="@+id/community_category5_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#C4C4C4"/>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <ImageView
+        android:id="@+id/community_banner_iv"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginTop="20dp"
+        android:background="#EDC06D"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/community_category1_cv"/>
+
+    <TextView
+        android:id="@+id/community_hottrend_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="#커뮤니티 핫트렌드"
+        android:textColor="#EDC06D"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/community_banner_iv"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"/>
+
+    // 게시글 피드 recyclerview(Grid 형식)
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/community_writing_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/community_hottrend_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        tools:listitem="@layout/item_writing_simple"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
+
+    // 더보기 버튼 구현해야 함
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
