@@ -3,7 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/drawable-hdpi/mypage_menu_rounding.xml" value="0.1" />
+        <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/drawable/ic_circle_blue.xml" value="0.1" />
         <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/drawable/mypage_menu_rounding.xml" value="0.23425925925925925" />
+        <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/drawable/selector_navi_home.xml" value="0.22037037037037038" />
+        <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/drawable/selector_navi_match.xml" value="0.22037037037037038" />
+        <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/drawable/selector_navi_search.xml" value="0.22037037037037038" />
+        <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/layout/activity_community.xml" value="0.13269927536231885" />
         <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/layout/activity_login.xml" value="0.10833333333333334" />
         <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/layout/activity_mycomment.xml" value="0.264" />
@@ -11,11 +17,14 @@
         <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/layout/activity_myliked.xml" value="0.12132725430597771" />
         <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/layout/activity_myscrap.xml" value="0.12132725430597771" />
         <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/layout/activity_mysetting.xml" value="0.264" />
-        <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/layout/activity_signup.xml" value="0.10833333333333334" />
+        <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/layout/activity_nickname.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/layout/activity_signup.xml" value="0.264" />
         <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/layout/activity_splash.xml" value="0.10833333333333334" />
+        <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/layout/custom_dialog_changeimage.xml" value="0.13405797101449277" />
         <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/layout/custom_dialog_mypage.xml" value="0.1" />
+        <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/layout/custom_dialog_sharing.xml" value="0.12132725430597771" />
         <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/layout/fragment_community.xml" value="0.264" />
-        <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/layout/fragment_home.xml" value="0.10833333333333334" />
+        <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/layout/fragment_match.xml" value="0.10833333333333334" />
         <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/layout/fragment_mypage.xml" value="0.264" />
         <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/layout/fragment_search.xml" value="0.10833333333333334" />

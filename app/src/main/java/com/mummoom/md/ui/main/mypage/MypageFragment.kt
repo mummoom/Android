@@ -1,19 +1,26 @@
-package com.mummoom.md.ui.main.mypage
+package com.minux.meommum.ui.main.mypage
 
 import android.content.Intent
 import com.mummoom.md.databinding.FragmentMypageBinding
 import com.mummoom.md.ui.BaseFragment
+import com.mummoom.md.ui.main.mypage.*
 
 class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBinding::inflate) {
 
     override fun initAfterBinding() {
 
-        val dialog = MypageCustomDialog(requireContext())
-        binding.mypagePlusBtnIv.setOnClickListener {
-            dialog.myDig()
+        val plusDialog = MypageCustomDialog(requireContext())
+        val changeImageDialog = ChangeImageCustomDialog(requireContext())
+
+        binding.mypagePuppyImgIv.setOnClickListener {
+            changeImageDialog.MyDig()
         }
 
-        dialog.setOnClickedListener(object : MypageCustomDialog.ButtonClickListener{
+        binding.mypagePlusBtnIv.setOnClickListener {
+            plusDialog.MyDig()
+        }
+
+        plusDialog.setOnClickedListener(object : MypageCustomDialog.TextClickListener{
             override fun onClicked(
                 myName: String,
                 mySpecies: String,
@@ -26,7 +33,9 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
             }
         })
 
+
         // mypage의 메뉴 클릭 리스너
+
         binding.mypageMyProfileTv.setOnClickListener {
             val intent = Intent(activity, MyProfileActivity::class.java)
             startActivity(intent)
@@ -56,6 +65,10 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
             val intent = Intent(activity, MySettingActivity::class.java)
             startActivity(intent)
         }
+
+//                    (context as MainActivity).supportFragmentManager.beginTransaction()
+//                .replace(R.id.main_frm, AlbumFragment())
+//                .commitAllowingStateLoss()
 
     }
 }
