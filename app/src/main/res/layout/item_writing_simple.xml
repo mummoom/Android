@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingBottom="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/simple_writingImg_iv"
+        android:layout_width="160dp"
+        android:layout_height="130dp"
+        android:background="#EFEFEF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/simple_writingTitle_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="커뮤니티 게시글"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/simple_writingImg_iv"
+        app:layout_constraintTop_toBottomOf="@+id/simple_writingImg_iv"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:id="@+id/simple_writingServeTitle_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="부제목은 여기다가 기입합니다!"
+        android:textStyle="normal"
+        android:textSize="11sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/simple_writingImg_iv"
+        app:layout_constraintTop_toBottomOf="@+id/simple_writingTitle_tv"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="5dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

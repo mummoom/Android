@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/comment_comment_ly"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/comment_content_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="와! 강아지가 너무 귀여워요 :)"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/comment_type_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="잡담)"
+            android:textSize="13sp"
+            android:textColor="#EDC06D"
+            app:layout_constraintStart_toStartOf="@id/comment_content_tv"
+            app:layout_constraintTop_toBottomOf="@id/comment_content_tv"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:id="@+id/comment_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="강아지 자랑합니다!"
+            android:textSize="13sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/comment_type_tv"
+            app:layout_constraintTop_toBottomOf="@id/comment_content_tv"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/comment_line_view"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#EAEAEA"
+        app:layout_constraintTop_toBottomOf="@id/comment_comment_ly" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
