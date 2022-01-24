@@ -7,4 +7,21 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+<!--main color-->
+    <color name="main_color">#FFFFD231</color>
+
+<!--login-->
+    <color name="login_btn">#FFFFD231</color>
+    <color name="login_google_btn">#FFECECEC</color>
+
+    <!--signup-->
+    <color name="signup_bg">#FFFFD231</color>
+    <color name="signup_tv_bg">#FFECECEC</color>
+    <color name="signup_tv">#FF000000</color>
+
+    <!--infoname-->
+    <color name="infoname_tv">#FF000000</color>
+
+
 </resources>
