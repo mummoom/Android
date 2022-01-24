@@ -1,6 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/login_logo_iv"
+        android:layout_width="150dp"
+        android:layout_height="120dp"
+        android:src="@drawable/mm_logo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="84dp"
+        />
+
+    <EditText
+        android:id="@+id/login_id_et"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:hint="ID"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_logo_iv"
+        android:layout_marginTop="40dp"/>
+    <EditText
+        android:id="@+id/login_pw_et"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_id_et"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:id="@+id/login_login_btn_tv"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="Login"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:background="@drawable/bg_login_login_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_pw_et" />
+
+    <TextView
+        android:id="@+id/login_kakao_login_btn_tv"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="카카오톡으로 시작하기"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:background="@drawable/bg_login_kakao_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_login_btn_tv" />
+
+    <TextView
+        android:id="@+id/login_google_login_btn_tv"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="구글로 시작하기"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:background="@drawable/bg_login_google_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_kakao_login_btn_tv" />
+
+    <TextView
+        android:id="@+id/login_email_signup_btn_tv"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="이메일로 회원가입하기"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_google_login_btn_tv"
+        />
+    <View
+        android:layout_width="150dp"
+        android:layout_height="1px"
+        android:background="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_email_signup_btn_tv"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
