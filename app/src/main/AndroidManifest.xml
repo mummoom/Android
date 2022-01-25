@@ -39,6 +39,16 @@
         </activity>
 
 
+        // community 부분
+        <activity
+            android:name=".ui.main.community.CommunityActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".ui.main.community.WriteActivity"
+            android:exported="true"/>
+
+
         // mypage 부분
         <activity
             android:name=".ui.main.mypage.MyProfileActivity"
