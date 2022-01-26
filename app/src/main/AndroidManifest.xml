@@ -90,9 +90,7 @@
 
         //main 부분
 
-        <activity
-            android:name=".ui.main.MainActivity"
-            android:exported="true"/>
+
 
         <activity
             android:name=".ui.main.home.MeatActivity"
