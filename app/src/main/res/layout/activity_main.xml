@@ -24,12 +24,14 @@
         android:id="@+id/main_bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="56dp"
+        app:menu="@menu/navi_menu"
         android:background="@color/white"
         app:labelVisibilityMode="unlabeled"
-        app:itemRippleColor="@color/white"
-        app:menu="@menu/navi_menu"
+        app:itemIconTint="@color/black"
+        app:itemRippleColor="@color/login_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nav_host_fragment_container"
         app:layout_constraintBottom_toBottomOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
