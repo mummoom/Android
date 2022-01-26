@@ -1,4 +1,4 @@
-package com.mummoom.md.ui.dogname
+package com.mummoom.md.ui.dogbreed
 
 import com.mummoom.md.databinding.ActivityDogbreedBinding
 import com.mummoom.md.databinding.ActivityDoggenderBinding

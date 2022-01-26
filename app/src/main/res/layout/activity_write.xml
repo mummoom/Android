@@ -130,5 +130,76 @@
         app:layout_constraintTop_toBottomOf="@id/write_addImg_iv"
         app:layout_constraintStart_toStartOf="@id/write_arrow_iv"/>
 
+    // 업로드 완료 화면
+    <FrameLayout
+        android:id="@+id/write_upload_frm"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/write_line_view"
+        android:background="#d9ffffff">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/write_upload_iv"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="15dp"
+                android:src="@drawable/ic_upload"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/write_upload_tv"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:layout_constraintVertical_bias="0.45"/>
+
+            <TextView
+                android:id="@+id/write_upload_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="업로드 완료"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/write_upload_iv"
+                app:layout_constraintEnd_toEndOf="@id/write_upload_iv"
+                app:layout_constraintTop_toBottomOf="@id/write_upload_iv"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+
+<!--    <ImageView-->
+<!--        android:id="@+id/write_upload_iv"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:layout_marginBottom="15dp"-->
+<!--        android:src="@drawable/ic_upload"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/write_upload_tv"-->
+<!--        app:layout_constraintVertical_chainStyle="packed"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/write_upload_tv"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="업로드 완료"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/write_upload_iv"-->
+<!--        app:layout_constraintStart_toStartOf="@id/write_upload_iv"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/write_upload_iv" />-->
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
