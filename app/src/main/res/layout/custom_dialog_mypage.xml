@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="305dp"
+    android:layout_height="405dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:text="강아지 프로필 추가"
         android:textStyle="bold"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textColor="#EDC06D"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,7 +21,7 @@
         android:id="@+id/mypageDialog_line_view"
         android:layout_width="match_parent"
         android:layout_height="3dp"
-        android:layout_margin="20dp"
+        android:layout_margin="10dp"
         android:background="#EAEAEA"
         app:layout_constraintTop_toBottomOf="@id/mypageDialog_addProfile_tv" />
 
@@ -31,21 +31,20 @@
         android:layout_height="wrap_content"
         android:text="이름"
         android:textColor="@color/black"
-        android:textSize="15sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/mypageDialog_line_view"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"/>
 
     <EditText
         android:id="@+id/mypageDialog_name_et"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_width="250dp"
+        android:layout_height="20dp"
+        android:background="@drawable/rounding_edit"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@id/mypageDialog_name_tv"
         app:layout_constraintTop_toBottomOf="@id/mypageDialog_name_tv"/>
 
 
@@ -55,21 +54,20 @@
         android:layout_height="wrap_content"
         android:text="종"
         android:textColor="@color/black"
-        android:textSize="15sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/mypageDialog_name_et"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="12dp"/>
 
     <EditText
         android:id="@+id/mypageDialog_species_et"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_width="250dp"
+        android:layout_height="20dp"
+        android:background="@drawable/rounding_edit"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@id/mypageDialog_species_tv"
         app:layout_constraintTop_toBottomOf="@id/mypageDialog_species_tv"/>
 
     <TextView
@@ -78,21 +76,20 @@
         android:layout_height="wrap_content"
         android:text="성별"
         android:textColor="@color/black"
-        android:textSize="15sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/mypageDialog_species_et"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="12dp"/>
 
     <EditText
         android:id="@+id/mypageDialog_gender_et"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_width="250dp"
+        android:layout_height="20dp"
+        android:background="@drawable/rounding_edit"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@id/mypageDialog_gender_tv"
         app:layout_constraintTop_toBottomOf="@id/mypageDialog_gender_tv"/>
 
     <TextView
@@ -101,56 +98,46 @@
         android:layout_height="wrap_content"
         android:text="생년월일"
         android:textColor="@color/black"
-        android:textSize="15sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/mypageDialog_gender_et"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="12dp"/>
 
     <EditText
         android:id="@+id/mypageDialog_birth_et"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_width="250dp"
+        android:layout_height="20dp"
+        android:background="@drawable/rounding_edit"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@id/mypageDialog_birth_tv"
         app:layout_constraintTop_toBottomOf="@id/mypageDialog_birth_tv"/>
 
 
-    // 버튼
-    <Button
-        android:id="@+id/mypageDialog_cancelBtn_btn"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="10dp"
-        android:text="취소"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        android:textStyle="normal"
-        android:backgroundTint="#F4F4F4"
-        android:outlineSpotShadowColor="@color/transparent"
-        app:layout_constraintEnd_toStartOf="@id/mypageDialog_doneBtn_btn"
-        app:layout_constraintStart_toStartOf="@id/mypageDialog_birth_tv"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mypageDialog_birth_et"/>
+    <androidx.cardview.widget.CardView
+        android:layout_width="165dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="45dp"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mypageDialog_birth_et">
 
-    <Button
-        android:id="@+id/mypageDialog_doneBtn_btn"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="10dp"
-        android:text="완료"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        android:textStyle="normal"
-        android:backgroundTint="#EDC755"
-        android:outlineSpotShadowColor="@color/transparent"
-        app:layout_constraintStart_toEndOf="@id/mypageDialog_cancelBtn_btn"
-        app:layout_constraintEnd_toEndOf="@id/mypageDialog_birth_et"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mypageDialog_birth_et"/>
+        <TextView
+            android:id="@+id/mypageDialog_doneBtn_btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#c4c4c4"
+            android:gravity="center"
+            android:text="확인"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="normal" />
+
+    </androidx.cardview.widget.CardView>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

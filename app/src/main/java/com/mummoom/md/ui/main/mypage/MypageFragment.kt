@@ -8,12 +8,18 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
 
     override fun initAfterBinding() {
 
-        val dialog = MypageCustomDialog(requireContext())
-        binding.mypagePlusBtnIv.setOnClickListener {
-            dialog.myDig()
+        val plusDialog = MypageCustomDialog(requireContext())
+        val changeImageDialog = ChangeImageCustomDialog(requireContext())
+
+        binding.mypagePuppyImgIv.setOnClickListener {
+            changeImageDialog.MyDig()
         }
 
-        dialog.setOnClickedListener(object : MypageCustomDialog.ButtonClickListener{
+        binding.mypagePlusBtnIv.setOnClickListener {
+            plusDialog.MyDig()
+        }
+
+        plusDialog.setOnClickedListener(object : MypageCustomDialog.TextClickListener{
             override fun onClicked(
                 myName: String,
                 mySpecies: String,
@@ -26,7 +32,9 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
             }
         })
 
+
         // mypage의 메뉴 클릭 리스너
+
         binding.mypageMyProfileTv.setOnClickListener {
             val intent = Intent(activity, MyProfileActivity::class.java)
             startActivity(intent)
@@ -56,6 +64,10 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
             val intent = Intent(activity, MySettingActivity::class.java)
             startActivity(intent)
         }
+
+//                    (context as MainActivity).supportFragmentManager.beginTransaction()
+//                .replace(R.id.main_frm, AlbumFragment())
+//                .commitAllowingStateLoss()
 
     }
 }

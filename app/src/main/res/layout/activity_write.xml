@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/write_arrow_iv"
+        android:layout_width="15dp"
+        android:layout_height="10dp"
+        android:src="@drawable/ic_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/write_write_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="글쓰기"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/write_arrow_iv"
+        app:layout_constraintTop_toTopOf="@id/write_arrow_iv"
+        app:layout_constraintBottom_toBottomOf="@id/write_arrow_iv"
+        android:layout_marginStart="10dp"/>
+
+    <TextView
+        android:layout_width="65dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="업로드"
+        android:textSize="12sp"
+        android:textColor="@color/white"
+        android:background="@drawable/rounding_solid_yellow"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/write_write_tv"
+        app:layout_constraintBottom_toBottomOf="@id/write_write_tv"/>
+
+    <View
+        android:id="@+id/write_line_view"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="#EAEAEA"
+        app:layout_constraintTop_toBottomOf="@id/write_write_tv"
+        android:layout_marginTop="10dp"/>
+
+    <ImageView
+        android:id="@+id/write_downYellow_iv"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:src="@drawable/ic_down_yellow"
+        app:layout_constraintStart_toStartOf="@id/write_arrow_iv"
+        app:layout_constraintTop_toBottomOf="@id/write_line_view"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:id="@+id/write_category_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="잡담"
+        android:textColor="#e1b000"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/write_downYellow_iv"
+        app:layout_constraintTop_toTopOf="@id/write_downYellow_iv"
+        app:layout_constraintBottom_toBottomOf="@id/write_downYellow_iv"
+        android:layout_marginStart="10dp"/>
+
+    <View
+        android:id="@+id/write_line2_view"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#EAEAEA"
+        app:layout_constraintTop_toBottomOf="@id/write_category_tv"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/write_title_et"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:hint="제목을 입력해주세요."
+        android:textColorHint="@color/black"
+        android:background="@color/transparent"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@id/write_line2_view"
+        app:layout_constraintBottom_toTopOf="@id/write_line3_view"
+        app:layout_constraintStart_toStartOf="@id/write_arrow_iv"/>
+
+    <View
+        android:id="@+id/write_line3_view"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#EAEAEA"
+        app:layout_constraintTop_toBottomOf="@id/write_title_et" />
+
+    <ImageView
+        android:id="@+id/write_addImg_iv"
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:scaleType="fitXY"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_plus_big"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/write_line3_view"/>
+
+    <EditText
+        android:id="@+id/write_content_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:hint="텍스트를 입력해주세요."
+        android:textColorHint="@color/black"
+        android:background="@color/transparent"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@id/write_addImg_iv"
+        app:layout_constraintStart_toStartOf="@id/write_arrow_iv"/>
+
+    // 업로드 완료 화면
+    <FrameLayout
+        android:id="@+id/write_upload_frm"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/write_line_view"
+        android:background="#d9ffffff">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/write_upload_iv"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="15dp"
+                android:src="@drawable/ic_upload"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/write_upload_tv"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:layout_constraintVertical_bias="0.45"/>
+
+            <TextView
+                android:id="@+id/write_upload_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="업로드 완료"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/write_upload_iv"
+                app:layout_constraintEnd_toEndOf="@id/write_upload_iv"
+                app:layout_constraintTop_toBottomOf="@id/write_upload_iv"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+
+<!--    <ImageView-->
+<!--        android:id="@+id/write_upload_iv"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:layout_marginBottom="15dp"-->
+<!--        android:src="@drawable/ic_upload"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/write_upload_tv"-->
+<!--        app:layout_constraintVertical_chainStyle="packed"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/write_upload_tv"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="업로드 완료"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/write_upload_iv"-->
+<!--        app:layout_constraintStart_toStartOf="@id/write_upload_iv"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/write_upload_iv" />-->
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

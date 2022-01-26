@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     //메인에서 커뮤니티 아이콘
     <item
         android:id="@+id/menu_community"
@@ -18,4 +19,35 @@
         android:enabled="true"
         android:title="마이페이지"
         android:icon="@drawable/navi_user"/>
+
+<!--     <item
+        android:id="@+id/communityFragment"
+        android:enabled="true"
+        android:title="@string/menu_community"
+        android:icon="@drawable/selector_navi_match"/>
+
+    <item
+        android:id="@+id/homeFragment"
+        android:enabled="true"
+        android:title="@string/menu_home"
+        android:icon="@drawable/selector_navi_home"/>
+
+    <item
+        android:id="@+id/mypageFragment"
+        android:enabled="true"
+        android:title="@string/menu_mypage"
+        android:icon="@drawable/selector_navi_mypage"/> -->
+
+<!--    <item-->
+<!--        android:id="@+id/searchFragment"-->
+<!--        android:enabled="true"-->
+<!--        android:title="@string/menu_search"-->
+<!--        android:icon="@drawable/selector_navi_search"/>-->
+<!--    <item-->
+<!--        android:id="@+id/matchFragment"-->
+<!--        android:enabled="true"-->
+<!--        android:title="@string/menu_matching"-->
+<!--        android:icon="@drawable/selector_navi_match"/>-->
+
+
 </menu>
