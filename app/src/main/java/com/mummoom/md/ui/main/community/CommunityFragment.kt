@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.recyclerview.widget.GridLayoutManager
 import com.mummoom.md.databinding.FragmentCommunityBinding
 import com.mummoom.md.ui.BaseFragment
-import com.mummoom.md.ui.main.mypage.MyProfileActivity
 
 class CommunityFragment(): BaseFragment<FragmentCommunityBinding>(FragmentCommunityBinding::inflate) {
 

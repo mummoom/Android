@@ -1,4 +1,4 @@
-package com.minux.meommum.ui.main.mypage
+package com.mummoom.md.ui.main.community
 
 import android.app.Dialog
 import android.content.Context

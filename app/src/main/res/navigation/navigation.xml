@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/mypageFragment"
-        android:name="com.minux.meommum.ui.main.mypage.MypageFragment"
+        android:name="com.mummoom.md.ui.main.mypage.MypageFragment"
         android:label="mypageFragment"/>
 
 </navigation>

@@ -1,6 +1,5 @@
 package com.mummoom.md.ui.main.community
 
-import com.minux.meommum.ui.main.mypage.MypageCustomDialog
 import com.mummoom.md.databinding.ActivityCommunityBinding
 import com.mummoom.md.ui.BaseActivity
 
