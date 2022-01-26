@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="302dp"
+    android:layout_height="184dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/sharing_share_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="공유하기"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:id="@+id/sharing_url_tv"
+        android:layout_width="215dp"
+        android:layout_height="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/sharing_copyBtn_iv"
+        app:layout_constraintTop_toBottomOf="@id/sharing_share_tv"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounding_line"
+        app:layout_constraintHorizontal_chainStyle="packed"/>
+
+    <ImageView
+        android:id="@+id/sharing_copyBtn_iv"
+        android:layout_width="45dp"
+        android:layout_height="20dp"
+        android:background="#bcbcbc"
+        app:layout_constraintStart_toEndOf="@id/sharing_url_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/sharing_url_tv"/>
+
+
+    <View
+        android:id="@+id/sharing_line_view"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_margin="22dp"
+        android:background="#EAEAEA"
+        app:layout_constraintTop_toBottomOf="@id/sharing_url_tv" />
+
+    <ImageView
+        android:id="@+id/sharing_grayCircle_iv"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_circle_gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/sharing_yellowCircle_iv"
+        app:layout_constraintTop_toBottomOf="@id/sharing_line_view"
+        app:layout_constraintHorizontal_chainStyle="packed"/>
+
+    <ImageView
+        android:id="@+id/sharing_yellowCircle_iv"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_circle_yellow"
+        app:layout_constraintStart_toEndOf="@id/sharing_grayCircle_iv"
+        app:layout_constraintEnd_toStartOf="@id/sharing_greenCircle_iv"
+        app:layout_constraintTop_toBottomOf="@id/sharing_line_view"/>
+
+    <ImageView
+        android:id="@+id/sharing_greenCircle_iv"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_circle_green"
+        app:layout_constraintStart_toEndOf="@id/sharing_yellowCircle_iv"
+        app:layout_constraintEnd_toStartOf="@id/sharing_blueCircle_iv"
+        app:layout_constraintTop_toBottomOf="@id/sharing_line_view"/>
+
+    <ImageView
+        android:id="@+id/sharing_blueCircle_iv"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_circle_blue"
+        app:layout_constraintStart_toEndOf="@id/sharing_greenCircle_iv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sharing_line_view"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

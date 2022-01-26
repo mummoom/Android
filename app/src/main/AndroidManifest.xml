@@ -17,11 +17,7 @@
         <activity
             android:name=".ui.splash.SplashActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity
@@ -32,6 +28,38 @@
             android:name=".ui.siginup.SignUpActivity"
             android:exported="true"/>
 
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        // community 부분
+        <activity
+            android:name=".ui.main.community.CommunityActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".ui.dogbirth.DogbirthActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".ui.dogbreed.DogbreedActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".ui.doggender.DoggenderActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".ui.dogname.DognameActivity"
+            android:exported="true"/>
+
+
+        <activity
+            android:name=".ui.main.community.WriteActivity"
+            android:exported="true"/>
 
 
 
