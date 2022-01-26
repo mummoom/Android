@@ -14,10 +14,6 @@ class HomeFragment(): BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inf
 
     override fun initAfterBinding() {
 
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
         val bannerAdapter = HomeBannerAdapter(this)
         bannerAdapter.addFragment(BannerFragment(R.drawable.home_banner_ex))
         bannerAdapter.addFragment(BannerFragment(R.drawable.home_banner_ex))
@@ -25,9 +21,7 @@ class HomeFragment(): BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inf
         binding.homeBannerVp.adapter = bannerAdapter
         binding.homeBannerVp.orientation = ViewPager2.ORIENTATION_HORIZONTAL
 
-        return binding.root
     }
-
 
 
 }
