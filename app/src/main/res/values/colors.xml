@@ -15,4 +15,6 @@
 
     <!-- 로그인 -->
     <color name="login_button">#FFC107</color>
+    <!-- 음식별 타이틀 -->
+    <color name="type_title">#ffd231</color>
 </resources>

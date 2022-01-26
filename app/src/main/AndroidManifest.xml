@@ -32,9 +32,7 @@
             android:name=".ui.siginup.SignUpActivity"
             android:exported="true"/>
 
-        <activity
-            android:name=".ui.main.MainActivity"
-            android:exported="true"/>
+
 
 
         // mypage 부분
@@ -60,6 +58,52 @@
 
         <activity
             android:name=".ui.main.mypage.MySettingActivity"
+            android:exported="true"/>
+
+        //main 부분
+
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".ui.main.home.MeatActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".ui.main.home.VegActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".ui.main.home.FruitActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".ui.main.home.DairyActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".ui.main.home.SeafoodActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".ui.main.home.EtcActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".ui.main.home.GoodActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".ui.main.home.SosoActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".ui.main.home.NeverActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".ui.main.home.InfoActivity"
             android:exported="true"/>
 
 
