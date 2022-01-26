@@ -1,9 +1,8 @@
-package com.minux.meommum.ui.main.mypage
+package com.mummoom.md.ui.main.mypage
 
 import android.content.Intent
 import com.mummoom.md.databinding.FragmentMypageBinding
 import com.mummoom.md.ui.BaseFragment
-import com.mummoom.md.ui.main.mypage.*
 
 class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBinding::inflate) {
 
