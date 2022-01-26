@@ -43,6 +43,19 @@
         <activity
             android:name=".ui.main.community.CommunityActivity"
             android:exported="true"/>
+        <activity
+            android:name=".ui.dogbirth.DogbirthActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".ui.dogbreed.DogbreedActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".ui.doggender.DoggenderActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".ui.dogname.DognameActivity"
+            android:exported="true"/>
+
 
         <activity
             android:name=".ui.main.community.WriteActivity"
