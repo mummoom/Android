@@ -20,7 +20,7 @@ class HomeFragment(): BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inf
 
         val bannerAdapter = HomeBannerAdapter(this)
         bannerAdapter.addFragment(BannerFragment(R.drawable.home_banner_ex))
-        bannerAdapter.addFragment(BannerFragment(R.drawable.home_banner_ex2))
+        bannerAdapter.addFragment(BannerFragment(R.drawable.home_banner_ex))
 
         binding.homeBannerVp.adapter = bannerAdapter
         binding.homeBannerVp.orientation = ViewPager2.ORIENTATION_HORIZONTAL
