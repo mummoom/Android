@@ -28,7 +28,7 @@
         android:layout_marginTop="40dp"
         android:textColor="@color/signup_tv"
         android:textStyle="bold"
-        android:textSize="17sp"/>
+        android:textSize="13sp"/>
 
     <EditText
         android:id="@+id/signup_email_et"
