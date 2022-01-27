@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Android/app/src/main/res/layout/activity_dogbreed.xml" value="0.264" />
+        <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Android/app/src/main/res/layout/fragment_home.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/drawable-hdpi/mypage_menu_rounding.xml" value="0.1" />
         <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/drawable/home_search_background.xml" value="0.18687258687258687" />
         <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/drawable/ic_circle_blue.xml" value="0.1" />
@@ -40,12 +42,9 @@
         <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/layout/item_comment.xml" value="0.12132725430597771" />
         <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/layout/item_writing.xml" value="0.12132725430597771" />
         <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/menu/navi_menu.xml" value="0.10833333333333334" />
-
         <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2" />
-
         <entry key="..\:/Users/elizd/AndroidStudioProjects/Mummoom/Android/app/src/main/res/drawable-v24/bg_dialog_spinner.xml" value="0.20234375" />
         <entry key="..\:/Users/elizd/AndroidStudioProjects/Mummoom/Android/app/src/main/res/drawable-v24/bg_pwcheck_et.xml" value="0.1" />
-
         <entry key="..\:/Users/elizd/AndroidStudioProjects/Mummoom/Android/app/src/main/res/drawable/bg_birthdayinfo_spinner.xml" value="0.20234375" />
         <entry key="..\:/Users/elizd/AndroidStudioProjects/Mummoom/Android/app/src/main/res/drawable/bg_changepw_okay_btn.xml" value="0.20234375" />
         <entry key="..\:/Users/elizd/AndroidStudioProjects/Mummoom/Android/app/src/main/res/drawable/bg_login_google_btn.xml" value="0.20234375" />
@@ -65,19 +64,6 @@
         <entry key="..\:/Users/elizd/AndroidStudioProjects/Mummoom/Android/app/src/main/res/drawable/rounding_edit.xml" value="0.20234375" />
         <entry key="..\:/Users/elizd/AndroidStudioProjects/Mummoom/Android/app/src/main/res/drawable/rounding_line_yellow.xml" value="0.20234375" />
         <entry key="..\:/Users/elizd/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/activity_birthdayinfo.xml" value="0.264" />
-
-        <entry key="..\:/Users/elizd/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/activity_dogbreed.xml" value="0.190234375" />
-        <entry key="..\:/Users/elizd/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/activity_doggender.xml" value="0.176" />
-        <entry key="..\:/Users/elizd/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/activity_doginfo.xml" value="0.18764478764478765" />
-        <entry key="..\:/Users/elizd/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/activity_login.xml" value="0.2" />
-        <entry key="..\:/Users/elizd/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/elizd/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/activity_nameinfo.xml" value="0.176" />
-        <entry key="..\:/Users/elizd/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/activity_neutering.xml" value="0.190234375" />
-        <entry key="..\:/Users/elizd/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/activity_signup.xml" value="0.176" />
-        <entry key="..\:/Users/elizd/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/activity_signup_check.xml" value="0.19296875" />
-        <entry key="..\:/Users/elizd/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/activity_splash.xml" value="0.2" />
-        <entry key="..\:/Users/elizd/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/fragment_home.xml" value="0.1" />
-
         <entry key="..\:/Users/elizd/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/activity_changepw.xml" value="0.20789473684210527" />
         <entry key="..\:/Users/elizd/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/activity_dairy.xml" value="0.190234375" />
         <entry key="..\:/Users/elizd/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/activity_dogbirth.xml" value="0.190234375" />
@@ -112,7 +98,6 @@
         <entry key="..\:/Users/elizd/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/item_writing_simple.xml" value="0.190234375" />
         <entry key="..\:/Users/elizd/AndroidStudioProjects/Mummoom/Android/app/src/main/res/menu/navi_menu.xml" value="0.1" />
         <entry key="..\:/Users/elizd/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_item.xml" value="0.1" />
-
       </map>
     </option>
   </component>
