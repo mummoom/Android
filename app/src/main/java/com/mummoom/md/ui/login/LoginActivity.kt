@@ -5,6 +5,7 @@ import android.widget.Toast
 import com.mummoom.md.data.remote.auth.Auth
 import com.mummoom.md.databinding.ActivityLoginBinding
 import com.mummoom.md.ui.BaseActivity
+import com.mummoom.md.ui.nickname.NicknameActivity
 import com.mummoom.md.ui.siginup.SignUpActivity
 
 class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate), LoginView, View.OnClickListener {
@@ -19,7 +20,7 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
 
         when(v) {
             binding.loginEmailSignupBtnTv-> startNextActivity(SignUpActivity::class.java) //이메일로 회원가입 버튼
-            binding.loginLoginBtnTv -> startNextActivity(SignUpActivity::class.java)//login() //로그인 버튼
+            binding.loginLoginBtnTv -> startNextActivity(NicknameActivity::class.java)//login() //로그인 버튼
         }
     }
 

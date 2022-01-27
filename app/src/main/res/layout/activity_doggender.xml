@@ -55,7 +55,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="중성화여부"
-        android:textSize="17sp"
+        android:textSize="13sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         android:gravity="center"/>
 
 
