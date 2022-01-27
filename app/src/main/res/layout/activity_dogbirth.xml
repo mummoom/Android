@@ -28,10 +28,9 @@
         android:text="강아지가 태어난 날짜는 언제인가요?"
         android:textColor="@color/infoname_tv"
         android:textStyle="bold"
-        android:textSize="17sp"/>
+        android:textSize="15sp"/>
 
     <Spinner
-
         app:layout_constraintTop_toBottomOf="@id/birthdayinfo_name_tv"
         app:layout_constraintStart_toStartOf="parent"
         android:id="@+id/birthdayinfo_year_sp"
@@ -42,8 +41,12 @@
         android:layout_marginStart="35dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/bg_spinner"
+        android:dropDownWidth="50dp"
+
+
         />
     <ImageView
+        android:id="@+id/dogbirth_year_btn"
         app:layout_constraintTop_toTopOf="@id/birthdayinfo_year_sp"
         app:layout_constraintBottom_toBottomOf="@id/birthdayinfo_year_sp"
         app:layout_constraintEnd_toEndOf="@id/birthdayinfo_year_sp"
@@ -61,10 +64,11 @@
         android:layout_marginEnd="10dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
-        android:autofillHints="creditCardExpirationDate"
+        android:dropDownWidth="50dp"
         android:background="@drawable/bg_spinner"
         />
     <ImageView
+        android:id="@+id/dogbirth_month_btn"
         app:layout_constraintTop_toTopOf="@id/birthdayinfo_year_sp"
         app:layout_constraintBottom_toBottomOf="@id/birthdayinfo_year_sp"
         app:layout_constraintTop_toBottomOf="@id/birthdayinfo_name_tv"
@@ -82,9 +86,12 @@
         android:layout_marginTop="30dp"
         android:layout_width="90dp"
         android:layout_height="30dp"
+        android:dropDownWidth="50dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/bg_spinner"
         android:spinnerMode="dialog" />
     <ImageView
+        android:id="@+id/dogbirth_day_btn"
         app:layout_constraintTop_toTopOf="@id/birthdayinfo_year_sp"
         app:layout_constraintBottom_toBottomOf="@id/birthdayinfo_year_sp"
         app:layout_constraintEnd_toEndOf="@id/birthdayinfo_day_sp"

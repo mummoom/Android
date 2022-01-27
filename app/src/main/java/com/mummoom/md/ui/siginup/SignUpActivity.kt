@@ -5,12 +5,14 @@ import android.widget.Toast
 import com.mummoom.md.data.entities.User
 import com.mummoom.md.databinding.ActivitySignupBinding
 import com.mummoom.md.ui.BaseActivity
+import com.mummoom.md.ui.login.LoginActivity
+import com.mummoom.md.ui.signupCheck.SignUpCheckActivity
 
 class SignUpActivity: BaseActivity<ActivitySignupBinding>(ActivitySignupBinding::inflate), SignUpView, View.OnClickListener {
 
     override fun initAfterBinding() {
 //        binding.signUpBackIv.setOnClickListener(this)
-//        binding.signUpSignUpBtn.setOnClickListener(this)
+        binding.signupSignupBtnTv.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -18,7 +20,8 @@ class SignUpActivity: BaseActivity<ActivitySignupBinding>(ActivitySignupBinding:
 
         when(v) {
 //            binding.signUpBackIv -> finish()
-//            binding.signUpSignUpBtn -> signUp()
+            binding.signupSignupBtnTv -> startActivityWithClear(SignUpCheckActivity::class.java)
+                //signUp()
         }
     }
 
@@ -59,7 +62,7 @@ class SignUpActivity: BaseActivity<ActivitySignupBinding>(ActivitySignupBinding:
     override fun onSignUpSuccess() {
 //        binding.signUpLoadingPb.visibility = View.GONE
 
-        finish()
+        //startActivityWithClear(SignUpCheckActivity::class.java)
     }
 
     override fun onSignUpFailure(code: Int, message: String) {

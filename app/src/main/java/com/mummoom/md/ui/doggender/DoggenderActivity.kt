@@ -7,7 +7,9 @@ import com.mummoom.md.ui.BaseActivity
 
 class DoggenderActivity : BaseActivity<ActivityDoggenderBinding>(ActivityDoggenderBinding::inflate) {
     override fun initAfterBinding() {
-        TODO("Not yet implemented")
+
     }
+
+
 
 }
