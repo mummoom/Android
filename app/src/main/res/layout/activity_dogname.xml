@@ -37,7 +37,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="10dp"/>
     <ImageView
-        android:id="@+id/doogname_next_btn"
+        android:id="@+id/dogname_next_btn"
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:src="@drawable/dogfootprint"

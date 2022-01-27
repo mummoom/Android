@@ -28,7 +28,7 @@
         android:layout_marginTop="40dp"
         android:textColor="@color/signup_tv"
         android:textStyle="bold"
-        android:textSize="13sp"/>
+        android:textSize="15sp"/>
 
     <EditText
         android:id="@+id/signup_email_et"
@@ -50,7 +50,7 @@
         android:layout_marginTop="20dp"
         android:textColor="@color/signup_tv"
         android:textStyle="bold"
-        android:textSize="17sp"/>
+        android:textSize="15sp"/>
 
     <EditText
         android:id="@+id/signup_pw_et"
@@ -73,7 +73,7 @@
         android:layout_marginTop="20dp"
         android:textColor="@color/signup_tv"
         android:textStyle="bold"
-        android:textSize="17sp"/>
+        android:textSize="15sp"/>
 
     <EditText
         android:id="@+id/signup_pw_check_et"
@@ -96,7 +96,7 @@
         android:layout_marginTop="20dp"
         android:textColor="@color/signup_tv"
         android:textStyle="bold"
-        android:textSize="17sp"/>
+        android:textSize="15sp"/>
 
     <EditText
         android:id="@+id/signup_name_et"

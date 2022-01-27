@@ -28,19 +28,19 @@
         android:text="강아지의 종은 무엇인가요?"
         android:textColor="@color/infoname_tv"
         android:textStyle="bold"
-        android:textSize="17sp"/>
+        android:textSize="15sp"/>
 
     <Spinner
-
+        android:id="@+id/dogbreed_bread_sp"
         app:layout_constraintTop_toBottomOf="@id/dogbreed_breed_tv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:id="@+id/dogbreed_bread_sp"
         android:layout_width="288dp"
         android:layout_height="30dp"
         android:spinnerMode="dialog"
         android:layout_marginTop="20dp"
         android:background="@drawable/bg_spinner"
+        android:dropDownWidth="50dp"
         />
     <ImageView
         app:layout_constraintTop_toTopOf="@id/dogbreed_bread_sp"
