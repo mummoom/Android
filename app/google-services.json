@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "998011155807",
+    "project_id": "mummoom-7fcae",
+    "storage_bucket": "mummoom-7fcae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:998011155807:android:5dea6562450baadace72ea",
+        "android_client_info": {
+          "package_name": "com.mummoom.md"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "998011155807-c85s6q1ceceeoojltq1h048ts8b6ogoq.apps.googleusercontent.com",
+          "client_type": 3,
+          "android_info": {
+            "package_name": "com.mummoom.md",
+            "certificate_hash": "0930749d30c394a78374f704490b6007364426ab"
+          }
+        },
+        {
+          "client_id": "998011155807-32r4ibd4cubivftk8e67pe2ek8q0ss6u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMpfrSVZ1iNxEOMpNcbIWmooH6udx9tVE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "998011155807-32r4ibd4cubivftk8e67pe2ek8q0ss6u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
