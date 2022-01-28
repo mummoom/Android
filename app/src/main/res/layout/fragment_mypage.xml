@@ -22,11 +22,12 @@
             android:background="#FFD231" />
 
         <ImageView
-            android:id="@+id/mypage_moreBtn_iv"
-            android:layout_width="65dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_more"
-            android:layout_marginStart="20dp"/>
+            android:id="@+id/mypage_plusBtn_iv"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_plus_white"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"/>
 
 
         // 강아지 정보
@@ -82,14 +83,14 @@
                     app:layout_constraintTop_toBottomOf="@id/mypage_puppyName_tv" />
 
                 <ImageView
-                    android:id="@+id/mypage_plusBtn_iv"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:src="@drawable/ic_plus"
+                    android:id="@+id/mypage_moreBtn_iv"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_more_yellow"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/mypage_puppyGender_tv"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="15dp"
-                    android:layout_marginBottom="15dp"/>
+                    android:layout_marginBottom="10dp"/>
 
                 <TextView
                     android:id="@+id/mypage_puppyGender_tv"
@@ -150,27 +151,8 @@
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-
         app:layout_constraintTop_toBottomOf="@id/mypage_myProfile_tv" />
 
-    <TextView
-        android:id="@+id/mypage_myScrap_tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/mypage_menu_rounding"
-        android:paddingStart="15dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:text="스크랩한 글"
-        android:textColor="@color/black"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-
-        app:layout_constraintTop_toBottomOf="@id/mypage_myCommunity_tv" />
 
     <TextView
         android:id="@+id/mypage_myLike_tv"
@@ -188,27 +170,8 @@
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mypage_myCommunity_tv" />
 
-        app:layout_constraintTop_toBottomOf="@id/mypage_myScrap_tv" />
-
-    <TextView
-        android:id="@+id/mypage_myComment_tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/mypage_menu_rounding"
-        android:paddingStart="15dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:text="내가 쓴 댓글"
-        android:textColor="@color/black"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-
-        app:layout_constraintTop_toBottomOf="@id/mypage_myLike_tv" />
 
     <TextView
         android:id="@+id/mypage_mySetting_tv"
@@ -227,8 +190,7 @@
         android:textStyle="bold"
         app:layout_constraintVertical_bias="0"
         app:layout_constraintStart_toStartOf="parent"
-
-        app:layout_constraintTop_toBottomOf="@id/mypage_myComment_tv" />
+        app:layout_constraintTop_toBottomOf="@id/mypage_myLike_tv" />
 
 
 

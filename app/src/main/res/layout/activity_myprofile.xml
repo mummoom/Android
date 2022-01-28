@@ -35,6 +35,15 @@
 
         </androidx.cardview.widget.CardView>
 
+        <ImageView
+            android:id="@+id/myprofile_plusBtn_iv"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_plus"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginStart="50dp"
+            android:layout_marginBottom="5dp"/>
+
     </FrameLayout>
 
     <TextView
@@ -102,7 +111,7 @@
         app:layout_constraintTop_toBottomOf="@id/myprofile_name_et"
         android:layout_marginTop="15dp" />
 
-    <EditText
+    <TextView
         android:id="@+id/myprofile_pwd_et"
         android:layout_width="match_parent"
         android:layout_height="23dp"
