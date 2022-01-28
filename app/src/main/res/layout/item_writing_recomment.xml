@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginStart="30dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/writingReComment_userName_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="대댓글 사용자 이름"
+        android:textSize="13sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/writingReComment_date_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="2021.00.00"
+        android:textSize="13sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toEndOf="@id/writingReComment_userName_tv"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/writingReComment_content_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="찹쌀님 강아지 완전 귀염뽀짝ㅠㅠ 너무 꿀귀에요.."
+        android:textSize="13sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="@id/writingReComment_userName_tv"
+        app:layout_constraintTop_toBottomOf="@id/writingReComment_userName_tv" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

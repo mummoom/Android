@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Android/app/src/main/res/drawable-v24/bg_dialog_spinner.xml" value="0.1361111111111111" />
         <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Android/app/src/main/res/layout/activity_changepw.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Android/app/src/main/res/layout/activity_dogbreed.xml" value="0.264" />
         <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Android/app/src/main/res/layout/activity_etc.xml" value="0.25364583333333335" />
@@ -14,7 +15,9 @@
         <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Android/app/src/main/res/layout/custom_dialog_mypage.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Android/app/src/main/res/layout/fragment_home.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Android/app/src/main/res/layout/fragment_mypage.xml" value="0.264" />
+        <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Android/app/src/main/res/layout/item_writing_comment.xml" value="0.176" />
         <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Android/app/src/main/res/layout/item_writing_detail.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Android/app/src/main/res/layout/item_writing_recomment.xml" value="0.18989071038251365" />
         <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/drawable-hdpi/mypage_menu_rounding.xml" value="0.1" />
         <entry key="..\:/Users/Kang Geonyoung/AndroidStudioProjects/Mummoom/app/src/main/res/drawable/home_search_background.xml" value="0.18687258687258687" />
