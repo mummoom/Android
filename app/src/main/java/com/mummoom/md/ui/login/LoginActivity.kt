@@ -20,6 +20,7 @@ import com.mummoom.md.R
 import com.mummoom.md.data.remote.auth.Auth
 import com.mummoom.md.databinding.ActivityLoginBinding
 import com.mummoom.md.ui.BaseActivity
+import com.mummoom.md.ui.main.MainActivity
 import com.mummoom.md.ui.nickname.NicknameActivity
 import com.mummoom.md.ui.siginup.SignUpActivity
 
@@ -41,13 +42,14 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val gso=GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN)
+
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
 
-        auth= Firebase.auth
-        client=GoogleSignIn.getClient(this,gso)
+        auth = Firebase.auth
+        client = GoogleSignIn.getClient(this, gso)
 
         authResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             // if (result.resultCode == Activity.RESULT_OK) {
@@ -57,9 +59,11 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
             try {
                 // Google Sign In was successful, authenticate with Firebase
                 val account = task.getResult(ApiException::class.java)!!
-                //Log.d("firebaseAuthWithGoogle:" + account.id)
+//                Log.d("firebaseAuthWithGoogle:" + account.id)
+                Log.d("signin", "success")
                 firebaseAuthWithGoogle(account.idToken!!)
             } catch (e: ApiException) {
+                Log.d("signin", "failure")
                 // Google Sign In failed, update UI appropriately
                 //Timber.w(e, "Google sign in failed")
             }
@@ -91,12 +95,14 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
         val credential = GoogleAuthProvider.getCredential(idToken,null)
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task->
-                if(task.isSuccessful) {
+                if(task.isSuccessful) {  // 로그인 성공시
                     Log.d("LoginActivity","signInWithCredential:success")
                     val user = auth.currentUser
                     val email = auth.currentUser?.email
 
                     updateUI(user)
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
                 }
                 else {
                     Log.w("LoginActivity","signInWithCredential:failure",task.exception)
@@ -105,6 +111,7 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
             }
     }
 
+    // 로그인 성공시 user의 정보 렌더링
     private  fun updateUI(user: FirebaseUser?) {
 
     }
@@ -142,6 +149,7 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
     private fun googleLogin() {
         val signInIntent = client.signInIntent
         authResultLauncher.launch(signInIntent)
+
     }
 
     override fun onLoginLoading() {
