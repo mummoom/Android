@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "998011155807-5hd7gfipvknq7ir9qptvo7gudaq29u14.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mummoom.md",
+            "certificate_hash": "71db2add048166accae654b6af67039747402ccb"
+          }
+        },
+        {
           "client_id": "998011155807-b2is72ucie5i30fd0onsgcfoqoe4b72v.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
