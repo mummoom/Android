@@ -19,5 +19,10 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
             val intent = Intent(this, ChangePwdActivity::class.java)
             startActivity(intent)
         }
+
+        // 뒤로가기 눌렀을 때
+        binding.myprofileBackBtnIv.setOnClickListener {
+            finish()
+        }
     }
 }

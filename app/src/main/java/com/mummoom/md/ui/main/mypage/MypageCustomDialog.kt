@@ -12,9 +12,14 @@ import com.mummoom.md.R
 import java.security.AccessController.getContext
 
 class MypageCustomDialog(context : Context) {
+
     private val dialog = Dialog(context)
+    var birth : String = ""
+    var year : String = ""
+    var month : String = ""
+    var day : String = ""
 
-
+    // dialog 띄우는 함수
     fun MyDig()
     {
         dialog.setContentView(R.layout.custom_dialog_mypage)
@@ -27,35 +32,32 @@ class MypageCustomDialog(context : Context) {
         val nameEt = dialog.findViewById<EditText>(R.id.mypageDialog_name_et)
         val speciesEt = dialog.findViewById<EditText>(R.id.mypageDialog_species_et)
         val genderEt = dialog.findViewById<EditText>(R.id.mypageDialog_gender_et)
+
         yearSpinner()
         monthSpinner()
         daySpinner()
 
+        val doneBtn = dialog.findViewById<TextView>(R.id.mypageDialog_doneBtn_btn)
+        val cancelBtn = dialog.findViewById<TextView>(R.id.mypageDialog_cancelBtn_btn)
 
-        val btnDone = dialog.findViewById<TextView>(R.id.mypageDialog_doneBtn_btn)
+        // 확인 버튼 눌렀을 때
+        doneBtn.setOnClickListener {
+            onClickedListener.onClicked(nameEt.text.toString(), speciesEt.text.toString(),
+                genderEt.text.toString(), birth)
 
-//        btnDone.setOnClickListener {
-//            onClickedListener.onClicked(nameEt.text.toString(), speciesEt.text.toString(),
-//                genderEt.text.toString(), birthEt.text.toString())
-//
-//            dialog.dismiss()
-//        }
+            dialog.dismiss()
+        }
 
+        // 취소 버튼 눌렀을 때
+        cancelBtn.setOnClickListener {
+            dialog.dismiss()
+        }
 
         dialog.show()
     }
 
-//    interface ButtonClickListener{
-//        fun onClicked(myName : String, mySpecies : String, myGender : String, myBirth : String)
-//    }
-//
-//    private lateinit var onClickedListener : ButtonClickListener
-//
-//    fun setOnClickedListener(listener : ButtonClickListener)
-//    {
-//        onClickedListener = listener
-//    }
 
+    // 확인 버튼 누를 때 입력 값들을 처리하기 위한 함수들
     interface TextClickListener{
         fun onClicked(myName : String, mySpecies : String, myGender : String, myBirth : String)
     }
@@ -66,53 +68,54 @@ class MypageCustomDialog(context : Context) {
     {
         onClickedListener = listener
     }
+
+    // 스피너 함수들
     private fun yearSpinner() {
 
-
-        var year : String
         val yearSpinner =dialog.findViewById<Spinner>(R.id.mypageDialog_year_sp)
-        yearSpinner.adapter=
-            ArrayAdapter.createFromResource(dialog.context,R.array.year,android.R.layout.simple_spinner_dropdown_item)
+        yearSpinner.adapter= ArrayAdapter.createFromResource(dialog.context,R.array.year,android.R.layout.simple_spinner_dropdown_item)
 
         yearSpinner.onItemSelectedListener = object  : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-
-
+                year = yearSpinner.selectedItem.toString()
+                birth = year + "." + month + "." + day
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {
 
             }
         }
-
-
     }
 
-
     private fun monthSpinner() {
+
         val monthSpinner =dialog.findViewById<Spinner>(R.id.mypageDialog_month_sp)
-        monthSpinner.adapter=
-            ArrayAdapter.createFromResource(dialog.context,R.array.month,android.R.layout.simple_spinner_dropdown_item)
+        monthSpinner.adapter= ArrayAdapter.createFromResource(dialog.context,R.array.month,android.R.layout.simple_spinner_item)
 
         monthSpinner.onItemSelectedListener = object  : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                month = monthSpinner.selectedItem.toString()
+                birth = year + "." + month + "." + day
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {
 
             }
         }
     }
+
     private fun daySpinner() {
+
         val daySpinner =dialog.findViewById<Spinner>(R.id.mypageDialog_day_sp)
-        daySpinner.adapter= ArrayAdapter.createFromResource(dialog.context,R.array.day,android.R.layout.simple_spinner_dropdown_item)
+        daySpinner.adapter= ArrayAdapter.createFromResource(dialog.context,R.array.day,android.R.layout.simple_spinner_item)
 
         daySpinner.onItemSelectedListener = object  : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                day = daySpinner.selectedItem.toString()
+                birth = year + "." + month + "." + day
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {
 
             }
         }
     }
-
 
 }

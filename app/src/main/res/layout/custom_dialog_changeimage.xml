@@ -8,7 +8,7 @@
         android:id="@+id/chageimageDialog_addProfile_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="이미지 변경"
+        android:text="이미지 추가하기"
         android:textStyle="bold"
         android:textSize="18sp"
         android:textColor="#EDC06D"
