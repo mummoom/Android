@@ -19,7 +19,7 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
 
         // 강아지 프로필 추가
         binding.mypagePlusBtnIv.setOnClickListener {
-            val items = getResources().getStringArray(R.array.year)
+//            val items = getResources().getStringArray(R.array.year)
             plusDialog.MyDig()
         }
 
@@ -43,9 +43,21 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
             }
         })
 
+        modifyDialog.setOnClickedListener(object : ModifyProfileCustomDialog.TextClickListener{
+            override fun onClicked(
+                myName: String,
+                mySpecies: String,
+                myGender: String,
+                myBirth: String
+            ) {
+                binding.mypagePuppyNameTv.text = myName
+                binding.mypagePuppyInfoTv.text = mySpecies + " / " + myBirth
+                binding.mypagePuppyGenderTv.text = myGender
+            }
+        })
+
 
         // mypage의 메뉴 클릭 리스너
-
         binding.mypageMyProfileTv.setOnClickListener {
             val intent = Intent(activity, MyProfileActivity::class.java)
             startActivity(intent)
