@@ -45,6 +45,27 @@
         <entry key="..\:/Users/elizd/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/item_comment.xml" value="0.190234375" />
         <entry key="..\:/Users/elizd/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/item_writing_detail.xml" value="0.190234375" />
         <entry key="..\:/Users/elizd/AndroidStudioProjects/Mummoom/Android/app/src/main/res/menu/navi_menu.xml" value="0.1" />
+        <entry key="..\:/android-sdk/AndroidStudioProjects/Mummoom/Android/app/src/main/res/drawable/bg_home_foodinfo.xml" value="0.14609375" />
+        <entry key="..\:/android-sdk/AndroidStudioProjects/Mummoom/Android/app/src/main/res/drawable/bottom_icon_color.xml" value="0.1" />
+        <entry key="..\:/android-sdk/AndroidStudioProjects/Mummoom/Android/app/src/main/res/drawable/rounding_line_yellow.xml" value="0.12291666666666666" />
+        <entry key="..\:/android-sdk/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/activity_dogbirth.xml" value="0.20546875" />
+        <entry key="..\:/android-sdk/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/activity_doggender.xml" value="0.20546875" />
+        <entry key="..\:/android-sdk/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/activity_foodeat.xml" value="0.20546875" />
+        <entry key="..\:/android-sdk/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/activity_foodinfo.xml" value="0.176" />
+        <entry key="..\:/android-sdk/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/activity_foodtype.xml" value="0.2" />
+        <entry key="..\:/android-sdk/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/activity_fruit.xml" value="0.1" />
+        <entry key="..\:/android-sdk/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/activity_info.xml" value="0.10061208875286917" />
+        <entry key="..\:/android-sdk/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/android-sdk/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/activity_meat.xml" value="0.10061208875286917" />
+        <entry key="..\:/android-sdk/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/activity_mycommunity.xml" value="0.10061208875286917" />
+        <entry key="..\:/android-sdk/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/activity_myprofile.xml" value="0.1" />
+        <entry key="..\:/android-sdk/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/fragment_community.xml" value="0.10061208875286917" />
+        <entry key="..\:/android-sdk/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/android-sdk/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/fragment_mypage.xml" value="0.10061208875286917" />
+        <entry key="..\:/android-sdk/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/item_food.xml" value="0.2" />
+        <entry key="..\:/android-sdk/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/layout_foodinfo_parent.xml" value="0.4" />
+        <entry key="..\:/android-sdk/AndroidStudioProjects/Mummoom/Android/app/src/main/res/layout/layout_foodinfo_second.xml" value="0.1" />
+        <entry key="..\:/android-sdk/AndroidStudioProjects/Mummoom/Android/app/src/main/res/menu/navi_menu.xml" value="0.1296875" />
       </map>
     </option>
   </component>

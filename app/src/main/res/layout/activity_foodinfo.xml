@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        //발자국
+        <LinearLayout
+            android:id="@+id/info_foot_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+
+            <ImageView
+                android:id="@+id/info_foot1_iv"
+                android:layout_width="22dp"
+                android:layout_height="20dp"
+                android:src="@drawable/footprint" />
+
+            <ImageView
+                android:id="@+id/info_foot2_iv"
+                android:layout_width="22dp"
+                android:layout_height="20dp"
+                android:src="@drawable/footprint"
+                android:layout_marginStart="9dp"
+                />
+            <ImageView
+                android:id="@+id/info_foot3_iv"
+                android:layout_width="22dp"
+                android:layout_height="20dp"
+                android:src="@drawable/footprint"
+                android:layout_marginStart="9dp"
+                />
+            <ImageView
+                android:id="@+id/info_foot4_iv"
+                android:layout_width="22dp"
+                android:layout_height="20dp"
+                android:src="@drawable/footprint"
+                android:layout_marginStart="9dp"
+                />
+            <ImageView
+                android:id="@+id/info_foot5_iv"
+                android:layout_width="22dp"
+                android:layout_height="20dp"
+                android:src="@drawable/footprint_off"
+                android:layout_marginStart="9dp"
+                />
+
+        </LinearLayout>
+        //음식사진
+        <androidx.cardview.widget.CardView
+            android:id="@+id/info_img_cv"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:cardCornerRadius="75dp"
+            app:cardElevation="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/info_foot_ll"
+            android:layout_marginTop="17dp">
+
+            <ImageView
+                android:id="@+id/food_img_iv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/food_info_img"
+                />
+        </androidx.cardview.widget.CardView>
+        //음식이름
+        <TextView
+            android:id="@+id/info_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/info_img_cv"
+            android:layout_marginTop="17dp"
+            android:text="사과"
+            android:textSize="17sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="end"/>
+
+        //칼로리
+        <TextView
+            android:id="@+id/info_kcal_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/info_name_tv"
+            android:layout_marginTop="10dp"
+            android:text="10g 당 5.21kcal"
+            android:textSize="13sp"
+            android:textColor="@color/black"
+            android:maxLines="1"
+            android:ellipsize="end"/>
+
+
+        //식재료 영양 정보
+
+        <LinearLayout
+            android:id="@+id/info_nutrition_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/info_kcal_tv"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:animateLayoutChanges="true">
+
+            //영양 정보 타이틀
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/info_nutrition_title_cl"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@color/main_color">
+
+                <TextView
+                    android:id="@+id/info_nutrition_title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="12dp"
+                    android:gravity="center"
+                    android:text="식재료 영양 정보"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/info_nutrition_more_iv"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="12dp"
+                    android:src="@drawable/more"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            //영양정보 내용 (펼쳐지는 곳)
+            <TextView
+                android:id="@+id/info_nutrition_cont_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginTop="10dp"
+                android:paddingBottom="5dp"
+                android:text="bla"
+                android:textSize="13sp"
+                android:textColor="@color/black"
+                android:visibility="gone"
+                />
+
+
+        </LinearLayout>
+
+
+
+        //섭취 시 유의할 점
+        <TextView
+            android:id="@+id/info_warnEat_title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/info_nutrition_ll"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="15dp"
+            android:text="섭취 시 유의해야할 점"
+            android:paddingLeft="12dp"
+            android:gravity="center|left"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:background="#e5e5e5"
+            />
+
+        <TextView
+            android:id="@+id/info_warnEat_cont_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/info_warnEat_title_tv"
+            app:layout_constraintStart_toStartOf="@id/info_warnEat_title_tv"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="15dp"
+            android:text="bla"
+            android:textSize="13sp"
+            android:textColor="@color/black"/>
+
+        //이런 강아지 특히 조심
+        <TextView
+            android:id="@+id/info_warnDog_title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/info_warnEat_cont_tv"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="18dp"
+            android:text="이런 강아지는 특히 조심하세요!"
+            android:paddingLeft="12dp"
+            android:gravity="center|left"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:background="#e5e5e5"
+            />
+
+        <TextView
+            android:id="@+id/info_warnDog_cont_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/info_warnDog_title_tv"
+            app:layout_constraintStart_toStartOf="@id/info_warnDog_title_tv"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="15dp"
+            android:text="bla"
+            android:textSize="13sp"
+            android:textColor="@color/black"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
