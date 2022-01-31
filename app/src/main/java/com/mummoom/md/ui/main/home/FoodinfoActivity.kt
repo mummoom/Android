@@ -9,6 +9,11 @@ class FoodinfoActivity : BaseActivity<ActivityFoodinfoBinding>(ActivityFoodinfoB
 
     override fun initAfterBinding() {
 
+        binding.foodinfoBackIv.setOnClickListener {
+            finish()
+        }
+
+
         binding.infoNutritionTitleCl.setOnClickListener {
 
             if(binding.infoNutritionContTv.visibility == View.VISIBLE){
