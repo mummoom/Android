@@ -14,6 +14,8 @@
 <!--login-->
     <color name="login_btn">#FFFFD231</color>
     <color name="login_google_btn">#FFECECEC</color>
+<!--nickname-->
+    <color name="background">#804d4d4d</color>
 
     <!--signup-->
     <color name="signup_bg">#FFFFD231</color>
@@ -34,6 +36,11 @@
 
     <!-- 음식별 타이틀 -->
     <color name="type_title">#ffd231</color>
+    <!--changepw-->
+    <color name="changepw_view">#EAEAEA</color>
+    <color name="changepw_caution_tv">#C4C4C4</color>
+    <color name="changepw_et">#FFECECEC</color>
+    <color name="changepw_okay_btn">#C4C4C4</color>
 
 
 
