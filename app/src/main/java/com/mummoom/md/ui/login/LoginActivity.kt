@@ -59,8 +59,6 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
             .requestEmail()
             .build()
 
-//        auth = Firebase.auth
-
         // 로그인 하고 다음에 어플을 켰을 때 바로 다음화면으로 넘어가게 하는 코드
 //        if(auth.currentUser != null)
 //        {
@@ -109,6 +107,8 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
 
     override fun onStart() {
         super.onStart()
+
+        auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
         updateUI(currentUser)
     }
@@ -138,8 +138,10 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
                 if (task.isSuccessful) {
                     // 로그인 처리를 해주면 됨!
                     Log.d("signin", "success2")
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
+
+                    val user = FirebaseAuth.getInstance().currentUser
+                    updateUI(user)
+
                 } else {
                     // 오류가 난 경우!
                     Toast.makeText(this, task.exception?.message, Toast.LENGTH_LONG).show()
