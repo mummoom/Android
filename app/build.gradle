@@ -15,6 +15,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
     }
 
     buildTypes {
@@ -81,4 +82,5 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:20.0.1'
 
     implementation 'androidx.activity:activity-ktx:1.2.0-alpha05'
+
 }
