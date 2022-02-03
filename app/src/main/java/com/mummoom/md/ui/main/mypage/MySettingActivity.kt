@@ -29,6 +29,12 @@ class MySettingActivity : BaseActivity<ActivityMysettingBinding>(ActivityMysetti
             startActivity(intent)
             finish()
         }
+        binding.mysettingBackarrowBtn.setOnClickListener {
+            finish()
+        }
+        binding.mysettingNotificationTv.setOnClickListener {
+            startActivityWithClear(PushSettingActivity::class.java)
+        }
     }
 
     private fun signOut()

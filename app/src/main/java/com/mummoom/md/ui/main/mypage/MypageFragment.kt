@@ -14,13 +14,14 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
 
     override fun initAfterBinding() {
 
+        val changeImgDialog = ChangeImageCustomDialog(requireContext())
         val plusDialog = MypageCustomDialog(requireContext())
         val modifyDialog = ModifyProfileCustomDialog(requireContext())
 
         // 강아지 프로필 추가
         binding.mypagePlusBtnIv.setOnClickListener {
 //            val items = getResources().getStringArray(R.array.year)
-            plusDialog.MyDig()
+            changeImgDialog.MyDig()
         }
 
         // 강아지 프로필 수정
@@ -28,6 +29,13 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
             val items = getResources().getStringArray(R.array.year)
             modifyDialog.MyDig()
         }
+
+        changeImgDialog.setOnClickedListener(object : ChangeImageCustomDialog.normalBtnClickListener{
+            override fun onClicked() {
+                val intent = Intent(requireContext(),IllustrationActivity::class.java)
+                startActivity(intent)
+            }
+        })
 
 
         plusDialog.setOnClickedListener(object : MypageCustomDialog.TextClickListener{

@@ -6,6 +6,9 @@ import com.mummoom.md.ui.BaseActivity
 class MyLikedActivity : BaseActivity<ActivityMylikedBinding>(ActivityMylikedBinding::inflate) {
 
     override fun initAfterBinding() {
+        binding.mylikedBackarrowBtn.setOnClickListener {
+            finish()
+        }
 
     }
 }

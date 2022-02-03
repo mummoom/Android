@@ -117,10 +117,36 @@
         android:textColor="@color/signup_tv"
         android:textStyle="bold"
         android:textSize="13sp"
+
         app:layout_constraintTop_toBottomOf="@id/signup_name_et"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="35dp"
+        />
+
+    <ImageView
+        android:id="@+id/signup_agree_check_off_iv"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/signup_agree_check_off"
+        app:layout_constraintTop_toBottomOf="@id/signup_info_check_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:paddingStart="1dp"
+
+        />
+    <ImageView
+        android:id="@+id/signup_agree_check_on_iv"
+        android:layout_width="19dp"
+        android:layout_height="19dp"
+        android:src="@drawable/signup_agree_check_on"
+        app:layout_constraintTop_toBottomOf="@id/signup_info_check_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="invisible"
+
+
         />
 
     <TextView

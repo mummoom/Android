@@ -3,7 +3,8 @@
     package="com.mummoom.md">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <application
         android:name=".ApplicationClass"
         android:allowBackup="true"
@@ -108,6 +109,9 @@
 
         <activity
             android:name=".ui.main.mypage.ChangePwdActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".ui.main.mypage.IllustrationActivity"
             android:exported="true"/>
 
 
