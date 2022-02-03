@@ -46,6 +46,14 @@
           }
         },
         {
+          "client_id": "998011155807-somrl89go8tr0i2er0paa22kdichaqk9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mummoom.md",
+            "certificate_hash": "2a9d0d052cac5f91d16ed2bb19d53099c6c998bf"
+          }
+        },
+        {
           "client_id": "998011155807-32r4ibd4cubivftk8e67pe2ek8q0ss6u.apps.googleusercontent.com",
           "client_type": 3
         }
