@@ -7,29 +7,55 @@
 
 
     //검색창
-    <EditText
-        android:id="@+id/home_search_et"
+<!--    <EditText-->
+<!--        android:id="@+id/home_search_et"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="35dp"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginStart="15dp"-->
+<!--        android:layout_marginEnd="15dp"-->
+<!--        android:background="@drawable/rounding_line_yellow"-->
+<!--        android:inputType="text"-->
+<!--        android:maxLines="1" />-->
+    <FrameLayout
+        android:id="@+id/home_search_frm"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="80dp"
+        android:layout_height="33dp"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
-        android:background="@drawable/home_search_background"
-        android:inputType="text"
-        android:maxLines="1"
-        android:imeOptions="actionSearch"/>
-//검색아이콘
-    <ImageView
-        android:id="@+id/home_searchIc_iv"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:src="@drawable/ic_home_search"
-        app:layout_constraintTop_toTopOf="@id/home_search_et"
-        app:layout_constraintEnd_toEndOf="@id/home_search_et"
-        android:layout_marginEnd="13dp"
-        android:layout_marginTop="6dp"/>
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/home_search_et"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounding_line_yellow"/>
+
+        <ImageView
+            android:id="@+id/home_search_iv"
+            android:layout_width="15dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_search"
+            android:layout_gravity="right|center"
+            android:layout_marginEnd="10dp"/>
+
+    </FrameLayout>
+
+
+<!--//검색아이콘-->
+<!--    <ImageView-->
+<!--        android:id="@+id/home_searchIc_iv"-->
+<!--        android:layout_width="20dp"-->
+<!--        android:layout_height="20dp"-->
+<!--        android:src="@drawable/ic_home_search"-->
+<!--        app:layout_constraintTop_toTopOf="@id/home_search_et"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/home_search_et"-->
+<!--        android:layout_marginEnd="13dp"-->
+<!--        android:layout_marginTop="6dp"/>-->
 //배너
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/home_banner_vp"
@@ -38,7 +64,7 @@
         android:layout_marginTop="18dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/home_search_et"/>
+        app:layout_constraintTop_toBottomOf="@id/home_search_frm"/>
 //우리 강아지가 먹어도 될까?
     <TextView
         android:id="@+id/home_typeTitle_tv"
@@ -65,9 +91,9 @@
 //육류
         <androidx.cardview.widget.CardView
             android:id="@+id/home_meat_cv"
-            android:layout_width="61dp"
-            android:layout_height="61dp"
-            app:cardCornerRadius="75dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:cardCornerRadius="30dp"
             app:cardElevation="0dp"
             tools:ignore="MissingConstraints">
 
@@ -93,9 +119,9 @@
 //야채류
         <androidx.cardview.widget.CardView
             android:id="@+id/home_veg_cv"
-            android:layout_width="61dp"
-            android:layout_height="61dp"
-            app:cardCornerRadius="75dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:cardCornerRadius="30dp"
             app:cardElevation="0dp"
             app:layout_constraintStart_toEndOf="@id/home_meat_cv"
             app:layout_constraintEnd_toStartOf="@id/home_fruit_cv"
@@ -123,9 +149,9 @@
 //과일류
         <androidx.cardview.widget.CardView
             android:id="@+id/home_fruit_cv"
-            android:layout_width="61dp"
-            android:layout_height="61dp"
-            app:cardCornerRadius="75dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:cardCornerRadius="30dp"
             app:cardElevation="0dp"
             app:layout_constraintEnd_toEndOf="@id/home_type_cl"
             tools:ignore="MissingConstraints">
@@ -152,9 +178,9 @@
 //유제품
         <androidx.cardview.widget.CardView
             android:id="@+id/home_dairy_cv"
-            android:layout_width="61dp"
-            android:layout_height="61dp"
-            app:cardCornerRadius="75dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:cardCornerRadius="30dp"
             app:cardElevation="0dp"
             android:layout_marginTop="4dp"
             app:layout_constraintTop_toBottomOf="@id/home_meat_tv"
@@ -181,9 +207,9 @@
 //해산물
         <androidx.cardview.widget.CardView
             android:id="@+id/home_seafood_cv"
-            android:layout_width="61dp"
-            android:layout_height="61dp"
-            app:cardCornerRadius="75dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:cardCornerRadius="30dp"
             app:cardElevation="0dp"
             app:layout_constraintStart_toEndOf="@id/home_dairy_cv"
             app:layout_constraintEnd_toStartOf="@id/home_etc_cv"
@@ -213,9 +239,9 @@
 //기타
         <androidx.cardview.widget.CardView
             android:id="@+id/home_etc_cv"
-            android:layout_width="61dp"
-            android:layout_height="61dp"
-            app:cardCornerRadius="75dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:cardCornerRadius="30dp"
             app:cardElevation="0dp"
             app:layout_constraintEnd_toEndOf="@id/home_type_cl"
             app:layout_constraintTop_toBottomOf="@id/home_fruit_tv"

@@ -8,23 +8,27 @@ import android.widget.Spinner
 import com.mummoom.md.R
 import com.mummoom.md.databinding.FragmentMypageBinding
 import com.mummoom.md.ui.BaseFragment
+import com.mummoom.md.ui.main.community.MypageCustomDialog
 
 class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBinding::inflate) {
 
     override fun initAfterBinding() {
 
         val plusDialog = MypageCustomDialog(requireContext())
-        val changeImageDialog = ChangeImageCustomDialog(requireContext())
+        val modifyDialog = ModifyProfileCustomDialog(requireContext())
 
-        binding.mypagePuppyImgIv.setOnClickListener {
-            changeImageDialog.MyDig()
-        }
-
+        // 강아지 프로필 추가
         binding.mypagePlusBtnIv.setOnClickListener {
             val items = getResources().getStringArray(R.array.year)
             plusDialog.MyDig()
-
         }
+
+        // 강아지 프로필 수정
+        binding.mypageMoreBtnIv.setOnClickListener {
+            val items = getResources().getStringArray(R.array.year)
+            modifyDialog.MyDig()
+        }
+
 
         plusDialog.setOnClickedListener(object : MypageCustomDialog.TextClickListener{
             override fun onClicked(
@@ -52,18 +56,8 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
             startActivity(intent)
         }
 
-        binding.mypageMyScrapTv.setOnClickListener {
-            val intent = Intent(activity, MyScrapActivity::class.java)
-            startActivity(intent)
-        }
-
         binding.mypageMyLikeTv.setOnClickListener {
             val intent = Intent(activity, MyLikedActivity::class.java)
-            startActivity(intent)
-        }
-
-        binding.mypageMyCommentTv.setOnClickListener {
-            val intent = Intent(activity, MyCommentActivity::class.java)
             startActivity(intent)
         }
 
