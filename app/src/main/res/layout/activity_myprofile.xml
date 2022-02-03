@@ -39,10 +39,19 @@
             android:id="@+id/myprofile_plusBtn_iv"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/ic_plus"
+            android:src="@drawable/ic_plus_gray"
             android:layout_gravity="bottom|center_horizontal"
             android:layout_marginStart="50dp"
             android:layout_marginBottom="5dp"/>
+
+        <ImageView
+            android:id="@+id/myprofile_backBtn_iv"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_back_white"
+            android:layout_gravity="start|top"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"/>
 
     </FrameLayout>
 
@@ -126,6 +135,7 @@
 
 
     <TextView
+        android:id="@+id/myprofile_withdraw_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"

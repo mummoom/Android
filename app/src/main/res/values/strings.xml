@@ -31,4 +31,9 @@
     <string name="signup_name_hint">이름</string>
     <string name="signup_password_hint">비밀번호</string>
     <string name="signup_password_confirm_hint">비밀번호 확인</string>
+
+
+    <!-- 구글 문서 하드코딩(default_web_client_id가 인식되지 않아 따로 하드코딩함) -->
+
+
 </resources>

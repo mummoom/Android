@@ -115,11 +115,9 @@
         android:layout_marginEnd="10dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/bg_dialog_spinner"
-        android:dropDownWidth="50dp"
+        android:background="@drawable/bg_spinner"
+        android:dropDownWidth="50dp" />
 
-
-        />
     <ImageView
         android:id="@+id/modifyprofileDialog_year_btn"
         app:layout_constraintTop_toTopOf="@id/modifyprofileDialog_year_sp"
@@ -129,19 +127,19 @@
         android:layout_width="12dp"
         android:layout_height="12dp"
         android:src="@drawable/arrow"/>
+
     <Spinner
         android:id="@+id/modifyprofileDialog_month_sp"
         app:layout_constraintTop_toBottomOf="@id/modifyprofileDialog_birth_tv"
         app:layout_constraintStart_toEndOf="@id/modifyprofileDialog_year_sp"
         android:layout_width="63dp"
         android:layout_height="20dp"
-        android:spinnerMode="dialog"
         android:layout_marginEnd="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:dropDownWidth="50dp"
-        android:background="@drawable/bg_dialog_spinner"
-        />
+        android:background="@drawable/bg_spinner" />
+
     <ImageView
         android:id="@+id/modifyprofileDialog_month_btn"
         app:layout_constraintTop_toTopOf="@id/modifyprofileDialog_month_sp"
@@ -163,8 +161,8 @@
         android:layout_height="20dp"
         android:dropDownWidth="50dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/bg_dialog_spinner"
-        android:spinnerMode="dialog" />
+        android:background="@drawable/bg_spinner" />
+
     <ImageView
         android:id="@+id/modifyprofileDialog_day_btn"
         app:layout_constraintTop_toTopOf="@id/modifyprofileDialog_day_sp"
@@ -176,14 +174,40 @@
         android:layout_height="12dp"
         android:src="@drawable/arrow"/>
 
-
     <androidx.cardview.widget.CardView
-        android:layout_width="165dp"
+        android:id="@+id/modifyprofileDialog_cancelBtn_cv"
+        android:layout_width="105dp"
         android:layout_height="25dp"
         android:layout_marginTop="45dp"
         app:cardElevation="0dp"
         app:cardCornerRadius="15dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/modifyprofileDialog_doneBtn_cv"
+        app:layout_constraintTop_toBottomOf="@id/modifyprofileDialog_day_sp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:layout_marginEnd="15dp">
+
+        <TextView
+            android:id="@+id/modifyprofileDialog_cancelBtn_btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#c4c4c4"
+            android:gravity="center"
+            android:text="취소"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="normal" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/modifyprofileDialog_doneBtn_cv"
+        android:layout_width="105dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="45dp"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintStart_toEndOf="@id/modifyprofileDialog_cancelBtn_cv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/modifyprofileDialog_day_sp">
 
@@ -191,7 +215,7 @@
             android:id="@+id/modifyprofileDialog_doneBtn_btn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#c4c4c4"
+            android:background="#ffd231"
             android:gravity="center"
             android:text="확인"
             android:textColor="@color/white"

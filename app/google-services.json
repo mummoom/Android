@@ -14,11 +14,43 @@
       },
       "oauth_client": [
         {
+          "client_id": "998011155807-5hd7gfipvknq7ir9qptvo7gudaq29u14.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mummoom.md",
+            "certificate_hash": "71db2add048166accae654b6af67039747402ccb"
+          }
+        },
+        {
+          "client_id": "998011155807-b2is72ucie5i30fd0onsgcfoqoe4b72v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mummoom.md",
+            "certificate_hash": "d1dfb7758a909aa96b9ceab26d548427574d2294"
+          }
+        },
+        {
           "client_id": "998011155807-c85s6q1ceceeoojltq1h048ts8b6ogoq.apps.googleusercontent.com",
-          "client_type": 3,
+          "client_type": 1,
           "android_info": {
             "package_name": "com.mummoom.md",
             "certificate_hash": "0930749d30c394a78374f704490b6007364426ab"
+          }
+        },
+        {
+          "client_id": "998011155807-s0t6tljfmhf6jbfgrd41pofc6rrlapnu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mummoom.md",
+            "certificate_hash": "406e1ea87036c0b9b9c3e5cf8bca39c46f036e0e"
+          }
+        },
+        {
+          "client_id": "998011155807-somrl89go8tr0i2er0paa22kdichaqk9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mummoom.md",
+            "certificate_hash": "2a9d0d052cac5f91d16ed2bb19d53099c6c998bf"
           }
         },
         {
