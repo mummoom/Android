@@ -10,6 +10,7 @@ import com.mummoom.md.R
 import com.mummoom.md.databinding.ActivityMyprofileBinding
 import com.mummoom.md.ui.BaseActivity
 import com.mummoom.md.ui.login.LoginActivity
+import com.mummoom.md.ui.main.community.MypageCustomDialog
 
 class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofileBinding::inflate) {
 
@@ -18,6 +19,7 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
 
     override fun initAfterBinding() {
         val changeImageDialog = ChangeImageCustomDialog(this)
+
 
         // 이미지 추가/변경 버튼 눌렀을 때
         binding.myprofilePlusBtnIv.setOnClickListener {
@@ -44,6 +46,12 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
+        changeImageDialog.setOnClickedListener(object : ChangeImageCustomDialog.normalBtnClickListener{
+            override fun onClicked() {
+                val intent = Intent(this@MyProfileActivity,IllustrationActivity::class.java)
+                startActivity(intent)
+            }
+        })
     }
 
     private fun deleteUser()

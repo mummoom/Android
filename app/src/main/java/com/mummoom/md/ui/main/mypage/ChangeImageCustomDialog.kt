@@ -2,12 +2,16 @@ package com.mummoom.md.ui.main.mypage
 
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import com.mummoom.md.R
+import com.mummoom.md.ui.BaseActivity
+import com.mummoom.md.ui.login.LoginActivity
 
-class ChangeImageCustomDialog(context : Context) {
+class ChangeImageCustomDialog(context : Context)  {
     private val dialog = Dialog(context)
 
     fun MyDig()
@@ -18,6 +22,7 @@ class ChangeImageCustomDialog(context : Context) {
         dialog.window!!.setLayout(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT)
         dialog.setCanceledOnTouchOutside(true)
         dialog.setCancelable(true)
+
 
         val albumTv = dialog.findViewById<TextView>(R.id.changeimageCustom_albumFunc_tv)
         val normalTv = dialog.findViewById<TextView>(R.id.changeimageCustom_normalFunc_tv)
@@ -38,10 +43,27 @@ class ChangeImageCustomDialog(context : Context) {
         }
 
         normalTv.setOnClickListener {
-            dialog.dismiss()
+            onClickedListener.onClicked()
+
+
+                dialog.dismiss()
+
+
+
         }
 
         dialog.show()
     }
 
+    // 확인 버튼 누를 때 입력 값들을 처리하기 위한 함수들
+    interface normalBtnClickListener{
+        fun onClicked()
+    }
+    private lateinit var onClickedListener : ChangeImageCustomDialog.normalBtnClickListener
+
+    fun setOnClickedListener(listener : ChangeImageCustomDialog.normalBtnClickListener)
+    {
+        onClickedListener = listener
+    }
 }
+

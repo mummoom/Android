@@ -7,5 +7,8 @@ class MyCommunityActivity : BaseActivity<ActivityMycommunityBinding>(ActivityMyc
 
     override fun initAfterBinding() {
 
+        binding.mycommunityBackarrowBtn.setOnClickListener {
+            finish()
+        }
     }
 }

@@ -7,5 +7,8 @@ class MyCommentActivity : BaseActivity<ActivityMycommentBinding>(ActivityMycomme
 
     override fun initAfterBinding() {
 
+        binding.mycommentBackarrowBtn.setOnClickListener {
+            finish()
+        }
     }
 }

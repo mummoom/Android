@@ -36,12 +36,16 @@
 
     <!-- 음식별 타이틀 -->
     <color name="type_title">#ffd231</color>
+
     <!--changepw-->
     <color name="changepw_view">#EAEAEA</color>
     <color name="changepw_caution_tv">#C4C4C4</color>
     <color name="changepw_et">#FFECECEC</color>
     <color name="changepw_okay_btn">#C4C4C4</color>
 
+    <!--푸쉬 설정-->
+    <color name="push_setting_content_tv">#C4C4C4</color>
+    <color name="push_setting_confirm_btn">#C4C4C4</color>
 
 
 </resources>

@@ -6,9 +6,9 @@
 
     <ImageView
         android:id="@+id/login_logo_iv"
-        android:layout_width="150dp"
-        android:layout_height="120dp"
-        android:src="@drawable/mm_logo"
+        android:layout_width="234dp"
+        android:layout_height="166dp"
+        android:src="@drawable/mummoom_logo"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -67,6 +67,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login_login_btn_tv" />
+
+
 <com.google.android.gms.common.SignInButton
     android:id="@+id/login_google_btn"
     android:layout_width="250dp"
@@ -74,7 +76,7 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@id/login_kakao_login_btn_tv"
-    android:layout_marginTop="10dp"/>
+    android:layout_marginTop="16dp"/>
 
 
 <!--    <TextView-->

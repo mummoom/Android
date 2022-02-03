@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/push_setting_backarrow_btn"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/push_setting_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="알람 및 푸쉬 설정"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/push_setting_backarrow_btn"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"/>
+
+    <View
+        android:id="@+id/push_setting_line_view"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="#EAEAEA"
+        app:layout_constraintTop_toBottomOf="@id/push_setting_title_tv"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:id="@+id/push_setting_content_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="커뮤니티 및 알람을 보내드려요."
+        android:textSize="15sp"
+        android:textColor="@color/push_setting_content_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/push_setting_line_view"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"/>
+
+    <TextView
+        android:id="@+id/push_setting_all_notifications_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="전체 알림 동의"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/push_setting_content_tv"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"/>
+    
+    <ImageView
+        android:id="@+id/push_setting_all_notifications_off_iv"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:src="@drawable/push_off"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintTop_toBottomOf="@id/push_setting_content_tv"
+        android:layout_marginTop="30dp"
+        />
+    <ImageView
+        android:id="@+id/push_setting_all_notifications_on_iv"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:src="@drawable/push_on"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintTop_toBottomOf="@id/push_setting_content_tv"
+        android:visibility="invisible"
+        android:layout_marginTop="30dp"/>
+
+    <View
+        android:id="@+id/push_setting_line_view2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#EAEAEA"
+        app:layout_constraintTop_toBottomOf="@id/push_setting_all_notifications_tv"
+        android:layout_marginTop="15dp"/>
+    <TextView
+        android:id="@+id/push_setting_event_or_benefit_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이벤트 및 혜택 알림 동의"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/push_setting_line_view2"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"/>
+
+    <ImageView
+        android:id="@+id/push_setting_event_or_benefit_off_iv"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:src="@drawable/push_off"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintTop_toBottomOf="@id/push_setting_line_view2"
+        android:layout_marginTop="30dp"
+        />
+    <ImageView
+        android:id="@+id/push_setting_event_or_benefit_on_iv"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:src="@drawable/push_on"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintTop_toBottomOf="@id/push_setting_line_view2"
+        android:visibility="invisible"
+        android:layout_marginTop="30dp"/>
+
+    <View
+        android:id="@+id/push_setting_line_view4"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#EAEAEA"
+        app:layout_constraintTop_toBottomOf="@id/push_setting_event_or_benefit_tv"
+        android:layout_marginTop="15dp"/>
+    <TextView
+        android:id="@+id/push_setting_post_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="게시글 관련 알림 동의"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/push_setting_line_view4"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"/>
+
+    <ImageView
+        android:id="@+id/push_setting_post_off_iv"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:src="@drawable/push_off"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintTop_toBottomOf="@id/push_setting_line_view4"
+        android:layout_marginTop="30dp"
+        />
+    <ImageView
+        android:id="@+id/push_setting_post_on_iv"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:src="@drawable/push_on"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintTop_toBottomOf="@id/push_setting_line_view4"
+        android:visibility="invisible"
+        android:layout_marginTop="30dp"/>
+
+    <View
+        android:id="@+id/push_setting_line_view5"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#EAEAEA"
+        app:layout_constraintTop_toBottomOf="@id/push_setting_post_tv"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:id="@+id/push_setting_confirm_btn"
+        android:layout_width="160dp"
+        android:layout_height="30dp"
+        android:text="확인"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:gravity="center"
+        android:background="@drawable/bg_push_setting_confirm_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="50dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -223,7 +223,7 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
 //        AuthService.login(this, user)
 
 
-   }
+    }
 
 
 

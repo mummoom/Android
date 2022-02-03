@@ -6,6 +6,7 @@ import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.TextView
 import com.mummoom.md.R
+import com.mummoom.md.ui.main.mypage.ChangeImageCustomDialog
 
 class PlusImageCustomDialog(context: Context) {
 
@@ -39,10 +40,22 @@ class PlusImageCustomDialog(context: Context) {
         }
 
         normalTv.setOnClickListener {
+            onClickedListener.onClicked()
             dialog.dismiss()
         }
 
         dialog.show()
+    }
+
+    // 확인 버튼 누를 때 입력 값들을 처리하기 위한 함수들
+    interface normalBtnClickListener{
+        fun onClicked()
+    }
+    private lateinit var onClickedListener : PlusImageCustomDialog.normalBtnClickListener
+
+    fun setOnClickedListener(listener : PlusImageCustomDialog.normalBtnClickListener)
+    {
+        onClickedListener = listener
     }
 
 }
