@@ -3,7 +3,7 @@ package com.mummoom.md.ui.main.home
 import com.mummoom.md.databinding.ActivityFoodeatBinding
 import com.mummoom.md.ui.BaseActivity
 
-class FoodeatActivity : BaseActivity<ActivityFoodeatBinding>(ActivityFoodeatBinding::inflate){
+class FoodeatActivity : BaseActivity<ActivityFoodeatBinding>(ActivityFoodeatBinding::inflate), IngredientsView{
 
     override fun initAfterBinding() {
 
@@ -11,5 +11,17 @@ class FoodeatActivity : BaseActivity<ActivityFoodeatBinding>(ActivityFoodeatBind
             finish()
         }
 
+    }
+
+    override fun onIngredientsLoading() {
+        TODO("Not yet implemented")
+    }
+
+    override fun onIngredientsSuccess() {
+        TODO("Not yet implemented")
+    }
+
+    override fun onIngredientsFailure(code: Int, message: String) {
+        TODO("Not yet implemented")
     }
 }

@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.mummoom.md.databinding.ActivityFoodtypeBinding
 import com.mummoom.md.ui.BaseActivity
 
-class FoodtypeActivity : BaseActivity<ActivityFoodtypeBinding>(ActivityFoodtypeBinding::inflate){
+class FoodtypeActivity : BaseActivity<ActivityFoodtypeBinding>(ActivityFoodtypeBinding::inflate),IngredientsView{
 
     override fun initAfterBinding() {
 
@@ -14,5 +14,17 @@ class FoodtypeActivity : BaseActivity<ActivityFoodtypeBinding>(ActivityFoodtypeB
         binding.foodtypeBackIv.setOnClickListener {
             finish()
         }
+    }
+
+    override fun onIngredientsLoading() {
+        TODO("Not yet implemented")
+    }
+
+    override fun onIngredientsSuccess() {
+        TODO("Not yet implemented")
+    }
+
+    override fun onIngredientsFailure(code: Int, message: String) {
+        TODO("Not yet implemented")
     }
 }

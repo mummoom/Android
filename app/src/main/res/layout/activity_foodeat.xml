@@ -19,44 +19,35 @@
         <ImageView
             android:id="@+id/foodeat_back_iv"
             android:layout_width="20dp"
-            android:layout_height="12dp"
-            android:src="@drawable/left_arrow"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_arrow"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="15dp" />
 
-
-        <LinearLayout
-            android:id="@+id/foodeat_title_ll"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+        //o
+        <ImageView
+            android:id="@+id/foodeat_ic_iv"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            app:layout_constraintStart_toEndOf="@id/foodeat_back_iv"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            android:layout_marginStart="12dp"
+            android:src="@drawable/ic_good_black"/>
 
-            //o
-            <ImageView
-                android:id="@+id/foodeat_ic_iv"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_gravity="center"
-                android:layout_marginEnd="5dp"
-                android:src="@drawable/ic_good_black"/>
-
-            <TextView
-                android:id="@+id/foodeat_title_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="좋은 음식"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:textColor="@color/black"/>
-
-
-        </LinearLayout>
+        <TextView
+            android:id="@+id/foodeat_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toEndOf="@id/foodeat_ic_iv"
+            android:layout_marginStart="8dp"
+            android:text="좋은 음식"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="@color/black"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,7 +5,7 @@
         android:id="@+id/communityFragment"
         android:enabled="true"
         android:title="@string/menu_community"
-        android:icon="@drawable/navi_dog"/>
+        android:icon="@drawable/navi_community"/>
 
     <item
         android:id="@+id/homeFragment"
