@@ -27,12 +27,15 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+
+
+
         </activity>
 
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="true">
-
 
 
         </activity>
@@ -83,6 +86,10 @@
 
         <activity
             android:name=".ui.dogname.DognameActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".ui.doginfocheck.DogInfoCheckActivity"
             android:exported="true"/>
 
 

@@ -136,7 +136,8 @@
                 android:id="@+id/info_nutrition_title_cl"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:background="@color/main_color">
+                android:background="@color/main_color"
+                android:animateLayoutChanges="true">
 
                 <TextView
                     android:id="@+id/info_nutrition_title_tv"
@@ -159,25 +160,45 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="12dp"
                     android:src="@drawable/more"/>
-
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-            //영양정보 내용 (펼쳐지는 곳)
-            <TextView
-                android:id="@+id/info_nutrition_cont_tv"
+            <LinearLayout
+                android:id="@+id/info_expand1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginTop="10dp"
-                android:paddingBottom="5dp"
-                android:text="bla"
-                android:textSize="13sp"
+                android:orientation="vertical"
+                android:visibility="gone">
+                //영양정보 내용 (펼쳐지는 곳)
+                <TextView
+                    android:id="@+id/info_nutrition_cont_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingBottom="5dp"
+                    android:text="bla"
+                    android:textSize="13sp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/info_warnEat_title_d"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/info_nutrition_ll"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="15dp"
+                android:text="섭취 시 유의해야할 점"
+                android:paddingLeft="12dp"
+                android:gravity="center|left"
+                android:textStyle="bold"
+                android:textSize="15sp"
                 android:textColor="@color/black"
-                android:visibility="gone"
+                android:background="#e5e5e5"
                 />
-
-
         </LinearLayout>
 
 

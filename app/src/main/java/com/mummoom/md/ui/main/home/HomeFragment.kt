@@ -1,10 +1,6 @@
 package com.mummoom.md.ui.main.home
 
 import android.content.Intent
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.viewpager2.widget.ViewPager2
 import com.mummoom.md.R
 import com.mummoom.md.databinding.FragmentHomeBinding
@@ -27,7 +23,7 @@ class HomeFragment(): BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inf
         // home 클릭 리스너
         //음식 종류별
         binding.homeMeatCv.setOnClickListener{
-            val intent = Intent(activity, FoodinfoActivity::class.java )
+            val intent = Intent(requireContext(), FoodinfoActivity::class.java )
             startActivity(intent)
         }
 

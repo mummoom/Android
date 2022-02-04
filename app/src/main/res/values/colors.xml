@@ -10,17 +10,19 @@
 
 <!--main color-->
     <color name="main_color">#FFFFD231</color>
-
+    <color name="splash_color">#4DFFD231</color>
 <!--login-->
     <color name="login_btn">#FFFFD231</color>
     <color name="login_google_btn">#FFECECEC</color>
 <!--nickname-->
     <color name="background">#804d4d4d</color>
+    <color name="btn_stroke">#E9E9E9</color>
 
     <!--signup-->
     <color name="signup_bg">#FFFFD231</color>
     <color name="signup_tv_bg">#FFECECEC</color>
     <color name="signup_tv">#FF000000</color>
+    <color name="signup_error_tv">#F44336</color>
 
     <!--infoname-->
     <color name="infoname_tv">#FF000000</color>

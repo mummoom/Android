@@ -84,4 +84,7 @@ dependencies {
 
     implementation 'androidx.activity:activity-ktx:1.2.0-alpha05'
 
+    //kakao
+    implementation "com.kakao.sdk:v2-user:2.0.1"
+
 }
