@@ -23,7 +23,7 @@ class HomeFragment(): BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inf
         // home 클릭 리스너
         //음식 종류별
         binding.homeMeatCv.setOnClickListener{
-            val intent = Intent(activity, FoodinfoActivity::class.java )
+            val intent = Intent(requireContext(), FoodinfoActivity::class.java )
             startActivity(intent)
         }
 

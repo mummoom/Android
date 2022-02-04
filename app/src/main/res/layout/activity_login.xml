@@ -8,7 +8,7 @@
         android:id="@+id/login_logo_iv"
         android:layout_width="234dp"
         android:layout_height="166dp"
-        android:src="@drawable/mummoom_logo"
+        android:src="@drawable/logo_img_mm"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -116,6 +116,7 @@
         android:background="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login_email_signup_btn_tv"/>
+        app:layout_constraintTop_toBottomOf="@id/login_email_signup_btn_tv"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,6 +27,9 @@ import com.mummoom.md.ui.nickname.NicknameActivity
 import com.mummoom.md.ui.siginup.SignUpActivity
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
+import com.mummoom.md.data.entities.User
+import com.mummoom.md.data.remote.auth.AuthService
+import com.mummoom.md.ui.dogname.DognameActivity
 
 
 class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate), LoginView, View.OnClickListener {
@@ -41,8 +44,6 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
     override fun initAfterBinding() {
         binding.loginEmailSignupBtnTv.setOnClickListener(this)
         binding.loginLoginBtnTv.setOnClickListener(this)
-//        binding.loginGoogleBtn.setOnClickListener(this)
-
         binding.loginGoogleBtn.setOnClickListener {
             googleLogin()
         }
@@ -59,13 +60,13 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
             .requestEmail()
             .build()
 
-        // 로그인 하고 다음에 어플을 켰을 때 바로 다음화면으로 넘어가게 하는 코드
-//        if(auth.currentUser != null)
-//        {
-//            val intent = Intent(this, MainActivity::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
+         //로그인 하고 다음에 어플을 켰을 때 바로 다음화면으로 넘어가게 하는 코드
+        if(auth.currentUser != null)
+        {
+            val intent = Intent(this, NicknameActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         client = GoogleSignIn.getClient(this, gso)
 
@@ -185,7 +186,7 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
     private  fun updateUI(user: FirebaseUser?) {
 
         if (user != null) {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, NicknameActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -196,7 +197,7 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
 
         when(v) {
             binding.loginEmailSignupBtnTv-> startNextActivity(SignUpActivity::class.java) //이메일로 회원가입 버튼
-            binding.loginLoginBtnTv -> startNextActivity(NicknameActivity::class.java)//login() //로그인 버튼
+            binding.loginLoginBtnTv -> startNextActivity(DognameActivity::class.java)//login() //로그인 버튼
 //            binding.loginGoogleBtn->googleLogin()
         }
     }
@@ -206,21 +207,21 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
     }
 
     private fun login() {
-//        if (binding.loginIdEt.text.toString().isEmpty() || binding.loginDirectInputEt.text.toString().isEmpty()) {
-//            Toast.makeText(this, "이메일을 입력해주세요.", Toast.LENGTH_SHORT).show()
-//            return
-//        }
-//
-//        if (binding.loginPasswordEt.text.toString().isEmpty()) {
-//            Toast.makeText(this, "비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
-//            return
-//        }
-//
-//        val email = binding.loginIdEt.text.toString() + "@" + binding.loginDirectInputEt.text.toString()
-//        val password = binding.loginPasswordEt.text.toString()
-//        val user = User(email, password, "")
-//
-//        AuthService.login(this, user)
+        if (binding.loginIdEt.text.toString().isEmpty()) {
+            Toast.makeText(this, "이메일을 입력해주세요.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (binding.loginPwEt.text.toString().isEmpty()) {
+            Toast.makeText(this, "비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val email = binding.loginIdEt.text.toString()
+        val password = binding.loginPwEt.text.toString()
+        val user = User(email,"", password, "")
+
+        AuthService.login(this, user)
 
 
     }

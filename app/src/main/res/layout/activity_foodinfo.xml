@@ -204,7 +204,7 @@
                     android:textSize="13sp"
                     android:textColor="@color/black"
                     />
-                
+
                 //단백질
                 <TextView
                     android:id="@+id/foodinfo_nutrition_dan_tv"
@@ -230,7 +230,7 @@
                     android:textSize="13sp"
                     android:textColor="@color/black"
                     />
-                
+
                 //지방
                 <TextView
                     android:id="@+id/foodinfo_nutrition_gi_tv"
@@ -256,7 +256,7 @@
                     android:textSize="13sp"
                     android:textColor="@color/black"
                     />
-                
+
                 //무기질
                 <TextView
                     android:id="@+id/foodinfo_nutrition_mu_tv"
@@ -283,7 +283,7 @@
                     android:textColor="@color/black"
                     />
 
-                
+
                 //수분
                 <TextView
                     android:id="@+id/foodinfo_nutrition_water_tv"

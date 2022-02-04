@@ -17,38 +17,59 @@
         android:src="@drawable/ex_dog1"
         />
 
-    <TextView
-        android:id="@+id/doggender_m_tv"
-        app:layout_constraintStart_toStartOf="@id/dobgender_logo_iv"
-        app:layout_constraintEnd_toStartOf="@id/doggender_w_tv"
-        app:layout_constraintTop_toBottomOf="@id/dobgender_logo_iv"
+    <ImageView
+        android:id="@+id/doggender_m_iv"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginTop="20dp"
         android:layout_marginStart="10dp"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:background="@drawable/bg_m_btn"
-        android:text="남자"
-        android:textColor="@color/main_color"
-        android:textSize="18sp"
-        android:gravity="center"/>
-    <TextView
-        android:id="@+id/doggender_w_tv"
-        app:layout_constraintEnd_toEndOf="@id/dobgender_logo_iv"
-        app:layout_constraintStart_toEndOf="@id/doggender_m_tv"
+        app:layout_constraintStart_toStartOf="@id/dobgender_logo_iv"
+        app:layout_constraintEnd_toStartOf="@id/doggender_w_iv"
         app:layout_constraintTop_toBottomOf="@id/dobgender_logo_iv"
+        android:src="@drawable/m_check" />
+    <ImageView
+        android:id="@+id/doggender_w_iv"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:background="@drawable/bg_w_btn"
-        android:text="여자"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:gravity="center"/>
+        app:layout_constraintEnd_toEndOf="@id/dobgender_logo_iv"
+        app:layout_constraintStart_toEndOf="@id/doggender_m_iv"
+        app:layout_constraintTop_toBottomOf="@id/dobgender_logo_iv"
+        android:src="@drawable/w_uncheck" />
+
+<!--    <TextView-->
+<!--        android:id="@+id/doggender_m_tv"-->
+<!--        app:layout_constraintStart_toStartOf="@id/dobgender_logo_iv"-->
+<!--        app:layout_constraintEnd_toStartOf="@id/doggender_w_tv"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/dobgender_logo_iv"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginStart="10dp"-->
+<!--        android:layout_width="64dp"-->
+<!--        android:layout_height="64dp"-->
+<!--        android:background="@drawable/bg_m_btn"-->
+<!--        android:text="수컷"-->
+<!--        android:textColor="@color/main_color"-->
+<!--        android:textSize="15sp"-->
+<!--        android:gravity="center"/>-->
+<!--    <TextView-->
+<!--        android:id="@+id/doggender_w_tv"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/dobgender_logo_iv"-->
+<!--        app:layout_constraintStart_toEndOf="@id/doggender_m_tv"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/dobgender_logo_iv"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginEnd="10dp"-->
+<!--        android:layout_width="64dp"-->
+<!--        android:layout_height="64dp"-->
+<!--        android:background="@drawable/bg_w_btn"-->
+<!--        android:text="암컷"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="15sp"-->
+<!--        android:gravity="center"/>-->
 
     <TextView
         android:id="@+id/doggender_neutering_tv"
-        app:layout_constraintTop_toBottomOf="@id/doggender_m_tv"
+        app:layout_constraintTop_toBottomOf="@id/doggender_m_iv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="50dp"
@@ -79,6 +100,34 @@
         app:layout_constraintBottom_toBottomOf="@id/doggender_neutering_tv"
         android:paddingStart="3dp"
     />
+
+    <TextView
+        android:id="@+id/doggender_previous_btn"
+        android:layout_width="120dp"
+        android:layout_height="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/doggender_neutering_tv"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="50dp"
+        android:gravity="center"
+        android:background="@drawable/bg_previous_btn"
+        android:text="이전"
+        android:textSize="15sp"
+        android:textColor="@color/black"/>
+    <TextView
+        android:id="@+id/doggender_next_btn"
+        android:layout_width="120dp"
+        android:layout_height="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/doggender_neutering_tv"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:gravity="center"
+        android:background="@drawable/bg_previous_btn"
+        android:text="다음"
+        android:textSize="15sp"
+        android:textColor="@color/main_color"/>
+
 
 
 

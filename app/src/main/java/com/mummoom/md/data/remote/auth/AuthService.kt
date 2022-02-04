@@ -69,7 +69,7 @@ object AuthService {
                 val resp = response.body()!!
 
                 when(resp.code){
-                    1000 -> splashView.onAutoLoginSuccess()
+                    200 -> splashView.onAutoLoginSuccess()
                     else -> splashView.onAutoLoginFailure(resp.code, resp.message)
                 }
             }
