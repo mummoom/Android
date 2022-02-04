@@ -6,15 +6,13 @@
     android:background="@color/splash_color">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/logo_img_mm"
+        android:layout_width="230dp"
+        android:layout_height="260dp"
+        android:src="@drawable/mummoom_logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

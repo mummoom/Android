@@ -1,27 +1,30 @@
 package com.mummoom.md.ui.main.mypage
 
 import android.content.Intent
-import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Spinner
+import androidx.viewpager2.widget.ViewPager2
 import com.mummoom.md.R
 import com.mummoom.md.databinding.FragmentMypageBinding
+import com.mummoom.md.ui.main.home.BannerFragment
 import com.mummoom.md.ui.BaseFragment
+import com.mummoom.md.ui.BaseViewpagerAdapter
 import com.mummoom.md.ui.main.community.MypageCustomDialog
 
 class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBinding::inflate) {
 
     override fun initAfterBinding() {
 
-        //val changeImgDialog = ChangeImageCustomDialog(requireContext())
+        // 다이얼로그 변수
         val plusDialog = MypageCustomDialog(requireContext())
         val modifyDialog = ModifyProfileCustomDialog(requireContext())
+
+        // viewpager 변수
+        val backgroundAdapter = BaseViewpagerAdapter(this)
+
 
         // 강아지 프로필 추가
         binding.mypagePlusBtnIv.setOnClickListener {
 //            val items = getResources().getStringArray(R.array.year)
-            //changeImgDialog.MyDig()
+            plusDialog.MyDig()
         }
 
         // 강아지 프로필 수정
@@ -30,14 +33,16 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
             modifyDialog.MyDig()
         }
 
-//        changeImgDialog.setOnClickedListener(object : ChangeImageCustomDialog.normalBtnClickListener{
-//            override fun onClicked() {
-//                val intent = Intent(requireContext(),IllustrationActivity::class.java)
-//                startActivity(intent)
-//            }
-//        })
+        // 강아지 프로필 배경 사진 (Viewpager)
+        binding.mypageBackImgVp.adapter = backgroundAdapter
+        binding.mypageBackImgVp.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+
+        backgroundAdapter.addFragment(BackgroundFragment(R.drawable.bg_yellow))
+        backgroundAdapter.addFragment(BackgroundFragment(R.drawable.bg_purple))
+        backgroundAdapter.addFragment(BackgroundFragment(R.drawable.bg_blue))
 
 
+        // 확인 버튼 눌렀을 때 처리 코드들
         plusDialog.setOnClickedListener(object : MypageCustomDialog.TextClickListener{
             override fun onClicked(
                 myName: String,

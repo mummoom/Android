@@ -8,10 +8,5 @@ class CommunityActivity : BaseActivity<ActivityCommunityBinding>(ActivityCommuni
 
     override fun initAfterBinding() {
 
-        val dialog = MypageCustomDialog(this)
-
-        binding.communityActMoreBtnIv.setOnClickListener {
-            dialog.MyDig()
-        }
     }
 }

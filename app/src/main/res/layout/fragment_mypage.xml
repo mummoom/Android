@@ -14,12 +14,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        // 강아지 이미지
-        <ImageView
-            android:id="@+id/mypage_puppyImg_iv"
+        // 뒷 배경
+<!--        <ImageView-->
+<!--            android:id="@+id/mypage_puppyImg_iv"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="165dp"-->
+<!--            android:background="#FFD231" />-->
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/mypage_backImg_vp"
             android:layout_width="match_parent"
-            android:layout_height="165dp"
-            android:background="#FFD231" />
+            android:layout_height="165dp" />
 
         <ImageView
             android:id="@+id/mypage_plusBtn_iv"

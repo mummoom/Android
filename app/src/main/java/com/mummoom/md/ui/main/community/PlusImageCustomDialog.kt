@@ -6,7 +6,6 @@ import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.TextView
 import com.mummoom.md.R
-import com.mummoom.md.ui.main.mypage.ChangeImageCustomDialog
 
 class PlusImageCustomDialog(context: Context) {
 
@@ -21,26 +20,29 @@ class PlusImageCustomDialog(context: Context) {
         dialog.setCanceledOnTouchOutside(true)
         dialog.setCancelable(true)
 
-        val albumTv = dialog.findViewById<TextView>(R.id.plusimageCustom_albumFunc_tv)
-        val normalTv = dialog.findViewById<TextView>(R.id.plusimageCustom_normalFunc_tv)
+        val pictureTv = dialog.findViewById<TextView>(R.id.plusimageCustom_bringPicture_tv)
+        val videoTv = dialog.findViewById<TextView>(R.id.plusimageCustom_bringVideo_tv)
         val icon1 = dialog.findViewById<ImageView>(R.id.plusimageCustom_icon1_iv)
         val icon2 = dialog.findViewById<ImageView>(R.id.plusimageCustom_icon2_iv)
 
         icon1.setOnClickListener {
+            onClickedListener.onPictureClicked()
             dialog.dismiss()
         }
 
-        albumTv.setOnClickListener {
+        pictureTv.setOnClickListener {
+            onClickedListener.onPictureClicked()
             dialog.dismiss()
         }
 
 
         icon2.setOnClickListener {
+            onClickedListener.onVideoClicked()
             dialog.dismiss()
         }
 
-        normalTv.setOnClickListener {
-            onClickedListener.onClicked()
+        videoTv.setOnClickListener {
+            onClickedListener.onVideoClicked()
             dialog.dismiss()
         }
 
@@ -48,12 +50,13 @@ class PlusImageCustomDialog(context: Context) {
     }
 
     // 확인 버튼 누를 때 입력 값들을 처리하기 위한 함수들
-    interface normalBtnClickListener{
-        fun onClicked()
+    interface clickListener{
+        fun onPictureClicked()
+        fun onVideoClicked()
     }
-    private lateinit var onClickedListener : PlusImageCustomDialog.normalBtnClickListener
+    private lateinit var onClickedListener : clickListener
 
-    fun setOnClickedListener(listener : PlusImageCustomDialog.normalBtnClickListener)
+    fun setOnClickedListener(listener : clickListener)
     {
         onClickedListener = listener
     }
