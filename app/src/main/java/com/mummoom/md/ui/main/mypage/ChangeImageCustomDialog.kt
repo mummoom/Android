@@ -44,12 +44,7 @@ class ChangeImageCustomDialog(context : Context)  {
 
         normalTv.setOnClickListener {
             onClickedListener.onClicked()
-
-
-                dialog.dismiss()
-
-
-
+            dialog.dismiss()
         }
 
         dialog.show()
