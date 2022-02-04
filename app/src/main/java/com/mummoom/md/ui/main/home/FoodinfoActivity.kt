@@ -5,7 +5,8 @@ import com.mummoom.md.databinding.ActivityFoodinfoBinding
 import com.mummoom.md.ui.BaseActivity
 
 
-class FoodinfoActivity : BaseActivity<ActivityFoodinfoBinding>(ActivityFoodinfoBinding::inflate){
+class FoodinfoActivity : BaseActivity<ActivityFoodinfoBinding>(ActivityFoodinfoBinding::inflate), IngredientsView, View.OnClickListener{
+
 
     override fun initAfterBinding() {
 
@@ -13,19 +14,41 @@ class FoodinfoActivity : BaseActivity<ActivityFoodinfoBinding>(ActivityFoodinfoB
             finish()
         }
 
-
-        binding.infoNutritionTitleCl.setOnClickListener {
-
-            if(binding.infoNutritionContTv.visibility == View.VISIBLE){
-                binding.infoNutritionContTv.visibility == View.GONE
-                binding.infoNutritionMoreIv.animate().setDuration(200).rotation(180f)
-            } else{
-                binding.infoNutritionContTv.visibility == View.VISIBLE
-                binding.infoNutritionMoreIv.animate().setDuration(200).rotation(0f)
-            }
-        }
-
+        binding.foodinfoNutritionTitleCl.setOnClickListener(this)
 
 
     }
+
+    override fun onClick(v: View?) {
+
+        if(v == null) return
+
+        when(v) {
+            binding.foodinfoNutritionTitleCl ->
+                if (binding.foodinfoNutritionContCl.visibility == View.GONE) {
+                    binding.foodinfoNutritionContCl.visibility = View.VISIBLE
+                    binding.foodinfoNutritionMoreIv.animate().setDuration(200).rotation(180f)
+
+                } else{
+                    binding.foodinfoNutritionContCl.visibility = View.GONE
+                    binding.foodinfoNutritionMoreIv.animate().setDuration(200).rotation(0f)
+                }
+
+        }
+
+    }
+
+    override fun onIngredientsLoading() {
+        TODO("Not yet implemented")
+    }
+
+    override fun onIngredientsSuccess() {
+        TODO("Not yet implemented")
+    }
+
+    override fun onIngredientsFailure(code: Int, message: String) {
+        TODO("Not yet implemented")
+    }
+
+
 }
