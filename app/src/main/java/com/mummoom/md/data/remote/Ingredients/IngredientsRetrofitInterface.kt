@@ -6,7 +6,11 @@ import retrofit2.http.Path
 
 interface IngredientsRetrofitInterface {
 
-//    @GET("/api/ingredients/{category}")
-//    fun getIngredientsCategory(
-//        @Path("category") category: String : Call<IngredientsResponse>)
+    @GET("/api/ingredients/{categoryNum}")
+    fun getIngredientsCategory(
+        @Path("categoryNum")categoryNum: Int
+    ) : Call<IngredientsResponse>
+
+    @GET("/api/simple/ingredients/{level}")
+    fun getSimpleInfo() : Call<IngredientsResponse>
 }

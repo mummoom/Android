@@ -241,7 +241,9 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
 //
         saveJwt(auth.jwt)
         Log.d("${TAG}/JWT-CLEAR", auth.jwt.toString())
-        //startActivityWithClear(DognameActivity::class.java)
+        startActivityWithClear(DognameActivity::class.java)
+
+
     }
 
     override fun onLoginFailure(code: Int, message: String) {

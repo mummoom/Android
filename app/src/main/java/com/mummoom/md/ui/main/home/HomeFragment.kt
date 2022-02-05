@@ -22,35 +22,56 @@ class HomeFragment(): BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inf
 
         // home 클릭 리스너
         //음식 종류별
+        binding.homeFishCv.setOnClickListener{
+            val intent = Intent(requireContext(), FoodtypeActivity::class.java )
+            intent.putExtra("categoryNum",1)
+            startActivity(intent)
+        }
+
+        binding.homeRiceCv.setOnClickListener{
+            val intent = Intent(requireContext(), FoodtypeActivity::class.java )
+            startActivity(intent)
+            intent.putExtra("categoryNum",5)
+
+        }
+
         binding.homeMeatCv.setOnClickListener{
-            val intent = Intent(requireContext(), FoodinfoActivity::class.java )
+            val intent = Intent(requireContext(), FoodtypeActivity::class.java )
+            intent.putExtra("categoryNum",2)
             startActivity(intent)
         }
 
         binding.homeVegCv.setOnClickListener{
             val intent = Intent(activity, FoodtypeActivity::class.java )
+            intent.putExtra("categoryNum",0)
             startActivity(intent)
         }
 
         binding.homeFruitCv.setOnClickListener{
             val intent = Intent(activity, FoodtypeActivity::class.java )
+            intent.putExtra("categoryNum",6)
             startActivity(intent)
         }
 
         binding.homeDairyCv.setOnClickListener{
             val intent = Intent(activity, FoodtypeActivity::class.java )
+            intent.putExtra("categoryNum",3)
             startActivity(intent)
         }
 
         binding.homeSeafoodCv.setOnClickListener{
             val intent = Intent(activity, FoodtypeActivity::class.java )
+            intent.putExtra("categoryNum",4)
             startActivity(intent)
         }
 
         binding.homeEtcCv.setOnClickListener{
             val intent = Intent(activity, FoodtypeActivity::class.java )
+            intent.putExtra("categoryNum",7)
             startActivity(intent)
         }
+
+
 
         //음식 정보
         binding.homeEatGoodCv.setOnClickListener{

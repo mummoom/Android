@@ -19,9 +19,7 @@ class NicknameActivity : BaseActivity<ActivityNicknameBinding>(ActivityNicknameB
         if(v == null) return
 
         when(v) {
-
-
-
+            binding.nicknameNextBtn -> startActivityWithClear(DognameActivity::class.java)
 
         }
     }
