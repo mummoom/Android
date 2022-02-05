@@ -30,6 +30,7 @@ import androidx.activity.result.contract.ActivityResultContracts.StartActivityFo
 import com.mummoom.md.data.entities.User
 import com.mummoom.md.data.remote.auth.AuthService
 import com.mummoom.md.ui.dogname.DognameActivity
+import com.mummoom.md.utils.saveJwt
 
 
 class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate), LoginView, View.OnClickListener {
@@ -236,7 +237,7 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
     override fun onLoginSuccess(auth: Auth) {
 //        binding.loginLoadingPb.visibility = View.GONE
 //
-//        saveJwt(auth.jwt)
+        saveJwt(auth.jwt)
 //        startActivityWithClear(MainActivity::class.java)
     }
 
