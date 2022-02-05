@@ -18,7 +18,7 @@ import com.mummoom.md.ui.dogname.DognameActivity
 
 class DogbirthActivity : BaseActivity<ActivityDogbirthBinding>(ActivityDogbirthBinding::inflate), View.OnClickListener{
 
-    private lateinit var dogname : String
+    private var dogname : String = ""
     private var birth : String = ""
     private var year : String = ""
     private var month : String = ""
