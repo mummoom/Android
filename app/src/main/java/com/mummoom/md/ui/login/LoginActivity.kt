@@ -2,6 +2,7 @@ package com.mummoom.md.ui.login
 
 import android.app.Activity
 import android.content.Intent
+import com.mummoom.md.ApplicationClass.Companion.TAG
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -27,9 +28,11 @@ import com.mummoom.md.ui.nickname.NicknameActivity
 import com.mummoom.md.ui.siginup.SignUpActivity
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
+import com.mummoom.md.ApplicationClass
 import com.mummoom.md.data.entities.User
 import com.mummoom.md.data.remote.auth.AuthService
 import com.mummoom.md.ui.dogname.DognameActivity
+import com.mummoom.md.utils.saveJwt
 
 
 class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate), LoginView, View.OnClickListener {
@@ -197,7 +200,7 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
 
         when(v) {
             binding.loginEmailSignupBtnTv-> startNextActivity(SignUpActivity::class.java) //이메일로 회원가입 버튼
-            binding.loginLoginBtnTv -> startNextActivity(DognameActivity::class.java)//login() //로그인 버튼
+            binding.loginLoginBtnTv -> login() //로그인 버튼
 //            binding.loginGoogleBtn->googleLogin()
         }
     }
@@ -236,8 +239,9 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
     override fun onLoginSuccess(auth: Auth) {
 //        binding.loginLoadingPb.visibility = View.GONE
 //
-//        saveJwt(auth.jwt)
-//        startActivityWithClear(MainActivity::class.java)
+        saveJwt(auth.jwt)
+        Log.d("${TAG}/JWT-CLEAR", auth.jwt.toString())
+        //startActivityWithClear(DognameActivity::class.java)
     }
 
     override fun onLoginFailure(code: Int, message: String) {

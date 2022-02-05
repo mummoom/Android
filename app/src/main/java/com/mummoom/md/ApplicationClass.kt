@@ -32,7 +32,7 @@ class ApplicationClass : Application() {
             .addNetworkInterceptor(XAccessTokenInterceptor()) // JWT 자동 헤더 전송
             .build()
 
-        retrofit = Retrofit.Builder()
+        retrofit = Retrofit.Builder() //한번생성하면 모든 API에서 사용하니까 한번로그인하면 무조건 헤더에 jwt가 들어감
             .baseUrl(BASE_URL)
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
