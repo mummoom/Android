@@ -1,11 +1,10 @@
 package com.mummoom.md.ui.main.home
 
-import android.content.Intent
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mummoom.md.databinding.ActivityFoodtypeBinding
 import com.mummoom.md.ui.BaseActivity
 
-class FoodtypeActivity : BaseActivity<ActivityFoodtypeBinding>(ActivityFoodtypeBinding::inflate),IngredientsView{
+class FoodtypeActivity : BaseActivity<ActivityFoodtypeBinding>(ActivityFoodtypeBinding::inflate){
 
     override fun initAfterBinding() {
 
@@ -16,15 +15,4 @@ class FoodtypeActivity : BaseActivity<ActivityFoodtypeBinding>(ActivityFoodtypeB
         }
     }
 
-    override fun onIngredientsLoading() {
-        TODO("Not yet implemented")
-    }
-
-    override fun onIngredientsSuccess() {
-        TODO("Not yet implemented")
-    }
-
-    override fun onIngredientsFailure(code: Int, message: String) {
-        TODO("Not yet implemented")
-    }
 }

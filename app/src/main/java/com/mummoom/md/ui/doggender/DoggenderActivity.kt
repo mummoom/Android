@@ -12,6 +12,8 @@ import com.mummoom.md.ui.BaseActivity
 import com.mummoom.md.ui.dogbirth.DogbirthActivity
 import com.mummoom.md.ui.dogbreed.DogbreedActivity
 import com.mummoom.md.ui.doginfocheck.DogInfoCheckActivity
+import com.mummoom.md.ui.main.MainActivity
+import com.mummoom.md.ui.main.home.HomeFragment
 
 class DoggenderActivity : BaseActivity<ActivityDoggenderBinding>(ActivityDoggenderBinding::inflate) ,DogInfoView, View.OnClickListener{
     private lateinit var dogInfo : String
@@ -41,7 +43,7 @@ class DoggenderActivity : BaseActivity<ActivityDoggenderBinding>(ActivityDoggend
 
         when(v) {
             binding.doggenderPreviousBtn -> startActivityWithClear(DoggenderActivity::class.java)
-            binding.doggenderNextBtn -> startActivityWithClear(DoggenderActivity::class.java)
+            binding.doggenderNextBtn -> startActivityWithClear(MainActivity::class.java)
             binding.doggenderMIv ->
             {
                 dogSex="0"
