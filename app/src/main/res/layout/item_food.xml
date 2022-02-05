@@ -62,12 +62,11 @@
     //발바닥
     <LinearLayout
         android:id="@+id/food_foot_ll"
-        android:layout_width="135dp"
+        android:layout_width="wrap_content"
         android:layout_height="18dp"
-        android:layout_marginStart="10dp"
         app:layout_constraintTop_toTopOf="@id/food_cv"
         app:layout_constraintBottom_toBottomOf="@id/food_cv"
-        app:layout_constraintStart_toEndOf="@id/food_kcal_tv"
+        app:layout_constraintEnd_toEndOf="parent"
         >
 
         <ImageView
