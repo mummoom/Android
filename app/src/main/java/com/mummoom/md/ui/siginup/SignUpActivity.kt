@@ -43,7 +43,7 @@ class SignUpActivity: BaseActivity<ActivitySignupBinding>(ActivitySignupBinding:
         val pwd: String = binding.signupPwEt.text.toString()
         val name: String = binding.signupNameEt.text.toString()
 
-        return User(email, imgUrl = "", pwd, name)
+        return User(email, imgUrl = "", name, pwd)
     }
 
     private fun signUp() {
