@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName
 data class Ingredients(
     @SerializedName("name") val name: String,
     @SerializedName("category") val category: String,
-    @SerializedName("img_url") val imgUrl: String,
+    @SerializedName("imgUrl") val imgUrl: String,
     @SerializedName("kcal") val kcal: Int,
     @SerializedName("warning") val warning: String,
     @SerializedName("spec") val spec: String,
