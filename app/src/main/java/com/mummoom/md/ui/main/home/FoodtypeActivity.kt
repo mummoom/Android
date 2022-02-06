@@ -1,8 +1,11 @@
 package com.mummoom.md.ui.main.home
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.AttributeSet
 import android.util.Log
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mummoom.md.data.Ingredients.Ingredients
 import com.mummoom.md.data.remote.Ingredients.IngredientsService
@@ -17,11 +20,12 @@ class FoodtypeActivity : BaseActivity<ActivityFoodtypeBinding>(ActivityFoodtypeB
 
     override fun initAfterBinding() {
 
-        binding.foodtypeInfoRv.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false)
+        binding.foodtypeInfoRv.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)
 
         binding.foodtypeBackIv.setOnClickListener {
             finish()
         }
+
     }
 
 
@@ -47,8 +51,11 @@ class FoodtypeActivity : BaseActivity<ActivityFoodtypeBinding>(ActivityFoodtypeB
 
     }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding.foodtypeTitleTv.text = intent.getStringExtra("category")
 
         if(intent.hasExtra("categoryNum")){
             categoryNum = intent.getIntExtra("categoryNum",-1)

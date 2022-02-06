@@ -22,52 +22,60 @@ class HomeFragment(): BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inf
 
         // home 클릭 리스너
         //음식 종류별
-        binding.homeFishCv.setOnClickListener{
-            val intent = Intent(requireContext(), FoodtypeActivity::class.java )
-            intent.putExtra("categoryNum",1)
+        binding.homeVegCv.setOnClickListener{
+            val intent = Intent(activity, FoodtypeActivity::class.java )
+            intent.putExtra("categoryNum",0)
+            intent.putExtra("category","채소")
             startActivity(intent)
         }
 
-        binding.homeRiceCv.setOnClickListener{
+        binding.homeFishCv.setOnClickListener{
             val intent = Intent(requireContext(), FoodtypeActivity::class.java )
+            intent.putExtra("categoryNum",1)
+            intent.putExtra("category","생선")
             startActivity(intent)
-            intent.putExtra("categoryNum",5)
-
         }
 
         binding.homeMeatCv.setOnClickListener{
             val intent = Intent(requireContext(), FoodtypeActivity::class.java )
             intent.putExtra("categoryNum",2)
-            startActivity(intent)
-        }
-
-        binding.homeVegCv.setOnClickListener{
-            val intent = Intent(activity, FoodtypeActivity::class.java )
-            intent.putExtra("categoryNum",0)
-            startActivity(intent)
-        }
-
-        binding.homeFruitCv.setOnClickListener{
-            val intent = Intent(activity, FoodtypeActivity::class.java )
-            intent.putExtra("categoryNum",6)
+            intent.putExtra("category","고기")
             startActivity(intent)
         }
 
         binding.homeDairyCv.setOnClickListener{
             val intent = Intent(activity, FoodtypeActivity::class.java )
             intent.putExtra("categoryNum",3)
+            intent.putExtra("category","유제품")
             startActivity(intent)
         }
 
         binding.homeSeafoodCv.setOnClickListener{
             val intent = Intent(activity, FoodtypeActivity::class.java )
             intent.putExtra("categoryNum",4)
+            intent.putExtra("category","해산물")
+            startActivity(intent)
+        }
+
+        binding.homeRiceCv.setOnClickListener{
+            val intent = Intent(requireContext(), FoodtypeActivity::class.java )
+            intent.putExtra("categoryNum",5)
+            intent.putExtra("category","곡류")
+            startActivity(intent)
+
+        }
+
+        binding.homeFruitCv.setOnClickListener{
+            val intent = Intent(activity, FoodtypeActivity::class.java )
+            intent.putExtra("categoryNum",6)
+            intent.putExtra("category","과일")
             startActivity(intent)
         }
 
         binding.homeEtcCv.setOnClickListener{
             val intent = Intent(activity, FoodtypeActivity::class.java )
             intent.putExtra("categoryNum",7)
+            intent.putExtra("category","기타")
             startActivity(intent)
         }
 
