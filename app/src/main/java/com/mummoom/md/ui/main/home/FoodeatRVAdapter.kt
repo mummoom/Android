@@ -14,7 +14,7 @@ class FoodeatRVAdapter(val context: Context) : RecyclerView.Adapter<FoodeatRVAda
     private val ingredientsList = ArrayList<Ingredients>()
 
     interface MyItemClickListener{
-        fun onItemClick()
+        fun onItemClick(ingredients : Ingredients)
     }
 
     private lateinit var myItemClickListener: MyItemClickListener
@@ -31,7 +31,7 @@ class FoodeatRVAdapter(val context: Context) : RecyclerView.Adapter<FoodeatRVAda
     override fun onBindViewHolder(holder: FoodeatRVAdapter.ViewHolder, position: Int) {
         holder.bind(ingredientsList[position])
         holder.itemView.setOnClickListener{
-            myItemClickListener.onItemClick()
+            myItemClickListener.onItemClick(ingredientsList[position])
         }
     }
 

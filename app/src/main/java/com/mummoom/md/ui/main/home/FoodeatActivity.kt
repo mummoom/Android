@@ -1,6 +1,7 @@
 package com.mummoom.md.ui.main.home
 
 import android.R
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
@@ -33,8 +34,12 @@ class FoodeatActivity : BaseActivity<ActivityFoodeatBinding>(ActivityFoodeatBind
         binding.foodeatInfoRv.adapter = foodeatRVAdapter
 
         foodeatRVAdapter.setMyItemClickListener(object : FoodeatRVAdapter.MyItemClickListener{
-            override fun onItemClick() {
-                //액티비티 전환하는 함수
+
+            override fun onItemClick(ingredients: Ingredients) {
+                val intent = Intent(this@FoodeatActivity, FoodinfoActivity::class.java)
+
+                intent.putExtra("ingredientInfo", ingredients)
+                startActivity(intent)
             }
 
         })
