@@ -34,9 +34,13 @@ class FoodtypeActivity : BaseActivity<ActivityFoodtypeBinding>(ActivityFoodtypeB
         binding.foodtypeInfoRv.adapter = foodtypeRVAdapter
 
         foodtypeRVAdapter.setMyItemClickListener(object : FoodtypeRVAdapter.MyItemClickListener{
-            override fun onItemClick() {
-                //액티비티 전환하는 함수
-           }
+
+            override fun onItemClick(ingredients: Ingredients) {
+                val intent = Intent(this@FoodtypeActivity, FoodinfoActivity::class.java)
+
+                intent.putExtra("ingredientInfo", ingredients)
+                startActivity(intent)
+            }
 
         })
 

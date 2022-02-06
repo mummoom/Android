@@ -86,7 +86,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/food_info_img"
-                />
+                android:scaleType="centerCrop" />
+
         </androidx.cardview.widget.CardView>
 
         //음식이름

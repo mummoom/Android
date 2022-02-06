@@ -16,7 +16,7 @@ class FoodtypeRVAdapter(val context: Context) : RecyclerView.Adapter<FoodtypeRVA
 
     //fooditem 클릭리스너
     interface MyItemClickListener{
-        fun onItemClick()
+        fun onItemClick(ingredients : Ingredients)
     }
 
     private lateinit var myItemClickListener: MyItemClickListener
@@ -37,7 +37,7 @@ class FoodtypeRVAdapter(val context: Context) : RecyclerView.Adapter<FoodtypeRVA
         Log.d("bindviewholder","success")
         holder.bind(ingredientsList[position])
         holder.itemView.setOnClickListener{
-            myItemClickListener.onItemClick()
+            myItemClickListener.onItemClick(ingredientsList[position])
         }
 
     }
