@@ -1,10 +1,15 @@
 package com.mummoom.md.ui.main.home
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.Bitmap.CompressFormat
+import android.graphics.BitmapFactory
 import androidx.viewpager2.widget.ViewPager2
 import com.mummoom.md.R
 import com.mummoom.md.databinding.FragmentHomeBinding
 import com.mummoom.md.ui.BaseFragment
+import java.io.ByteArrayOutputStream
+
 
 class HomeFragment(): BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
 
@@ -82,20 +87,53 @@ class HomeFragment(): BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inf
 
 
         //음식 정보
+
+        binding.homeEatNeverCv.setOnClickListener{
+            val intent = Intent(activity, FoodeatActivity::class.java )
+            //아이콘 intent로 보내주기
+            val bitmap : Bitmap = BitmapFactory.decodeResource(resources,R.drawable.ic_never_black)
+            val stream = ByteArrayOutputStream()
+            bitmap.compress(CompressFormat.PNG, 100, stream)
+            val byteArray = stream.toByteArray()
+            intent.putExtra("image",byteArray)
+            //내용과 제목 보내주기
+            intent.putExtra("level",0)
+            intent.putExtra("category","절대 안돼!")
+
+            startActivity(intent)
+        }
+
         binding.homeEatGoodCv.setOnClickListener{
             val intent = Intent(activity, FoodeatActivity::class.java )
+            //아이콘 intent로 보내주기
+            val bitmap : Bitmap = BitmapFactory.decodeResource(resources,R.drawable.ic_good_black)
+            val stream = ByteArrayOutputStream()
+            bitmap.compress(CompressFormat.PNG, 100, stream)
+            val byteArray = stream.toByteArray()
+            intent.putExtra("image",byteArray)
+            //내용과 제목 보내주기
+            intent.putExtra("level",2)
+            intent.putExtra("category","좋은 음식")
+
             startActivity(intent)
         }
 
         binding.homeEatSosoCv.setOnClickListener{
             val intent = Intent(activity, FoodeatActivity::class.java )
+            //아이콘 intent로 보내주기
+            val bitmap : Bitmap = BitmapFactory.decodeResource(resources,R.drawable.ic_soso_black)
+            val stream = ByteArrayOutputStream()
+            bitmap.compress(CompressFormat.PNG, 100, stream)
+            val byteArray = stream.toByteArray()
+            intent.putExtra("image",byteArray)
+            //내용과 제목 보내주기
+            intent.putExtra("level",1)
+            intent.putExtra("category","애매한 음식")
+
             startActivity(intent)
         }
 
-        binding.homeEatNeverCv.setOnClickListener{
-            val intent = Intent(activity, FoodeatActivity::class.java )
-            startActivity(intent)
-        }
+
     }
 
 
