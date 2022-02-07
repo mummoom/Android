@@ -44,10 +44,10 @@ class PostService {
             ) {
                 val resp = response.body()!!
 
-                when(resp.status)
+                when(resp.code)
                 {
                     200 -> getPostsView.onGetPostsSuccess(resp.data)
-                    else -> getPostsView.onGetPostsFailure(resp.status, resp.message)
+                    else -> getPostsView.onGetPostsFailure(resp.code, resp.message)
                 }
             }
 
