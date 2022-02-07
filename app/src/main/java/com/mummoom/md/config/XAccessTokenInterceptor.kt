@@ -1,6 +1,7 @@
 package com.mummoom.md.config
 
-import com.mummoom.md.ApplicationClass.Companion.X_ACCESS_TOKEN
+import com.mummoom.md.ApplicationClass
+
 import com.mummoom.md.utils.getJwt
 import okhttp3.Interceptor
 import okhttp3.Request
@@ -13,7 +14,7 @@ class XAccessTokenInterceptor: Interceptor {
         val jwtToken: String? = getJwt() //디바이스에 jwt가 있을 때 가져옴
 
         jwtToken?.let{
-            builder.addHeader(X_ACCESS_TOKEN, jwtToken) //null이 아닐때 헤더에 넣어줌
+            builder.addHeader(ApplicationClass.X_AUTH_TOKEN, jwtToken) //null이 아닐때 헤더에 넣어줌
         }
 
         return chain.proceed(builder.build())

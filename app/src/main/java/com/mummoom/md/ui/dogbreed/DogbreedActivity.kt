@@ -2,6 +2,7 @@ package com.mummoom.md.ui.dogbreed
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -56,20 +57,21 @@ class DogbreedActivity : BaseActivity<ActivityDogbreedBinding>(ActivityDogbreedB
 
         when(v) {
             binding.dogbreedPreviousBtn -> startActivityWithClear(DogbirthActivity::class.java)
-            binding.dogbreedNextBtn -> startActivityWithClear(DoggenderActivity::class.java)
+            binding.dogbreedNextBtn -> dogType()
 
         }
     }
 
     private fun dogType() {
         if (dogType.isEmpty()) {
-            Toast.makeText(this, "종이 선택되지 않았습니다.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "강아지 종이 선택되지 않았습니다.", Toast.LENGTH_SHORT).show()
             return
         }
         dogType += ","
         dogInfo += dogType
-        val intent = Intent(this,DogbreedActivity::class.java)
+        val intent = Intent(this,DoggenderActivity::class.java)
         intent.putExtra("dogInfo",dogInfo)
+        Log.d("DOGINFO",dogInfo)
         startActivity(intent)
 
     }
