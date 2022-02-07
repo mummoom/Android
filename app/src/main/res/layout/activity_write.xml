@@ -29,11 +29,11 @@
 
     <TextView
         android:id="@+id/write_uploadBtn_tv"
-        android:layout_width="65dp"
-        android:layout_height="20dp"
+        android:layout_width="70dp"
+        android:layout_height="25dp"
         android:layout_marginEnd="20dp"
         android:text="업로드"
-        android:textSize="12sp"
+        android:textSize="15sp"
         android:textColor="@color/white"
         android:background="@drawable/rounding_solid_yellow"
         android:gravity="center"
@@ -103,17 +103,6 @@
         android:background="#EAEAEA"
         app:layout_constraintTop_toBottomOf="@id/write_title_et" />
 
-    <ImageView
-        android:id="@+id/write_addImg_iv"
-        android:layout_width="350dp"
-        android:layout_height="200dp"
-        android:scaleType="fitXY"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/ic_plus_big"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/write_line3_view"/>
-
     <EditText
         android:id="@+id/write_content_et"
         android:layout_width="match_parent"
@@ -122,14 +111,32 @@
         android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp"
         android:hint="텍스트를 입력해주세요."
-        android:textColorHint="@color/black"
+        android:textColorHint="#c4c4c4"
         android:background="@color/transparent"
         android:textSize="14sp"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:gravity="center_vertical"
-        app:layout_constraintTop_toBottomOf="@id/write_addImg_iv"
+        app:layout_constraintTop_toBottomOf="@id/write_line3_view"
         app:layout_constraintStart_toStartOf="@id/write_arrow_iv"/>
+
+    <View
+        android:id="@+id/write_line4_view"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginBottom="60dp"
+        android:background="#EAEAEA"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:id="@+id/write_galleryBtn_iv"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_gallery"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/write_line4_view"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="25dp"/>
 
     // 업로드 완료 화면
     <FrameLayout
