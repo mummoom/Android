@@ -8,6 +8,9 @@ import retrofit2.http.POST
 
 interface PostRetrofitInterface {
 
+    @POST("/post")
+    fun savePost() : Call<DefaultPostResponse>
+
     @GET("/post/{postIdx}")
     fun getPostByPostIdx() : Call<GetPostResponse>
 
@@ -17,8 +20,11 @@ interface PostRetrofitInterface {
     @PATCH("/post/{postIdx}")
     fun updatePost() : Call<DefaultPostResponse>
 
-    @POST("/post/{userIdx}")
-    fun savePost() : Call<DefaultPostResponse>
+    @GET("/post/findMyLikes")
+    fun getLikedPost() : Call<GetPostsResponse>
+
+    @GET("/post/findMypost")
+    fun getMyPost() : Call<GetPostsResponse>
 
     @GET("/posts")
     fun getPosts() : Call<GetPostsResponse>
