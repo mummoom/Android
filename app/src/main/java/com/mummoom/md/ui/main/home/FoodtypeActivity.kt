@@ -3,6 +3,8 @@ package com.mummoom.md.ui.main.home
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
@@ -46,6 +48,7 @@ class FoodtypeActivity : BaseActivity<ActivityFoodtypeBinding>(ActivityFoodtypeB
 
     }
 
+
     private fun getFoodtype(){
 
         Log.d("categoryNum",categoryNum.toString())
@@ -63,6 +66,7 @@ class FoodtypeActivity : BaseActivity<ActivityFoodtypeBinding>(ActivityFoodtypeB
 
         if(intent.hasExtra("categoryNum")){
             categoryNum = intent.getIntExtra("categoryNum",-1)
+
         }
     }
 
@@ -87,4 +91,6 @@ class FoodtypeActivity : BaseActivity<ActivityFoodtypeBinding>(ActivityFoodtypeB
             400 -> Log.d("fail", message)
         }
     }
+
+
 }

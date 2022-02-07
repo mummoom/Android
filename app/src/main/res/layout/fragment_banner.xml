@@ -8,7 +8,7 @@
         android:id="@+id/banner_image_iv"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:src="@drawable/home_banner_ex"
+        android:src="@drawable/mummoom_banner_1"
         android:scaleType="centerCrop"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -5,6 +5,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.mummoom.md.data.Ingredients.Ingredients
@@ -13,6 +15,7 @@ import com.mummoom.md.databinding.ItemFoodBinding
 class FoodtypeRVAdapter(val context: Context) : RecyclerView.Adapter<FoodtypeRVAdapter.ViewHolder>(){
 
     private val ingredientsList = ArrayList<Ingredients>()
+
 
     //fooditem 클릭리스너
     interface MyItemClickListener{
@@ -29,6 +32,7 @@ class FoodtypeRVAdapter(val context: Context) : RecyclerView.Adapter<FoodtypeRVA
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): FoodtypeRVAdapter.ViewHolder {
         val binding: ItemFoodBinding = ItemFoodBinding.inflate(LayoutInflater.from(viewGroup.context),viewGroup,false)
         return ViewHolder(binding)
+
     }
 
     //아이템이 들어올떄마다 거쳐가는곳
@@ -97,5 +101,6 @@ class FoodtypeRVAdapter(val context: Context) : RecyclerView.Adapter<FoodtypeRVA
             }
         }
     }
+
 
 }

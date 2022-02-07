@@ -2,6 +2,7 @@ package com.mummoom.md.data.Ingredients
 
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 
 data class Component(
@@ -11,7 +12,5 @@ data class Component(
     @SerializedName("water") val water: Float,
     @SerializedName("mu") val mu: Float,
     @SerializedName("effect") val effect: String,
-
-){
-    @PrimaryKey(autoGenerate = true) var component_idx: Int = 0
-}
+    @SerializedName("componentIdx") val componentIdx: Int,
+): Serializable
