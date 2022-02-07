@@ -41,12 +41,14 @@ object AuthService {
 
         loginView.onLoginLoading()
 
-        authService.login(user).enqueue(object : Callback<AuthResponse> {
+        authService.login(user).clone().enqueue(object : Callback<AuthResponse> {
             override fun onResponse(call: Call<AuthResponse>, response: Response<AuthResponse>) {
                 val resp = response.body()!!
+                Log.d("RESPONSE_BODY",resp.data)
+
 
                 when(resp.code){
-                    1000 -> loginView.onLoginSuccess(resp.result!!)
+                    1000 -> loginView.onLoginSuccess(resp.data)
                     else -> loginView.onLoginFailure(resp.code, resp.message)
                 }
             }

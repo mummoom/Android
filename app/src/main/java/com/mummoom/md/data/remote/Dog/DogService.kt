@@ -17,15 +17,18 @@ object DogService {
     fun dogInfo(dogInfoView: DogInfoView, dog : Dog) {
         val dogService = retrofit.create(DogRetrofitInterface::class.java)
 
+        Log.d("DOG_",dog.toString())
+
         dogInfoView.onDogInfoLoading()
 
         dogService.dogInfo(dog).enqueue(object : Callback<DogResponse> {
             override fun onResponse(call: Call<DogResponse>, response: Response<DogResponse>) {
+                Log.d("DOG_REPONSE",response.body().toString())
 
                 val resp = response.body()!!
 
                 when(resp.code){
-                    200 -> dogInfoView.onDogInfoSuccess()
+                    1000 -> dogInfoView.onDogInfoSuccess(resp.data!!)
                     else -> dogInfoView.onDogInfoFailure(resp.code, resp.message)
                 }
             }

@@ -3,6 +3,7 @@ package com.mummoom.md.ui.dogbirth
 import android.content.Intent
 import android.graphics.PixelFormat
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -98,13 +99,14 @@ class DogbirthActivity : BaseActivity<ActivityDogbirthBinding>(ActivityDogbirthB
     }
     private fun dogBirth() {
         if (birth.isEmpty()) {
-            Toast.makeText(this, "이름 형식이 잘못되었습니다.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "강아지 생년월일을 입력해주세요.", Toast.LENGTH_SHORT).show()
             return
         }
-        val dogbirth = year+","
+        val dogbirth = birth+","
         val dogInfo=dogname+dogbirth
         val intent = Intent(this,DogbreedActivity::class.java)
         intent.putExtra("dogInfo",dogInfo)
+        Log.d("DOGINFO",dogInfo)
         startActivity(intent)
 
     }

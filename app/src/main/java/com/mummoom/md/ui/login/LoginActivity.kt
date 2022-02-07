@@ -1,37 +1,26 @@
 package com.mummoom.md.ui.login
 
-import android.app.Activity
 import android.content.Intent
-import com.mummoom.md.ApplicationClass.Companion.TAG
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.annotation.StringRes
 import com.google.android.gms.auth.api.signin.*
 import com.google.android.gms.common.api.ApiException
-import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import com.mummoom.md.ApplicationClass.Companion.TAG
 import com.mummoom.md.R
-import com.mummoom.md.data.remote.auth.Auth
-import com.mummoom.md.databinding.ActivityLoginBinding
-import com.mummoom.md.ui.BaseActivity
-import com.mummoom.md.ui.main.MainActivity
-import com.mummoom.md.ui.nickname.NicknameActivity
-import com.mummoom.md.ui.siginup.SignUpActivity
-import androidx.activity.result.ActivityResultCallback
-import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
-import com.mummoom.md.ApplicationClass
 import com.mummoom.md.data.entities.User
 import com.mummoom.md.data.remote.auth.AuthService
+import com.mummoom.md.databinding.ActivityLoginBinding
+import com.mummoom.md.ui.BaseActivity
 import com.mummoom.md.ui.dogname.DognameActivity
+import com.mummoom.md.ui.nickname.NicknameActivity
+import com.mummoom.md.ui.siginup.SignUpActivity
 import com.mummoom.md.utils.saveJwt
 
 
@@ -222,25 +211,22 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
 
         val email = binding.loginIdEt.text.toString()
         val password = binding.loginPwEt.text.toString()
-        val user = User(email,"", password, "")
+        val user = User(email,"", "",password)
 
         AuthService.login(this, user)
 
-
     }
-
-
 
 
     override fun onLoginLoading() {
         //binding.loginLoadingPb.visibility = View.VISIBLE
     }
 
-    override fun onLoginSuccess(auth: Auth) {
+    override fun onLoginSuccess(jwt: String) {
 //        binding.loginLoadingPb.visibility = View.GONE
 //
-        saveJwt(auth.jwt)
-        Log.d("${TAG}/JWT-CLEAR", auth.jwt.toString())
+        saveJwt(jwt)
+        Log.d("${TAG}/JWT-CLEAR", jwt.toString())
         startActivityWithClear(DognameActivity::class.java)
 
 

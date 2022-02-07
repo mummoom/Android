@@ -1,6 +1,7 @@
 package com.mummoom.md.ui.dogname
 
 import android.content.Intent
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.mummoom.md.databinding.ActivityDognameBinding
@@ -20,19 +21,21 @@ class DognameActivity : BaseActivity<ActivityDognameBinding>(ActivityDognameBind
         if(v == null) return
 
         when(v) {
-            binding.dognameNextBtn -> startActivityWithClear(DogbirthActivity::class.java)
+            binding.dognameNextBtn -> nickname()
 
         }
     }
 
     private fun nickname() {
         if (binding.dognameNameEt.text.toString().isEmpty()) {
-            Toast.makeText(this, "이름 형식이 잘못되었습니다.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "강아지 이름을 입력해주세요.", Toast.LENGTH_SHORT).show()
             return
         }
-        val dogname = binding.dognameNameEt.text.toString()+","
+        var dogname = binding.dognameNameEt.text.toString()
+        dogname += ","
         val intent = Intent(this,DogbirthActivity::class.java)
         intent.putExtra("dogInfo",dogname)
+        Log.d("DOGINFO_NAME",dogname)
         startActivity(intent)
 
     }

@@ -3,10 +3,12 @@ package com.mummoom.md.ui.doggender
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.mummoom.md.R
 import com.mummoom.md.data.entities.Dog
+import com.mummoom.md.data.remote.Dog.DogService
 import com.mummoom.md.databinding.ActivityDoggenderBinding
 import com.mummoom.md.ui.BaseActivity
 import com.mummoom.md.ui.dogbirth.DogbirthActivity
@@ -43,7 +45,7 @@ class DoggenderActivity : BaseActivity<ActivityDoggenderBinding>(ActivityDoggend
 
         when(v) {
             binding.doggenderPreviousBtn -> startActivityWithClear(DoggenderActivity::class.java)
-            binding.doggenderNextBtn -> startActivityWithClear(MainActivity::class.java)
+
             binding.doggenderMIv ->
             {
                 dogSex="0"
@@ -68,32 +70,51 @@ class DoggenderActivity : BaseActivity<ActivityDoggenderBinding>(ActivityDoggend
                 binding.doggenderNeuteringCheckOffIv.visibility=View.VISIBLE
                 binding.doggenderNeuteringCheckOnIv.visibility=View.INVISIBLE
             }
+            binding.doggenderNextBtn->dogInfo()
 
 
         }
     }
 
-    private fun getDogInfo() {
+    private fun getDogInfo() : Dog{
         val token = dogInfo.split(",")
-        val dogName : String = token[0]
-        val dogBirth : String = token[1]
-        val dogType : String = token[2]
+        var dogName : String = token[0]
+        var dogBirth : String = token[1]
+        var dogType : String = token[2]
 
 
-        //return Dog(dogBirth,dogName,dogSex,dogType,surgery,userIdx)
+        Log.d("DOGINFO_NAME",dogName)
+        Log.d("DOGINFO_BIRTH",dogBirth)
+        Log.d("DOGINFO_TYPE",dogType)
+        Log.d("DOGINFO_SEX",dogSex)
+        Log.d("DOGINFO_SURGERY",surgery)
+
+        return Dog(dogBirth, dogIdx = 0,dogName,dogSex,dogType,surgery)
+
+    }
+
+    private fun dogInfo() {
+
+        DogService.dogInfo(this,getDogInfo())
 
     }
 
     override fun onDogInfoLoading() {
-        TODO("Not yet implemented")
-    }
 
-    override fun onDogInfoSuccess() {
-        TODO("Not yet implemented")
+    }
+    override fun onDogInfoSuccess(dogIdx: Dog)
+ {
+     Log.d("LOG_SUCCESS","성공")
+        startActivityWithClear(DogInfoCheckActivity::class.java)
     }
 
     override fun onDogInfoFailure(code: Int, message: String) {
-        TODO("Not yet implemented")
+        when(code) {
+            6000 -> {
+                Toast.makeText(this, "강아지 정보가 정확하지 않습니다.", Toast.LENGTH_SHORT).show()
+            }
+        }
+
     }
 
 

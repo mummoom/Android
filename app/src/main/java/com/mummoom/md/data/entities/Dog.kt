@@ -5,13 +5,11 @@ import com.google.gson.annotations.SerializedName
 
 data class Dog(
     @SerializedName("dogBirth") val dogBirth: String,
+    @SerializedName("dogIdx") val dogIdx: Int,
     @SerializedName("dogName") val dogName : String ,
     @SerializedName("dogSex") val dogSex: String,
     @SerializedName("dogType") val dogType : String,
-    @SerializedName("surgery") val surgery: String,
-    @SerializedName("userIdx") var userIdx: Int)
- {
-    @PrimaryKey(autoGenerate = true)
-    var dogIdx: Int = 0
-    }
+    @SerializedName("surgery") val surgery: String
+)
+
 
