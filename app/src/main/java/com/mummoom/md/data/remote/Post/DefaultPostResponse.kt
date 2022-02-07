@@ -6,6 +6,5 @@ data class DefaultPostResponse(
     @SerializedName("code") val code : Int,
     @SerializedName("data") val data : Int,
     @SerializedName("isSuccess") val isSuccess : Boolean,
-    @SerializedName("message") val message : String,
-    @SerializedName("status") val status : Int
+    @SerializedName("message") val message : String
 )

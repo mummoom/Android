@@ -1,7 +1,6 @@
 package com.mummoom.md.ui.main.home
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,11 +9,10 @@ import com.bumptech.glide.Glide
 import com.mummoom.md.data.Ingredients.Ingredients
 import com.mummoom.md.databinding.ItemFoodBinding
 
-class FoodtypeRVAdapter(val context: Context) : RecyclerView.Adapter<FoodtypeRVAdapter.ViewHolder>(){
+class FoodeatRVAdapter(val context: Context) : RecyclerView.Adapter<FoodeatRVAdapter.ViewHolder>() {
 
     private val ingredientsList = ArrayList<Ingredients>()
 
-    //fooditem 클릭리스너
     interface MyItemClickListener{
         fun onItemClick(ingredients : Ingredients)
     }
@@ -25,23 +23,18 @@ class FoodtypeRVAdapter(val context: Context) : RecyclerView.Adapter<FoodtypeRVA
         myItemClickListener = itemClickListener
     }
 
-    //뷰홀더 객체 생성
-    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): FoodtypeRVAdapter.ViewHolder {
+    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): FoodeatRVAdapter.ViewHolder {
         val binding: ItemFoodBinding = ItemFoodBinding.inflate(LayoutInflater.from(viewGroup.context),viewGroup,false)
         return ViewHolder(binding)
     }
 
-    //아이템이 들어올떄마다 거쳐가는곳
-    //포지션에 해당하는 데이터를 뷰홀더의 아이템뷰에 표시
-    override fun onBindViewHolder(holder: FoodtypeRVAdapter.ViewHolder, position: Int) {
-        Log.d("bindviewholder","success")
+    override fun onBindViewHolder(holder: FoodeatRVAdapter.ViewHolder, position: Int) {
         holder.bind(ingredientsList[position])
         holder.itemView.setOnClickListener{
             myItemClickListener.onItemClick(ingredientsList[position])
         }
-
     }
-    //전체 아이템 개수 리턴
+
     override fun getItemCount(): Int = ingredientsList.size
 
     fun addIngredients(ingredients: ArrayList<Ingredients>){
@@ -58,8 +51,8 @@ class FoodtypeRVAdapter(val context: Context) : RecyclerView.Adapter<FoodtypeRVA
                 .into(binding.foodIv)
 
             binding.foodNameTv.text = ingredients.name
-            binding.foodKcalTv.text = ingredients.kcal.toString()+" kcal"
-            //발바닥_score
+            binding.foodKcalTv.text = ingredients.kcal.toString() + "kcal"
+
             if(ingredients.score == 1){
                 binding.foodFootLl1.visibility = View.VISIBLE
                 binding.foodFootLl2.visibility = View.GONE
@@ -97,5 +90,4 @@ class FoodtypeRVAdapter(val context: Context) : RecyclerView.Adapter<FoodtypeRVA
             }
         }
     }
-
 }

@@ -12,5 +12,7 @@ interface IngredientsRetrofitInterface {
     ) : Call<IngredientsResponse>
 
     @GET("/api/simple/ingredients/{level}")
-    fun getSimpleInfo() : Call<IngredientsResponse>
+    fun getIngredientsSimple(
+        @Path("level")level: Int
+    ) : Call<IngredientsResponse>
 }

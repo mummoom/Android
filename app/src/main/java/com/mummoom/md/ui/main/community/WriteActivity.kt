@@ -16,16 +16,28 @@ import java.util.*
 
 class WriteActivity : BaseActivity<ActivityWriteBinding>(ActivityWriteBinding::inflate) {
 
-    private lateinit var uri : Uri
+    private var uri : String = ""
 
     private var launcher = registerForActivityResult(ActivityResultContracts.GetContent())
     {
 //        it -> // 받아온 url로 writeActivity 화면을 change 해주기?
 
-        uri = it
-        Glide.with(this)
-            .load(uri)
-            .into(findViewById(R.id.write_addImg_iv))
+        if(it == null)
+        {
+            uri = ""
+        }
+        else
+        {
+            uri = it.toString()
+        }
+
+        if(uri.isNotEmpty())
+        {
+            Glide.with(this)
+                .load(uri)
+                .into(findViewById(R.id.write_galleryBtn_iv))
+        }
+
     }
 
     override fun initAfterBinding() {
@@ -42,13 +54,13 @@ class WriteActivity : BaseActivity<ActivityWriteBinding>(ActivityWriteBinding::i
         }
 
         // 이미지 추가 버튼 눌렀을 때
-        binding.writeAddImgIv.setOnClickListener {
+        binding.writeGalleryBtnIv.setOnClickListener {
             plusImage.MyDig()
         }
 
         // 업로드 버튼 눌렀을 때
         binding.writeUploadBtnTv.setOnClickListener {
-            uploadImageToFirebase(uri!!)
+//            uploadImageToFirebase(uri!!)
             // 제목, 내용 등을 업로드하는 함수도 필요할듯
             finish()
         }
