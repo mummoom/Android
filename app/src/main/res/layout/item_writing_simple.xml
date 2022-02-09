@@ -5,13 +5,60 @@
     android:paddingBottom="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
-        android:id="@+id/simple_writingImg_iv"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/simple_writingImg_cv"
         android:layout_width="160dp"
         android:layout_height="130dp"
-        android:background="#EFEFEF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#EFEFEF" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        app:layout_constraintEnd_toEndOf="@id/simple_writingImg_cv"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="7dp"
+        android:background="@drawable/write_simple_back">
+
+        <ImageView
+            android:id="@+id/simple_like_iv"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="3dp"
+            android:src="@drawable/ic_heart_on"
+            />
+
+        <TextView
+            android:id="@+id/simple_like_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/simple_like_iv"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="4dp"
+            android:textSize="7sp"
+            android:text="150"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
 
     <TextView
         android:id="@+id/simple_writingTitle_tv"
@@ -21,10 +68,10 @@
         android:textStyle="bold"
         android:textSize="13sp"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="@+id/simple_writingImg_iv"
-        app:layout_constraintTop_toBottomOf="@+id/simple_writingImg_iv"
+        app:layout_constraintStart_toStartOf="@+id/simple_writingImg_cv"
+        app:layout_constraintTop_toBottomOf="@+id/simple_writingImg_cv"
         android:layout_marginStart="3dp"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginTop="10dp"/>
 
     <TextView
         android:id="@+id/simple_writingServeTitle_tv"
@@ -34,7 +81,7 @@
         android:textStyle="normal"
         android:textSize="11sp"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="@+id/simple_writingImg_iv"
+        app:layout_constraintStart_toStartOf="@+id/simple_writingImg_cv"
         app:layout_constraintTop_toBottomOf="@+id/simple_writingTitle_tv"
         android:layout_marginStart="3dp"
         android:layout_marginTop="5dp"/>
