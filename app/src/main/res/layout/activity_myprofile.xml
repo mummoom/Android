@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
 
     <FrameLayout
         android:id="@+id/myprofile_profileImg_frm"
@@ -61,25 +61,29 @@
         android:layout_height="wrap_content"
         android:text="이메일"
         android:textColor="@color/black"
-        android:textSize="14sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/myprofile_profileImg_frm"
         android:layout_marginTop="35dp"
         android:layout_marginStart="35dp"/>
 
-    <EditText
-        android:id="@+id/myprofile_email_et"
+    <TextView
+        android:id="@+id/myprofile_email_content_tv"
         android:layout_width="match_parent"
-        android:layout_height="23dp"
+        android:layout_height="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginStart="35dp"
         android:layout_marginEnd="35dp"
         android:textColor="@color/black"
-        android:textSize="14sp"
+        android:text="umc@umc.com"
+        android:paddingStart="10dp"
+        android:gravity="center_vertical"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@id/myprofile_email_tv"
         app:layout_constraintTop_toBottomOf="@id/myprofile_email_tv"
         android:background="@drawable/rounding_line"/>
+
 
 
     <TextView
@@ -88,21 +92,23 @@
         android:layout_height="wrap_content"
         android:text="이름"
         android:textColor="@color/black"
-        android:textSize="14sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@id/myprofile_email_tv"
-        app:layout_constraintTop_toBottomOf="@id/myprofile_email_et"
+        app:layout_constraintTop_toBottomOf="@id/myprofile_email_content_tv"
         android:layout_marginTop="15dp" />
 
-    <EditText
-        android:id="@+id/myprofile_name_et"
+    <TextView
+        android:id="@+id/myprofile_name_content_tv"
         android:layout_width="match_parent"
-        android:layout_height="23dp"
+        android:layout_height="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginStart="35dp"
         android:layout_marginEnd="35dp"
         android:textColor="@color/black"
-        android:textSize="14sp"
+        android:textSize="15sp"
+        android:paddingStart="10dp"
+        android:gravity="center_vertical"
         app:layout_constraintStart_toStartOf="@id/myprofile_email_tv"
         app:layout_constraintTop_toBottomOf="@id/myprofile_name_tv"
         android:background="@drawable/rounding_line"/>
@@ -114,10 +120,10 @@
         android:layout_height="wrap_content"
         android:text="비밀번호"
         android:textColor="@color/black"
-        android:textSize="14sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@id/myprofile_email_tv"
-        app:layout_constraintTop_toBottomOf="@id/myprofile_name_et"
+        app:layout_constraintTop_toBottomOf="@id/myprofile_name_content_tv"
         android:layout_marginTop="15dp" />
 
     <ImageView
@@ -132,7 +138,7 @@
     <TextView
         android:id="@+id/myprofile_pwd_et"
         android:layout_width="match_parent"
-        android:layout_height="23dp"
+        android:layout_height="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginStart="35dp"
         android:layout_marginEnd="35dp"
@@ -141,10 +147,31 @@
         android:textSize="13sp"
         app:layout_constraintStart_toStartOf="@id/myprofile_email_tv"
         app:layout_constraintTop_toBottomOf="@id/myprofile_pwd_tv"
-        android:background="@drawable/rounding_line"/>
+        android:background="@drawable/rounding_line"
+        android:paddingStart="10dp"
+        android:gravity="center_vertical"/>
 
 
 
+    <TextView
+        android:id="@+id/myprofile_withdraw_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="회원 탈퇴"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <View
+        android:layout_width="60dp"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/myprofile_withdraw_tv"
+        app:layout_constraintStart_toStartOf="@id/myprofile_withdraw_tv"
+        app:layout_constraintEnd_toEndOf="@id/myprofile_withdraw_tv"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

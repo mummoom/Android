@@ -15,4 +15,7 @@ interface AuthRetrofitInterface {
 
     @GET("/users/auto-login")
     fun autoLogin(): Call<AuthResponse>
+
+    @GET("/api/users/me")
+    fun getUserByIdx(@Body user: User): Call<AuthResponse>
 }

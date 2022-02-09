@@ -1,8 +1,13 @@
 package com.mummoom.md.ui.main.mypage
 
 import android.content.Intent
+import android.widget.LinearLayout
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.mummoom.md.R
+import com.mummoom.md.data.entities.Dog
+import com.mummoom.md.data.entities.User
+import com.mummoom.md.data.remote.User.UserService
 import com.mummoom.md.databinding.FragmentMypageBinding
 import com.mummoom.md.ui.main.home.BannerFragment
 import com.mummoom.md.ui.BaseFragment
@@ -17,12 +22,21 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
         val plusDialog = MypageCustomDialog(requireContext())
         val modifyDialog = ModifyProfileCustomDialog(requireContext())
 
-        // viewpager 변수
-        val backgroundAdapter = BaseViewpagerAdapter(this)
+        //강아지 프로필 리싸이클러뷰
+        val dogRVdadapter = DogprofileRVAdapter()
+        dogRVdadapter.setMyItemClickListener(object  : DogprofileRVAdapter.MyItemClickListener{
+            override fun onItemClick(dog: Dog) {
+                TODO("Not yet implemented")
+            }
+
+        })
+
+        binding.mypageDogprofileRv.adapter=dogRVdadapter
+        binding.mypageDogprofileRv.layoutManager=LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
 
 
         // 강아지 프로필 추가
-        binding.mypagePlusBtnIv.setOnClickListener {
+        binding.mypageDogprofilePlusIv.setOnClickListener {
 //            val items = getResources().getStringArray(R.array.year)
             plusDialog.MyDig()
         }
@@ -32,14 +46,6 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
             val items = getResources().getStringArray(R.array.year)
             modifyDialog.MyDig()
         }
-
-        // 강아지 프로필 배경 사진 (Viewpager)
-        binding.mypageBackImgVp.adapter = backgroundAdapter
-        binding.mypageBackImgVp.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-
-        backgroundAdapter.addFragment(BackgroundFragment(R.drawable.bg_yellow))
-        backgroundAdapter.addFragment(BackgroundFragment(R.drawable.bg_purple))
-        backgroundAdapter.addFragment(BackgroundFragment(R.drawable.bg_blue))
 
 
         // 확인 버튼 눌렀을 때 처리 코드들
@@ -71,25 +77,35 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
 
 
         // mypage의 메뉴 클릭 리스너
-        binding.mypageMyProfileTv.setOnClickListener {
+        binding.mypageUpdateTv.setOnClickListener {
+//            val intent = Intent(activity, MyProfileActivity::class.java)
+//            startActivity(intent)
+        }
+        binding.mypagePushTv.setOnClickListener {
+            val intent = Intent(activity, PushSettingActivity::class.java)
+            startActivity(intent)
+        }
+        binding.mypageAskTv.setOnClickListener {
+//            val intent = Intent(activity, MyProfileActivity::class.java)
+//            startActivity(intent)
+        }
+
+        binding.mypageMyprofileTv.setOnClickListener {
             val intent = Intent(activity, MyProfileActivity::class.java)
             startActivity(intent)
         }
 
-        binding.mypageMyCommunityTv.setOnClickListener {
+        binding.mypageMyActivityTv.setOnClickListener {
             val intent = Intent(activity, MyCommunityActivity::class.java)
-            startActivity(intent)
+             startActivity(intent)
+
         }
 
-        binding.mypageMyLikeTv.setOnClickListener {
-            val intent = Intent(activity, MyLikedActivity::class.java)
-            startActivity(intent)
-        }
-
-        binding.mypageMySettingTv.setOnClickListener {
+        binding.mypageSettingTv.setOnClickListener {
             val intent = Intent(activity, MySettingActivity::class.java)
             startActivity(intent)
         }
+
 
 //                    (context as MainActivity).supportFragmentManager.beginTransaction()
 //                .replace(R.id.main_frm, AlbumFragment())
@@ -97,7 +113,21 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
 
     }
 
-
+//    override fun onMyprofileLoading() {
+//        TODO("Not yet implemented")
+//    }
+//
+//    override fun onMyprofileSuccess(user: User) {
+//        val intent = Intent(activity, MyCommunityActivity::class.java)
+//        intent.putExtra("user_email",user.email)
+//        intent.putExtra("user_name",user.name)
+//        intent.putExtra("user_img",user.imgUrl)
+//        startActivity(intent)
+//    }
+//
+//    override fun onMyprofileFailure(code: Int, message: String) {
+//        TODO("Not yet implemented")
+//    }
 
 
 }
