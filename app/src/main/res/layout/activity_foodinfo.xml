@@ -174,144 +174,197 @@
                 android:id="@+id/foodinfo_nutrition_cont_cl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
                 android:layout_marginTop="15dp"
                 android:paddingBottom="5dp"
                 android:visibility="visible">
 
-                //탄수화물
-                <TextView
-                    android:id="@+id/foodinfo_nutrition_tan_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/foodinfo_nutrition_dan_tv"
+//탄수화물
+                <ImageView
+                    android:id="@+id/foodinfo_nutrition_tan_iv"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/nutrition_circle"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:text="탄수화물"
-                    android:textSize="13sp"
-                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/foodinfo_nutrition_dan_iv"
                     app:layout_constraintHorizontal_chainStyle="spread_inside"
-                    />
+                   />
 
                 <TextView
                     android:id="@+id/foodinfo_nutrition_tan_value_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="@id/foodinfo_nutrition_tan_tv"
-                    app:layout_constraintEnd_toEndOf="@id/foodinfo_nutrition_tan_tv"
-                    app:layout_constraintTop_toBottomOf="@id/foodinfo_nutrition_tan_tv"
-                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="@id/foodinfo_nutrition_tan_iv"
+                    app:layout_constraintEnd_toEndOf="@id/foodinfo_nutrition_tan_iv"
+                    app:layout_constraintTop_toTopOf="@id/foodinfo_nutrition_tan_iv"
+                    app:layout_constraintBottom_toBottomOf="@id/foodinfo_nutrition_tan_iv"
                     android:text="0.07"
                     android:textSize="13sp"
                     android:textColor="@color/black"
                     />
 
-                //단백질
                 <TextView
-                    android:id="@+id/foodinfo_nutrition_dan_tv"
+                    android:id="@+id/foodinfo_nutrition_tan_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@id/foodinfo_nutrition_tan_tv"
-                    app:layout_constraintStart_toEndOf="@id/foodinfo_nutrition_tan_tv"
-                    app:layout_constraintEnd_toStartOf="@id/foodinfo_nutrition_gi_tv"
-                    android:text="단백질"
+                    app:layout_constraintTop_toBottomOf="@id/foodinfo_nutrition_tan_iv"
+                    app:layout_constraintStart_toStartOf="@id/foodinfo_nutrition_tan_iv"
+                    app:layout_constraintEnd_toEndOf="@id/foodinfo_nutrition_tan_iv"
+                    android:layout_marginTop="5dp"
+                    android:text="탄수화물"
                     android:textSize="13sp"
                     android:textColor="@color/black"
+                    />
+
+//단백질
+                <ImageView
+                    android:id="@+id/foodinfo_nutrition_dan_iv"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/nutrition_circle"
+                    app:layout_constraintTop_toTopOf="@id/foodinfo_nutrition_tan_iv"
+                    app:layout_constraintStart_toEndOf="@id/foodinfo_nutrition_tan_iv"
+                    app:layout_constraintEnd_toStartOf="@id/foodinfo_nutrition_gi_iv"
                     />
 
                 <TextView
                     android:id="@+id/foodinfo_nutrition_dan_value_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="@id/foodinfo_nutrition_dan_tv"
-                    app:layout_constraintEnd_toEndOf="@id/foodinfo_nutrition_dan_tv"
-                    app:layout_constraintTop_toBottomOf="@id/foodinfo_nutrition_dan_tv"
-                    android:layout_marginTop="8dp"
-                    android:text="0.59"
+                    app:layout_constraintStart_toStartOf="@id/foodinfo_nutrition_dan_iv"
+                    app:layout_constraintEnd_toEndOf="@id/foodinfo_nutrition_dan_iv"
+                    app:layout_constraintTop_toTopOf="@id/foodinfo_nutrition_dan_iv"
+                    app:layout_constraintBottom_toBottomOf="@id/foodinfo_nutrition_dan_iv"
+                    android:text="0.07"
                     android:textSize="13sp"
                     android:textColor="@color/black"
                     />
 
-                //지방
                 <TextView
-                    android:id="@+id/foodinfo_nutrition_gi_tv"
+                    android:id="@+id/foodinfo_nutrition_dan_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@id/foodinfo_nutrition_tan_tv"
-                    app:layout_constraintStart_toEndOf="@id/foodinfo_nutrition_dan_tv"
-                    app:layout_constraintEnd_toStartOf="@id/foodinfo_nutrition_mu_tv"
-                    android:text="지방"
+                    app:layout_constraintTop_toBottomOf="@id/foodinfo_nutrition_dan_iv"
+                    app:layout_constraintStart_toStartOf="@id/foodinfo_nutrition_dan_iv"
+                    app:layout_constraintEnd_toEndOf="@id/foodinfo_nutrition_dan_iv"
+                    android:layout_marginTop="5dp"
+                    android:text="단백질"
                     android:textSize="13sp"
                     android:textColor="@color/black"
+                    />
+
+//지방
+                <ImageView
+                    android:id="@+id/foodinfo_nutrition_gi_iv"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/nutrition_circle"
+                    app:layout_constraintTop_toTopOf="@id/foodinfo_nutrition_tan_iv"
+                    app:layout_constraintStart_toEndOf="@id/foodinfo_nutrition_dan_iv"
+                    app:layout_constraintEnd_toStartOf="@id/foodinfo_nutrition_mu_iv"
                     />
 
                 <TextView
                     android:id="@+id/foodinfo_nutrition_gi_value_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="@id/foodinfo_nutrition_gi_tv"
-                    app:layout_constraintEnd_toEndOf="@id/foodinfo_nutrition_gi_tv"
-                    app:layout_constraintTop_toBottomOf="@id/foodinfo_nutrition_gi_tv"
-                    android:layout_marginTop="8dp"
-                    android:text="0.01"
+                    app:layout_constraintStart_toStartOf="@id/foodinfo_nutrition_gi_iv"
+                    app:layout_constraintEnd_toEndOf="@id/foodinfo_nutrition_gi_iv"
+                    app:layout_constraintTop_toTopOf="@id/foodinfo_nutrition_gi_iv"
+                    app:layout_constraintBottom_toBottomOf="@id/foodinfo_nutrition_gi_iv"
+                    android:text="0.07"
                     android:textSize="13sp"
                     android:textColor="@color/black"
                     />
 
-                //무기질
                 <TextView
-                    android:id="@+id/foodinfo_nutrition_mu_tv"
+                    android:id="@+id/foodinfo_nutrition_gi_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@id/foodinfo_nutrition_tan_tv"
-                    app:layout_constraintStart_toEndOf="@id/foodinfo_nutrition_gi_tv"
-                    app:layout_constraintEnd_toStartOf="@id/foodinfo_nutrition_water_tv"
-                    android:text="무기질"
+                    app:layout_constraintTop_toBottomOf="@id/foodinfo_nutrition_gi_iv"
+                    app:layout_constraintStart_toStartOf="@id/foodinfo_nutrition_gi_iv"
+                    app:layout_constraintEnd_toEndOf="@id/foodinfo_nutrition_gi_iv"
+                    android:layout_marginTop="5dp"
+                    android:text="지방"
                     android:textSize="13sp"
                     android:textColor="@color/black"
+                    />
+
+//무기질
+                <ImageView
+                    android:id="@+id/foodinfo_nutrition_mu_iv"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/nutrition_circle"
+                    app:layout_constraintTop_toTopOf="@id/foodinfo_nutrition_tan_iv"
+                    app:layout_constraintStart_toEndOf="@id/foodinfo_nutrition_gi_iv"
+                    app:layout_constraintEnd_toStartOf="@id/foodinfo_nutrition_water_iv"
                     />
 
                 <TextView
                     android:id="@+id/foodinfo_nutrition_mu_value_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="@id/foodinfo_nutrition_mu_tv"
-                    app:layout_constraintEnd_toEndOf="@id/foodinfo_nutrition_mu_tv"
-                    app:layout_constraintTop_toBottomOf="@id/foodinfo_nutrition_mu_tv"
-                    android:layout_marginTop="8dp"
-                    android:text="0.04"
+                    app:layout_constraintStart_toStartOf="@id/foodinfo_nutrition_mu_iv"
+                    app:layout_constraintEnd_toEndOf="@id/foodinfo_nutrition_mu_iv"
+                    app:layout_constraintTop_toTopOf="@id/foodinfo_nutrition_mu_iv"
+                    app:layout_constraintBottom_toBottomOf="@id/foodinfo_nutrition_mu_iv"
+                    android:text="0.07"
                     android:textSize="13sp"
                     android:textColor="@color/black"
                     />
 
+                <TextView
+                    android:id="@+id/foodinfo_nutrition_mu_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/foodinfo_nutrition_mu_iv"
+                    app:layout_constraintStart_toStartOf="@id/foodinfo_nutrition_mu_iv"
+                    app:layout_constraintEnd_toEndOf="@id/foodinfo_nutrition_mu_iv"
+                    android:layout_marginTop="5dp"
+                    android:text="무기질"
+                    android:textSize="13sp"
+                    android:textColor="@color/black"
+                    />
 
-                //수분
+//수분
+                <ImageView
+                    android:id="@+id/foodinfo_nutrition_water_iv"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/nutrition_circle"
+                    app:layout_constraintTop_toTopOf="@id/foodinfo_nutrition_tan_iv"
+                    app:layout_constraintStart_toEndOf="@id/foodinfo_nutrition_mu_iv"
+                    app:layout_constraintEnd_toEndOf="@id/foodinfo_nutrition_cont_cl"
+                    />
+
+                <TextView
+                    android:id="@+id/foodinfo_nutrition_water_value_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/foodinfo_nutrition_water_iv"
+                    app:layout_constraintEnd_toEndOf="@id/foodinfo_nutrition_water_iv"
+                    app:layout_constraintTop_toTopOf="@id/foodinfo_nutrition_water_iv"
+                    app:layout_constraintBottom_toBottomOf="@id/foodinfo_nutrition_water_iv"
+                    android:text="0.07"
+                    android:textSize="13sp"
+                    android:textColor="@color/black"
+                    />
+
                 <TextView
                     android:id="@+id/foodinfo_nutrition_water_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@id/foodinfo_nutrition_tan_tv"
-                    app:layout_constraintStart_toEndOf="@id/foodinfo_nutrition_mu_tv"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/foodinfo_nutrition_water_iv"
+                    app:layout_constraintStart_toStartOf="@id/foodinfo_nutrition_water_iv"
+                    app:layout_constraintEnd_toEndOf="@id/foodinfo_nutrition_water_iv"
+                    android:layout_marginTop="5dp"
                     android:text="수분"
                     android:textSize="13sp"
                     android:textColor="@color/black"
                     />
-
-                <TextView
-                    android:id="@+id/foodinfo_nutrition_mu_water_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="@id/foodinfo_nutrition_water_tv"
-                    app:layout_constraintEnd_toEndOf="@id/foodinfo_nutrition_water_tv"
-                    app:layout_constraintTop_toBottomOf="@id/foodinfo_nutrition_water_tv"
-                    android:layout_marginTop="8dp"
-                    android:text="9.2"
-                    android:textSize="13sp"
-                    android:textColor="@color/black"
-                    />
-
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

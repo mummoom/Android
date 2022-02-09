@@ -31,7 +31,7 @@
                 android:id="@+id/myprofile_profileImg_iv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#E9E9E9"/>
+                android:src="@drawable/myprofile_img"/>
 
         </androidx.cardview.widget.CardView>
 
@@ -126,29 +126,31 @@
         app:layout_constraintTop_toBottomOf="@id/myprofile_name_content_tv"
         android:layout_marginTop="15dp" />
 
+    <ImageView
+        android:id="@+id/myprofile_pwd_ic"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/ic_right_arrow"
+        app:layout_constraintStart_toEndOf="@id/myprofile_pwd_tv"
+        app:layout_constraintTop_toTopOf="@id/myprofile_pwd_tv"
+        app:layout_constraintBottom_toBottomOf="@id/myprofile_pwd_tv"/>
+
     <TextView
-        android:id="@+id/myprofile_pwd_content_tv"
+        android:id="@+id/myprofile_pwd_et"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginStart="35dp"
         android:layout_marginEnd="35dp"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:paddingStart="10dp"
-        android:gravity="center_vertical"
+        android:text="비밀번호 변경 페이지로 이동합니다."
+        android:textColor="#C4C4C4"
+        android:textSize="13sp"
         app:layout_constraintStart_toStartOf="@id/myprofile_email_tv"
         app:layout_constraintTop_toBottomOf="@id/myprofile_pwd_tv"
-        android:background="@drawable/rounding_line"/>
+        android:background="@drawable/rounding_line"
+        android:paddingStart="10dp"
+        android:gravity="center_vertical"/>
 
-    <ImageView
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:src="@drawable/btn_arrow_more"
-        android:layout_marginEnd="35dp"
-        app:layout_constraintEnd_toEndOf="@id/myprofile_pwd_content_tv"
-        app:layout_constraintTop_toTopOf="@id/myprofile_pwd_content_tv"
-        app:layout_constraintBottom_toBottomOf="@id/myprofile_pwd_content_tv"/>
 
 
     <TextView
