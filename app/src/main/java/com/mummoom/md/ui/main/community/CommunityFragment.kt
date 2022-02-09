@@ -13,7 +13,7 @@ class CommunityFragment(): BaseFragment<FragmentCommunityBinding>(FragmentCommun
         binding.communityWritingRv.layoutManager = GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
 
         // 글 쓰기 아이콘 눌렀을 때
-        binding.communityWriteIv.setOnClickListener {
+        binding.communityWriteBtnCv.setOnClickListener {
             val intent = Intent(activity, WriteActivity::class.java)
             startActivity(intent)
         }
