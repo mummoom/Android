@@ -4,7 +4,10 @@ import android.util.Log
 import com.mummoom.md.ApplicationClass.Companion.TAG
 import com.mummoom.md.ApplicationClass.Companion.retrofit
 import com.mummoom.md.data.entities.User
+import com.mummoom.md.data.remote.auth.AuthResponse
+import com.mummoom.md.data.remote.auth.AuthRetrofitInterface
 import com.mummoom.md.ui.login.LoginView
+import com.mummoom.md.ui.main.mypage.ChangepwView
 import com.mummoom.md.ui.main.mypage.MypageView
 import com.mummoom.md.ui.main.mypage.MyprofileView
 import com.mummoom.md.ui.siginup.SignUpView
@@ -38,5 +41,30 @@ object UserService {
                 myprofileView.onMyprofileFailure(400, "네트워크 오류가 발생했습니다.")
             }
         })
+    }
+
+    fun changePwd(changepwView: ChangepwView,user: User) {
+        val userService = retrofit.create(UserRetrofitInterface::class.java)
+
+        changepwView.onChangepwLoading()
+
+        userService.changePwd(user).enqueue(object : Callback<PwdResponse> {
+            override fun onResponse(call: Call<PwdResponse>, response: Response<PwdResponse>) {
+
+                val resp = response.body()!!
+
+                when(resp.code){
+                    1000 -> changepwView.onChangepwSuccess()
+                    else -> changepwView.onChangepwFailure(resp.code, resp.message)
+                }
+            }
+
+            override fun onFailure(call: Call<PwdResponse>, t: Throwable) {
+                Log.d("$TAG/API-ERROR", t.message.toString())
+
+                changepwView.onChangepwFailure(400, "네트워크 오류가 발생했습니다.")
+            }
+        })
+
     }
 }

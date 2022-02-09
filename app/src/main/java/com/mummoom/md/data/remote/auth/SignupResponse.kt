@@ -1,4 +1,9 @@
 package com.mummoom.md.data.remote.auth
 
-class SignupResponse {
-}
+import com.google.gson.annotations.SerializedName
+data class SignupResponse(
+    @SerializedName("isSuccess") val isSuccess: Boolean,
+    @SerializedName("code") val code: Int,
+    @SerializedName("message") val message: String,
+    @SerializedName("data") val data: String?
+)

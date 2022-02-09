@@ -7,6 +7,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.mummoom.md.R
 import com.mummoom.md.data.entities.Dog
 import com.mummoom.md.data.entities.User
+import com.mummoom.md.data.remote.Dog.DogService
 import com.mummoom.md.data.remote.User.UserService
 import com.mummoom.md.databinding.FragmentMypageBinding
 import com.mummoom.md.ui.main.home.BannerFragment
@@ -14,7 +15,7 @@ import com.mummoom.md.ui.BaseFragment
 import com.mummoom.md.ui.BaseViewpagerAdapter
 import com.mummoom.md.ui.main.community.MypageCustomDialog
 
-class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBinding::inflate) {
+class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBinding::inflate) ,MypageView{
 
     override fun initAfterBinding() {
 
@@ -113,21 +114,21 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
 
     }
 
-//    override fun onMyprofileLoading() {
-//        TODO("Not yet implemented")
-//    }
-//
-//    override fun onMyprofileSuccess(user: User) {
-//        val intent = Intent(activity, MyCommunityActivity::class.java)
-//        intent.putExtra("user_email",user.email)
-//        intent.putExtra("user_name",user.name)
-//        intent.putExtra("user_img",user.imgUrl)
-//        startActivity(intent)
-//    }
-//
-//    override fun onMyprofileFailure(code: Int, message: String) {
-//        TODO("Not yet implemented")
-//    }
+    override fun onStart() {
+        super.onStart()
+        DogService.getDoglist(this)
+    }
 
+    override fun onMypageLoading() {
+
+    }
+
+    override fun onMypageSuccess(dog: Dog) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onMypageFailure(code: Int, message: String) {
+        TODO("Not yet implemented")
+    }
 
 }

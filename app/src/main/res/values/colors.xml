@@ -49,5 +49,7 @@
     <color name="push_setting_content_tv">#C4C4C4</color>
     <color name="push_setting_confirm_btn">#C4C4C4</color>
 
+    <!--프로필-->
+    <color name="item_dogprofile_tv">#EDC06D</color>
 
 </resources>
