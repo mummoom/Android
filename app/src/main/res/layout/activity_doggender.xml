@@ -82,9 +82,10 @@
         android:gravity="center"/>
     <ImageView
         android:id="@+id/doggender_neutering_check_on_iv"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
         android:src="@drawable/neutering_check_on"
+        android:layout_marginStart="10dp"
         app:layout_constraintStart_toEndOf="@id/doggender_neutering_tv"
         app:layout_constraintTop_toTopOf="@id/doggender_neutering_tv"
         app:layout_constraintBottom_toBottomOf="@id/doggender_neutering_tv"
@@ -92,9 +93,10 @@
         />
     <ImageView
         android:id="@+id/doggender_neutering_check_off_iv"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:src="@drawable/neutering_check_off"
+        android:layout_marginStart="10dp"
         app:layout_constraintStart_toEndOf="@id/doggender_neutering_tv"
         app:layout_constraintTop_toTopOf="@id/doggender_neutering_tv"
         app:layout_constraintBottom_toBottomOf="@id/doggender_neutering_tv"

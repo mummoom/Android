@@ -167,8 +167,8 @@
 
     <ImageView
         android:id="@+id/signup_agree_check_off_iv"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:src="@drawable/signup_agree_check_off"
         app:layout_constraintTop_toBottomOf="@id/signup_info_check_tv"
         app:layout_constraintStart_toStartOf="parent"
@@ -179,8 +179,8 @@
         />
     <ImageView
         android:id="@+id/signup_agree_check_on_iv"
-        android:layout_width="19dp"
-        android:layout_height="19dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:src="@drawable/signup_agree_check_on"
         app:layout_constraintTop_toBottomOf="@id/signup_info_check_tv"
         app:layout_constraintStart_toStartOf="parent"

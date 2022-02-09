@@ -5,6 +5,7 @@ import com.mummoom.md.ApplicationClass.Companion.TAG
 import com.mummoom.md.ApplicationClass.Companion.retrofit
 import com.mummoom.md.data.entities.User
 import com.mummoom.md.ui.login.LoginView
+import com.mummoom.md.ui.main.mypage.MypageView
 import com.mummoom.md.ui.siginup.SignUpView
 import com.mummoom.md.ui.splash.SplashView
 import retrofit2.Call
@@ -44,11 +45,11 @@ object AuthService {
         authService.login(user).clone().enqueue(object : Callback<AuthResponse> {
             override fun onResponse(call: Call<AuthResponse>, response: Response<AuthResponse>) {
                 val resp = response.body()!!
-                Log.d("RESPONSE_BODY",resp.data)
+
 
 
                 when(resp.code){
-                    1000 -> loginView.onLoginSuccess(resp.data)
+                    1000 -> loginView.onLoginSuccess(resp.data!!)
                     else -> loginView.onLoginFailure(resp.code, resp.message)
                 }
             }
@@ -83,4 +84,6 @@ object AuthService {
             }
         })
     }
+
+
 }
