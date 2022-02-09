@@ -8,7 +8,7 @@ interface PostRetrofitInterface {
 
     @POST("/post")
     fun savePost(
-        @Path("requestDto") requestDto : SendPost
+        @Body requestDto : SendPost
     ) : Call<PostResponse>
 
     @GET("/post/{postIdx}")

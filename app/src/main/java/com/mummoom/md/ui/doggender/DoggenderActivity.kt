@@ -19,8 +19,8 @@ import com.mummoom.md.ui.main.home.HomeFragment
 
 class DoggenderActivity : BaseActivity<ActivityDoggenderBinding>(ActivityDoggenderBinding::inflate) ,DogInfoView, View.OnClickListener{
     private lateinit var dogInfo : String
-    private lateinit var dogSex : String
-    private lateinit var surgery : String
+    private var dogSex : String = "0"
+    private var surgery : String = "Y"
     override fun initAfterBinding() {
 
         binding.doggenderPreviousBtn.setOnClickListener(this)
