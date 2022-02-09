@@ -37,15 +37,17 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
             finish()
         }
 
-        // 회원탈퇴 눌렀을 때
-        binding.myprofileWithdrawTv.setOnClickListener {
-            deleteUser()
-            Toast.makeText(this, "계정이 삭제 되었습니다.", Toast.LENGTH_LONG).show()
-            finish()
+//        // 회원탈퇴 눌렀을 때
+//        binding.myprofileWithdrawTv.setOnClickListener {
+//            deleteUser()
+//            Toast.makeText(this, "계정이 삭제 되었습니다.", Toast.LENGTH_LONG).show()
+//            finish()
+//
+//            val intent = Intent(this, LoginActivity::class.java)
+//            startActivity(intent)
+//        }
 
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-        }
+
         changeImageDialog.setOnClickedListener(object : ChangeImageCustomDialog.normalBtnClickListener{
             override fun onClicked() {
                 val intent = Intent(this@MyProfileActivity,IllustrationActivity::class.java)

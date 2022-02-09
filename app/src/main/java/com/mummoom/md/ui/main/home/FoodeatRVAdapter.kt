@@ -51,7 +51,7 @@ class FoodeatRVAdapter(val context: Context) : RecyclerView.Adapter<FoodeatRVAda
                 .into(binding.foodIv)
 
             binding.foodNameTv.text = ingredients.name
-            binding.foodKcalTv.text = ingredients.kcal.toString() + "kcal"
+            binding.foodKcalTv.text = "100g 당  " + ingredients.kcal.toString() + "kcal"
 
             if(ingredients.score == 1){
                 binding.foodFootLl1.visibility = View.VISIBLE

@@ -62,7 +62,7 @@ class FoodtypeRVAdapter(val context: Context) : RecyclerView.Adapter<FoodtypeRVA
                 .into(binding.foodIv)
 
             binding.foodNameTv.text = ingredients.name
-            binding.foodKcalTv.text = ingredients.kcal.toString()+" kcal"
+            binding.foodKcalTv.text = "100g 당  " + ingredients.kcal.toString()+" kcal"
             //발바닥_score
             if(ingredients.score == 1){
                 binding.foodFootLl1.visibility = View.VISIBLE
