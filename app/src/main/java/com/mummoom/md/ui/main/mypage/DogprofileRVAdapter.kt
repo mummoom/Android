@@ -46,7 +46,7 @@ class DogprofileRVAdapter() : RecyclerView.Adapter<DogprofileRVAdapter.ViewHolde
     //전체 아이템 개수 리턴
     override fun getItemCount(): Int = dogList.size
 
-    fun addIngredients(dog: ArrayList<Dog>){
+    fun addDogs(dog: ArrayList<Dog>){
         this.dogList.clear()
         this.dogList.addAll(dog)
 
@@ -55,7 +55,7 @@ class DogprofileRVAdapter() : RecyclerView.Adapter<DogprofileRVAdapter.ViewHolde
 
     inner class ViewHolder(val binding: ItemDogprofileBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(dog: Dog){
-
+            binding.itemDogprofileDognameTv.text=dog.dogName
 
         }
     }

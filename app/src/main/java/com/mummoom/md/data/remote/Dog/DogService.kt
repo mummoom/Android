@@ -46,19 +46,19 @@ object DogService {
 
 
         mypageView.onMypageLoading()
-        dogService.getDoglist().enqueue(object : Callback<DogResponse> {
-            override fun onResponse(call: Call<DogResponse>, response: Response<DogResponse>) {
+        dogService.getDoglist().enqueue(object : Callback<DogListResponse> {
+            override fun onResponse(call: Call<DogListResponse>, response: Response<DogListResponse>) {
                 Log.d("DOG_REPONSE",response.body().toString())
 
                 val resp = response.body()!!
 
                 when(resp.code){
-                    1000 -> mypageView.onMypageSuccess(resp.data!!)
+                    1000 -> mypageView.onMypageSuccess(resp.data)
                     else -> mypageView.onMypageFailure(resp.code, resp.message)
                 }
             }
 
-            override fun onFailure(call: Call<DogResponse>, t: Throwable) {
+            override fun onFailure(call: Call<DogListResponse>, t: Throwable) {
                 Log.d("$TAG/API-ERROR", t.message.toString())
 
                 mypageView.onMypageFailure(400, "네트워크 오류가 발생했습니다.")

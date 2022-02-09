@@ -84,6 +84,8 @@ class SignUpActivity: BaseActivity<ActivitySignupBinding>(ActivitySignupBinding:
             401, 402 -> {
                 binding.signupEmailErrorTv.visibility = View.VISIBLE
                 binding.signupEmailErrorTv.text = message
+                Toast.makeText(this, "정확한 정보를 입력해 주세요", Toast.LENGTH_SHORT).show()
+
           }
         }
     }

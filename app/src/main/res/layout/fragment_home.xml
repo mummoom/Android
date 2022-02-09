@@ -29,7 +29,8 @@
                 android:id="@+id/home_search_et"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/rounding_line_yellow"/>
+                android:background="@drawable/rounding_line_yellow"
+                android:paddingStart="10dp"/>
 
             <ImageView
                 android:id="@+id/home_search_iv"

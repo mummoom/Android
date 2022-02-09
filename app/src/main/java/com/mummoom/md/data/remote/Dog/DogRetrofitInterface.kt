@@ -13,7 +13,7 @@ interface DogRetrofitInterface {
     fun dogInfo(@Body dog: Dog): Call<DogResponse>
 
     @GET("/api/dog/list") //get dog by Idx
-    fun getDoglist(): Call<DogResponse>
+    fun getDoglist(): Call<DogListResponse>
 
 
 
