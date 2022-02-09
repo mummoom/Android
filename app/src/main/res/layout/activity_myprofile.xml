@@ -136,8 +136,9 @@
         android:layout_marginTop="10dp"
         android:layout_marginStart="35dp"
         android:layout_marginEnd="35dp"
-        android:textColor="@color/black"
-        android:textSize="14sp"
+        android:text="비밀번호 변경 페이지로 이동합니다."
+        android:textColor="#C4C4C4"
+        android:textSize="13sp"
         app:layout_constraintStart_toStartOf="@id/myprofile_email_tv"
         app:layout_constraintTop_toBottomOf="@id/myprofile_pwd_tv"
         android:background="@drawable/rounding_line"/>
