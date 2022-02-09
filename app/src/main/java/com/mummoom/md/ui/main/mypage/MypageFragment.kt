@@ -91,8 +91,8 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
         }
 
         binding.mypageMyActivityTv.setOnClickListener {
-            val intent = Intent(activity, MyCommunityActivity::class.java)
-             startActivity(intent)
+            val intent = Intent(activity, MyActiveActivity::class.java)
+            startActivity(intent)
 
         }
 

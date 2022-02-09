@@ -28,9 +28,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
-
-
-
         </activity>
 
         <activity
@@ -121,11 +118,17 @@
         <activity
             android:name=".ui.main.mypage.ChangePwdActivity"
             android:exported="true"/>
+
         <activity
             android:name=".ui.main.mypage.IllustrationActivity"
             android:exported="true"/>
+
         <activity
             android:name=".ui.main.mypage.WithdrawalActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".ui.main.mypage.MyActiveActivity"
             android:exported="true"/>
 
 
