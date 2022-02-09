@@ -6,6 +6,6 @@ import com.mummoom.md.data.entities.User
 
 interface MypageView {
     fun onMypageLoading()
-    fun onMypageSuccess(dog: Dog)
+    fun onMypageSuccess(dogs :  ArrayList<Dog>)
     fun onMypageFailure(code: Int, message: String)
 }

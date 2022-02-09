@@ -75,7 +75,7 @@
                 android:layout_marginStart="20dp"/>
 
             <TextView
-                android:id="@+id/mypage_puppyName_tv"
+                android:id="@+id/mypage_dogName_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="강아지 이름"
@@ -87,17 +87,43 @@
                 android:layout_marginTop="5dp"/>
 
             <TextView
-                android:id="@+id/mypage_puppyInfo_tv"
+                android:id="@+id/mypage_dogtype_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:text="강아지 종류 / 태어난 일자"
+                android:text="강아지 종류"
                 android:textColor="#444444"
                 android:textSize="12sp"
                 android:layout_marginBottom="20dp"
                 android:paddingBottom="20dp"
                 app:layout_constraintStart_toStartOf="@id/mypage_nickname_tv"
-                app:layout_constraintTop_toBottomOf="@id/mypage_puppyName_tv" />
+                app:layout_constraintTop_toBottomOf="@id/mypage_dogName_tv" />
+            <TextView
+                android:id="@+id/mypage_slash_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="/"
+                android:textColor="#444444"
+                android:textSize="12sp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginStart="5dp"
+                android:paddingBottom="20dp"
+                app:layout_constraintStart_toEndOf="@id/mypage_dogtype_tv"
+                app:layout_constraintTop_toBottomOf="@id/mypage_dogName_tv" />
+            <TextView
+                android:id="@+id/mypage_dogbirth_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="5dp"
+                android:text="태어난 일자"
+                android:textColor="#444444"
+                android:textSize="12sp"
+                android:layout_marginBottom="20dp"
+                android:paddingBottom="20dp"
+                app:layout_constraintStart_toEndOf="@id/mypage_slash_tv"
+                app:layout_constraintTop_toBottomOf="@id/mypage_dogName_tv" />
 
             <ImageView
                 android:id="@+id/mypage_moreBtn_iv"
@@ -117,8 +143,8 @@
                 android:textColor="#444444"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/mypage_puppyName_tv"
-                app:layout_constraintBottom_toBottomOf="@id/mypage_puppyName_tv"
+                app:layout_constraintTop_toTopOf="@id/mypage_dogName_tv"
+                app:layout_constraintBottom_toBottomOf="@id/mypage_dogName_tv"
                 android:layout_marginEnd="20dp"
                 />
 
