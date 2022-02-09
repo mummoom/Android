@@ -7,7 +7,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
-import com.google.firebase.storage.FirebaseStorage
+//import com.google.firebase.storage.FirebaseStorage
 import com.mummoom.md.R
 import com.mummoom.md.databinding.ActivityWriteBinding
 import com.mummoom.md.ui.BaseActivity
@@ -92,16 +92,16 @@ class WriteActivity : BaseActivity<ActivityWriteBinding>(ActivityWriteBinding::i
     // Firebase Storage에 이미지를 업로드 하는 함수
     private fun uploadImageToFirebase(uri: Uri)
     {
-        val storage : FirebaseStorage? = FirebaseStorage.getInstance()
-
-        var fileName = "IMAGE_${SimpleDateFormat("yyyymmdd_HHmmss").format(Date())}_.png"
-        var imagesRef = storage!!.reference.child("images/").child(fileName)
-
-        imagesRef.putFile(uri!!).addOnSuccessListener {
-            Toast.makeText(this, "업로드가 완료되었습니다.", Toast.LENGTH_LONG).show()
-        }.addOnFailureListener{
-            Toast.makeText(this, "업로드를 실패하였습니다.", Toast.LENGTH_LONG).show()
-        }
+//        val storage : FirebaseStorage? = FirebaseStorage.getInstance()
+//
+//        var fileName = "IMAGE_${SimpleDateFormat("yyyymmdd_HHmmss").format(Date())}_.png"
+//        var imagesRef = storage!!.reference.child("images/").child(fileName)
+//
+//        imagesRef.putFile(uri!!).addOnSuccessListener {
+//            Toast.makeText(this, "업로드가 완료되었습니다.", Toast.LENGTH_LONG).show()
+//        }.addOnFailureListener{
+//            Toast.makeText(this, "업로드를 실패하였습니다.", Toast.LENGTH_LONG).show()
+//        }
     }
 
 }

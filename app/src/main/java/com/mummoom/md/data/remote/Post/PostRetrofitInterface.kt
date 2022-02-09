@@ -1,15 +1,15 @@
 package com.mummoom.md.data.remote.Post
 
+import com.mummoom.md.data.Post.SendPost
 import retrofit2.Call
-import retrofit2.http.DELETE
-import retrofit2.http.GET
-import retrofit2.http.PATCH
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface PostRetrofitInterface {
 
     @POST("/post")
-    fun savePost() : Call<DefaultPostResponse>
+    fun savePost(
+        @Path("requestDto") requestDto : SendPost
+    ) : Call<PostResponse>
 
     @GET("/post/{postIdx}")
     fun getPostByPostIdx() : Call<GetPostResponse>
