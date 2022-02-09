@@ -34,7 +34,7 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
         }
 
         // 비밀번호 edittext 부분 눌렀을 때
-        binding.myprofilePwdContentTv.setOnClickListener {
+        binding.myprofilePwdEt.setOnClickListener {
             val intent = Intent(this, ChangePwdActivity::class.java)
             startActivity(intent)
         }
@@ -90,7 +90,7 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
 
         //binding.myprofileProfileImgIv.setImageURI(user.imgUrl.)
         binding.myprofileEmailContentTv.text=user.email
-        binding.myprofileNameContentTv.text=user.name
+        binding.myprofileNameContentTv.text=user.nickName
         //binding.myprofilePwdContentTv.text=user.password
 
     }
