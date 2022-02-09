@@ -124,6 +124,9 @@
         <activity
             android:name=".ui.main.mypage.IllustrationActivity"
             android:exported="true"/>
+        <activity
+            android:name=".ui.main.mypage.WithdrawalActivity"
+            android:exported="true"/>
 
 
         //main 부분

@@ -31,7 +31,7 @@
                 android:id="@+id/myprofile_profileImg_iv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#E9E9E9"/>
+                android:src="@drawable/myprofile_img"/>
 
         </androidx.cardview.widget.CardView>
 
@@ -120,6 +120,15 @@
         app:layout_constraintTop_toBottomOf="@id/myprofile_name_et"
         android:layout_marginTop="15dp" />
 
+    <ImageView
+        android:id="@+id/myprofile_pwd_ic"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/ic_right_arrow"
+        app:layout_constraintStart_toEndOf="@id/myprofile_pwd_tv"
+        app:layout_constraintTop_toTopOf="@id/myprofile_pwd_tv"
+        app:layout_constraintBottom_toBottomOf="@id/myprofile_pwd_tv"/>
+
     <TextView
         android:id="@+id/myprofile_pwd_et"
         android:layout_width="match_parent"
@@ -134,18 +143,7 @@
         android:background="@drawable/rounding_line"/>
 
 
-    <TextView
-        android:id="@+id/myprofile_withdraw_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:text="회원 탈퇴"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -61,7 +61,7 @@ class FoodinfoActivity : BaseActivity<ActivityFoodinfoBinding>(ActivityFoodinfoB
         binding.foodinfoNameTv.text = ingredientInfo.name
 
         // 칼로리
-        binding.foodinfoKcalTv.text = ingredientInfo.kcal.toString() + " kcal"
+        binding.foodinfoKcalTv.text = "100g 당  " + ingredientInfo.kcal.toString() + " kcal"
 
         // 유의해야할 점
         binding.foodinfoWarnEatContTv.text = ingredientInfo.warning
