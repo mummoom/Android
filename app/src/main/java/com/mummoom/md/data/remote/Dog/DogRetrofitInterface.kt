@@ -12,8 +12,10 @@ interface DogRetrofitInterface {
     @POST("/api/dog/save") //save
     fun dogInfo(@Body dog: Dog): Call<DogResponse>
 
-    @GET("/api/dog/{dogIdx}") //get dog by Idx
-    fun login(@Body user: User): Call<DogResponse>
+    @GET("/api/dog/list") //get dog by Idx
+    fun getDoglist(): Call<DogResponse>
+
+
 
 //    @PATCH("/api/dog/{dodIdx}") // delete dog
 //    fun autoLogin(): Call<DogResponse>

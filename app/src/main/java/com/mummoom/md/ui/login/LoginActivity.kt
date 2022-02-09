@@ -15,10 +15,12 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.mummoom.md.ApplicationClass.Companion.TAG
 import com.mummoom.md.R
 import com.mummoom.md.data.entities.User
+import com.mummoom.md.data.remote.auth.Auth
 import com.mummoom.md.data.remote.auth.AuthService
 import com.mummoom.md.databinding.ActivityLoginBinding
 import com.mummoom.md.ui.BaseActivity
 import com.mummoom.md.ui.dogname.DognameActivity
+import com.mummoom.md.ui.main.MainActivity
 import com.mummoom.md.ui.nickname.NicknameActivity
 import com.mummoom.md.ui.siginup.SignUpActivity
 import com.mummoom.md.utils.saveJwt
@@ -64,31 +66,22 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
 
         authResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
                 result ->
-            // if (result.resultCode == Activity.RESULT_OK) {
-            // There are no request codes
-//            if(result.resultCode == RC_SIGN_IN)
-//            {
-//
-//            }
+
             val data: Intent? = result.data
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-//            val task = GoogleSignIn.getSignedInAccountFromIntent(data) as GoogleSignInAccount
+
             try {
-                // Google Sign In was successful, authenticate with Firebase
-//                val account = task.getResult(ApiException::class.java)!!
+
                 val account = task.getResult(ApiException::class.java)
 
-//                Log.d("firebaseAuthWithGoogle:" + account.id)
                 Log.d("signin", "success")
                 firebaseAuthWithGoogle(account)
             } catch (e: ApiException) {
                 Log.d("signin", "failure")
                 Log.e("task", "error", e)
-                // Google Sign In failed, update UI appropriately
-                //Timber.w(e, "Google sign in failed")
+
             }
 
-            // }
         }
     }
 
@@ -106,20 +99,6 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
         updateUI(currentUser)
     }
 
-//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        super.onActivityResult(requestCode, resultCode, data)
-//
-//        if(requestCode == 1004)
-//        {
-//            if(resultCode == Activity.RESULT_OK)
-//            {
-//                val result = GoogleSignIn.getSignedInAccountFromIntent(data)
-//
-//                val account = result.getResult(ApiException::class.java)
-//                firebaseAuthWithGoogle(account)
-//            }
-//        }
-//    }
 
     private fun firebaseAuthWithGoogle(account: GoogleSignInAccount?){
 
@@ -142,38 +121,6 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
             }
     }
 
-//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        super.onActivityResult(requestCode, resultCode, data)
-//        if(requestCode==RC_SIGN_IN) {
-//            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-//            try {
-//                val account = task.getResult((ApiException::class.java))!!
-//                Log.d("LoginActivity","firebaseAuthWithGoogle: "+account.id)
-//                firebaseAuthWithGoogle(account.idToken!!)
-//            }catch (e : ApiException) {
-//                Log.w("LoginActivity","Google sign in failed ",e)
-//            }
-//        }
-//    }
-//
-//    private fun firebaseAuthWithGoogle(idToken : String) {
-//        val credential = GoogleAuthProvider.getCredential(idToken,null)
-//        auth.signInWithCredential(credential)
-//            .addOnCompleteListener(this) { task->
-//                if(task.isSuccessful) {  // 로그인 성공시
-//                    Log.d("LoginActivity","signInWithCredential:success")
-//                    val user = auth.currentUser
-//                    val email = auth.currentUser?.email
-//
-//                    updateUI(user)
-//                }
-//                else {
-//                    Log.w("LoginActivity","signInWithCredential:failure",task.exception)
-//                    updateUI(null)
-//                }
-//            }
-//    }
-
     // 로그인 성공시 이후에 실행 할 코드
     private  fun updateUI(user: FirebaseUser?) {
 
@@ -190,7 +137,7 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
         when(v) {
             binding.loginEmailSignupBtnTv-> startNextActivity(SignUpActivity::class.java) //이메일로 회원가입 버튼
             binding.loginLoginBtnTv -> login() //로그인 버튼
-//            binding.loginGoogleBtn->googleLogin()
+
         }
     }
 
@@ -211,7 +158,7 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
 
         val email = binding.loginIdEt.text.toString()
         val password = binding.loginPwEt.text.toString()
-        val user = User(email,"", "",password)
+        val user = User(email,"", "",password,"")
 
         AuthService.login(this, user)
 
@@ -222,24 +169,30 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
         //binding.loginLoadingPb.visibility = View.VISIBLE
     }
 
-    override fun onLoginSuccess(jwt: String) {
+    override fun onLoginSuccess(auth : Auth) {
 //        binding.loginLoadingPb.visibility = View.GONE
 //
-        saveJwt(jwt)
-        Log.d("${TAG}/JWT-CLEAR", jwt.toString())
-        startActivityWithClear(DognameActivity::class.java)
+        saveJwt(auth.token)
+        Log.d("${TAG}/JWT-CLEAR", auth.token)
+        if(auth.dog_exist) {
+            startActivityWithClear(MainActivity::class.java)
+        }
+        else {
+            startActivityWithClear(DognameActivity::class.java)
+        }
 
 
     }
 
     override fun onLoginFailure(code: Int, message: String) {
-//        binding.loginLoadingPb.visibility = View.GONE
-//
-//        when(code) {
-//            2015, 2019, 3014 -> {
+        //binding.loginLoadingPb.visibility = View.GONE
+
+        when(code) {
+            7003,7004-> {
+                Toast.makeText(this, "정확한 정보를 입력해 주세요", Toast.LENGTH_SHORT).show()
 //                binding.loginErrorTv.visibility = View.VISIBLE
 //                binding.loginErrorTv.text= message
-//            }
-//        }
+            }
+        }
     }
 }
