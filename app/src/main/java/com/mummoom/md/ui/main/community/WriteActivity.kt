@@ -51,8 +51,8 @@ class WriteActivity : BaseActivity<ActivityWriteBinding>(ActivityWriteBinding::i
         val plusImage = PlusImageCustomDialog(this)
 
         // 앱에서 앨범 접근을 허용할지 선택하는 메세지 (한번 허용하면 앱 설치되어있는 동안 안 뜸.)
-        ActivityCompat.requestPermissions(this,
-            arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE), 1)
+//        ActivityCompat.requestPermissions(this,
+//            arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE), 1)
 
         // 뒤로가기 눌렀을 때
         binding.writeArrowIv.setOnClickListener {

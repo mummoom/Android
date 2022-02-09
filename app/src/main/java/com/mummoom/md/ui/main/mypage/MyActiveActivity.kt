@@ -20,6 +20,9 @@ class MyActiveActivity : BaseActivity<ActivityMyactiveBinding>(ActivityMyactiveB
             tab.text = tabInfo[position]
         }.attach()
 
+        binding.myactiveBackarrowBtn.setOnClickListener {
+            finish()
+        }
     }
 
 }
