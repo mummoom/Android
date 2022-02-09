@@ -63,6 +63,7 @@
             android:textSize="15sp"
             android:maxLines="1"
             android:imeOptions="actionSearch"
+            android:paddingStart="10dp"
             />
 
         <ImageView

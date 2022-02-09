@@ -5,6 +5,7 @@ import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.mummoom.md.R
+import com.mummoom.md.data.Ingredients.Ingredients
 import com.mummoom.md.data.entities.Dog
 import com.mummoom.md.data.entities.User
 import com.mummoom.md.data.remote.Dog.DogService
@@ -14,26 +15,17 @@ import com.mummoom.md.ui.main.home.BannerFragment
 import com.mummoom.md.ui.BaseFragment
 import com.mummoom.md.ui.BaseViewpagerAdapter
 import com.mummoom.md.ui.main.community.MypageCustomDialog
+import com.mummoom.md.ui.main.home.FoodinfoActivity
+import com.mummoom.md.ui.main.home.FoodtypeRVAdapter
 
 class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBinding::inflate) ,MypageView{
+    private lateinit var dogRVdadapter : DogprofileRVAdapter
 
     override fun initAfterBinding() {
 
         // 다이얼로그 변수
         val plusDialog = MypageCustomDialog(requireContext())
         val modifyDialog = ModifyProfileCustomDialog(requireContext())
-
-        //강아지 프로필 리싸이클러뷰
-        val dogRVdadapter = DogprofileRVAdapter()
-        dogRVdadapter.setMyItemClickListener(object  : DogprofileRVAdapter.MyItemClickListener{
-            override fun onItemClick(dog: Dog) {
-                TODO("Not yet implemented")
-            }
-
-        })
-
-        binding.mypageDogprofileRv.adapter=dogRVdadapter
-        binding.mypageDogprofileRv.layoutManager=LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
 
 
         // 강아지 프로필 추가
@@ -57,8 +49,9 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
                 myGender: String,
                 myBirth: String
             ) {
-                binding.mypagePuppyNameTv.text = myName
-                binding.mypagePuppyInfoTv.text = mySpecies + " / " + myBirth
+                binding.mypageDogNameTv.text = myName
+                binding.mypageDogbirthTv.text =myBirth
+                binding.mypageDogtypeTv.text=mySpecies
                 binding.mypagePuppyGenderTv.text = myGender
             }
         })
@@ -70,8 +63,9 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
                 myGender: String,
                 myBirth: String
             ) {
-                binding.mypagePuppyNameTv.text = myName
-                binding.mypagePuppyInfoTv.text = mySpecies + " / " + myBirth
+                binding.mypageDogNameTv.text = myName
+                binding.mypageDogbirthTv.text =myBirth
+                binding.mypageDogtypeTv.text=mySpecies
                 binding.mypagePuppyGenderTv.text = myGender
             }
         })
@@ -116,19 +110,41 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
 
     override fun onStart() {
         super.onStart()
+        initRecyclerView()
         DogService.getDoglist(this)
     }
+
+    private fun initRecyclerView(){
+        //강아지 프로필 리싸이클러뷰
+        dogRVdadapter = DogprofileRVAdapter()
+        dogRVdadapter.setMyItemClickListener(object  : DogprofileRVAdapter.MyItemClickListener{
+            override fun onItemClick(dog: Dog) {
+                binding.mypageDogNameTv.text=dog.dogName
+                binding.mypageDogbirthTv.text=dog.dogBirth
+                binding.mypageDogtypeTv.text=dog.dogType
+
+            }
+
+        })
+
+        binding.mypageDogprofileRv.adapter=dogRVdadapter
+        binding.mypageDogprofileRv.layoutManager=LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+
+
+
+    }
+
 
     override fun onMypageLoading() {
 
     }
 
-    override fun onMypageSuccess(dog: Dog) {
-        TODO("Not yet implemented")
+    override fun onMypageSuccess(dogs :  ArrayList<Dog>) {
+        dogRVdadapter.addDogs(dogs)
     }
 
     override fun onMypageFailure(code: Int, message: String) {
-        TODO("Not yet implemented")
+
     }
 
 }
