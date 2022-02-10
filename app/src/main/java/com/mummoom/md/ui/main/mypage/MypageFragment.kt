@@ -1,26 +1,18 @@
 package com.mummoom.md.ui.main.mypage
 
+import android.content.Context
 import android.content.Intent
-import android.widget.LinearLayout
-import androidx.appcompat.app.AppCompatActivity
+import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.viewpager2.widget.ViewPager2
 import com.mummoom.md.ApplicationClass
-import com.mummoom.md.R
-import com.mummoom.md.data.Ingredients.Ingredients
-import com.mummoom.md.data.entities.Dog
-import com.mummoom.md.data.entities.User
-import com.mummoom.md.data.remote.Dog.DogService
-import com.mummoom.md.data.remote.User.UserService
-import com.mummoom.md.databinding.FragmentMypageBinding
-import com.mummoom.md.ui.main.home.BannerFragment
-import com.mummoom.md.ui.BaseFragment
-import com.mummoom.md.ui.BaseViewpagerAdapter
-import com.mummoom.md.ui.main.community.MypageCustomDialog
-import com.mummoom.md.ui.main.home.FoodinfoActivity
-import com.mummoom.md.ui.main.home.FoodtypeRVAdapter
 import com.mummoom.md.ApplicationClass.Companion.X_AUTH_TOKEN
+import com.mummoom.md.R
+import com.mummoom.md.data.entities.Dog
+import com.mummoom.md.data.remote.Dog.DogService
+import com.mummoom.md.databinding.FragmentMypageBinding
+import com.mummoom.md.ui.BaseFragment
 import com.mummoom.md.ui.login.LoginActivity
+import com.mummoom.md.ui.main.community.MypageCustomDialog
 
 class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBinding::inflate) ,MypageView{
     private lateinit var dogRVdadapter : DogprofileRVAdapter
@@ -114,7 +106,7 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
     override fun onStart() {
         super.onStart()
         initRecyclerView()
-        DogService.getDoglist(this)
+        //DogService.getDoglist(this)
     }
 
     private fun initRecyclerView(){
@@ -136,10 +128,13 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
 
     }
     private fun logout() {
-        val editor = ApplicationClass.mSharedPreferences.edit()
 
+        val editor = ApplicationClass.mSharedPreferences.edit()
+        Log.d("LOGIN",editor.toString())
         editor.remove(X_AUTH_TOKEN)
         editor.apply()
+        Log.d("LOGIN",editor.toString())
+
         val intent = Intent(activity, LoginActivity::class.java)
         startActivity(intent)
     }
