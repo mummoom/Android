@@ -71,9 +71,15 @@ object AuthService {
         authService.autoLogin().enqueue(object : Callback<SignupResponse> {
             override fun onResponse(call: Call<SignupResponse>, response: Response<SignupResponse>) {
                 val resp = response.body()!!
+                Log.d("REPONSE_AUTOLOGIN",response.body().toString())
 
                 when(resp.code){
-                    1000 -> splashView.onAutoLoginSuccess()
+                    1000 ->  {
+                        if(resp.data.equals("true")) {
+                            splashView.onAutoLoginSuccess()
+                        }
+                        else splashView.onAutoLoginFailure(resp.code, resp.message)
+                    }
                     else -> splashView.onAutoLoginFailure(resp.code, resp.message)
                 }
             }
