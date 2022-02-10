@@ -68,17 +68,17 @@ object AuthService {
 
         splashView.onAutoLoginLoading()
 
-        authService.autoLogin().enqueue(object : Callback<AuthResponse> {
-            override fun onResponse(call: Call<AuthResponse>, response: Response<AuthResponse>) {
+        authService.autoLogin().enqueue(object : Callback<SignupResponse> {
+            override fun onResponse(call: Call<SignupResponse>, response: Response<SignupResponse>) {
                 val resp = response.body()!!
 
                 when(resp.code){
-                    200 -> splashView.onAutoLoginSuccess()
+                    1000 -> splashView.onAutoLoginSuccess()
                     else -> splashView.onAutoLoginFailure(resp.code, resp.message)
                 }
             }
 
-            override fun onFailure(call: Call<AuthResponse>, t: Throwable) {
+            override fun onFailure(call: Call<SignupResponse>, t: Throwable) {
                 Log.d("$TAG/API-ERROR", t.message.toString())
 
                 splashView.onAutoLoginFailure(400, "네트워크 오류가 발생했습니다.")

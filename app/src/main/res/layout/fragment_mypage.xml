@@ -132,10 +132,10 @@
                     android:src="@drawable/ic_more_yellow"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/mypage_puppyGender_tv" />
+                    app:layout_constraintStart_toEndOf="@id/mypage_dogGender_tv" />
 
                 <TextView
-                    android:id="@+id/mypage_puppyGender_tv"
+                    android:id="@+id/mypage_dogGender_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
@@ -376,7 +376,7 @@
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:id="@+id/mypage_setting_tv"
+                android:id="@+id/mypage_logout_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="로그아웃"
