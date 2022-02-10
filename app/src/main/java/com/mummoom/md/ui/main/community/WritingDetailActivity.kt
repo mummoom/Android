@@ -1,5 +1,6 @@
 package com.mummoom.md.ui.main.community
 
+import android.net.Uri
 import android.util.Log
 import com.bumptech.glide.Glide
 import com.mummoom.md.R
@@ -95,6 +96,8 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
 
         // 글 제목
         binding.writingDetailWritingTitleTv.text = post.title
+
+        Log.d("post_url", post.imgUrl.toString())
 
         // 글 사진
         Glide.with(this)
