@@ -66,6 +66,7 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
 
         client = GoogleSignIn.getClient(this, gso)
 
+
         authResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
                 result ->
 

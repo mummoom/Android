@@ -21,7 +21,7 @@
     <FrameLayout
         android:id="@+id/community_search_frm"
         android:layout_width="match_parent"
-        android:layout_height="33dp"
+        android:layout_height="40dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,7 +70,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/community_search_frm"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="25dp"/>
+        android:layout_marginTop="20dp"/>
 
     // 게시글 피드 recyclerview(Grid 형식)
     <androidx.recyclerview.widget.RecyclerView
@@ -81,7 +81,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="13dp"
         tools:listitem="@layout/item_writing_simple"
         android:overScrollMode="never"/>
 
@@ -113,19 +113,19 @@
     // 글쓰기 버튼
     <androidx.cardview.widget.CardView
         android:id="@+id/community_writeBtn_cv"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        app:cardCornerRadius="20dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:cardCornerRadius="25dp"
         app:cardElevation="0dp"
         app:cardBackgroundColor="@color/main_color"
         android:layout_gravity="right|bottom"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp">
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp">
 
         <ImageView
             android:id="@+id/community_write_iv"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_gravity="center"
             android:src="@drawable/ic_write"/>
 
