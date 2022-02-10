@@ -75,7 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="잡담)"
-        android:textSize="17sp"
+        android:textSize="16sp"
         android:textColor="#EDC06D"
         android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintStart_toStartOf="@id/writingDetail_userIcon_cv"
@@ -98,11 +98,14 @@
         android:id="@+id/writingDetail_writingImg_iv"
         android:layout_width="match_parent"
         android:layout_height="330dp"
-        android:layout_margin="20dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:background="#ECECEC"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/writingDetail_type_tv"
-        android:background="#ECECEC"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/writingDetail_type_tv" />
 
     <ImageView
         android:id="@+id/writingDetail_heart_iv"
@@ -110,6 +113,7 @@
         android:layout_height="25dp"
         android:src="@drawable/ic_heart_off"
         android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
         app:layout_constraintStart_toStartOf="@id/writingDetail_writingImg_iv"
         app:layout_constraintTop_toBottomOf="@id/writingDetail_writingImg_iv" />
 
@@ -118,7 +122,7 @@
         android:id="@+id/writingDetail_scrap_iv"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="5dp"
         android:src="@drawable/ic_scrap"
         app:layout_constraintStart_toEndOf="@id/writingDetail_heart_iv"
         app:layout_constraintTop_toTopOf="@id/writingDetail_heart_iv"
@@ -128,6 +132,7 @@
         android:id="@+id/writingDetail_moreBtn_iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
         android:src="@drawable/ic_more"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/writingDetail_writingImg_iv"
@@ -135,7 +140,7 @@
 
     <TextView
         android:id="@+id/writingDetail_writingContent_tv"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="강아지강아지강아지강아지강아지강아지강아지강아지
 강아지강아지강아지강아지강아지강아지강아지강아지강아지강아지강아지강아지"
@@ -145,10 +150,13 @@
         android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintStart_toStartOf="@id/writingDetail_heart_iv"
         app:layout_constraintEnd_toEndOf="@id/writingDetail_writingImg_iv"
+        android:background="@drawable/rounding_line"
+        android:gravity="left"
         app:layout_constraintTop_toBottomOf="@id/writingDetail_heart_iv"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:paddingTop="10dp"/>
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"/>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -165,7 +173,7 @@
             android:textSize="15sp"
             android:fontFamily="@font/applesdgothicneom"
             android:background="#E9E9E9"
-            android:padding="3dp"/>
+            android:padding="5dp"/>
 
         <ImageView
             android:id="@+id/writingDetail_commentDown_iv"
