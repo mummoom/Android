@@ -1,5 +1,6 @@
 package com.mummoom.md.data.remote.Post
 
+import android.util.Log
 import com.mummoom.md.ApplicationClass.Companion.retrofit
 import com.mummoom.md.data.Post.SendPost
 import retrofit2.Call
@@ -62,6 +63,33 @@ class PostService {
         })
     }
 
+    // postIdx로 Post 받아오는 API
+    fun getPost(postIdx : Int)
+    {
+        val getPostService = retrofit.create(PostRetrofitInterface::class.java)
+        Log.d("postIdx_2", postIdx.toString())
+
+        getPostService.getPostByPostIdx(postIdx).enqueue(object : Callback<GetPostResponse>{
+            override fun onResponse(
+                call: Call<GetPostResponse>,
+                response: Response<GetPostResponse>
+            ) {
+                val resp = response.body()!!
+                Log.d("post_success", resp.data.toString())
+                when(resp.code)
+                {
+                    1000 -> getPostView.onGetPostSuccess(resp.data)
+                    else -> getPostView.onGetPostFailure(resp.code, resp.message)
+                }
+            }
+
+            override fun onFailure(call: Call<GetPostResponse>, t: Throwable) {
+                getPostView.onGetPostFailure(400, "네트워크 오류가 발생했습니다.")
+                Log.d("post_failure", "error", t)
+            }
+
+        })
+    }
 
     // 모든 post 받아오는 API
     fun getPosts()

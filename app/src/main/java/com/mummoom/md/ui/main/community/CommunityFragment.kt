@@ -30,7 +30,10 @@ class CommunityFragment(): BaseFragment<FragmentCommunityBinding>(FragmentCommun
 
         writingSimpleRVAdapter.setMyItemClickListener(object : WritingSimpleRVAdapter.MyItemClickListener{
             override fun onItemClick(postIdx: Int) {
+                val intent = Intent(activity, WritingDetailActivity::class.java)
 
+                intent.putExtra("postIdx", postIdx)
+                startActivity(intent)
             }
 
         })
