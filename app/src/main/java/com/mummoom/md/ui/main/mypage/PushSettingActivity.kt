@@ -26,8 +26,8 @@ class PushSettingActivity: BaseActivity<ActivityPushSettingBinding>(ActivityPush
             binding.pushSettingEventOrBenefitOnIv.visibility=View.VISIBLE
         }
         binding.pushSettingPostOffIv.setOnClickListener {
-            binding.pushSettingPostOffIv.visibility=View.VISIBLE
-            binding.pushSettingPostOnIv.visibility=View.INVISIBLE
+            binding.pushSettingPostOffIv.visibility=View.INVISIBLE
+            binding.pushSettingPostOnIv.visibility=View.VISIBLE
         }
         binding.pushSettingAllNotificationsOnIv.setOnClickListener {
             binding.pushSettingAllNotificationsOffIv.visibility=View.VISIBLE
@@ -38,8 +38,8 @@ class PushSettingActivity: BaseActivity<ActivityPushSettingBinding>(ActivityPush
             binding.pushSettingPostOnIv.visibility=View.INVISIBLE
         }
         binding.pushSettingEventOrBenefitOnIv.setOnClickListener {
-            binding.pushSettingEventOrBenefitOffIv.visibility=View.INVISIBLE
-            binding.pushSettingEventOrBenefitOnIv.visibility=View.VISIBLE
+            binding.pushSettingEventOrBenefitOffIv.visibility=View.VISIBLE
+            binding.pushSettingEventOrBenefitOnIv.visibility=View.INVISIBLE
         }
         binding.pushSettingPostOnIv.setOnClickListener {
             binding.pushSettingPostOffIv.visibility=View.VISIBLE

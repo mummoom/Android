@@ -13,9 +13,7 @@ interface AuthRetrofitInterface {
     @POST("/api/users/login")
     fun login(@Body user: User): Call<AuthResponse>
 
-    @GET("/users/auto-login")
-    fun autoLogin(): Call<AuthResponse>
+    @GET("/api/users/validtoken")
+    fun autoLogin(): Call<SignupResponse>
 
-    @GET("/api/users/me")
-    fun getUserByIdx(@Body user: User): Call<AuthResponse>
 }
