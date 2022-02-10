@@ -68,7 +68,7 @@
         android:layout_marginTop="35dp"
         android:layout_marginStart="35dp"/>
 
-    <TextView
+    <EditText
         android:id="@+id/myprofile_email_content_tv"
         android:layout_width="match_parent"
         android:layout_height="30dp"
@@ -82,7 +82,8 @@
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@id/myprofile_email_tv"
         app:layout_constraintTop_toBottomOf="@id/myprofile_email_tv"
-        android:background="@drawable/rounding_line"/>
+        android:background="@drawable/rounding_line"
+        android:maxLines="1"/>
 
 
 
@@ -98,7 +99,7 @@
         app:layout_constraintTop_toBottomOf="@id/myprofile_email_content_tv"
         android:layout_marginTop="15dp" />
 
-    <TextView
+    <EditText
         android:id="@+id/myprofile_name_content_tv"
         android:layout_width="match_parent"
         android:layout_height="30dp"
@@ -111,7 +112,8 @@
         android:gravity="center_vertical"
         app:layout_constraintStart_toStartOf="@id/myprofile_email_tv"
         app:layout_constraintTop_toBottomOf="@id/myprofile_name_tv"
-        android:background="@drawable/rounding_line"/>
+        android:background="@drawable/rounding_line"
+        android:maxLines="1"/>
 
 
     <TextView

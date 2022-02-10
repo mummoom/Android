@@ -7,11 +7,15 @@
     android:layout_height="match_parent"
     android:paddingBottom="20dp"
     android:clipToPadding="false"
-    android:overScrollMode="never">
+    android:overScrollMode="never"
+
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
 
 
         //검색창
@@ -30,7 +34,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/rounding_line_yellow"
-                android:paddingStart="10dp"/>
+                android:paddingStart="10dp"
+                android:fontFamily="@font/applesdgothicneom"/>
 
             <ImageView
                 android:id="@+id/home_search_iv"
@@ -63,6 +68,7 @@
             app:layout_constraintTop_toBottomOf="@id/home_banner_vp"
             app:layout_constraintStart_toStartOf="parent"
             android:text="우리 강아지가 먹어도 될까?"
+            android:fontFamily="@font/applesdgothicneoh"
             android:textStyle="bold"
             android:textSize="17sp"
             android:textColor="#EDC06D"/>
@@ -112,6 +118,7 @@
                 app:layout_constraintTop_toBottomOf="@id/home_veg_cv"
                 android:text="채소"
                 android:textSize="15sp"
+                android:fontFamily="@font/applesdgothicneosb"
                 android:textColor="@color/black"/>
 
             //생선
@@ -151,6 +158,7 @@
                 app:layout_constraintTop_toBottomOf="@id/home_fish_cv"
                 android:text="생선"
                 android:textSize="15sp"
+                android:fontFamily="@font/applesdgothicneosb"
                 android:textColor="@color/black"/>
 
             //고기
@@ -191,6 +199,7 @@
                 app:layout_constraintTop_toBottomOf="@id/home_meat_cv"
                 android:text="고기"
                 android:textSize="15sp"
+                android:fontFamily="@font/applesdgothicneosb"
                 android:textColor="@color/black"/>
 
             //유제품
@@ -229,6 +238,7 @@
                 app:layout_constraintTop_toBottomOf="@id/home_dairy_cv"
                 android:text="유제품"
                 android:textSize="15sp"
+                android:fontFamily="@font/applesdgothicneosb"
                 android:textColor="@color/black"/>
 
 
@@ -268,6 +278,7 @@
                 app:layout_constraintEnd_toEndOf="@id/home_seafood_cv"
                 app:layout_constraintTop_toBottomOf="@id/home_seafood_cv"
                 android:text="해산물"
+                android:fontFamily="@font/applesdgothicneosb"
                 android:textSize="15sp"
                 android:textColor="@color/black"/>
 
@@ -309,6 +320,7 @@
                 app:layout_constraintEnd_toEndOf="@id/home_rice_cv"
                 app:layout_constraintTop_toBottomOf="@id/home_rice_cv"
                 android:text="곡류"
+                android:fontFamily="@font/applesdgothicneosb"
                 android:textSize="15sp"
                 android:textColor="@color/black"/>
 
@@ -350,6 +362,7 @@
                 app:layout_constraintEnd_toEndOf="@id/home_fruit_cv"
                 app:layout_constraintTop_toBottomOf="@id/home_fruit_cv"
                 android:text="과일"
+                android:fontFamily="@font/applesdgothicneosb"
                 android:textSize="15sp"
                 android:textColor="@color/black"/>
 
@@ -389,6 +402,7 @@
                 app:layout_constraintEnd_toEndOf="@id/home_etc_cv"
                 app:layout_constraintTop_toBottomOf="@id/home_etc_cv"
                 android:text="기타"
+                android:fontFamily="@font/applesdgothicneosb"
                 android:textSize="15sp"
                 android:textColor="@color/black"/>
 
@@ -419,6 +433,7 @@
             app:layout_constraintTop_toBottomOf="@id/home_divide_v"
             app:layout_constraintStart_toStartOf="parent"
             android:text="간단하게 알아보는 음식 정보"
+            android:fontFamily="@font/applesdgothicneoh"
             android:textStyle="bold"
             android:textSize="17sp"
             android:textColor="#8c8c8c"/>
@@ -452,6 +467,7 @@
                 android:text="절대 안돼!"
                 android:textColor="@color/black"
                 android:textStyle="bold"
+                android:fontFamily="@font/applesdgothicneosb"
                 app:layout_constraintTop_toBottomOf="@id/home_eat_never_iv"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -488,6 +504,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="좋은 음식"
+                android:fontFamily="@font/applesdgothicneosb"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 app:layout_constraintTop_toBottomOf="@id/home_eat_good_iv"
@@ -525,6 +542,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="애매한 음식"
+                android:fontFamily="@font/applesdgothicneosb"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 app:layout_constraintTop_toBottomOf="@id/home_eat_soso_iv"

@@ -1,8 +1,11 @@
 package com.mummoom.md.ui.main.mypage
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -20,6 +23,7 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
 
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSingInClient : GoogleSignInClient
+
 
     override fun initAfterBinding() {
 
@@ -55,11 +59,20 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
 //        }
 
 
-        changeImageDialog.setOnClickedListener(object : ChangeImageCustomDialog.normalBtnClickListener{
-            override fun onClicked() {
-                val intent = Intent(this@MyProfileActivity,IllustrationActivity::class.java)
-                startActivity(intent)
+        changeImageDialog.setOnClickedListener(object : ChangeImageCustomDialog.clickListener{
+            override fun onPictureClicked() {
+                if(ContextCompat.checkSelfPermission(applicationContext,
+                        android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
+                {
+
+                }
+
             }
+
+            override fun onIllustClicked() {
+                startActivityWithClear(IllustrationActivity::class.java)
+            }
+
         })
     }
 
@@ -89,8 +102,8 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
     fun getUser(user: User) {
 
         //binding.myprofileProfileImgIv.setImageURI(user.imgUrl.)
-        binding.myprofileEmailContentTv.text=user.email
-        binding.myprofileNameContentTv.text=user.nickName
+        binding.myprofileEmailContentTv.setText(user.email)
+        binding.myprofileNameContentTv.setText(user.nickName)
         //binding.myprofilePwdContentTv.text=user.password
 
     }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android">
+    <font android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/applesdgothicneom"/>
+    <font android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/applesdgothicneoh"/>
+    <font android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/applesdgothicneob"/>
+    <font android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/applesdgothicneosb"/>
+
+</font-family>

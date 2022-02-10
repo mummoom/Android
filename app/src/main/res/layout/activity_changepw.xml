@@ -24,6 +24,7 @@
         android:textColor="@color/black"
         android:textSize="17sp"
         android:textStyle="bold"
+        android:fontFamily="@font/applesdgothicneob"
         app:layout_constraintStart_toEndOf="@id/changepw_backarrow_btn"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,6 +45,7 @@
         android:text="주기적인 비밀번호 변경은 개인정보를 안전하게"
         android:textColor="@color/changepw_caution_tv"
         android:textSize="15sp"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/changepw_v" />
 
@@ -56,6 +58,7 @@
         android:text="보호하고 개인정보 도용을 예방할 수 있습니다!"
         android:textColor="@color/changepw_caution_tv"
         android:textSize="15sp"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/changepw_caution1_tv" />
 
@@ -66,6 +69,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:text="기존 비밀번호"
+        android:fontFamily="@font/applesdgothicneom"
         android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -82,7 +86,8 @@
         android:background="@drawable/bg_changepw_et"
         android:textSize="15sp"
         android:layout_marginTop="10dp"
-        android:paddingStart="10dp"/>
+        android:paddingStart="10dp"
+        android:fontFamily="@font/applesdgothicneom"/>
 
     <TextView
         android:id="@+id/changepw_newpw_tv"
@@ -94,6 +99,7 @@
         android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="bold"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/changepw_oldpw_et" />
 
@@ -108,6 +114,7 @@
         android:textSize="15sp"
         android:layout_marginTop="10dp"
         android:paddingStart="10dp"
+        android:fontFamily="@font/applesdgothicneom"
         />
 
     <TextView
@@ -120,6 +127,7 @@
         android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="bold"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/changepw_newpw_et" />
 
@@ -132,6 +140,7 @@
         app:layout_constraintTop_toBottomOf="@id/changepw_newpwcheck_tv"
         android:background="@drawable/bg_changepw_et"
         android:textSize="15sp"
+        android:fontFamily="@font/applesdgothicneom"
         android:layout_marginTop="10dp"
         android:paddingStart="10dp"/>
     <TextView
@@ -141,6 +150,7 @@
         android:text="확인"
         android:textSize="15sp"
         android:textStyle="bold"
+        android:fontFamily="@font/applesdgothicneom"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -36,7 +36,8 @@
         app:layout_constraintEnd_toEndOf="@id/login_login_btn_tv"
         app:layout_constraintTop_toBottomOf="@id/login_logo_iv"
         android:layout_marginTop="40dp"
-        android:maxLines="1"/>
+        android:maxLines="1"
+        android:fontFamily="@font/applesdgothicneom"/>
     <ImageView
         android:layout_width="20dp"
         android:layout_height="20dp"
@@ -57,7 +58,8 @@
         app:layout_constraintEnd_toEndOf="@id/login_login_btn_tv"
         app:layout_constraintTop_toBottomOf="@id/login_id_et"
         android:layout_marginTop="15dp"
-        android:maxLines="1"/>
+        android:maxLines="1"
+        android:fontFamily="@font/applesdgothicneom"/>
 
     <TextView
         android:id="@+id/login_login_btn_tv"
@@ -66,6 +68,7 @@
         android:layout_marginTop="16dp"
         android:gravity="center"
         android:text="Login"
+        android:fontFamily="@font/applesdgothicneom"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:textAlignment="center"
@@ -99,7 +102,8 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@id/login_kakao_login_btn_tv"
-    android:layout_marginTop="16dp"/>
+    android:layout_marginTop="16dp"
+    android:fontFamily="@font/applesdgothicneom"/>
 
 
 <!--    <TextView-->
@@ -132,6 +136,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login_google_btn"
+        android:fontFamily="@font/applesdgothicneom"
         />
     <View
         android:layout_width="150dp"

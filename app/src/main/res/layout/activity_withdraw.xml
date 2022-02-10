@@ -21,6 +21,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:text="회원 탈퇴"
+        android:fontFamily="@font/applesdgothicneob"
         android:textColor="@color/black"
         android:textSize="17sp"
         android:textStyle="bold"
@@ -44,6 +45,7 @@
         android:text="회원탈퇴를 원하신다면 비밀번호를 입력해주세요."
         android:textColor="@color/changepw_caution_tv"
         android:textSize="15sp"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintStart_toStartOf="@id/withdraw_checkpw_et"
         app:layout_constraintTop_toBottomOf="@id/withdraw_v" />
 
@@ -57,6 +59,7 @@
         android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="bold"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/withdraw_caution_tv" />
 
@@ -69,6 +72,7 @@
         app:layout_constraintTop_toBottomOf="@id/withdraw_pw_tv"
         android:background="@drawable/bg_changepw_et"
         android:textSize="15sp"
+        android:fontFamily="@font/applesdgothicneom"
         android:layout_marginTop="10dp"/>
 
     <TextView
@@ -81,6 +85,7 @@
         android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="bold"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/withdraw_pw_et" />
 
@@ -93,6 +98,7 @@
         app:layout_constraintTop_toBottomOf="@id/withdraw_checkpw_tv"
         android:background="@drawable/bg_changepw_et"
         android:textSize="15sp"
+        android:fontFamily="@font/applesdgothicneom"
         android:layout_marginTop="10dp"
         />
 
@@ -106,6 +112,7 @@
         android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="bold"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/withdraw_checkpw_et" />
 
@@ -118,6 +125,7 @@
         app:layout_constraintTop_toBottomOf="@id/withdraw_why_tv"
         android:background="@drawable/bg_changepw_et"
         android:textSize="15sp"
+        android:fontFamily="@font/applesdgothicneom"
         android:layout_marginTop="10dp"/>
 
     <TextView
@@ -126,6 +134,7 @@
         android:text="탈퇴하기"
         android:textSize="15sp"
         android:textStyle="bold"
+        android:fontFamily="@font/applesdgothicneom"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

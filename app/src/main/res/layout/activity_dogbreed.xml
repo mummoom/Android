@@ -28,7 +28,8 @@
         android:text="강아지의 종은 무엇인가요?"
         android:textColor="@color/infoname_tv"
         android:textStyle="bold"
-        android:textSize="15sp"/>
+        android:textSize="15sp"
+        android:fontFamily="@font/applesdgothicneob"/>
 
     <Spinner
         android:id="@+id/dogbreed_bread_sp"
@@ -41,6 +42,7 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/bg_spinner"
         android:dropDownWidth="50dp"
+        android:fontFamily="@font/applesdgothicneom"
         />
     <ImageView
         app:layout_constraintTop_toTopOf="@id/dogbreed_bread_sp"
@@ -63,20 +65,23 @@
         android:background="@drawable/bg_previous_btn"
         android:text="이전"
         android:textSize="15sp"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:fontFamily="@font/applesdgothicneom"/>
+
     <TextView
         android:id="@+id/dogbreed_next_btn"
         android:layout_width="120dp"
         android:layout_height="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dogbreed_bread_sp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="50dp"
-        android:gravity="center"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="40dp"
         android:background="@drawable/bg_previous_btn"
+        android:gravity="center"
         android:text="다음"
+        android:textColor="@color/main_color"
         android:textSize="15sp"
-        android:textColor="@color/main_color"/>
+        android:fontFamily="@font/applesdgothicneom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dogbreed_bread_sp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

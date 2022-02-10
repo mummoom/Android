@@ -3,7 +3,9 @@ package com.mummoom.md.ui.main.mypage
 import android.content.Context
 import android.content.Intent
 import android.util.Log
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.mummoom.md.ApplicationClass
 import com.mummoom.md.ApplicationClass.Companion.X_AUTH_TOKEN
 import com.mummoom.md.R
@@ -11,11 +13,14 @@ import com.mummoom.md.data.entities.Dog
 import com.mummoom.md.data.remote.Dog.DogService
 import com.mummoom.md.databinding.FragmentMypageBinding
 import com.mummoom.md.ui.BaseFragment
+import com.mummoom.md.ui.doggender.DogInfoView
+import com.mummoom.md.ui.doginfocheck.DogInfoCheckActivity
 import com.mummoom.md.ui.login.LoginActivity
 import com.mummoom.md.ui.main.community.MypageCustomDialog
 
-class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBinding::inflate) ,MypageView{
+class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBinding::inflate) ,MypageView,DogInfoView,MypageDogChangeView{
     private lateinit var dogRVdadapter : DogprofileRVAdapter
+    var dogIdx :Int =0
 
     override fun initAfterBinding() {
 
@@ -40,29 +45,19 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
         // 확인 버튼 눌렀을 때 처리 코드들
         plusDialog.setOnClickedListener(object : MypageCustomDialog.TextClickListener{
             override fun onClicked(
-                myName: String,
-                mySpecies: String,
-                myGender: String,
-                myBirth: String
+                dogName : String, dogType : String, dogSex : String, dogBirth : String
             ) {
-                binding.mypageDogNameTv.text = myName
-                binding.mypageDogbirthTv.text =myBirth
-                binding.mypageDogtypeTv.text=mySpecies
-                binding.mypageDogGenderTv.text = myGender
+
+                dogInfo(Dog(dogBirth, dogIdx = 0,dogName,dogSex,dogType, surgery = "Y"))
+
             }
         })
 
         modifyDialog.setOnClickedListener(object : ModifyProfileCustomDialog.TextClickListener{
             override fun onClicked(
-                myName: String,
-                mySpecies: String,
-                myGender: String,
-                myBirth: String
+                dogName : String, dogType : String, dogSex : String, dogBirth : String
             ) {
-                binding.mypageDogNameTv.text = myName
-                binding.mypageDogbirthTv.text =myBirth
-                binding.mypageDogtypeTv.text=mySpecies
-                binding.mypageDogGenderTv.text = myGender
+                changedogInfo(Dog(dogBirth, dogIdx,dogName,dogSex,dogType, surgery = "Y"))
             }
         })
 
@@ -106,7 +101,12 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
     override fun onStart() {
         super.onStart()
         initRecyclerView()
-        //DogService.getDoglist(this)
+        DogService.getDoglist(this)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
     }
 
     private fun initRecyclerView(){
@@ -117,7 +117,11 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
                 binding.mypageDogNameTv.text=dog.dogName
                 binding.mypageDogbirthTv.text=dog.dogBirth
                 binding.mypageDogtypeTv.text=dog.dogType
-                binding.mypageDogGenderTv.text=dog.dogSex
+                if(dog.dogSex=="0")
+                    binding.mypageDogGenderTv.text="남아"
+                else binding.mypageDogGenderTv.text="여아"
+                dogIdx=dog.dogIdx
+                Log.d("DOGIDX",dogIdx.toString())
 
             }
 
@@ -125,6 +129,7 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
 
         binding.mypageDogprofileRv.adapter=dogRVdadapter
         binding.mypageDogprofileRv.layoutManager=LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+        binding.mypageDogprofileRv.overScrollMode = RecyclerView.OVER_SCROLL_NEVER
 
     }
     private fun logout() {
@@ -150,5 +155,50 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
     override fun onMypageFailure(code: Int, message: String) {
 
     }
+
+
+
+    private fun dogInfo(dog : Dog) {
+
+        DogService.dogInfo(this,dog)
+
+    }
+
+    private fun changedogInfo(dog : Dog) {
+
+        DogService.setMypageDogChangeView(this)
+        DogService.changeDog(dogIdx,dog)
+
+    }
+    override fun onDogInfoLoading() {
+
+    }
+
+    override fun onDogInfoSuccess(dogIdx: Dog) {
+
+        Log.d("LOG_SUCCESS", "성공")
+        DogService.getDoglist(this)
+
+
+    }
+
+    override fun onDogInfoFailure(code: Int, message: String) {
+        Log.d("LOG_SUCCESS", "실패")
+    }
+
+    override fun onMypageDogchangeLoading() {
+
+    }
+
+    override fun onMypageDogchangeSuccess() {
+        Log.d("LOG_SUCCESS", "성공")
+        DogService.getDoglist(this)
+
+    }
+
+    override fun onMypageDogchangeFailure(code: Int, message: String) {
+
+    }
+
 
 }

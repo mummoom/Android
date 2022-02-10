@@ -29,21 +29,23 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/mypage_dogprofile_rv"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/mypage_dogprofile_plus_iv"
                 android:layout_marginTop="20dp"
                 android:orientation="horizontal"
                 tools:listitem="@layout/item_dogprofile"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:paddingEnd="50dp"/>
 
             <ImageView
                 android:id="@+id/mypage_dogprofile_plus_iv"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                app:layout_constraintStart_toEndOf="@id/mypage_dogprofile_rv"
-                app:layout_constraintTop_toTopOf="@id/mypage_puppyImg_iv"
-                app:layout_constraintBottom_toBottomOf="@id/mypage_puppyImg_iv"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/mypage_dogprofile_rv"
+                android:layout_marginStart="10dp"
                 android:src="@drawable/ic_plus" />
 
 
@@ -60,28 +62,20 @@
                 app:layout_constraintTop_toBottomOf="@id/mypage_dogprofile_rv">
 
                 <TextView
-                    android:id="@+id/mypage_nickname_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    android:text="닉네임"
-                    android:textColor="#444444"
-                    android:textSize="13sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
                     android:id="@+id/mypage_dogName_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="30dp"
                     android:text="강아지 이름"
+                    android:fontFamily="@font/applesdgothicneom"
+
                     android:textColor="#675926"
-                    android:textSize="16sp"
+                    android:textSize="17sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@id/mypage_nickname_tv"
-                    app:layout_constraintTop_toBottomOf="@id/mypage_nickname_tv" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginStart="20dp"
+                    />
 
                 <TextView
                     android:id="@+id/mypage_dogtype_tv"
@@ -93,7 +87,9 @@
                     android:text="강아지 종류"
                     android:textColor="#444444"
                     android:textSize="12sp"
-                    app:layout_constraintStart_toStartOf="@id/mypage_nickname_tv"
+                    android:fontFamily="@font/applesdgothicneom"
+
+                    app:layout_constraintStart_toStartOf="@id/mypage_dogName_tv"
                     app:layout_constraintTop_toBottomOf="@id/mypage_dogName_tv" />
 
                 <TextView
@@ -107,6 +103,8 @@
                     android:text="/"
                     android:textColor="#444444"
                     android:textSize="12sp"
+                    android:fontFamily="@font/applesdgothicneom"
+
                     app:layout_constraintStart_toEndOf="@id/mypage_dogtype_tv"
                     app:layout_constraintTop_toBottomOf="@id/mypage_dogName_tv" />
 
@@ -121,6 +119,7 @@
                     android:text="태어난 일자"
                     android:textColor="#444444"
                     android:textSize="12sp"
+                    android:fontFamily="@font/applesdgothicneom"
                     app:layout_constraintStart_toEndOf="@id/mypage_slash_tv"
                     app:layout_constraintTop_toBottomOf="@id/mypage_dogName_tv" />
 
@@ -140,6 +139,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
                     android:text="성별"
+                    android:fontFamily="@font/applesdgothicneom"
                     android:textColor="#444444"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="@id/mypage_dogName_tv"
@@ -185,6 +185,7 @@
                 android:textSize="15sp"
                 android:textColor="@color/black"
                 android:textStyle="bold"
+                android:fontFamily="@font/applesdgothicneom"
                 app:layout_constraintStart_toEndOf="@id/mypage_icon1_cv"
                 app:layout_constraintTop_toTopOf="@id/mypage_icon1_cv"
                 app:layout_constraintBottom_toBottomOf="@id/mypage_icon1_cv"
@@ -217,6 +218,7 @@
                 android:textSize="15sp"
                 android:textColor="@color/black"
                 android:textStyle="bold"
+                android:fontFamily="@font/applesdgothicneom"
                 app:layout_constraintStart_toEndOf="@id/mypage_icon2_cv"
                 app:layout_constraintTop_toTopOf="@id/mypage_icon2_cv"
                 app:layout_constraintBottom_toBottomOf="@id/mypage_icon2_cv"
@@ -246,6 +248,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="문의하기"
+                android:fontFamily="@font/applesdgothicneom"
                 android:textSize="15sp"
                 android:textColor="@color/black"
                 android:textStyle="bold"
@@ -281,6 +284,7 @@
                 android:textSize="15sp"
                 android:textColor="@color/black"
                 android:textStyle="bold"
+                android:fontFamily="@font/applesdgothicneom"
                 app:layout_constraintStart_toEndOf="@id/mypage_icon4_cv"
                 app:layout_constraintTop_toTopOf="@id/mypage_icon4_cv"
                 app:layout_constraintBottom_toBottomOf="@id/mypage_icon4_cv"
@@ -318,6 +322,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="내 프로필"
+                android:fontFamily="@font/applesdgothicneom"
                 android:textSize="15sp"
                 android:textColor="@color/black"
                 android:textStyle="bold"
@@ -348,6 +353,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="내 활동"
+                android:fontFamily="@font/applesdgothicneom"
                 android:textSize="15sp"
                 android:textColor="@color/black"
                 android:textStyle="bold"
@@ -380,6 +386,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="로그아웃"
+                android:fontFamily="@font/applesdgothicneom"
                 android:textSize="15sp"
                 android:textColor="@color/black"
                 android:textStyle="bold"
