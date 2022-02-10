@@ -12,7 +12,9 @@ interface PostRetrofitInterface {
     ) : Call<PostResponse>
 
     @GET("/post/{postIdx}")
-    fun getPostByPostIdx() : Call<GetPostResponse>
+    fun getPostByPostIdx(
+        @Path("postIdx") postIdx : Int
+    ) : Call<GetPostResponse>
 
     @DELETE("/post/{postIdx}")
     fun deletePost() : Call<DefaultPostResponse>
