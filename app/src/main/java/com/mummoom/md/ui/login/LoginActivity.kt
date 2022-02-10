@@ -30,7 +30,7 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
 
     private lateinit var client: GoogleSignInClient
     private lateinit var auth: FirebaseAuth
-    private lateinit var Idtoken : String
+    private lateinit var accessToken : String
 
     private var RC_SIGN_IN = 9001
     private lateinit var authResultLauncher: ActivityResultLauncher<Intent>
@@ -91,6 +91,7 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
     private fun googleLogin() {
         val signInIntent = client.signInIntent
         authResultLauncher.launch(signInIntent)
+
     }
 
     override fun onStart() {
@@ -115,13 +116,14 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
                     // 로그인 처리를 해주면 됨!
                     Log.d("signin", "success2")
 
-                    val accessToken : String= account.idToken.toString()
+                    accessToken = account.idToken.toString()
                     Log.d("TOKEN",accessToken)
 
 
 
                     val user = FirebaseAuth.getInstance().currentUser
                     updateUI(user)
+                    AuthService.googleLogin(this,accessToken)
 
                 } else {
                     // 오류가 난 경우!
@@ -134,9 +136,9 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
     private  fun updateUI(user: FirebaseUser?) {
 
         if (user != null) {
-            val intent = Intent(this, DognameActivity::class.java)
-            startActivity(intent)
-            finish()
+//            val intent = Intent(this, DognameActivity::class.java)
+//            startActivity(intent)
+//            finish()
         }
 
     }

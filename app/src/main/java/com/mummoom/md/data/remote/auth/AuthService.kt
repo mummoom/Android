@@ -93,12 +93,12 @@ object AuthService {
         })
     }
 
-    fun googleLogin(googleLoginView: GoogleLoginView) {
+    fun googleLogin(googleLoginView: GoogleLoginView,accessToken:String) {
         val authService = retrofit.create(AuthRetrofitInterface::class.java)
 
         googleLoginView.onGoogleLoginLoading()
 
-        authService.googleLogin().clone().enqueue(object : Callback<AuthResponse> {
+        authService.googleLogin(accessToken).clone().enqueue(object : Callback<AuthResponse> {
             override fun onResponse(call: Call<AuthResponse>, response: Response<AuthResponse>) {
                 val resp = response.body()!!
 
