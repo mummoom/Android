@@ -23,43 +23,18 @@ import java.util.*
 class WriteActivity : BaseActivity<ActivityWriteBinding>(ActivityWriteBinding::inflate), PostView {
 
     private var content : String = ""
-    private var imgUrl : String = ""
     private var title : String = ""
-    private lateinit var uri: Uri
+    private var uri: Uri? = null
 
 //    private lateinit var newPost: SendPost
 
     private var launcher = registerForActivityResult(ActivityResultContracts.GetContent())
     {
-//        it -> // 받아온 url로 writeActivity 화면을 change 해주기?
+        uri = it
 
-//        if(it == null)
-//        {
-//            imgUrl = ""
-//        }
-//        else
-//        {
-//            imgUrl = it.toString()
-//        }
-//
-//        if(imgUrl.isNotEmpty())
-//        {
-//            Glide.with(this)
-//                .load(imgUrl)
-//                .into(findViewById(R.id.write_galleryBtn_iv))
-//        }
-
-        if(it == null)
-        {
-            uri = Uri.parse("")
-            // uri가 null일 때 처리 해줘야 함
-        }
-        else
-        {
-            uri = it
-        }
-
-
+        Glide.with(this)
+            .load(uri)
+            .into(binding.writeGalleryBtnIv)
     }
 
     override fun initAfterBinding() {
@@ -82,8 +57,9 @@ class WriteActivity : BaseActivity<ActivityWriteBinding>(ActivityWriteBinding::i
 
         // 업로드 버튼 눌렀을 때
         binding.writeUploadBtnTv.setOnClickListener {
-            uploading()
+            uploadImageToFirebase(uri!!)
 
+            // 성공했을 때
             finish()
         }
 
@@ -109,13 +85,11 @@ class WriteActivity : BaseActivity<ActivityWriteBinding>(ActivityWriteBinding::i
 
     }
 
-    private fun uploading()
+    private fun uploading(imgUrl : String)
     {
-        uploadImageToFirebase(uri!!)
 
         content = binding.writeContentEt.text.toString()
         title = binding.writeTitleEt.text.toString()
-        imgUrl = uri.toString()
 
         val newPost = SendPost(content, imgUrl, title)
         val savePostService = PostService()
@@ -135,6 +109,10 @@ class WriteActivity : BaseActivity<ActivityWriteBinding>(ActivityWriteBinding::i
         var imagesRef = storage!!.reference.child("images/").child(fileName)
 
         imagesRef.putFile(uri!!).addOnSuccessListener {
+            it.storage.downloadUrl.addOnSuccessListener {
+                uploading(it.toString())
+
+            }
             Toast.makeText(this, "업로드가 완료되었습니다.", Toast.LENGTH_LONG).show()
         }.addOnFailureListener{
             // 이미지 업로드 실패

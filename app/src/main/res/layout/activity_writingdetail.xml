@@ -40,7 +40,7 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         app:cardElevation="0dp"
         app:cardCornerRadius="12dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,7 +61,7 @@
         android:layout_marginStart="10dp"
         android:text="사용자 닉네임"
         android:textColor="@color/black"
-        android:textSize="15sp"
+        android:textSize="13sp"
         android:textStyle="normal"
         app:layout_constraintTop_toTopOf="@id/writingDetail_userIcon_cv"
         app:layout_constraintBottom_toBottomOf="@id/writingDetail_userIcon_cv"
@@ -73,7 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="잡담)"
-        android:textSize="16sp"
+        android:textSize="15sp"
         android:textColor="#EDC06D"
         app:layout_constraintStart_toStartOf="@id/writingDetail_userIcon_cv"
         app:layout_constraintTop_toBottomOf="@id/writingDetail_userIcon_cv" />
@@ -84,8 +84,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text="강아지 자랑합니다!"
-        android:textSize="16sp"
+        android:textSize="17sp"
         android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@id/writingDetail_type_tv"
         app:layout_constraintTop_toTopOf="@id/writingDetail_type_tv"
         app:layout_constraintBottom_toBottomOf="@id/writingDetail_type_tv"/>
@@ -147,7 +148,7 @@
         android:gravity="left"
         app:layout_constraintTop_toBottomOf="@id/writingDetail_heart_iv"
         android:padding="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"/>
 
