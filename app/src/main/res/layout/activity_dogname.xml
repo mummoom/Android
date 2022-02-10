@@ -25,7 +25,8 @@
         android:layout_marginTop="30dp"
         android:text="어서오세요!멈뭄입니다!"
         android:textSize="13sp"
-        android:textColor="@color/infoname_tv"/>
+        android:textColor="@color/infoname_tv"
+        android:fontFamily="@font/applesdgothicneom"/>
     <TextView
         android:id="@+id/nickname_explain2_tv"
         android:layout_width="wrap_content"
@@ -36,7 +37,8 @@
         android:layout_marginTop="10dp"
         android:textSize="13sp"
         android:text="본격적으로 어플을 만나러 가기 전에"
-        android:textColor="@color/infoname_tv"/>
+        android:textColor="@color/infoname_tv"
+        android:fontFamily="@font/applesdgothicneom"/>
     <TextView
         android:id="@+id/nickname_explain3_tv"
         android:layout_width="wrap_content"
@@ -47,7 +49,8 @@
         android:layout_marginTop="10dp"
         android:text="키우시는 귀여운 강아지에 대해 알고 싶어요!"
         android:textSize="13sp"
-        android:textColor="@color/infoname_tv"/>
+        android:textColor="@color/infoname_tv"
+        android:fontFamily="@font/applesdgothicneom"/>
 
 
     <TextView
@@ -61,7 +64,8 @@
         android:text="강아지의 이름은 무엇인가요?"
         android:textColor="@color/infoname_tv"
         android:textStyle="bold"
-        android:textSize="17sp"/>
+        android:textSize="17sp"
+        android:fontFamily="@font/applesdgothicneob"/>
     <EditText
         android:id="@+id/dogname_name_et"
         android:layout_width="270dp"
@@ -70,7 +74,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="10dp"
-        android:privateImeOptions="defaultInputmode=korean"/>
+        android:privateImeOptions="defaultInputmode=korean"
+        android:fontFamily="@font/applesdgothicneom"/>
     <ImageView
 
         android:layout_width="15dp"
@@ -92,7 +97,8 @@
         android:background="@drawable/bg_previous_btn"
         android:text="다음"
         android:textSize="15sp"
-        android:textColor="@color/main_color"/>
+        android:textColor="@color/main_color"
+        android:fontFamily="@font/applesdgothicneom"/>
 
 
 

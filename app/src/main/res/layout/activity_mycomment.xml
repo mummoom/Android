@@ -23,6 +23,7 @@
         android:textStyle="bold"
         android:textColor="@color/black"
         android:textSize="16sp"
+        android:fontFamily="@font/applesdgothicneob"
         app:layout_constraintStart_toEndOf="@id/mycomment_backarrow_btn"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="10dp"

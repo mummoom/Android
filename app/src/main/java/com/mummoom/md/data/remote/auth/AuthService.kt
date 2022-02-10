@@ -4,6 +4,7 @@ import android.util.Log
 import com.mummoom.md.ApplicationClass.Companion.TAG
 import com.mummoom.md.ApplicationClass.Companion.retrofit
 import com.mummoom.md.data.entities.User
+import com.mummoom.md.ui.login.GoogleLoginView
 import com.mummoom.md.ui.login.LoginView
 import com.mummoom.md.ui.main.mypage.MypageView
 import com.mummoom.md.ui.siginup.SignUpView
@@ -92,5 +93,28 @@ object AuthService {
         })
     }
 
+    fun googleLogin(googleLoginView: GoogleLoginView) {
+        val authService = retrofit.create(AuthRetrofitInterface::class.java)
+
+        googleLoginView.onGoogleLoginLoading()
+
+        authService.googleLogin().clone().enqueue(object : Callback<AuthResponse> {
+            override fun onResponse(call: Call<AuthResponse>, response: Response<AuthResponse>) {
+                val resp = response.body()!!
+
+
+                when(resp.code){
+                    1000 -> googleLoginView.onGoogleLoginSuccess(resp.data!!)
+                    else -> googleLoginView.onGoogleLoginFailure(resp.code, resp.message)
+                }
+            }
+
+            override fun onFailure(call: Call<AuthResponse>, t: Throwable) {
+                Log.d("$TAG/API-ERROR", t.message.toString())
+
+                googleLoginView.onGoogleLoginFailure(400, "네트워크 오류가 발생했습니다.")
+            }
+        })
+    }
 
 }

@@ -16,4 +16,7 @@ interface AuthRetrofitInterface {
     @GET("/api/users/validtoken")
     fun autoLogin(): Call<SignupResponse>
 
+    @GET("/api/users/login/google")
+    fun googleLogin(): Call<AuthResponse>
+
 }

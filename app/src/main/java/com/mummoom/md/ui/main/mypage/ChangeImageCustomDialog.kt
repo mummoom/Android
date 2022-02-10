@@ -30,20 +30,23 @@ class ChangeImageCustomDialog(context : Context)  {
         val icon2 = dialog.findViewById<ImageView>(R.id.changeimageCustom_icon2_iv)
 
         icon1.setOnClickListener {
+            onClickedListener.onPictureClicked()
             dialog.dismiss()
         }
 
         albumTv.setOnClickListener {
+            onClickedListener.onPictureClicked()
             dialog.dismiss()
         }
 
 
         icon2.setOnClickListener {
+            onClickedListener.onIllustClicked()
             dialog.dismiss()
         }
 
         normalTv.setOnClickListener {
-            onClickedListener.onClicked()
+            onClickedListener.onIllustClicked()
             dialog.dismiss()
         }
 
@@ -51,12 +54,13 @@ class ChangeImageCustomDialog(context : Context)  {
     }
 
     // 확인 버튼 누를 때 입력 값들을 처리하기 위한 함수들
-    interface normalBtnClickListener{
-        fun onClicked()
+    interface clickListener{
+        fun onPictureClicked()
+        fun onIllustClicked()
     }
-    private lateinit var onClickedListener : ChangeImageCustomDialog.normalBtnClickListener
+    private lateinit var onClickedListener : clickListener
 
-    fun setOnClickedListener(listener : ChangeImageCustomDialog.normalBtnClickListener)
+    fun setOnClickedListener(listener : clickListener)
     {
         onClickedListener = listener
     }

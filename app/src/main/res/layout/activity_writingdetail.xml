@@ -19,6 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="잡담"
+        android:fontFamily="@font/applesdgothicneob"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:textSize="16sp"
@@ -63,6 +64,7 @@
         android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="normal"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintTop_toTopOf="@id/writingDetail_userIcon_cv"
         app:layout_constraintBottom_toBottomOf="@id/writingDetail_userIcon_cv"
         app:layout_constraintStart_toEndOf="@id/writingDetail_userIcon_cv"/>
@@ -75,6 +77,7 @@
         android:text="잡담)"
         android:textSize="16sp"
         android:textColor="#EDC06D"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintStart_toStartOf="@id/writingDetail_userIcon_cv"
         app:layout_constraintTop_toBottomOf="@id/writingDetail_userIcon_cv" />
 
@@ -86,6 +89,7 @@
         android:text="강아지 자랑합니다!"
         android:textSize="16sp"
         android:textColor="@color/black"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintStart_toEndOf="@id/writingDetail_type_tv"
         app:layout_constraintTop_toTopOf="@id/writingDetail_type_tv"
         app:layout_constraintBottom_toBottomOf="@id/writingDetail_type_tv"/>
@@ -143,6 +147,9 @@
         android:textStyle="normal"
         android:textSize="14sp"
         android:textColor="@color/black"
+        android:fontFamily="@font/applesdgothicneom"
+        app:layout_constraintStart_toStartOf="@id/writingDetail_heart_iv"
+        app:layout_constraintEnd_toEndOf="@id/writingDetail_writingImg_iv"
         android:background="@drawable/rounding_line"
         android:gravity="left"
         app:layout_constraintTop_toBottomOf="@id/writingDetail_heart_iv"
@@ -164,6 +171,7 @@
             android:text="댓글 _____ 개"
             android:textColor="@color/black"
             android:textSize="15sp"
+            android:fontFamily="@font/applesdgothicneom"
             android:background="#E9E9E9"
             android:padding="5dp"/>
 
