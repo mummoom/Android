@@ -39,7 +39,7 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
 
             if(!isScrap)
             {
-                binding.writingDetailScrapIv.setImageResource(R.drawable.ic_scrap)
+                binding.writingDetailScrapIv.setImageResource(R.drawable.ic_scrap_on)
                 isScrap = !isScrap
             }
             else
