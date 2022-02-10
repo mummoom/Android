@@ -13,7 +13,8 @@
     android:clipToPadding="false"
     android:overScrollMode="never">
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -27,7 +28,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="40dp"
-        android:background="@color/white"
+        android:background="@color/transparent"
         android:elevation="1dp">
 
         <EditText
@@ -59,7 +60,7 @@
         android:id="@+id/community_hottrend_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="# 잡담게시판"
+        android:text="# 잡담 게시판"
        android:textColor="#EDC06D"
         android:textSize="19sp"
         android:textStyle="bold"
@@ -77,10 +78,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="30dp"
         tools:listitem="@layout/item_writing_simple"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
+        android:overScrollMode="never"/>
 
     // 더보기 버튼 구현해야 함
 
@@ -89,8 +89,27 @@
 
 </ScrollView>
 
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:id="@+id/community_write_cv"-->
+<!--        android:layout_width="40dp"-->
+<!--        android:layout_height="40dp"-->
+<!--        app:cardCornerRadius="20dp"-->
+<!--        app:cardElevation="0dp"-->
+<!--        app:cardBackgroundColor="@color/main_color"-->
+<!--        android:layout_gravity="right|bottom"-->
+<!--        android:layout_marginEnd="15dp"-->
+<!--        android:layout_marginBottom="15dp">-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:background="@color/main_color"/>-->
+
+<!--    </androidx.cardview.widget.CardView>-->
+
+    // 글쓰기 버튼
     <androidx.cardview.widget.CardView
-        android:id="@+id/community_write_cv"
+        android:id="@+id/community_writeBtn_cv"
         android:layout_width="40dp"
         android:layout_height="40dp"
         app:cardCornerRadius="20dp"
@@ -101,23 +120,13 @@
         android:layout_marginBottom="15dp">
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/main_color"/>
+            android:id="@+id/community_write_iv"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_write"/>
 
     </androidx.cardview.widget.CardView>
-
-    <ImageView
-        android:id="@+id/community_write_iv"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_gravity="right|bottom"
-        android:layout_marginEnd="22dp"
-        android:layout_marginBottom="22dp"
-        android:src="@drawable/ic_write"
-
-        />
-
 
 
 </FrameLayout>
