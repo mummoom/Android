@@ -37,6 +37,7 @@ class PostService {
 
     // 여기부터는 api마다 함수를 만들어주면 됨
 
+    // post 작성하는 API
     fun posting(newPost : SendPost)
     {
         val postService = retrofit.create(PostRetrofitInterface::class.java)
@@ -62,15 +63,13 @@ class PostService {
     }
 
 
-
-
-    // post-controller : GET("/posts")
+    // 모든 post 받아오는 API
     fun getPosts()
     {
         val getPostsService = retrofit.create(PostRetrofitInterface::class.java)
 
         // 로딩 걸기
-        getPostsView.onGetPostsLoading()
+//        getPostsView.onGetPostsLoading()
 
         getPostsService.getPosts().enqueue(object : Callback<GetPostsResponse>{
             override fun onResponse(
@@ -81,7 +80,7 @@ class PostService {
 
                 when(resp.code)
                 {
-                    200 -> getPostsView.onGetPostsSuccess(resp.data)
+                    1000 -> getPostsView.onGetPostsSuccess(resp.data)
                     else -> getPostsView.onGetPostsFailure(resp.code, resp.message)
                 }
             }
