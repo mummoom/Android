@@ -21,16 +21,16 @@ import com.mummoom.md.databinding.ActivityLoginBinding
 import com.mummoom.md.ui.BaseActivity
 import com.mummoom.md.ui.dogname.DognameActivity
 import com.mummoom.md.ui.main.MainActivity
-import com.mummoom.md.ui.nickname.NicknameActivity
 import com.mummoom.md.ui.siginup.SignUpActivity
 import com.mummoom.md.utils.saveJwt
 
 
-class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate), LoginView, View.OnClickListener {
+class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate), LoginView, View.OnClickListener ,GoogleLoginView{
     //Configure Google Sign In
 
     private lateinit var client: GoogleSignInClient
     private lateinit var auth: FirebaseAuth
+    private lateinit var accessToken : String
 
     private var RC_SIGN_IN = 9001
     private lateinit var authResultLauncher: ActivityResultLauncher<Intent>
@@ -57,7 +57,9 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
          //로그인 하고 다음에 어플을 켰을 때 바로 다음화면으로 넘어가게 하는 코드
         if(auth.currentUser != null)
         {
-            val intent = Intent(this, NicknameActivity::class.java)
+
+
+            val intent = Intent(this, DognameActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -90,6 +92,7 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
     private fun googleLogin() {
         val signInIntent = client.signInIntent
         authResultLauncher.launch(signInIntent)
+
     }
 
     override fun onStart() {
@@ -97,6 +100,8 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
 
         auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
+
+      //  Log.d("TOKEN",Idtoken)
         updateUI(currentUser)
     }
 
@@ -112,8 +117,14 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
                     // 로그인 처리를 해주면 됨!
                     Log.d("signin", "success2")
 
+                    accessToken = account.idToken.toString()
+                    Log.d("TOKEN",accessToken)
+
+
+
                     val user = FirebaseAuth.getInstance().currentUser
                     updateUI(user)
+                    AuthService.googleLogin(this,accessToken)
 
                 } else {
                     // 오류가 난 경우!
@@ -126,9 +137,9 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
     private  fun updateUI(user: FirebaseUser?) {
 
         if (user != null) {
-            val intent = Intent(this, NicknameActivity::class.java)
-            startActivity(intent)
-            finish()
+//            val intent = Intent(this, DognameActivity::class.java)
+//            startActivity(intent)
+//            finish()
         }
 
     }
@@ -140,10 +151,6 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
             binding.loginLoginBtnTv -> login() //로그인 버튼
 
         }
-    }
-
-    private fun signIn() {
-
     }
 
     private fun login() {
@@ -195,5 +202,24 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
 //                binding.loginErrorTv.text= message
             }
         }
+    }
+
+    override fun onGoogleLoginLoading() {
+
+    }
+
+    override fun onGoogleLoginSuccess(auth: Auth) {
+        saveJwt(auth.token)
+        if(auth.dog_exist) {
+            startActivityWithClear(MainActivity::class.java)
+        }
+        else {
+            startActivityWithClear(DognameActivity::class.java)
+        }
+
+    }
+
+    override fun onGoogleLoginFailure(code: Int, message: String) {
+
     }
 }

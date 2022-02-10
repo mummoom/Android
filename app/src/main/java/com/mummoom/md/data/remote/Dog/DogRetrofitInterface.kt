@@ -3,10 +3,7 @@ package com.mummoom.md.data.remote.Dog
 import com.mummoom.md.data.entities.Dog
 import com.mummoom.md.data.entities.User
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.PATCH
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface DogRetrofitInterface {
     @POST("/api/dog/save") //save
@@ -15,11 +12,15 @@ interface DogRetrofitInterface {
     @GET("/api/dog/list") //get dog by Idx
     fun getDoglist(): Call<DogListResponse>
 
+    @PATCH("/api/dog/update/{dogIdx}") //update dog
+    fun changeDog(
+        @Path ("dogIdx")dogIdx:Int,
+        @Body dog: Dog): Call<ChangeDogResponse>
+
 
 
 //    @PATCH("/api/dog/{dodIdx}") // delete dog
 //    fun autoLogin(): Call<DogResponse>
 //
-//    @PATCH("/api/dog/update/{dodIdx}") //update dog
-//    fun autoLogin(): Call<DogResponse>
+
 }

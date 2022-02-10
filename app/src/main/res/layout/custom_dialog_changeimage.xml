@@ -9,6 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="이미지 변경하기"
+        android:fontFamily="@font/applesdgothicneob"
         android:textStyle="bold"
         android:textSize="18sp"
         android:textColor="#EDC06D"
@@ -27,23 +28,15 @@
         android:background="#EAEAEA"
         app:layout_constraintTop_toBottomOf="@id/changeimageDialog_addProfile_tv" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/changeimageDialog_icon1_cv"
+
+    <ImageView
+        android:id="@+id/changeimageCustom_icon1_iv"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginTop="20dp"
-        app:cardElevation="0dp"
-        app:cardCornerRadius="10dp"
+        android:src="@drawable/album"
         app:layout_constraintStart_toStartOf="@id/changeimageDialog_line_view"
-        app:layout_constraintTop_toBottomOf="@id/changeimageDialog_line_view">
-
-        <ImageView
-            android:id="@+id/changeimageCustom_icon1_iv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#C4C4C4"/>
-
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintTop_toBottomOf="@id/changeimageDialog_line_view" />
 
     <TextView
         android:id="@+id/changeimageCustom_albumFunc_tv"
@@ -53,28 +46,20 @@
         android:textSize="12sp"
         android:textColor="@color/black"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/changeimageDialog_icon1_cv"
-        app:layout_constraintTop_toTopOf="@id/changeimageDialog_icon1_cv"
-        app:layout_constraintBottom_toBottomOf="@id/changeimageDialog_icon1_cv"
+        android:fontFamily="@font/applesdgothicneom"
+        app:layout_constraintStart_toEndOf="@id/changeimageCustom_icon1_iv"
+        app:layout_constraintTop_toTopOf="@id/changeimageCustom_icon1_iv"
+        app:layout_constraintBottom_toBottomOf="@id/changeimageCustom_icon1_iv"
         android:layout_marginStart="10dp"/>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/changeimageDialog_icon2_cv"
+    <ImageView
+        android:id="@+id/changeimageCustom_icon2_iv"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginTop="15dp"
-        app:cardElevation="0dp"
-        app:cardCornerRadius="10dp"
-        app:layout_constraintStart_toStartOf="@id/changeimageDialog_icon1_cv"
-        app:layout_constraintTop_toBottomOf="@id/changeimageDialog_icon1_cv">
-
-        <ImageView
-            android:id="@+id/changeimageCustom_icon2_iv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#C4C4C4"/>
-
-    </androidx.cardview.widget.CardView>
+        android:src="@drawable/illust"
+        app:layout_constraintStart_toStartOf="@id/changeimageCustom_icon1_iv"
+        app:layout_constraintTop_toBottomOf="@id/changeimageCustom_icon1_iv"/>
 
     <TextView
         android:id="@+id/changeimageCustom_normalFunc_tv"
@@ -84,9 +69,10 @@
         android:textSize="12sp"
         android:textColor="@color/black"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/changeimageDialog_icon2_cv"
-        app:layout_constraintTop_toTopOf="@id/changeimageDialog_icon2_cv"
-        app:layout_constraintBottom_toBottomOf="@id/changeimageDialog_icon2_cv"
+        android:fontFamily="@font/applesdgothicneom"
+        app:layout_constraintStart_toEndOf="@id/changeimageCustom_icon2_iv"
+        app:layout_constraintTop_toTopOf="@id/changeimageCustom_icon2_iv"
+        app:layout_constraintBottom_toBottomOf="@id/changeimageCustom_icon2_iv"
         android:layout_marginStart="10dp"/>
 
 

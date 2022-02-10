@@ -79,6 +79,7 @@
         android:textSize="13sp"
         android:textColor="@color/black"
         android:textStyle="bold"
+        android:fontFamily="@font/applesdgothicneom"
         android:gravity="center"/>
     <ImageView
         android:id="@+id/doggender_neutering_check_on_iv"
@@ -115,7 +116,8 @@
         android:background="@drawable/bg_previous_btn"
         android:text="이전"
         android:textSize="15sp"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:fontFamily="@font/applesdgothicneom"/>
     <TextView
         android:id="@+id/doggender_next_btn"
         android:layout_width="120dp"
@@ -128,7 +130,8 @@
         android:background="@drawable/bg_previous_btn"
         android:text="다음"
         android:textSize="15sp"
-        android:textColor="@color/main_color"/>
+        android:textColor="@color/main_color"
+        android:fontFamily="@font/applesdgothicneom"/>
 
 
 

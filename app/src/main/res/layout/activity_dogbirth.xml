@@ -27,7 +27,8 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/birthdayinfo_logo_iv" />
+        app:layout_constraintTop_toBottomOf="@id/birthdayinfo_logo_iv"
+        android:fontFamily="@font/applesdgothicneob"/>
 
     <Spinner
         android:id="@+id/birthdayinfo_year_sp"
@@ -41,7 +42,7 @@
         android:spinnerMode="dialog"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/birthdayinfo_name_tv"
-
+        android:fontFamily="@font/applesdgothicneom"
 
         />
 
@@ -65,6 +66,7 @@
         android:background="@drawable/bg_spinner"
         android:dropDownWidth="50dp"
         android:spinnerMode="dialog"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintStart_toEndOf="@id/birthdayinfo_year_sp"
         app:layout_constraintTop_toBottomOf="@id/birthdayinfo_name_tv" />
 
@@ -88,6 +90,7 @@
         android:background="@drawable/bg_spinner"
         android:dropDownWidth="50dp"
         android:spinnerMode="dialog"
+        android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/birthdayinfo_month_sp"
         app:layout_constraintTop_toBottomOf="@id/birthdayinfo_name_tv" />
@@ -112,6 +115,7 @@
         android:background="@drawable/bg_previous_btn"
         android:gravity="center"
         android:text="이전"
+        android:fontFamily="@font/applesdgothicneom"
         android:textColor="@color/black"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -126,6 +130,7 @@
         android:background="@drawable/bg_previous_btn"
         android:gravity="center"
         android:text="다음"
+        android:fontFamily="@font/applesdgothicneom"
         android:textColor="@color/main_color"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"

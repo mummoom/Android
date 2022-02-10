@@ -2,9 +2,7 @@ package com.mummoom.md.data.remote.auth
 
 import com.mummoom.md.data.entities.User
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface AuthRetrofitInterface {
     @POST("/api/users/signup")
@@ -15,5 +13,10 @@ interface AuthRetrofitInterface {
 
     @GET("/api/users/validtoken")
     fun autoLogin(): Call<SignupResponse>
+
+    @GET("/api/users/login/google")
+    fun googleLogin(
+        @Query("accessToken")accessToken:String
+    ): Call<AuthResponse>
 
 }

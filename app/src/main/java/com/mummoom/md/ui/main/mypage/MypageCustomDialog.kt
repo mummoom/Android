@@ -18,6 +18,8 @@ class MypageCustomDialog(context : Context) {
     var year : String = ""
     var month : String = ""
     var day : String = ""
+    lateinit var type : String
+    lateinit var gender : String
 
     // dialog 띄우는 함수
     fun MyDig()
@@ -30,9 +32,19 @@ class MypageCustomDialog(context : Context) {
         dialog.setCancelable(true)
 
         val nameEt = dialog.findViewById<EditText>(R.id.mypageDialog_name_et)
-        val speciesEt = dialog.findViewById<EditText>(R.id.mypageDialog_species_et)
-        val genderEt = dialog.findViewById<EditText>(R.id.mypageDialog_gender_et)
-
+        val genderMBtn = dialog.findViewById<TextView>(R.id.mypageDialog_m_tv)
+        val genderWBtn = dialog.findViewById<TextView>(R.id.mypageDialog_w_tv)
+        genderMBtn.setOnClickListener {
+            genderMBtn.setBackgroundResource(R.drawable.bg_modify_check_btn)
+            genderWBtn.setBackgroundResource(R.drawable.bg_modify_uncheck_btn)
+            gender="남아"
+        }
+        genderWBtn.setOnClickListener {
+            genderMBtn.setBackgroundResource(R.drawable.bg_modify_uncheck_btn)
+            genderWBtn.setBackgroundResource(R.drawable.bg_modify_check_btn)
+            gender="여아"
+        }
+        typeSpinner()
         yearSpinner()
         monthSpinner()
         daySpinner()
@@ -42,9 +54,8 @@ class MypageCustomDialog(context : Context) {
 
         // 확인 버튼 눌렀을 때
         doneBtn.setOnClickListener {
-            onClickedListener.onClicked(nameEt.text.toString(), speciesEt.text.toString(),
-                genderEt.text.toString(), birth)
-
+            onClickedListener.onClicked(nameEt.text.toString(), type,
+                gender, birth)
             dialog.dismiss()
         }
 
@@ -59,7 +70,7 @@ class MypageCustomDialog(context : Context) {
 
     // 확인 버튼 누를 때 입력 값들을 처리하기 위한 함수들
     interface TextClickListener{
-        fun onClicked(myName : String, mySpecies : String, myGender : String, myBirth : String)
+        fun onClicked(dogName : String, dogType : String, dogSex : String, dogBirth : String)
     }
 
     private lateinit var onClickedListener : TextClickListener
@@ -70,6 +81,23 @@ class MypageCustomDialog(context : Context) {
     }
 
     // 스피너 함수들
+
+    private fun typeSpinner() {
+
+        val typeSpinner =dialog.findViewById<Spinner>(R.id.mypageDialog_type_sp)
+        typeSpinner.adapter= ArrayAdapter.createFromResource(dialog.context, R.array.breed,android.R.layout.simple_spinner_dropdown_item)
+
+        typeSpinner.onItemSelectedListener = object  : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
+                type = typeSpinner.selectedItem.toString()
+
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
+        }
+    }
+
     private fun yearSpinner() {
 
         val yearSpinner =dialog.findViewById<Spinner>(R.id.mypageDialog_year_sp)
