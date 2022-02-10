@@ -49,7 +49,6 @@ object AuthService {
                 val resp = response.body()!!
 
 
-
                 when(resp.code){
                     1000 -> loginView.onLoginSuccess(resp.data!!)
                     else -> loginView.onLoginFailure(resp.code, resp.message)
