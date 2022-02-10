@@ -6,6 +6,10 @@ import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.firebase.auth.FirebaseAuth
 import com.mummoom.md.ApplicationClass
 import com.mummoom.md.ApplicationClass.Companion.X_AUTH_TOKEN
 import com.mummoom.md.R
@@ -21,6 +25,9 @@ import com.mummoom.md.ui.main.community.MypageCustomDialog
 class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBinding::inflate) ,MypageView,DogInfoView,MypageDogChangeView{
     private lateinit var dogRVdadapter : DogprofileRVAdapter
     var dogIdx :Int =0
+    private lateinit var auth: FirebaseAuth
+    private lateinit var googleSingInClient : GoogleSignInClient
+
 
     override fun initAfterBinding() {
 
@@ -89,6 +96,7 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
 
         binding.mypageLogoutTv.setOnClickListener {
             logout()
+            signOut()
         }
 
 
@@ -198,6 +206,20 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
 
     override fun onMypageDogchangeFailure(code: Int, message: String) {
 
+    }
+
+    private fun signOut()
+    {
+        var gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+
+        googleSingInClient = GoogleSignIn.getClient(requireContext(), gso)
+        auth = FirebaseAuth.getInstance()
+
+        FirebaseAuth.getInstance().signOut()
+        googleSingInClient?.signOut()
     }
 
 
