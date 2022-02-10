@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
-        android:id="@+id/communityAct_arrow_iv"
+        android:id="@+id/writingDetail_arrow_iv"
         android:layout_width="15dp"
         android:layout_height="10dp"
         android:src="@drawable/ic_arrow"
@@ -15,28 +15,28 @@
         android:layout_marginTop="20dp"/>
 
     <TextView
-        android:id="@+id/communityAct_title_tv"
+        android:id="@+id/writingDetail_title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="잡담"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@id/communityAct_arrow_iv"
-        app:layout_constraintTop_toTopOf="@id/communityAct_arrow_iv"
-        app:layout_constraintBottom_toBottomOf="@id/communityAct_arrow_iv"
+        app:layout_constraintStart_toEndOf="@id/writingDetail_arrow_iv"
+        app:layout_constraintTop_toTopOf="@id/writingDetail_arrow_iv"
+        app:layout_constraintBottom_toBottomOf="@id/writingDetail_arrow_iv"
         android:layout_marginStart="10dp" />
 
     <View
-        android:id="@+id/communityAct_line_view"
+        android:id="@+id/writingDetail_line_view"
         android:layout_width="match_parent"
         android:layout_height="5dp"
         android:background="#EAEAEA"
-        app:layout_constraintTop_toBottomOf="@id/communityAct_title_tv"
+        app:layout_constraintTop_toBottomOf="@id/writingDetail_title_tv"
         android:layout_marginTop="10dp"/>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/communityAct_button1_cv"
+        android:id="@+id/writingDetail_userIcon_cv"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginStart="20dp"
@@ -44,10 +44,10 @@
         app:cardElevation="0dp"
         app:cardCornerRadius="12dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/communityAct_line_view">
+        app:layout_constraintTop_toBottomOf="@id/writingDetail_line_view">
 
         <ImageView
-            android:id="@+id/communityAct_button1_iv"
+            android:id="@+id/writingDetail_userIcon_iv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#ECECEC"/>
@@ -55,7 +55,7 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/communityAct_userNickname_tv"
+        android:id="@+id/writingDetail_userNickname_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -63,74 +63,74 @@
         android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="normal"
-        app:layout_constraintTop_toTopOf="@id/communityAct_button1_cv"
-        app:layout_constraintBottom_toBottomOf="@id/communityAct_button1_cv"
-        app:layout_constraintStart_toEndOf="@id/communityAct_button1_cv"/>
+        app:layout_constraintTop_toTopOf="@id/writingDetail_userIcon_cv"
+        app:layout_constraintBottom_toBottomOf="@id/writingDetail_userIcon_cv"
+        app:layout_constraintStart_toEndOf="@id/writingDetail_userIcon_cv"/>
 
     <TextView
-        android:id="@+id/communityAct_type_tv"
+        android:id="@+id/writingDetail_type_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="잡담)"
         android:textSize="17sp"
         android:textColor="#EDC06D"
-        app:layout_constraintStart_toStartOf="@id/communityAct_button1_cv"
-        app:layout_constraintTop_toBottomOf="@id/communityAct_button1_cv" />
+        app:layout_constraintStart_toStartOf="@id/writingDetail_userIcon_cv"
+        app:layout_constraintTop_toBottomOf="@id/writingDetail_userIcon_cv" />
 
     <TextView
-        android:id="@+id/communityAct_writingTitle_tv"
+        android:id="@+id/writingDetail_writingTitle_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text="강아지 자랑합니다!"
         android:textSize="16sp"
         android:textColor="@color/black"
-        app:layout_constraintStart_toEndOf="@id/communityAct_type_tv"
-        app:layout_constraintTop_toTopOf="@id/communityAct_type_tv"
-        app:layout_constraintBottom_toBottomOf="@id/communityAct_type_tv"/>
+        app:layout_constraintStart_toEndOf="@id/writingDetail_type_tv"
+        app:layout_constraintTop_toTopOf="@id/writingDetail_type_tv"
+        app:layout_constraintBottom_toBottomOf="@id/writingDetail_type_tv"/>
 
     <ImageView
-        android:id="@+id/communityAct_writingImg_iv"
+        android:id="@+id/writingDetail_writingImg_iv"
         android:layout_width="match_parent"
         android:layout_height="330dp"
         android:layout_margin="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/communityAct_type_tv"
+        app:layout_constraintTop_toBottomOf="@id/writingDetail_type_tv"
         android:background="#ECECEC"/>
 
     <ImageView
-        android:id="@+id/communityAct_heart_iv"
+        android:id="@+id/writingDetail_heart_iv"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:src="@drawable/ic_heart_off"
         android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="@id/communityAct_writingImg_iv"
-        app:layout_constraintTop_toBottomOf="@id/communityAct_writingImg_iv" />
+        app:layout_constraintStart_toStartOf="@id/writingDetail_writingImg_iv"
+        app:layout_constraintTop_toBottomOf="@id/writingDetail_writingImg_iv" />
 
 
     <ImageView
-        android:id="@+id/communityAct_scrap_iv"
+        android:id="@+id/writingDetail_scrap_iv"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginStart="10dp"
         android:src="@drawable/ic_scrap"
-        app:layout_constraintStart_toEndOf="@id/communityAct_heart_iv"
-        app:layout_constraintTop_toTopOf="@id/communityAct_heart_iv"
-        app:layout_constraintBottom_toBottomOf="@id/communityAct_heart_iv"/>
+        app:layout_constraintStart_toEndOf="@id/writingDetail_heart_iv"
+        app:layout_constraintTop_toTopOf="@id/writingDetail_heart_iv"
+        app:layout_constraintBottom_toBottomOf="@id/writingDetail_heart_iv"/>
 
     <ImageView
-        android:id="@+id/communityAct_moreBtn_iv"
+        android:id="@+id/writingDetail_moreBtn_iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_more"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/communityAct_writingImg_iv"
-        app:layout_constraintTop_toTopOf="@id/communityAct_heart_iv"/>
+        app:layout_constraintStart_toEndOf="@id/writingDetail_writingImg_iv"
+        app:layout_constraintTop_toTopOf="@id/writingDetail_heart_iv"/>
 
     <TextView
-        android:id="@+id/communityAct_writingContent_tv"
+        android:id="@+id/writingDetail_writingContent_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="강아지강아지강아지강아지강아지강아지강아지강아지
@@ -138,9 +138,9 @@
         android:textStyle="normal"
         android:textSize="14sp"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="@id/communityAct_heart_iv"
-        app:layout_constraintEnd_toEndOf="@id/communityAct_writingImg_iv"
-        app:layout_constraintTop_toBottomOf="@id/communityAct_heart_iv"
+        app:layout_constraintStart_toStartOf="@id/writingDetail_heart_iv"
+        app:layout_constraintEnd_toEndOf="@id/writingDetail_writingImg_iv"
+        app:layout_constraintTop_toBottomOf="@id/writingDetail_heart_iv"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
         android:paddingTop="10dp"/>
@@ -148,11 +148,11 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/communityAct_writingContent_tv"
+        app:layout_constraintTop_toBottomOf="@id/writingDetail_writingContent_tv"
         android:padding="20dp">
 
         <TextView
-            android:id="@+id/communityAct_commentNum_tv"
+            android:id="@+id/writingDetail_commentNum_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="댓글 _____ 개"
@@ -162,7 +162,7 @@
             android:padding="3dp"/>
 
         <ImageView
-            android:id="@+id/communityAct_commentDown_iv"
+            android:id="@+id/writingDetail_commentDown_iv"
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:src="@drawable/ic_down"

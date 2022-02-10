@@ -58,7 +58,7 @@
 
         // community 부분
         <activity
-            android:name=".ui.main.community.CommunityActivity"
+            android:name=".ui.main.community.WritingDetailActivity"
             android:exported="true"/>
 
         <activity
