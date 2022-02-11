@@ -1,6 +1,5 @@
 package com.mummoom.md.ui.main.community
 
-import android.net.Uri
 import android.util.Log
 import com.bumptech.glide.Glide
 import com.mummoom.md.R
@@ -13,8 +12,9 @@ import com.mummoom.md.ui.BaseActivity
 
 class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(ActivityWritingdetailBinding::inflate), GetPostView, LikeView {
 
+    private lateinit var newPost : PostDetail
+
     private var postIdx : Int = -1
-    private var isLike = false
     private var isScrap = false
 
     override fun initAfterBinding() {
@@ -23,6 +23,7 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
         // 좋아요 버튼
         binding.writingDetailHeartIv.setOnClickListener {
             setLike()
+            setHeartNum(newPost.like)
         }
 
         // 스크랩 버튼
@@ -55,15 +56,29 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
         setLikeService.setLike(postIdx)
     }
 
+    private fun setHeartNum(isLike: Boolean)
+    {
+        if(isLike)
+        {
+            newPost.likecnt--
+        }
+        else
+        {
+            newPost.likecnt++
+        }
+    }
+
     private fun setHeartState(isLike: Boolean)
     {
         if(isLike)
         {
             binding.writingDetailHeartIv.setImageResource(R.drawable.ic_heart_on)
+            binding.writingDetailLikeCntTv.text = "좋아요 " + newPost.likecnt + "개"
         }
         else
         {
             binding.writingDetailHeartIv.setImageResource(R.drawable.ic_heart_off)
+            binding.writingDetailLikeCntTv.text = "좋아요 " + newPost.likecnt + "개"
         }
     }
 
@@ -98,31 +113,8 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
     }
 
     override fun onGetPostSuccess(post: PostDetail) {
-
-        Log.d("post_response", post.toString())
-        // 유저 아이콘 이미지
-        Glide.with(this)
-            .load(post.userImage)
-            .into(binding.writingDetailUserIconIv)
-
-        // 유저 닉네임
-        binding.writingDetailUserNicknameTv.text = post.userName
-
-        // 글 제목
-        binding.writingDetailWritingTitleTv.text = post.title
-
-
-        // 글 사진
-        Glide.with(this)
-            .load(post.imgUrl)
-            .into(binding.writingDetailWritingImgIv)
-
-        // 글 내용
-        binding.writingDetailWritingContentTv.text = post.content
-
-        // 좋아요 개수
-        binding.writingDetailLikeCntTv.text = "좋아요 " + post.likecnt + "개"
-
+        newPost = post
+        setView()
     }
 
     override fun onGetPostFailure(code: Int, message: String) {
@@ -132,14 +124,44 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
         }
     }
 
+    // 받은 newPost를 통해서 view 렌더링하는 함수
+    private fun setView()
+    {
+        // 유저 아이콘 이미지
+        Glide.with(this)
+            .load(newPost.userImage)
+            .into(binding.writingDetailUserIconIv)
+
+        // 유저 닉네임
+        binding.writingDetailUserNicknameTv.text = newPost.userName
+
+        // 글 제목
+        binding.writingDetailWritingTitleTv.text = newPost.title
+
+
+        // 글 사진
+        Glide.with(this)
+            .load(newPost.imgUrl)
+            .into(binding.writingDetailWritingImgIv)
+
+        // 글 내용
+        binding.writingDetailWritingContentTv.text = newPost.content
+
+        // 좋아요 개수
+        binding.writingDetailLikeCntTv.text = "좋아요 " + newPost.likecnt + "개"
+
+        // 좋아요 하트 버튼 세팅
+        setHeartState(newPost.like)
+    }
+
     // setLike API 부분
     override fun onLikeLoading() {
         TODO("Not yet implemented")
     }
 
     override fun onLikeSuccess(isLike: Boolean) {
-        this.isLike = isLike
-        setHeartState(this.isLike)
+        newPost.like = isLike
+        setHeartState(newPost.like)
     }
 
     override fun onLikeFailure(code: Int, message: String) {
