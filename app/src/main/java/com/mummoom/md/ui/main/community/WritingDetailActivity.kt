@@ -1,6 +1,7 @@
 package com.mummoom.md.ui.main.community
 
 import android.util.Log
+import android.view.View
 import com.bumptech.glide.Glide
 import com.mummoom.md.R
 import com.mummoom.md.data.Post.PostDetail
@@ -73,12 +74,12 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
         if(isLike)
         {
             binding.writingDetailHeartIv.setImageResource(R.drawable.ic_heart_on)
-            binding.writingDetailLikeCntTv.text = "좋아요 " + newPost.likecnt + "개"
+            binding.writingDetailLikeCntTv.text = newPost.likecnt.toString()
         }
         else
         {
             binding.writingDetailHeartIv.setImageResource(R.drawable.ic_heart_off)
-            binding.writingDetailLikeCntTv.text = "좋아요 " + newPost.likecnt + "개"
+            binding.writingDetailLikeCntTv.text = newPost.likecnt.toString()
         }
     }
 
@@ -135,23 +136,36 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
         // 유저 닉네임
         binding.writingDetailUserNicknameTv.text = newPost.userName
 
-        // 글 제목
-        binding.writingDetailWritingTitleTv.text = newPost.title
-
 
         // 글 사진
         Glide.with(this)
             .load(newPost.imgUrl)
             .into(binding.writingDetailWritingImgIv)
 
+        // 글 제목
+        binding.writingDetailWritingTitleTv.text = "# " + newPost.title
+
         // 글 내용
         binding.writingDetailWritingContentTv.text = newPost.content
 
         // 좋아요 개수
-        binding.writingDetailLikeCntTv.text = "좋아요 " + newPost.likecnt + "개"
+        if(newPost.likecnt > 0)
+        {
+            binding.writingDetailLikeCntTv.visibility = View.VISIBLE
+            binding.writingDetailLikeCntTv.text = newPost.likecnt.toString()
+        }
+        else
+        {
+            binding.writingDetailLikeCntTv.visibility = View.GONE
+        }
 
         // 좋아요 하트 버튼 세팅
         setHeartState(newPost.like)
+
+        // 댓글 개수 세팅
+        binding.writingDetailCommentCntTv.text = "댓글 " + newPost.comments.size
+
+
     }
 
     // setLike API 부분
