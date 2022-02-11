@@ -6,11 +6,12 @@ import com.bumptech.glide.Glide
 import com.mummoom.md.R
 import com.mummoom.md.data.Post.PostDetail
 import com.mummoom.md.data.remote.Post.GetPostView
+import com.mummoom.md.data.remote.Post.LikeView
 import com.mummoom.md.data.remote.Post.PostService
 import com.mummoom.md.databinding.ActivityWritingdetailBinding
 import com.mummoom.md.ui.BaseActivity
 
-class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(ActivityWritingdetailBinding::inflate), GetPostView {
+class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(ActivityWritingdetailBinding::inflate), GetPostView, LikeView {
 
     private var postIdx : Int = -1
     private var isLike = false
@@ -21,17 +22,7 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
 
         // 좋아요 버튼
         binding.writingDetailHeartIv.setOnClickListener {
-
-            if(!isLike)
-            {
-                binding.writingDetailHeartIv.setImageResource(R.drawable.ic_heart_on)
-                isLike = !isLike
-            }
-            else
-            {
-                binding.writingDetailHeartIv.setImageResource(R.drawable.ic_heart_off)
-                isLike = !isLike
-            }
+            setLike()
         }
 
         // 스크랩 버튼
@@ -56,6 +47,27 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
 
     }
 
+    // 좋아요 버튼을 눌렀을 때 실행되는 함수
+    private fun setLike()
+    {
+        val setLikeService = PostService()
+        setLikeService.setLikeView(this)
+        setLikeService.setLike(postIdx)
+    }
+
+    private fun setHeartState(isLike: Boolean)
+    {
+        if(isLike)
+        {
+            binding.writingDetailHeartIv.setImageResource(R.drawable.ic_heart_on)
+        }
+        else
+        {
+            binding.writingDetailHeartIv.setImageResource(R.drawable.ic_heart_off)
+        }
+    }
+
+    // 게시글 상세페이지를 API를 통해 데이터 렌더링 하는 함수
     private fun initWriting()
     {
         val getPostService = PostService()
@@ -63,6 +75,7 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
         getPostService.getPost(postIdx)
     }
 
+    // intent를 통해 postIdx를 받아오는 함수
     private fun getPostIdx()
     {
         if(intent.hasExtra("postIdx"))
@@ -79,6 +92,7 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
         initWriting()
     }
 
+    // post 눌렀을 때 상세페이지 조회하는 부분
     override fun onGetPostLoading() {
         TODO("Not yet implemented")
     }
@@ -106,12 +120,32 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
         // 글 내용
         binding.writingDetailWritingContentTv.text = post.content
 
+        // 좋아요 개수
+        binding.writingDetailLikeCntTv.text = "좋아요 " + post.likecnt + "개"
+
     }
 
     override fun onGetPostFailure(code: Int, message: String) {
         when(code)
         {
-            400 -> Log.d("fail", message)
+            400 -> Log.d("getPost_fail", message)
+        }
+    }
+
+    // setLike API 부분
+    override fun onLikeLoading() {
+        TODO("Not yet implemented")
+    }
+
+    override fun onLikeSuccess(isLike: Boolean) {
+        this.isLike = isLike
+        setHeartState(this.isLike)
+    }
+
+    override fun onLikeFailure(code: Int, message: String) {
+        when(code)
+        {
+            400 -> Log.d("Like_fail", message)
         }
     }
 

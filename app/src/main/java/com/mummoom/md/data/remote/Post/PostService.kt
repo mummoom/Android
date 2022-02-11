@@ -14,6 +14,7 @@ class PostService {
     private lateinit var postView: PostView
     private lateinit var getPostView : GetPostView
     private lateinit var getPostsView : GetPostsView
+    private lateinit var setLikeView: LikeView
 
     // view를 초기에 세팅해주는 함수
     fun setDefaultView(newView: PostDefaultView)
@@ -36,7 +37,91 @@ class PostService {
         getPostsView = newView
     }
 
+    fun setLikeView(newView: LikeView)
+    {
+        setLikeView = newView
+    }
+
     // 여기부터는 api마다 함수를 만들어주면 됨
+
+    // 내 post를 받아오는 API
+    fun getMyPost()
+    {
+        val getMyPostService = retrofit.create(PostRetrofitInterface::class.java)
+
+        getMyPostService.getMyPost().enqueue(object : Callback<GetPostsResponse>{
+            override fun onResponse(
+                call: Call<GetPostsResponse>,
+                response: Response<GetPostsResponse>
+            ) {
+                val resp = response.body()!!
+
+                when(resp.code)
+                {
+                    1000 -> getPostsView.onGetPostsSuccess(resp.data)
+                    else -> getPostsView.onGetPostsFailure(resp.code, resp.message)
+                }
+            }
+
+            override fun onFailure(call: Call<GetPostsResponse>, t: Throwable) {
+                getPostsView.onGetPostsFailure(400, "네트워크 오류가 발생했습니다.")
+            }
+
+        })
+    }
+
+    // liked post 받아오는 API
+    fun getLiked()
+    {
+        val getLikedService = retrofit.create(PostRetrofitInterface::class.java)
+
+        getLikedService.getLikedPost().enqueue(object : Callback<GetPostsResponse>{
+            override fun onResponse(
+                call: Call<GetPostsResponse>,
+                response: Response<GetPostsResponse>
+            ) {
+                val resp = response.body()!!
+
+                when(resp.code)
+                {
+                    1000 -> getPostsView.onGetPostsSuccess(resp.data)
+                    else -> getPostsView.onGetPostsFailure(resp.code, resp.message)
+                }
+            }
+
+            override fun onFailure(call: Call<GetPostsResponse>, t: Throwable) {
+                getPostsView.onGetPostsFailure(400, "네트워크 오류가 발생했습니다.")
+            }
+
+        })
+    }
+
+
+    // post에 좋아요 설정하는 API
+    fun setLike(postIdx: Int)
+    {
+        val likeService = retrofit.create(PostRetrofitInterface::class.java)
+
+//        setLikeView.onLikeLoading()
+
+        likeService.setLike(postIdx).enqueue(object : Callback<LikeResponse>{
+            override fun onResponse(call: Call<LikeResponse>, response: Response<LikeResponse>) {
+                val resp = response.body()!!
+
+                when(resp.code)
+                {
+                    1000 -> setLikeView.onLikeSuccess(resp.data)
+                    else -> setLikeView.onLikeFailure(resp.code, resp.message)
+                }
+            }
+
+            override fun onFailure(call: Call<LikeResponse>, t: Throwable) {
+                setLikeView.onLikeFailure(400, "네트워크 오류가 발생했습니다.")
+            }
+
+        })
+    }
+
 
     // post 작성하는 API
     fun posting(newPost : SendPost)

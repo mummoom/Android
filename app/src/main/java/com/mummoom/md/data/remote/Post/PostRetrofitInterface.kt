@@ -25,9 +25,14 @@ interface PostRetrofitInterface {
     @GET("/post/findMyLikes")
     fun getLikedPost() : Call<GetPostsResponse>
 
-    @GET("/post/findMypost")
+    @GET("/post/findMyPosts")
     fun getMyPost() : Call<GetPostsResponse>
 
     @GET("/posts")
     fun getPosts() : Call<GetPostsResponse>
+
+    @POST("/like/{postIdx}")
+    fun setLike(
+        @Path("postIdx") postIdx : Int
+    ) : Call<LikeResponse>
 }

@@ -1,16 +1,15 @@
-package com.mummoom.md.ui.main.community
+package com.mummoom.md.ui.main.mypage
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.mummoom.md.R
 import com.mummoom.md.data.Post.Post
-import com.mummoom.md.databinding.ItemWritingSimpleBinding
+import com.mummoom.md.databinding.ItemWritingBinding
 
-class WritingSimpleRVAdapter(val context: Context) : RecyclerView.Adapter<WritingSimpleRVAdapter.ViewHolder>() {
+class LikedPostRVAdapter(val context: Context) : RecyclerView.Adapter<LikedPostRVAdapter.ViewHolder>() {
 
     private val writingList = ArrayList<Post>()
     private lateinit var myItemClickListener : MyItemClickListener
@@ -24,12 +23,12 @@ class WritingSimpleRVAdapter(val context: Context) : RecyclerView.Adapter<Writin
         myItemClickListener = itemClickListener
     }
 
-    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): WritingSimpleRVAdapter.ViewHolder {
-        val binding: ItemWritingSimpleBinding = ItemWritingSimpleBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
+    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): LikedPostRVAdapter.ViewHolder {
+        val binding: ItemWritingBinding = ItemWritingBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: WritingSimpleRVAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: LikedPostRVAdapter.ViewHolder, position: Int) {
         holder.bind(writingList[position])
         holder.itemView.setOnClickListener {
             myItemClickListener.onItemClick(writingList[position].postIdx)
@@ -46,7 +45,7 @@ class WritingSimpleRVAdapter(val context: Context) : RecyclerView.Adapter<Writin
         notifyDataSetChanged()
     }
 
-    inner class ViewHolder(val binding : ItemWritingSimpleBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class ViewHolder(val binding : ItemWritingBinding) : RecyclerView.ViewHolder(binding.root)
     {
         fun bind(post : Post)
         {
@@ -55,20 +54,21 @@ class WritingSimpleRVAdapter(val context: Context) : RecyclerView.Adapter<Writin
             {
                 Glide.with(context)
                     .load(R.drawable.ic_basic_img)
-                    .into(binding.simpleWritingImgIv)
+                    .into(binding.writingImgIv)
             }
             else
             {
                 Glide.with(context)
                     .load(post.imgUrl)
-                    .into(binding.simpleWritingImgIv)
+                    .into(binding.writingImgIv)
             }
 
-            // 제목
-            binding.simpleWritingTitleTv.text = post.title
 
-            // 좋아요 개수
-            binding.simpleLikeCntTv.text = post.likecnt.toString()
+            // 제목
+            binding.writingTitleTv.text = post.title
+
+            // 글 내용
+            binding.writingContentTv.text = post.content
         }
     }
 
