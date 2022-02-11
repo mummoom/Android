@@ -5,12 +5,7 @@ import com.mummoom.md.ApplicationClass.Companion.TAG
 import com.mummoom.md.ApplicationClass.Companion.retrofit
 import com.mummoom.md.data.entities.User
 import com.mummoom.md.data.entities.WIthdrawUser
-import com.mummoom.md.data.remote.auth.AuthResponse
-import com.mummoom.md.data.remote.auth.AuthRetrofitInterface
-import com.mummoom.md.ui.login.LoginView
 import com.mummoom.md.ui.main.mypage.*
-import com.mummoom.md.ui.siginup.SignUpView
-import com.mummoom.md.ui.splash.SplashView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -66,26 +61,50 @@ object UserService {
         })
 
     }
-    fun changeUserInfo(changeprofileView: ChangeprofileView,user: User) {
+    fun changeUsername(changenameView: ChangenameView, user: User) {
         val userService = retrofit.create(UserRetrofitInterface::class.java)
 
-        changeprofileView.onChangeprofileLoading()
+        changenameView.onChangenameLoading()
 
-        userService.changeUserInfo(user).enqueue(object : Callback<PwdResponse> {
+        userService.changeUsername(user).enqueue(object : Callback<PwdResponse> {
             override fun onResponse(call: Call<PwdResponse>, response: Response<PwdResponse>) {
 
                 val resp = response.body()!!
 
                 when(resp.code){
-                    1000 -> changeprofileView.onChangeprofileSuccess()
-                    else -> changeprofileView.onChangeprofileFailure(resp.code, resp.message)
+                    1000 -> changenameView.onChangenameSuccess()
+                    else -> changenameView.onChangenameFailure(resp.code, resp.message)
                 }
             }
 
             override fun onFailure(call: Call<PwdResponse>, t: Throwable) {
                 Log.d("$TAG/API-ERROR", t.message.toString())
 
-                changeprofileView.onChangeprofileFailure(400, "네트워크 오류가 발생했습니다.")
+                changenameView.onChangenameFailure(400, "네트워크 오류가 발생했습니다.")
+            }
+        })
+
+    }
+    fun changeUserImg(changeImgView: ChangeImgView, user: User) {
+        val userService = retrofit.create(UserRetrofitInterface::class.java)
+
+        changeImgView.onChangeprofileLoading()
+
+        userService.changeUsername(user).enqueue(object : Callback<PwdResponse> {
+            override fun onResponse(call: Call<PwdResponse>, response: Response<PwdResponse>) {
+
+                val resp = response.body()!!
+
+                when(resp.code){
+                    1000 -> changeImgView.onChangeprofileSuccess()
+                    else -> changeImgView.onChangeprofileFailure(resp.code, resp.message)
+                }
+            }
+
+            override fun onFailure(call: Call<PwdResponse>, t: Throwable) {
+                Log.d("$TAG/API-ERROR", t.message.toString())
+
+                changeImgView.onChangeprofileFailure(400, "네트워크 오류가 발생했습니다.")
             }
         })
 

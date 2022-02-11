@@ -2,6 +2,11 @@ package com.mummoom.md.ui.main.mypage
 
 import android.view.View
 import android.widget.Toast
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.firebase.auth.FirebaseAuth
+import com.mummoom.md.R
 import com.mummoom.md.data.entities.User
 import com.mummoom.md.data.entities.WIthdrawUser
 import com.mummoom.md.data.remote.User.UserService
@@ -11,6 +16,9 @@ import com.mummoom.md.databinding.ActivityWithdrawalBinding
 import com.mummoom.md.ui.BaseActivity
 
 class WithdrawActivity : BaseActivity<ActivityWithdrawBinding>(ActivityWithdrawBinding::inflate),WithdrawView,View.OnClickListener {
+
+    private lateinit var auth: FirebaseAuth
+    private lateinit var googleSingInClient : GoogleSignInClient
 
     override fun initAfterBinding() {
         binding.withdrawBackarrowBtn.setOnClickListener(this)
@@ -53,12 +61,31 @@ class WithdrawActivity : BaseActivity<ActivityWithdrawBinding>(ActivityWithdrawB
 
 
     }
+    private fun deleteUser()
+    {
+        var gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+
+        googleSingInClient = GoogleSignIn.getClient(this, gso)
+        auth = FirebaseAuth.getInstance()
+        val user = auth.currentUser
+
+        auth.signOut()
+        googleSingInClient?.signOut()
+
+        user?.delete()
+        googleSingInClient.revokeAccess()
+    }
     override fun onWithdrawLoading() {
 
     }
 
     override fun onWithdrawSuccess() {
+        //deleteUser()
         startActivityWithClear(WithdrawalActivity::class.java)
+
     }
 
     override fun onWithdrawFailure(code: Int, message: String) {

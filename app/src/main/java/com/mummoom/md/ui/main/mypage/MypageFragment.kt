@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -166,6 +168,7 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
 
     override fun onMypageLoading() {
 
+
     }
 
     override fun onMypageSuccess(dogs :  ArrayList<Dog>) {
@@ -192,6 +195,7 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
     }
     override fun onDogInfoLoading() {
 
+
     }
 
     override fun onDogInfoSuccess(dogIdx: Dog) {
@@ -207,6 +211,7 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
     }
 
     override fun onMypageDogchangeLoading() {
+
 
     }
 
@@ -243,6 +248,7 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
 
     }
     override fun onMyprofileLoading() {
+
 
     }
 
