@@ -25,6 +25,7 @@ class WriteActivity : BaseActivity<ActivityWriteBinding>(ActivityWriteBinding::i
     private var content : String = ""
     private var title : String = ""
     private var uri: Uri? = null
+    private var imgUrl : String = ""
 
 //    private lateinit var newPost: SendPost
 
@@ -41,7 +42,7 @@ class WriteActivity : BaseActivity<ActivityWriteBinding>(ActivityWriteBinding::i
 
         val plusImage = PlusImageCustomDialog(this)
 
-        // 앱에서 앨범 접근을 허용할지 선택하는 메세지 (한번 허용하면 앱 설치되어있는 동안 안 뜸.)
+        // 앱에서 앨범 접근을 허용할지 선택하는 메세지 (한번 허용하면 앱 설치되어있는 동안 안 뜸.) => if문으로 한번만 뜨게 수정해야 함
         ActivityCompat.requestPermissions(this,
             arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE), 1)
 
@@ -50,16 +51,23 @@ class WriteActivity : BaseActivity<ActivityWriteBinding>(ActivityWriteBinding::i
             finish()
         }
 
-        // 이미지 추가 버튼 눌렀을 때
+        // 갤러리 버튼 눌렀을 때
         binding.writeGalleryBtnIv.setOnClickListener {
             plusImage.MyDig()
         }
 
         // 업로드 버튼 눌렀을 때
         binding.writeUploadBtnTv.setOnClickListener {
-            uploadImageToFirebase(uri!!)
+            if(uri != null)
+            {
+                uploadImageToFirebase(uri!!)
+            }
+            else
+            {
+                uploading(this.imgUrl)
+            }
 
-            // 성공했을 때
+            // 성공했을 때 finish()가 실행되도록 합시당
             finish()
         }
 
@@ -76,11 +84,6 @@ class WriteActivity : BaseActivity<ActivityWriteBinding>(ActivityWriteBinding::i
                         Toast.LENGTH_LONG).show()
                 }
             }
-
-            override fun onVideoClicked() {
-
-            }
-
         })
 
     }
@@ -90,8 +93,18 @@ class WriteActivity : BaseActivity<ActivityWriteBinding>(ActivityWriteBinding::i
 
         content = binding.writeContentEt.text.toString()
         title = binding.writeTitleEt.text.toString()
+        this.imgUrl = imgUrl
+//        if(this.imgUrl == null)
+//        {
+//            this.imgUrl = ""
+//        }
+//        else
+//        {
+//            this.imgUrl = imgUrl
+//        }
 
-        val newPost = SendPost(content, imgUrl, title)
+
+        val newPost = SendPost(content, this.imgUrl, title)
         val savePostService = PostService()
 
         savePostService.setPostView(this)
