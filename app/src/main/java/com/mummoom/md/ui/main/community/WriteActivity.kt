@@ -25,6 +25,7 @@ class WriteActivity : BaseActivity<ActivityWriteBinding>(ActivityWriteBinding::i
     private var content : String = ""
     private var title : String = ""
     private var uri: Uri? = null
+    private var imgUrl : String = ""
 
 //    private lateinit var newPost: SendPost
 
@@ -57,7 +58,14 @@ class WriteActivity : BaseActivity<ActivityWriteBinding>(ActivityWriteBinding::i
 
         // 업로드 버튼 눌렀을 때
         binding.writeUploadBtnTv.setOnClickListener {
-            uploadImageToFirebase(uri!!)
+            if(uri != null)
+            {
+                uploadImageToFirebase(uri!!)
+            }
+            else
+            {
+                uploading(this.imgUrl)
+            }
 
             // 성공했을 때 finish()가 실행되도록 합시당
             finish()
@@ -85,8 +93,18 @@ class WriteActivity : BaseActivity<ActivityWriteBinding>(ActivityWriteBinding::i
 
         content = binding.writeContentEt.text.toString()
         title = binding.writeTitleEt.text.toString()
+        this.imgUrl = imgUrl
+//        if(this.imgUrl == null)
+//        {
+//            this.imgUrl = ""
+//        }
+//        else
+//        {
+//            this.imgUrl = imgUrl
+//        }
 
-        val newPost = SendPost(content, imgUrl, title)
+
+        val newPost = SendPost(content, this.imgUrl, title)
         val savePostService = PostService()
 
         savePostService.setPostView(this)
