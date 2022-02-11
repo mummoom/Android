@@ -14,8 +14,11 @@ interface UserRetrofitInterface {
     @PUT("/api/users/pwd")
     fun changePwd(@Body user: User) : Call<PwdResponse>
 
-    @PATCH("/api/users/me")
-    fun changeUserInfo(@Body user: User): Call<PwdResponse>
+    @PATCH("/api/users/mynickname")
+    fun changeUsername(@Body user: User): Call<PwdResponse>
+
+    @PATCH("/api/users/myImg")
+    fun changeUserImg(@Body user: User): Call<PwdResponse>
 
     @HTTP(method = "DELETE", path = "/api/users/withdraw", hasBody = true)
     fun withdrawUser(@Body wIthdrawUser: WIthdrawUser): Call<PwdResponse>

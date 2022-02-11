@@ -19,7 +19,7 @@ class MypageCustomDialog(context : Context) {
     var month : String = ""
     var day : String = ""
     lateinit var type : String
-    lateinit var gender : String
+    var gender : Int=0
 
     // dialog 띄우는 함수
     fun MyDig()
@@ -37,12 +37,12 @@ class MypageCustomDialog(context : Context) {
         genderMBtn.setOnClickListener {
             genderMBtn.setBackgroundResource(R.drawable.bg_modify_check_btn)
             genderWBtn.setBackgroundResource(R.drawable.bg_modify_uncheck_btn)
-            gender="남아"
+            gender=0
         }
         genderWBtn.setOnClickListener {
             genderMBtn.setBackgroundResource(R.drawable.bg_modify_uncheck_btn)
             genderWBtn.setBackgroundResource(R.drawable.bg_modify_check_btn)
-            gender="여아"
+            gender=1
         }
         typeSpinner()
         yearSpinner()
@@ -55,7 +55,7 @@ class MypageCustomDialog(context : Context) {
         // 확인 버튼 눌렀을 때
         doneBtn.setOnClickListener {
             onClickedListener.onClicked(nameEt.text.toString(), type,
-                gender, birth)
+                gender.toString(), birth)
             dialog.dismiss()
         }
 
