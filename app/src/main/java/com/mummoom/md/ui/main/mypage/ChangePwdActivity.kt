@@ -42,10 +42,10 @@ class ChangePwdActivity: BaseActivity<ActivityChangepwBinding>(ActivityChangepwB
     }
 
     private fun getPwd(): User {
-        val password:String = binding.changepwNewpwEt.text.toString()
+        val newpassword:String = binding.changepwNewpwEt.text.toString()
         val lastPassword : String = binding.changepwOldpwEt.text.toString()
 
-        return User("","","",password,lastPassword)
+        return User("","","","",lastPassword,newpassword)
 
     }
 

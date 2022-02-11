@@ -69,7 +69,6 @@
             app:layout_constraintStart_toStartOf="parent"
             android:text="우리 강아지가 먹어도 될까?"
             android:fontFamily="@font/applesdgothicneoh"
-            android:textStyle="bold"
             android:textSize="17sp"
             android:textColor="#EDC06D"/>
 
@@ -434,7 +433,6 @@
             app:layout_constraintStart_toStartOf="parent"
             android:text="간단하게 알아보는 음식 정보"
             android:fontFamily="@font/applesdgothicneoh"
-            android:textStyle="bold"
             android:textSize="17sp"
             android:textColor="#8c8c8c"/>
 

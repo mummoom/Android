@@ -126,7 +126,7 @@
             android:exported="true"/>
 
         <activity
-            android:name=".ui.main.mypage.WithdrawalActivity"
+            android:name=".ui.main.mypage.WithdrawActivity"
             android:exported="true"/>
         <activity
             android:name=".ui.main.mypage.PushSettingActivity"
@@ -134,6 +134,9 @@
 
         <activity
             android:name=".ui.main.mypage.MyActiveActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".ui.main.mypage.WithdrawalActivity"
             android:exported="true"/>
 
 

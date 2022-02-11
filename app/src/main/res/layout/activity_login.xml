@@ -38,6 +38,20 @@
         android:layout_marginTop="40dp"
         android:maxLines="1"
         android:fontFamily="@font/applesdgothicneom"/>
+    <TextView
+        android:id="@+id/login_email_error_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="error"
+        android:fontFamily="@font/applesdgothicneom"
+        android:textColor="@color/signup_error_tv"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@id/login_id_et"
+        app:layout_constraintTop_toBottomOf="@id/login_id_et" />
     <ImageView
         android:layout_width="20dp"
         android:layout_height="20dp"
@@ -60,6 +74,20 @@
         android:layout_marginTop="15dp"
         android:maxLines="1"
         android:fontFamily="@font/applesdgothicneom"/>
+    <TextView
+        android:id="@+id/login_pw_error_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="error"
+        android:fontFamily="@font/applesdgothicneom"
+        android:textColor="@color/signup_error_tv"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@id/login_pw_et"
+        app:layout_constraintTop_toBottomOf="@id/login_pw_et" />
 
     <TextView
         android:id="@+id/login_login_btn_tv"
