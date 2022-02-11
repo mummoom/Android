@@ -166,7 +166,7 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
 
         val email = binding.loginIdEt.text.toString()
         val password = binding.loginPwEt.text.toString()
-        val user = User(email,"", "",password,"")
+        val user = User(email,"", "",password,"","")
 
         AuthService.login(this, user)
 
@@ -200,6 +200,16 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
                 Toast.makeText(this, "정확한 정보를 입력해 주세요", Toast.LENGTH_SHORT).show()
 //                binding.loginErrorTv.visibility = View.VISIBLE
 //                binding.loginErrorTv.text= message
+            }
+            7006 -> {
+                binding.loginEmailErrorTv.visibility=View.VISIBLE
+                binding.loginEmailErrorTv.text=message
+
+            }
+            7007 -> {
+                binding.loginPwErrorTv.visibility=View.VISIBLE
+                binding.loginPwErrorTv.text=message
+
             }
         }
     }

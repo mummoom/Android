@@ -2,6 +2,7 @@ package com.mummoom.md.ui.main.mypage
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,7 +15,9 @@ import com.mummoom.md.ApplicationClass
 import com.mummoom.md.ApplicationClass.Companion.X_AUTH_TOKEN
 import com.mummoom.md.R
 import com.mummoom.md.data.entities.Dog
+import com.mummoom.md.data.entities.User
 import com.mummoom.md.data.remote.Dog.DogService
+import com.mummoom.md.data.remote.User.UserService
 import com.mummoom.md.databinding.FragmentMypageBinding
 import com.mummoom.md.ui.BaseFragment
 import com.mummoom.md.ui.doggender.DogInfoView
@@ -22,14 +25,17 @@ import com.mummoom.md.ui.doginfocheck.DogInfoCheckActivity
 import com.mummoom.md.ui.login.LoginActivity
 import com.mummoom.md.ui.main.community.MypageCustomDialog
 
-class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBinding::inflate) ,MypageView,DogInfoView,MypageDogChangeView{
+class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBinding::inflate) ,MypageView,DogInfoView,MypageDogChangeView,MyprofileView{
     private lateinit var dogRVdadapter : DogprofileRVAdapter
     var dogIdx :Int =0
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSingInClient : GoogleSignInClient
 
 
+
     override fun initAfterBinding() {
+
+
 
         // 다이얼로그 변수
         val plusDialog = MypageCustomDialog(requireContext())
@@ -43,10 +49,10 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
         }
 
         // 강아지 프로필 수정
-        binding.mypageMoreBtnIv.setOnClickListener {
-            val items = getResources().getStringArray(R.array.year)
-            modifyDialog.MyDig()
-        }
+//        binding.mypageMoreBtnIv.setOnClickListener {
+//            val items = getResources().getStringArray(R.array.year)
+
+//        }
 
 
         // 확인 버튼 눌렀을 때 처리 코드들
@@ -68,19 +74,30 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
             }
         })
 
+        //강아지 프로필 리싸이클러뷰
+        dogRVdadapter = DogprofileRVAdapter()
+        dogRVdadapter.setMyItemClickListener(object  : DogprofileRVAdapter.MyItemClickListener{
+            override fun onItemClick(dog: Dog) {
+                modifyDialog.MyDig()
+                dogIdx=dog.dogIdx
+
+            }
+        })
+
+        binding.mypageDogprofileRv.adapter=dogRVdadapter
+        binding.mypageDogprofileRv.layoutManager=LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+        binding.mypageDogprofileRv.overScrollMode = RecyclerView.OVER_SCROLL_NEVER
+
 
         // mypage의 메뉴 클릭 리스너
         binding.mypageUpdateTv.setOnClickListener {
-//            val intent = Intent(activity, MyProfileActivity::class.java)
-//            startActivity(intent)
         }
         binding.mypagePushTv.setOnClickListener {
             val intent = Intent(activity, PushSettingActivity::class.java)
             startActivity(intent)
         }
         binding.mypageAskTv.setOnClickListener {
-//            val intent = Intent(activity, MyProfileActivity::class.java)
-//            startActivity(intent)
+
         }
 
         binding.mypageMyprofileTv.setOnClickListener {
@@ -99,47 +116,42 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
             signOut()
         }
 
-
-//                    (context as MainActivity).supportFragmentManager.beginTransaction()
-//                .replace(R.id.main_frm, AlbumFragment())
-//                .commitAllowingStateLoss()
-
     }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        UserService.getUserByIdx(this)
+    }
+
 
     override fun onStart() {
         super.onStart()
-        initRecyclerView()
+
         DogService.getDoglist(this)
+
     }
 
     override fun onResume() {
         super.onResume()
-
+        UserService.getUserByIdx(this)
     }
 
-    private fun initRecyclerView(){
-        //강아지 프로필 리싸이클러뷰
-        dogRVdadapter = DogprofileRVAdapter()
-        dogRVdadapter.setMyItemClickListener(object  : DogprofileRVAdapter.MyItemClickListener{
-            override fun onItemClick(dog: Dog) {
-                binding.mypageDogNameTv.text=dog.dogName
-                binding.mypageDogbirthTv.text=dog.dogBirth
-                binding.mypageDogtypeTv.text=dog.dogType
-                if(dog.dogSex=="0")
-                    binding.mypageDogGenderTv.text="남아"
-                else binding.mypageDogGenderTv.text="여아"
-                dogIdx=dog.dogIdx
-                Log.d("DOGIDX",dogIdx.toString())
-
-            }
-
-        })
-
-        binding.mypageDogprofileRv.adapter=dogRVdadapter
-        binding.mypageDogprofileRv.layoutManager=LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
-        binding.mypageDogprofileRv.overScrollMode = RecyclerView.OVER_SCROLL_NEVER
-
-    }
+//    private fun initRecyclerView(){
+//        //강아지 프로필 리싸이클러뷰
+//        dogRVdadapter = DogprofileRVAdapter()
+//        dogRVdadapter.setMyItemClickListener(object  : DogprofileRVAdapter.MyItemClickListener{
+//            override fun onItemClick(dog: Dog) {
+//                modifyDialog.MyDig()
+//                dogIdx=dog.dogIdx
+//
+//            }
+//        })
+//
+//        binding.mypageDogprofileRv.adapter=dogRVdadapter
+//        binding.mypageDogprofileRv.layoutManager=LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+//        binding.mypageDogprofileRv.overScrollMode = RecyclerView.OVER_SCROLL_NEVER
+//
+//    }
     private fun logout() {
 
         val editor = ApplicationClass.mSharedPreferences.edit()
@@ -220,6 +232,26 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
 
         FirebaseAuth.getInstance().signOut()
         googleSingInClient?.signOut()
+    }
+
+    fun getUser(user: User) {
+
+        //binding.myprofileProfileImgIv.setImageURI(user.imgUrl.)
+
+        binding.mypageNameTv.text=user.nickName
+        //binding.myprofilePwdContentTv.text=user.password
+
+    }
+    override fun onMyprofileLoading() {
+
+    }
+
+    override fun onMyprofileSuccess(user: User) {
+        getUser(user)
+    }
+
+    override fun onMyprofileFailure(code: Int, message: String) {
+
     }
 
 
