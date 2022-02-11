@@ -8,6 +8,7 @@ data class PostDetail(
     @SerializedName("content") var content : String,
     @SerializedName("createdAt") var createdAt : String,
     @SerializedName("imgUrl") var imgUrl : String,
+    @SerializedName("like") var like : Boolean,
     @SerializedName("likecnt") var likecnt : Int,
     @SerializedName("postIdx") var postIdx : Int,
     @SerializedName("title") var title : String,
