@@ -97,7 +97,6 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
         // 글 제목
         binding.writingDetailWritingTitleTv.text = post.title
 
-        Log.d("post_url", post.imgUrl.toString())
 
         // 글 사진
         Glide.with(this)

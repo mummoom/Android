@@ -14,7 +14,7 @@
     <application
         android:name=".ApplicationClass"
         android:allowBackup="true"
-        android:icon="@drawable/mumoom"
+        android:icon="@drawable/mummoom"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"

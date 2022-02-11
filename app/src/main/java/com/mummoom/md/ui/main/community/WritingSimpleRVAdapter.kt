@@ -56,6 +56,9 @@ class WritingSimpleRVAdapter(val context: Context) : RecyclerView.Adapter<Writin
 
             // 제목
             binding.simpleWritingTitleTv.text = post.title
+
+            // 좋아요 개수
+            binding.simpleLikeCntTv.text = post.likecnt.toString()
         }
     }
 
