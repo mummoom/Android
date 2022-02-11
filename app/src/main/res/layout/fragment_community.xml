@@ -110,9 +110,9 @@
     // 글쓰기 버튼
     <androidx.cardview.widget.CardView
         android:id="@+id/community_writeBtn_cv"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:cardCornerRadius="25dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:cardCornerRadius="30dp"
         app:cardElevation="0dp"
         app:cardBackgroundColor="@color/main_color"
         android:layout_gravity="right|bottom"
@@ -121,8 +121,8 @@
 
         <ImageView
             android:id="@+id/community_write_iv"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_gravity="center"
             android:src="@drawable/ic_write"/>
 

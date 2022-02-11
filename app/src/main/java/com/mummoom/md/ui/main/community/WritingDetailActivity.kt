@@ -143,7 +143,7 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
             .into(binding.writingDetailWritingImgIv)
 
         // 글 제목
-        binding.writingDetailWritingTitleTv.text = "# " + newPost.title
+        binding.writingDetailWritingTitleTv.text = newPost.title
 
         // 글 내용
         binding.writingDetailWritingContentTv.text = newPost.content
