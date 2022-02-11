@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.mummoom.md.data.Ingredients.Ingredients
@@ -16,7 +17,7 @@ class DogprofileRVAdapter() : RecyclerView.Adapter<DogprofileRVAdapter.ViewHolde
 
     private val dogList = ArrayList<Dog>()
 
-    //fooditem 클릭리스너
+
     interface MyItemClickListener{
         fun onItemClick(dog: Dog)
     }
@@ -55,7 +56,14 @@ class DogprofileRVAdapter() : RecyclerView.Adapter<DogprofileRVAdapter.ViewHolde
 
     inner class ViewHolder(val binding: ItemDogprofileBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(dog: Dog){
-            binding.itemDogprofileDognameTv.text=dog.dogName
+            binding.itemDogprofileDogNameTv.text=dog.dogName
+            binding.itemDogprofileDogbirthTv.text=dog.dogBirth
+            binding.itemDogprofileDogtypeTv.text=dog.dogType
+            if(dog.dogSex=="0")
+                binding.itemDogprofileDogGenderTv.text="남아"
+            else if(dog.dogSex=="1") binding.itemDogprofileDogGenderTv.text="여아"
+
+
 
         }
     }

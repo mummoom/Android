@@ -14,12 +14,13 @@ import com.mummoom.md.R
 import com.mummoom.md.data.Ingredients.Ingredients
 import com.mummoom.md.data.entities.User
 import com.mummoom.md.data.remote.User.UserService
+import com.mummoom.md.data.remote.auth.AuthService
 import com.mummoom.md.databinding.ActivityMyprofileBinding
 import com.mummoom.md.ui.BaseActivity
 import com.mummoom.md.ui.login.LoginActivity
 import com.mummoom.md.ui.main.community.MypageCustomDialog
 
-class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofileBinding::inflate),MyprofileView {
+class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofileBinding::inflate),MyprofileView,ChangeprofileView {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSingInClient : GoogleSignInClient
@@ -45,18 +46,18 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
 
         // 뒤로가기 눌렀을 때
         binding.myprofileBackBtnIv.setOnClickListener {
-            finish()
+            changeUserInfo()
+
         }
 
-//        // 회원탈퇴 눌렀을 때
-//        binding.myprofileWithdrawTv.setOnClickListener {
-//            deleteUser()
+        // 회원탈퇴 눌렀을 때
+        binding.myprofileWithdrawTv.setOnClickListener {
+            //deleteUser()
 //            Toast.makeText(this, "계정이 삭제 되었습니다.", Toast.LENGTH_LONG).show()
 //            finish()
-//
-//            val intent = Intent(this, LoginActivity::class.java)
-//            startActivity(intent)
-//        }
+
+            startActivityWithClear(WithdrawActivity::class.java)
+        }
 
 
         changeImageDialog.setOnClickedListener(object : ChangeImageCustomDialog.clickListener{
@@ -107,6 +108,24 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
         //binding.myprofilePwdContentTv.text=user.password
 
     }
+    fun changeUserInfo() {
+        if (binding.myprofileEmailContentTv.text.toString().isEmpty()) {
+            Toast.makeText(this, "이메일을 입력해주세요.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (binding.myprofileNameContentTv.text.toString().isEmpty()) {
+            Toast.makeText(this, "이름를 입력해주세요.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val email = binding.myprofileEmailContentTv.text.toString()
+        val nickname = binding.myprofileNameContentTv.text.toString()
+        Log.d("NICKNAME",nickname)
+        val user = User(email,"",nickname,"","","")
+
+        UserService.changeUserInfo(this, user)
+    }
 
     override fun onMyprofileLoading() {
 
@@ -117,6 +136,18 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
     }
 
     override fun onMyprofileFailure(code: Int, message: String) {
+
+    }
+
+    override fun onChangeprofileLoading() {
+
+    }
+
+    override fun onChangeprofileSuccess() {
+        finish()
+    }
+
+    override fun onChangeprofileFailure(code: Int, message: String) {
 
     }
 

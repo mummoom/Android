@@ -8,5 +8,6 @@ data class User(
     @SerializedName("imgUrl") val imgUrl : String,
     @SerializedName("nickName") val nickName: String,
     @SerializedName("password") val password : String,
-    @SerializedName("lastPassword") val lastPassword : String
+    @SerializedName("lastPassword") val lastPassword : String,
+    @SerializedName("newPassword") val newPassword : String
 ) : Serializable
