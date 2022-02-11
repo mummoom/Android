@@ -17,7 +17,9 @@ interface PostRetrofitInterface {
     ) : Call<GetPostResponse>
 
     @DELETE("/post/{postIdx}")
-    fun deletePost() : Call<DefaultPostResponse>
+    fun deletePost(
+        @Path("postIdx") postIdx : Int
+    ) : Call<DefaultPostResponse>
 
     @PATCH("/post/{postIdx}")
     fun updatePost() : Call<DefaultPostResponse>
