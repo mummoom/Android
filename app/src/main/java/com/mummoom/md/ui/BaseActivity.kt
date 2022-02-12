@@ -28,7 +28,7 @@ abstract class BaseActivity<T: ViewBinding>(private val inflate: (LayoutInflater
     protected abstract fun initAfterBinding()
 
     fun showToast(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 
     fun startNextActivity(activity: Class<*>?) {
