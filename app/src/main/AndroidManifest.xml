@@ -139,6 +139,18 @@
             android:name=".ui.main.mypage.WithdrawalActivity"
             android:exported="true"/>
 
+        <activity
+            android:name=".ui.main.mypage.AppinfoActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".ui.main.mypage.AskActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".ui.main.mypage.UpdateActivity"
+            android:exported="true"/>
+
 
         //main 부분
         <activity
