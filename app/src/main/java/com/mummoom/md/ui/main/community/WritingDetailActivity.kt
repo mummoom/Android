@@ -26,7 +26,6 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
         // 좋아요 버튼
         binding.writingDetailHeartIv.setOnClickListener {
             setLike()
-            setHeartNum(newPost.like)
         }
 
         // 스크랩 버튼
@@ -83,27 +82,37 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
         setLikeService.setLike(postIdx)
     }
 
+    // 좋아요 버튼 눌리면 좋아요 수 카운팅 해주는 함수
     private fun setHeartNum(isLike: Boolean)
     {
         if(isLike)
         {
-            newPost.likecnt--
+            newPost.likecnt++
         }
         else
         {
-            newPost.likecnt++
+            newPost.likecnt--
         }
     }
 
+    // 현재 좋아요 상태에 따라 하트 버튼 렌더링 해주는 함수
     private fun setHeartState(isLike: Boolean)
     {
         if(isLike)
         {
+            if(newPost.likecnt == 1)
+            {
+                binding.writingDetailLikeCntTv.visibility = View.VISIBLE
+            }
             binding.writingDetailHeartIv.setImageResource(R.drawable.ic_heart_on)
             binding.writingDetailLikeCntTv.text = newPost.likecnt.toString()
         }
         else
         {
+            if(newPost.likecnt == 0)
+            {
+                binding.writingDetailLikeCntTv.visibility = View.GONE
+            }
             binding.writingDetailHeartIv.setImageResource(R.drawable.ic_heart_off)
             binding.writingDetailLikeCntTv.text = newPost.likecnt.toString()
         }
@@ -201,6 +210,7 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
 
     override fun onLikeSuccess(isLike: Boolean) {
         newPost.like = isLike
+        setHeartNum(newPost.like)
         setHeartState(newPost.like)
     }
 
@@ -211,6 +221,7 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
         }
     }
 
+    // deletePost API 부분
     override fun onDeleteLoading() {
         TODO("Not yet implemented")
     }
