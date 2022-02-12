@@ -2,6 +2,7 @@ package com.mummoom.md.ui.main.community
 
 import android.app.Dialog
 import android.content.Context
+import android.graphics.Color
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
@@ -34,14 +35,19 @@ class MypageCustomDialog(context : Context) {
         val nameEt = dialog.findViewById<EditText>(R.id.mypageDialog_name_et)
         val genderMBtn = dialog.findViewById<TextView>(R.id.mypageDialog_m_tv)
         val genderWBtn = dialog.findViewById<TextView>(R.id.mypageDialog_w_tv)
+
         genderMBtn.setOnClickListener {
             genderMBtn.setBackgroundResource(R.drawable.bg_modify_check_btn)
             genderWBtn.setBackgroundResource(R.drawable.bg_modify_uncheck_btn)
+            genderMBtn.setTextColor(Color.parseColor("#ffffff"))
+            genderWBtn.setTextColor(Color.parseColor("#000000"))
             gender=0
         }
         genderWBtn.setOnClickListener {
             genderMBtn.setBackgroundResource(R.drawable.bg_modify_uncheck_btn)
             genderWBtn.setBackgroundResource(R.drawable.bg_modify_check_btn)
+            genderMBtn.setTextColor(Color.parseColor("#000000"))
+            genderWBtn.setTextColor(Color.parseColor("#ffffff"))
             gender=1
         }
         typeSpinner()

@@ -28,16 +28,14 @@ import com.mummoom.md.ui.login.LoginActivity
 import com.mummoom.md.ui.main.community.MypageCustomDialog
 
 class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBinding::inflate) ,MypageView,DogInfoView,MypageDogChangeView,MyprofileView{
+
     private lateinit var dogRVdadapter : DogprofileRVAdapter
-    var dogIdx :Int =0
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSingInClient : GoogleSignInClient
 
-
+    var dogIdx :Int = 0
 
     override fun initAfterBinding() {
-
-
 
         // 다이얼로그 변수
         val plusDialog = MypageCustomDialog(requireContext())
@@ -46,7 +44,6 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
 
         // 강아지 프로필 추가
         binding.mypageDogprofilePlusIv.setOnClickListener {
-//            val items = getResources().getStringArray(R.array.year)
             plusDialog.MyDig()
         }
 

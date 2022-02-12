@@ -5,23 +5,22 @@ import android.view.View
 import com.bumptech.glide.Glide
 import com.mummoom.md.R
 import com.mummoom.md.data.Post.PostDetail
-import com.mummoom.md.data.remote.Post.DeletePostView
-import com.mummoom.md.data.remote.Post.GetPostView
-import com.mummoom.md.data.remote.Post.LikeView
-import com.mummoom.md.data.remote.Post.PostService
+import com.mummoom.md.data.remote.Post.*
 import com.mummoom.md.databinding.ActivityWritingdetailBinding
 import com.mummoom.md.ui.BaseActivity
 
-class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(ActivityWritingdetailBinding::inflate), GetPostView, LikeView, DeletePostView {
+class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(ActivityWritingdetailBinding::inflate), GetPostView, LikeView, DeletePostView, ReportPostView {
 
     private lateinit var newPost : PostDetail
 
     private var postIdx : Int = -1
+    private var reason : String = ""
     private var isScrap = false
 
     override fun initAfterBinding() {
 
         val moreBtnDialog = WritingMoreBtnDialog(this)
+        val reportDialog = ReportDialog(this)
 
         // 좋아요 버튼
         binding.writingDetailHeartIv.setOnClickListener {
@@ -55,7 +54,7 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
 
         moreBtnDialog.setOnClickedListener(object : WritingMoreBtnDialog.clickListener{
             override fun onReportPost() {
-                // 신고 API
+                reportDialog.MyDig()
             }
 
             override fun onDeletePost() {
@@ -64,6 +63,22 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
 
         })
 
+        reportDialog.setOnClickedListener(object : ReportDialog.clickListener{
+            override fun onClicked(reason: String) {
+                // reason 값으로 신고 API 호출
+                this@WritingDetailActivity.reason = reason
+                reportPost()
+            }
+
+        })
+
+    }
+
+    private fun reportPost()
+    {
+        val reportPostService = PostService()
+        reportPostService.setReportView(this)
+        reportPostService.reportPost(postIdx, reason)
     }
 
     // 포스트를 삭제하는 함수
@@ -237,7 +252,27 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
             8000 -> showToast("존재하지 않는 게시글 입니다.")
             8001 -> showToast("회원정보를 찾을 수 없습니다.")
             8004 -> showToast("작성자만 삭제할 수 있습니다.")
-            else -> showToast("오류가 발생했습니다.")
+            else -> showToast("오류가 발생하였습니다.")
+        }
+    }
+
+    // reportPost API 부분
+    override fun onReportPostLoading() {
+        TODO("Not yet implemented")
+    }
+
+    override fun onReportPostSuccess() {
+        showToast("신고가 완료되었습니다.")
+        finish()
+    }
+
+    override fun onReportPostFailure(code: Int, message: String) {
+        when(code)
+        {
+            3000 -> showToast("오류가 발생하였습니다.")
+            8000 -> showToast("존재하지 않는 게시글 입니다.")
+            8001 -> showToast("회원정보를 찾을 수 없습니다.")
+            else -> showToast("오류가 발생하였습니다.")
         }
     }
 
