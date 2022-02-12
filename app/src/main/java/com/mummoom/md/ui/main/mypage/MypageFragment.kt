@@ -2,17 +2,23 @@ package com.mummoom.md.ui.main.mypage
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.storage.FirebaseStorage
 import com.mummoom.md.ApplicationClass
 import com.mummoom.md.ApplicationClass.Companion.X_AUTH_TOKEN
 import com.mummoom.md.R
@@ -26,26 +32,66 @@ import com.mummoom.md.ui.doggender.DogInfoView
 import com.mummoom.md.ui.doginfocheck.DogInfoCheckActivity
 import com.mummoom.md.ui.login.LoginActivity
 import com.mummoom.md.ui.main.community.MypageCustomDialog
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
-class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBinding::inflate) ,MypageView,DogInfoView,MypageDogChangeView,MyprofileView{
+class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBinding::inflate) ,MypageView,DogInfoView,MypageDogChangeView,MyprofileView,ChangeImgView{
 
     private lateinit var dogRVdadapter : DogprofileRVAdapter
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSingInClient : GoogleSignInClient
 
     var dogIdx :Int = 0
+    private var uri : Uri? = null
+
+    private var launcher = registerForActivityResult(ActivityResultContracts.GetContent())
+    {
+        uri = it
+
+        uploadImageToFirebase(uri!!)
+    }
 
     override fun initAfterBinding() {
 
         // 다이얼로그 변수
         val plusDialog = MypageCustomDialog(requireContext())
         val modifyDialog = ModifyProfileCustomDialog(requireContext())
-
+        val changeImageDialog = ChangeImageCustomDialog(requireContext())
 
         // 강아지 프로필 추가
         binding.mypageDogprofilePlusIv.setOnClickListener {
             plusDialog.MyDig()
         }
+
+        // 내 프로필 사진 변경
+        binding.mypageMysettingIv.setOnClickListener {
+            changeImageDialog.MyDig()
+        }
+
+        changeImageDialog.setOnClickedListener(object : ChangeImageCustomDialog.clickListener{
+            override fun onPictureClicked() {
+                if(ContextCompat.checkSelfPermission(this@MypageFragment.requireActivity(),
+                        android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
+                {
+                    launcher.launch("image/*")
+                }
+                else
+                {
+                    Toast.makeText(requireContext(), "갤러리 접근 권한이 거부되어 있습니다. 설정에서 접근을 허용해주십시오.",
+                        Toast.LENGTH_LONG).show()
+                }
+
+            }
+
+            override fun onIllustClicked() {
+                val intent = Intent(requireContext(), IllustrationActivity::class.java)
+                startActivity(intent)
+            }
+
+        })
+
+
 
         // 강아지 프로필 수정
 //        binding.mypageMoreBtnIv.setOnClickListener {
@@ -89,14 +135,9 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
 
 
         // mypage의 메뉴 클릭 리스너
-        binding.mypageUpdateTv.setOnClickListener {
-        }
         binding.mypagePushTv.setOnClickListener {
             val intent = Intent(activity, PushSettingActivity::class.java)
             startActivity(intent)
-        }
-        binding.mypageAskTv.setOnClickListener {
-
         }
 
         binding.mypageMyprofileTv.setOnClickListener {
@@ -129,6 +170,36 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
             signOut()
         }
 
+    }
+
+    fun changeUserImg(newImgUrl : String)
+    {
+        val imgUrl = newImgUrl
+        val user = User("", imgUrl, "", "", "", "")
+
+        Log.d("imgUrl", imgUrl)
+        UserService.changeUserImg(this, user)
+    }
+
+    // Firebase Storage에 이미지를 업로드 하는 함수
+    private fun uploadImageToFirebase(uri: Uri)
+    {
+        val storage : FirebaseStorage? = FirebaseStorage.getInstance()
+
+        var fileName = "IMAGE_${SimpleDateFormat("yyyymmdd_HHmmss").format(Date())}_.png"
+        var imagesRef = storage!!.reference.child("images/").child(fileName)
+
+        imagesRef.putFile(uri!!).addOnSuccessListener {
+            it.storage.downloadUrl.addOnSuccessListener {
+                
+                Glide.with(this)
+                    .load(it)
+                    .into(binding.mypageMyImgIv)
+                changeUserImg(it.toString())
+            }
+        }.addOnFailureListener{
+            // 이미지 업로드 실패
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -252,12 +323,21 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
 
     fun getUser(user: User) {
 
-        //binding.myprofileProfileImgIv.setImageURI(user.imgUrl.)
-
+        if(user.imgUrl != "" || user.imgUrl != null)
+        {
+            Glide.with(this)
+                .load(user.imgUrl)
+                .into(binding.mypageMyImgIv)
+        }
+        else
+        {
+            Glide.with(this)
+                .load(R.drawable.ic_no_img2)
+                .into(binding.mypageMyImgIv)
+        }
         binding.mypageNameTv.text=user.nickName
-        //binding.myprofilePwdContentTv.text=user.password
-
     }
+
     override fun onMyprofileLoading() {
 
 
@@ -268,6 +348,19 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
     }
 
     override fun onMyprofileFailure(code: Int, message: String) {
+
+    }
+
+
+    override fun onChangeprofileLoading() {
+
+    }
+
+    override fun onChangeprofileSuccess() {
+
+    }
+
+    override fun onChangeprofileFailure(code: Int, message: String) {
 
     }
 
