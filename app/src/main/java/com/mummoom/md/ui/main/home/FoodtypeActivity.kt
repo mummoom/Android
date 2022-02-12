@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.Toast
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mummoom.md.R
 import com.mummoom.md.data.Ingredients.Ingredients
@@ -88,8 +89,9 @@ class FoodtypeActivity : BaseActivity<ActivityFoodtypeBinding>(ActivityFoodtypeB
 
         if(intent.hasExtra("categoryNum")){
             categoryNum = intent.getIntExtra("categoryNum",-1)
-
         }
+
+
     }
 
     override fun onStart() {
