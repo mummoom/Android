@@ -134,7 +134,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/home_type_img"/>
+                    android:background="#E9E9E9"/>
 
             </androidx.cardview.widget.CardView>
 
@@ -174,7 +174,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/home_type_img"/>
+                    android:background="#E9E9E9"/>
 
             </androidx.cardview.widget.CardView>
 
@@ -214,7 +214,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/home_type_img"/>
+                    android:background="#E9E9E9"/>
 
             </androidx.cardview.widget.CardView>
 
@@ -255,7 +255,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/home_type_img"/>
+                    android:background="#E9E9E9"/>
 
             </androidx.cardview.widget.CardView>
 
@@ -297,7 +297,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/home_type_img"/>
+                    android:background="#E9E9E9"/>
 
             </androidx.cardview.widget.CardView>
 
@@ -339,7 +339,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/home_type_img"/>
+                    android:background="#E9E9E9"/>
 
             </androidx.cardview.widget.CardView>
 
@@ -379,7 +379,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/home_type_img"/>
+                    android:background="#E9E9E9"/>
 
             </androidx.cardview.widget.CardView>
 
