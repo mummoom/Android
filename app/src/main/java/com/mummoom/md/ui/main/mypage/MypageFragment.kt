@@ -9,6 +9,7 @@ import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -95,6 +96,7 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
             val intent = Intent(activity, PushSettingActivity::class.java)
             startActivity(intent)
         }
+
         binding.mypageAskTv.setOnClickListener {
 
         }
@@ -238,12 +240,21 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
 
     fun getUser(user: User) {
 
-        //binding.myprofileProfileImgIv.setImageURI(user.imgUrl.)
-
+        if(user.imgUrl != "" || user.imgUrl != null)
+        {
+            Glide.with(this)
+                .load(user.imgUrl)
+                .into(binding.mypageMyImgIv)
+        }
+        else
+        {
+            Glide.with(this)
+                .load(R.drawable.ic_no_img2)
+                .into(binding.mypageMyImgIv)
+        }
         binding.mypageNameTv.text=user.nickName
-        //binding.myprofilePwdContentTv.text=user.password
-
     }
+
     override fun onMyprofileLoading() {
 
 

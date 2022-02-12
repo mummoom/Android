@@ -85,12 +85,13 @@ object UserService {
         })
 
     }
+
     fun changeUserImg(changeImgView: ChangeImgView, user: User) {
         val userService = retrofit.create(UserRetrofitInterface::class.java)
 
         changeImgView.onChangeprofileLoading()
 
-        userService.changeUsername(user).enqueue(object : Callback<PwdResponse> {
+        userService.changeUserImg(user.imgUrl).enqueue(object : Callback<PwdResponse> {
             override fun onResponse(call: Call<PwdResponse>, response: Response<PwdResponse>) {
 
                 val resp = response.body()!!
