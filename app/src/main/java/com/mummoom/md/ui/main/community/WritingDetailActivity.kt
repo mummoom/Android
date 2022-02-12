@@ -1,16 +1,18 @@
 package com.mummoom.md.ui.main.community
 
 import android.util.Log
+import android.view.View
 import com.bumptech.glide.Glide
 import com.mummoom.md.R
 import com.mummoom.md.data.Post.PostDetail
+import com.mummoom.md.data.remote.Post.DeletePostView
 import com.mummoom.md.data.remote.Post.GetPostView
 import com.mummoom.md.data.remote.Post.LikeView
 import com.mummoom.md.data.remote.Post.PostService
 import com.mummoom.md.databinding.ActivityWritingdetailBinding
 import com.mummoom.md.ui.BaseActivity
 
-class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(ActivityWritingdetailBinding::inflate), GetPostView, LikeView {
+class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(ActivityWritingdetailBinding::inflate), GetPostView, LikeView, DeletePostView {
 
     private lateinit var newPost : PostDetail
 
@@ -19,11 +21,11 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
 
     override fun initAfterBinding() {
 
+        val moreBtnDialog = WritingMoreBtnDialog(this)
 
         // 좋아요 버튼
         binding.writingDetailHeartIv.setOnClickListener {
             setLike()
-            setHeartNum(newPost.like)
         }
 
         // 스크랩 버튼
@@ -46,6 +48,30 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
             finish()
         }
 
+        // 더보기 버튼
+        binding.writingDetailMoreBtnIv.setOnClickListener {
+            moreBtnDialog.MyDig()
+        }
+
+        moreBtnDialog.setOnClickedListener(object : WritingMoreBtnDialog.clickListener{
+            override fun onReportPost() {
+                // 신고 API
+            }
+
+            override fun onDeletePost() {
+                deletePost()
+            }
+
+        })
+
+    }
+
+    // 포스트를 삭제하는 함수
+    private fun deletePost()
+    {
+        val deletePostService = PostService()
+        deletePostService.setDeleteView(this)
+        deletePostService.deletePost(postIdx)
     }
 
     // 좋아요 버튼을 눌렀을 때 실행되는 함수
@@ -56,29 +82,39 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
         setLikeService.setLike(postIdx)
     }
 
+    // 좋아요 버튼 눌리면 좋아요 수 카운팅 해주는 함수
     private fun setHeartNum(isLike: Boolean)
     {
         if(isLike)
         {
-            newPost.likecnt--
+            newPost.likecnt++
         }
         else
         {
-            newPost.likecnt++
+            newPost.likecnt--
         }
     }
 
+    // 현재 좋아요 상태에 따라 하트 버튼 렌더링 해주는 함수
     private fun setHeartState(isLike: Boolean)
     {
         if(isLike)
         {
+            if(newPost.likecnt == 1)
+            {
+                binding.writingDetailLikeCntTv.visibility = View.VISIBLE
+            }
             binding.writingDetailHeartIv.setImageResource(R.drawable.ic_heart_on)
-            binding.writingDetailLikeCntTv.text = "좋아요 " + newPost.likecnt + "개"
+            binding.writingDetailLikeCntTv.text = newPost.likecnt.toString()
         }
         else
         {
+            if(newPost.likecnt == 0)
+            {
+                binding.writingDetailLikeCntTv.visibility = View.GONE
+            }
             binding.writingDetailHeartIv.setImageResource(R.drawable.ic_heart_off)
-            binding.writingDetailLikeCntTv.text = "좋아요 " + newPost.likecnt + "개"
+            binding.writingDetailLikeCntTv.text = newPost.likecnt.toString()
         }
     }
 
@@ -135,23 +171,36 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
         // 유저 닉네임
         binding.writingDetailUserNicknameTv.text = newPost.userName
 
-        // 글 제목
-        binding.writingDetailWritingTitleTv.text = newPost.title
-
 
         // 글 사진
         Glide.with(this)
             .load(newPost.imgUrl)
             .into(binding.writingDetailWritingImgIv)
 
+        // 글 제목
+        binding.writingDetailWritingTitleTv.text = newPost.title
+
         // 글 내용
         binding.writingDetailWritingContentTv.text = newPost.content
 
         // 좋아요 개수
-        binding.writingDetailLikeCntTv.text = "좋아요 " + newPost.likecnt + "개"
+        if(newPost.likecnt > 0)
+        {
+            binding.writingDetailLikeCntTv.visibility = View.VISIBLE
+            binding.writingDetailLikeCntTv.text = newPost.likecnt.toString()
+        }
+        else
+        {
+            binding.writingDetailLikeCntTv.visibility = View.GONE
+        }
 
         // 좋아요 하트 버튼 세팅
         setHeartState(newPost.like)
+
+        // 댓글 개수 세팅
+        binding.writingDetailCommentCntTv.text = "댓글 " + newPost.comments.size
+
+
     }
 
     // setLike API 부분
@@ -161,6 +210,7 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
 
     override fun onLikeSuccess(isLike: Boolean) {
         newPost.like = isLike
+        setHeartNum(newPost.like)
         setHeartState(newPost.like)
     }
 
@@ -168,6 +218,26 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
         when(code)
         {
             400 -> Log.d("Like_fail", message)
+        }
+    }
+
+    // deletePost API 부분
+    override fun onDeleteLoading() {
+        TODO("Not yet implemented")
+    }
+
+    override fun onDeleteSuccess() {
+        showToast("게시글 삭제가 완료되었습니다.")
+        finish()
+    }
+
+    override fun onDeleteFailure(code: Int, message: String) {
+        when(code)
+        {
+            8000 -> showToast("존재하지 않는 게시글 입니다.")
+            8001 -> showToast("회원정보를 찾을 수 없습니다.")
+            8004 -> showToast("작성자만 삭제할 수 있습니다.")
+            else -> showToast("오류가 발생했습니다.")
         }
     }
 

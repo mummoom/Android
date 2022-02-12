@@ -11,7 +11,7 @@
         android:layout_height="130dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:cardCornerRadius="10dp"
+        app:cardCornerRadius="5dp"
         app:cardElevation="0dp">
 
         <ImageView

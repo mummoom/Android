@@ -15,6 +15,7 @@ class PostService {
     private lateinit var getPostView : GetPostView
     private lateinit var getPostsView : GetPostsView
     private lateinit var setLikeView: LikeView
+    private lateinit var deletePostView: DeletePostView
 
     // view를 초기에 세팅해주는 함수
     fun setDefaultView(newView: PostDefaultView)
@@ -42,9 +43,40 @@ class PostService {
         setLikeView = newView
     }
 
+    fun setDeleteView(newView: DeletePostView)
+    {
+        deletePostView = newView
+    }
+
     // 여기부터는 api마다 함수를 만들어주면 됨
 
-    // 내 post를 받아오는 API
+    // Post를 delete하는 API
+    fun deletePost(postIdx: Int)
+    {
+        val deletePostService = retrofit.create(PostRetrofitInterface::class.java)
+
+        deletePostService.deletePost(postIdx).enqueue(object : Callback<DefaultPostResponse>{
+            override fun onResponse(
+                call: Call<DefaultPostResponse>,
+                response: Response<DefaultPostResponse>
+            ) {
+                val resp = response.body()!!
+
+                when(resp.code)
+                {
+                    1000 -> deletePostView.onDeleteSuccess()
+                    else -> deletePostView.onDeleteFailure(resp.code, resp.message)
+                }
+            }
+
+            override fun onFailure(call: Call<DefaultPostResponse>, t: Throwable) {
+                deletePostView.onDeleteFailure(400, "네트워크 오류가 발생했습니다.")
+            }
+
+        })
+    }
+
+    // 내가 쓴 post를 받아오는 API
     fun getMyPost()
     {
         val getMyPostService = retrofit.create(PostRetrofitInterface::class.java)

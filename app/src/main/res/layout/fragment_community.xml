@@ -6,12 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="20dp"
-    android:clipToPadding="false"
-    android:overScrollMode="never">
 
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -77,7 +71,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="20dp"
+        android:paddingBottom="140dp"
+        android:clipToPadding="false"
         app:layout_constraintTop_toBottomOf="@id/community_hottrend_tv"
         tools:listitem="@layout/item_writing_simple"
         android:overScrollMode="never"/>
@@ -87,7 +83,7 @@
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
-</ScrollView>
+
 
 <!--    <androidx.cardview.widget.CardView-->
 <!--        android:id="@+id/community_write_cv"-->
@@ -110,9 +106,9 @@
     // 글쓰기 버튼
     <androidx.cardview.widget.CardView
         android:id="@+id/community_writeBtn_cv"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:cardCornerRadius="25dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:cardCornerRadius="30dp"
         app:cardElevation="0dp"
         app:cardBackgroundColor="@color/main_color"
         android:layout_gravity="right|bottom"
@@ -121,8 +117,8 @@
 
         <ImageView
             android:id="@+id/community_write_iv"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_gravity="center"
             android:src="@drawable/ic_write"/>
 
