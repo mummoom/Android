@@ -55,6 +55,12 @@ class FoodtypeRVAdapter(val context: Context) : RecyclerView.Adapter<FoodtypeRVA
         notifyDataSetChanged()
     }
 
+    fun noIngredients(){
+        this.ingredientsList.clear()
+
+        notifyDataSetChanged()
+    }
+
     inner class ViewHolder(val binding: ItemFoodBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(ingredients: Ingredients){
             Glide.with(context)

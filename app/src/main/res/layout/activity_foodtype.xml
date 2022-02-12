@@ -7,6 +7,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
+    //로딩
+    <ImageView
+        android:id="@+id/foodtype_rotate_iv"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/loading_rotate"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone" />
+
+
+    <ImageView
+        android:id="@+id/foodtype_loading_iv"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/loading_img"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone"
+        />
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/foodtype_title_cl"
         android:layout_width="match_parent"
@@ -16,6 +42,7 @@
         android:background="@color/type_title"
         android:focusable="true"
         android:focusableInTouchMode="true">
+
 
 
         //이전으로
@@ -90,6 +117,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
+
+
 //육류 정보들
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/foodtype_info_rv"
