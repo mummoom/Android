@@ -11,7 +11,6 @@ class IngredientsService {
 
     private lateinit var ingredientsView: IngredientsView
 
-
     fun setIngredientsView(newView : IngredientsView)
     {
         ingredientsView = newView

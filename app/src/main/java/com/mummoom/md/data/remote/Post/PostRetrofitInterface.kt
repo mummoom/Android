@@ -37,4 +37,16 @@ interface PostRetrofitInterface {
     fun setLike(
         @Path("postIdx") postIdx : Int
     ) : Call<LikeResponse>
+
+    @POST("/report/{postIdx}")
+    fun reportPost(
+        @Path("postIdx") postIdx : Int,
+        @Body requestDto : String
+    ) : Call<PostResponse>
+
+    @POST("/comment/{postIdx}")
+    fun writeComment(
+        @Path("postIdx") postIdx : Int,
+        @Body requestDto : String
+    ) : Call<PostResponse>
 }

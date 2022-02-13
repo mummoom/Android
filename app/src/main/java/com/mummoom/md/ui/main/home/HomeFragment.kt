@@ -4,6 +4,10 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Bitmap.CompressFormat
 import android.graphics.BitmapFactory
+import android.view.KeyEvent
+import android.view.inputmethod.EditorInfo
+import android.widget.TextView
+import android.widget.Toast
 import androidx.viewpager2.widget.ViewPager2
 import com.mummoom.md.R
 import com.mummoom.md.databinding.FragmentHomeBinding
@@ -131,6 +135,36 @@ class HomeFragment(): BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inf
             intent.putExtra("category","애매한 음식")
 
             startActivity(intent)
+        }
+
+        binding.homeSearchEt.setOnEditorActionListener(object : TextView.OnEditorActionListener{
+            override fun onEditorAction(v: TextView?, actionId: Int, event: KeyEvent?): Boolean {
+                if(actionId == EditorInfo.IME_ACTION_SEARCH){
+                    val intent = Intent(activity, SearchActivity::class.java)
+                    val ingredientName = binding.homeSearchEt.text.toString()
+                    intent.putExtra("ingredientName",ingredientName)
+
+                    startActivity(intent)
+                    return true
+                }
+                return false
+            }
+        })
+
+        //검색 데이터 보내주기
+        binding.homeSearchIv.setOnClickListener{
+
+            if(binding.homeSearchEt.length() <= 0){
+                Toast.makeText(context, "검색어를 입력해주세요",Toast.LENGTH_LONG).show()
+            }else{
+                val intent = Intent(activity, SearchActivity::class.java)
+                val ingredientName = binding.homeSearchEt.text.toString()
+                intent.putExtra("ingredientName",ingredientName)
+
+                startActivity(intent)
+
+            }
+
         }
 
 

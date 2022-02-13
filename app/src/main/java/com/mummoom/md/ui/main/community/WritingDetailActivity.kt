@@ -2,26 +2,29 @@ package com.mummoom.md.ui.main.community
 
 import android.util.Log
 import android.view.View
+import android.view.animation.AnimationUtils
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.mummoom.md.R
 import com.mummoom.md.data.Post.PostDetail
-import com.mummoom.md.data.remote.Post.DeletePostView
-import com.mummoom.md.data.remote.Post.GetPostView
-import com.mummoom.md.data.remote.Post.LikeView
-import com.mummoom.md.data.remote.Post.PostService
+import com.mummoom.md.data.remote.Post.*
 import com.mummoom.md.databinding.ActivityWritingdetailBinding
 import com.mummoom.md.ui.BaseActivity
 
-class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(ActivityWritingdetailBinding::inflate), GetPostView, LikeView, DeletePostView {
+class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(ActivityWritingdetailBinding::inflate), GetPostView, LikeView, DeletePostView, ReportPostView, WriteCommentView {
 
     private lateinit var newPost : PostDetail
+    private lateinit var writeCommentRVAdapter : CommentRVAdapter
 
     private var postIdx : Int = -1
+    private var reason : String = ""
+    private var content : String = ""
     private var isScrap = false
 
     override fun initAfterBinding() {
 
         val moreBtnDialog = WritingMoreBtnDialog(this)
+        val reportDialog = ReportDialog(this)
 
         // 좋아요 버튼
         binding.writingDetailHeartIv.setOnClickListener {
@@ -55,7 +58,7 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
 
         moreBtnDialog.setOnClickedListener(object : WritingMoreBtnDialog.clickListener{
             override fun onReportPost() {
-                // 신고 API
+                reportDialog.MyDig()
             }
 
             override fun onDeletePost() {
@@ -64,6 +67,51 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
 
         })
 
+        reportDialog.setOnClickedListener(object : ReportDialog.clickListener{
+            override fun onClicked(reason: String) {
+                // reason 값으로 신고 API 호출
+                this@WritingDetailActivity.reason = reason
+                reportPost()
+            }
+
+        })
+
+        // 댓글 전송 버튼
+        binding.writingDetailSendIconIv.setOnClickListener {
+            content = binding.writingDetailCommentEt.text.toString()
+            writeComment()
+        }
+    }
+
+    private fun initRecyclerView()
+    {
+        writeCommentRVAdapter = CommentRVAdapter(this)
+        binding.writingDetailCommentRv.adapter = writeCommentRVAdapter
+        binding.writingDetailCommentRv.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+
+        writeCommentRVAdapter.setMyItemClickListener(object : CommentRVAdapter.MyItemClickListener{
+            override fun onItemClick(commentIdx: Int) {
+                // 아직 미지정
+            }
+
+        })
+
+    }
+
+    // 댓글 작성하는 함수
+    private fun writeComment()
+    {
+        val writeCommentService = PostService()
+        writeCommentService.setWriteCommentView(this)
+        writeCommentService.writeComment(postIdx, content)
+    }
+
+    // 포스트를 신고하는 함수
+    private fun reportPost()
+    {
+        val reportPostService = PostService()
+        reportPostService.setReportView(this)
+        reportPostService.reportPost(postIdx, reason)
     }
 
     // 포스트를 삭제하는 함수
@@ -140,12 +188,13 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
         super.onStart()
 
         getPostIdx()
+        initRecyclerView()
         initWriting()
     }
 
     // post 눌렀을 때 상세페이지 조회하는 부분
     override fun onGetPostLoading() {
-        TODO("Not yet implemented")
+
     }
 
     override fun onGetPostSuccess(post: PostDetail) {
@@ -167,6 +216,11 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
         Glide.with(this)
             .load(newPost.userImage)
             .into(binding.writingDetailUserIconIv)
+
+        // 댓글창의 유저 아이콘 이미지
+        Glide.with(this)
+            .load(newPost.userImage)
+            .into(binding.writingDetailCommentUserIconIv)
 
         // 유저 닉네임
         binding.writingDetailUserNicknameTv.text = newPost.userName
@@ -200,12 +254,21 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
         // 댓글 개수 세팅
         binding.writingDetailCommentCntTv.text = "댓글 " + newPost.comments.size
 
-
+        // 댓글 recyclerview 세팅
+        writeCommentRVAdapter.addComments(newPost.comments)
+        if(newPost.comments.size > 0)
+        {
+            binding.writingDetailCommentRv.visibility = View.VISIBLE
+        }
+        else
+        {
+            binding.writingDetailCommentRv.visibility = View.GONE
+        }
     }
 
     // setLike API 부분
     override fun onLikeLoading() {
-        TODO("Not yet implemented")
+
     }
 
     override fun onLikeSuccess(isLike: Boolean) {
@@ -223,7 +286,7 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
 
     // deletePost API 부분
     override fun onDeleteLoading() {
-        TODO("Not yet implemented")
+
     }
 
     override fun onDeleteSuccess() {
@@ -237,7 +300,56 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
             8000 -> showToast("존재하지 않는 게시글 입니다.")
             8001 -> showToast("회원정보를 찾을 수 없습니다.")
             8004 -> showToast("작성자만 삭제할 수 있습니다.")
-            else -> showToast("오류가 발생했습니다.")
+            else -> showToast("오류가 발생하였습니다.")
+        }
+    }
+
+    // reportPost API 부분
+    override fun onReportPostLoading() {
+
+    }
+
+    override fun onReportPostSuccess() {
+        showToast("신고가 완료되었습니다.")
+        finish()
+    }
+
+    override fun onReportPostFailure(code: Int, message: String) {
+        when(code)
+        {
+            3000 -> showToast("오류가 발생하였습니다.")
+            8000 -> showToast("존재하지 않는 게시글 입니다.")
+            8001 -> showToast("회원정보를 찾을 수 없습니다.")
+            else -> showToast("오류가 발생하였습니다.")
+        }
+    }
+
+    override fun onWriteCommentLoading() {
+        val animation = AnimationUtils.loadAnimation(this,R.anim.rotate)
+        binding.writingDetailRotateIv.visibility = View.VISIBLE
+        binding.writingDetailLoadingIv.visibility = View.VISIBLE
+        binding.writingDetailRotateIv.startAnimation(animation)
+    }
+
+    override fun onWriteCommentSuccess() {
+        binding.writingDetailRotateIv.animation.cancel()
+        binding.writingDetailRotateIv.visibility = View.GONE
+        binding.writingDetailLoadingIv.visibility = View.GONE
+        binding.writingDetailCommentEt.text = null
+        initWriting()
+    }
+
+    override fun onWriteCommentFailure(code: Int, message: String) {
+        binding.writingDetailRotateIv.animation.cancel()
+        binding.writingDetailRotateIv.visibility = View.GONE
+        binding.writingDetailLoadingIv.visibility = View.GONE
+        when(code)
+        {
+            3000 -> showToast("오류가 발생하였습니다.")
+            8000 -> showToast("존재하지 않는 게시글 입니다.")
+            8001 -> showToast("회원정보를 찾을 수 없습니다.")
+            8006 -> showToast("내용을 입력해주세요.")
+            else -> showToast("오류가 발생하였습니다.")
         }
     }
 

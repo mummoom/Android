@@ -31,9 +31,9 @@
 
     <ImageView
         android:id="@+id/changeimageCustom_icon1_iv"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="15dp"
         android:src="@drawable/album"
         app:layout_constraintStart_toStartOf="@id/changeimageDialog_line_view"
         app:layout_constraintTop_toBottomOf="@id/changeimageDialog_line_view" />
@@ -43,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="앨범에서 사진 가져오기"
-        android:textSize="12sp"
+        android:textSize="15sp"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:fontFamily="@font/applesdgothicneom"
@@ -54,8 +54,8 @@
 
     <ImageView
         android:id="@+id/changeimageCustom_icon2_iv"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginTop="15dp"
         android:src="@drawable/illust"
         app:layout_constraintStart_toStartOf="@id/changeimageCustom_icon1_iv"
@@ -66,7 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="기본 일러스트 선택"
-        android:textSize="12sp"
+        android:textSize="15sp"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:fontFamily="@font/applesdgothicneom"

@@ -14,8 +14,10 @@ class PostService {
     private lateinit var postView: PostView
     private lateinit var getPostView : GetPostView
     private lateinit var getPostsView : GetPostsView
-    private lateinit var setLikeView: LikeView
-    private lateinit var deletePostView: DeletePostView
+    private lateinit var setLikeView : LikeView
+    private lateinit var deletePostView : DeletePostView
+    private lateinit var reportPostView : ReportPostView
+    private lateinit var writeCommentView: WriteCommentView
 
     // view를 초기에 세팅해주는 함수
     fun setDefaultView(newView: PostDefaultView)
@@ -48,7 +50,65 @@ class PostService {
         deletePostView = newView
     }
 
+    fun setReportView(newView: ReportPostView)
+    {
+        reportPostView = newView
+    }
+
+    fun setWriteCommentView(newView: WriteCommentView)
+    {
+        writeCommentView = newView
+    }
+
     // 여기부터는 api마다 함수를 만들어주면 됨
+
+    // comment 작성하는 API
+    fun writeComment(postIdx: Int, content: String)
+    {
+        val writeCommentService = retrofit.create(PostRetrofitInterface::class.java)
+
+        writeCommentView.onWriteCommentLoading()
+
+        writeCommentService.writeComment(postIdx, content).enqueue(object : Callback<PostResponse>{
+            override fun onResponse(call: Call<PostResponse>, response: Response<PostResponse>) {
+                val resp = response.body()!!
+
+                when(resp.code)
+                {
+                    1000 -> writeCommentView.onWriteCommentSuccess()
+                    else -> writeCommentView.onWriteCommentFailure(resp.code, resp.message)
+                }
+            }
+
+            override fun onFailure(call: Call<PostResponse>, t: Throwable) {
+                writeCommentView.onWriteCommentFailure(400, "네트워크 오류가 발생했습니다.")
+            }
+
+        })
+    }
+
+    // Post를 신고하는 API
+    fun reportPost(postIdx: Int, reason: String)
+    {
+        val reportPostService = retrofit.create(PostRetrofitInterface::class.java)
+
+        reportPostService.reportPost(postIdx, reason).enqueue(object : Callback<PostResponse>{
+            override fun onResponse(call: Call<PostResponse>, response: Response<PostResponse>) {
+                val resp = response.body()!!
+
+                when(resp.code)
+                {
+                    1000 -> reportPostView.onReportPostSuccess()
+                    else -> reportPostView.onReportPostFailure(resp.code, resp.message)
+                }
+            }
+
+            override fun onFailure(call: Call<PostResponse>, t: Throwable) {
+                reportPostView.onReportPostFailure(400, "네트워크 오류가 발생했습니다.")
+            }
+
+        })
+    }
 
     // Post를 delete하는 API
     fun deletePost(postIdx: Int)

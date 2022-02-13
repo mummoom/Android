@@ -4,7 +4,7 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 data class PostDetail(
-    @SerializedName("comments") var comments : ArrayList<String>,
+    @SerializedName("comments") var comments : ArrayList<Comment>,
     @SerializedName("content") var content : String,
     @SerializedName("createdAt") var createdAt : String,
     @SerializedName("imgUrl") var imgUrl : String,
