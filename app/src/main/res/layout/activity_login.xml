@@ -155,6 +155,7 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@id/login_kakao_login_btn_tv"
     android:layout_marginTop="16dp"
+    android:background="@drawable/bg_login_google_btn"
     android:fontFamily="@font/applesdgothicneom"/>
 
 
