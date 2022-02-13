@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="300dp"
-    android:layout_height="180dp"
+    android:layout_height="160dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
         android:id="@+id/moreBtnDialog_warningIcon_iv"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_marginTop="15dp"
         android:layout_marginStart="20dp"
         android:src="@drawable/ic_warning"
@@ -39,8 +39,8 @@
 
     <ImageView
         android:id="@+id/moreBtnDialog_editIcon_iv"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_marginTop="15dp"
         android:src="@drawable/ic_write_edit"
         app:layout_constraintStart_toStartOf="@id/moreBtnDialog_warningIcon_iv"
@@ -73,8 +73,8 @@
 
     <ImageView
         android:id="@+id/moreBtnDialog_deleteIcon_iv"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_marginTop="15dp"
         android:src="@drawable/ic_trash"
         app:layout_constraintStart_toStartOf="@id/moreBtnDialog_warningIcon_iv"
