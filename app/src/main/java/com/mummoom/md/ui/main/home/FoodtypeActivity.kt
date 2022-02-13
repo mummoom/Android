@@ -3,8 +3,11 @@ package com.mummoom.md.ui.main.home
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent
 import android.view.View
 import android.view.animation.AnimationUtils
+import android.view.inputmethod.EditorInfo
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -32,8 +35,19 @@ class FoodtypeActivity : BaseActivity<ActivityFoodtypeBinding>(ActivityFoodtypeB
             finish()
         }
 
+        binding.foodtypeSearchEt.setOnEditorActionListener(object : TextView.OnEditorActionListener{
+            override fun onEditorAction(v: TextView?, actionId: Int, event: KeyEvent?): Boolean {
+                if(actionId == EditorInfo.IME_ACTION_SEARCH){
+                    foodSearch()
+                    return true
+                }
+                return false
+            }
+        })
+
         binding.foodtypeSearchIv.setOnClickListener{
-            if(binding.foodtypeSearchEt.toString().isEmpty()){
+            if(binding.foodtypeSearchEt.length() <= 0){
+                Log.d("emptytoast",binding.foodtypeSearchEt.toString())
                 Toast.makeText(this, "검색어를 입력해주세요", Toast.LENGTH_SHORT).show()
             }else{
                 foodSearch()

@@ -4,9 +4,12 @@ import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent
 import android.view.View
 import android.view.animation.AnimationUtils
+import android.view.inputmethod.EditorInfo
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -35,8 +38,18 @@ class FoodeatActivity : BaseActivity<ActivityFoodeatBinding>(ActivityFoodeatBind
             finish()
         }
 
+        binding.foodeatSearchEt.setOnEditorActionListener(object : TextView.OnEditorActionListener{
+            override fun onEditorAction(v: TextView?, actionId: Int, event: KeyEvent?): Boolean {
+                if(actionId == EditorInfo.IME_ACTION_SEARCH){
+                    foodSearch()
+                    return true
+                }
+                return false
+            }
+        })
+
         binding.foodeatSearchIv.setOnClickListener{
-            if(binding.foodeatSearchIv.toString().isEmpty()){
+            if(binding.foodeatSearchEt.length() <= 0){
                 Toast.makeText(this, "검색어를 입력해주세요", Toast.LENGTH_SHORT).show()
             }else{
                 foodSearch()
