@@ -67,6 +67,10 @@
             android:name=".ui.main.community.WriteActivity"
             android:exported="true"/>
 
+        <activity
+            android:name=".ui.main.community.EditWriteActivity"
+            android:exported="true"/>
+
 
         // dog 부분
         <activity
@@ -164,6 +168,12 @@
         <activity
             android:name=".ui.main.home.FoodinfoActivity"
             android:exported="true"/>
+
+        <activity
+            android:name=".ui.main.home.SearchActivity"
+            android:exported="true"/>
+
+
 
 
     </application>
