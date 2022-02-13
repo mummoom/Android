@@ -1,5 +1,6 @@
 package com.mummoom.md.ui.main.community
 
+import android.content.Intent
 import android.util.Log
 import android.view.View
 import android.view.animation.AnimationUtils
@@ -15,6 +16,7 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
 
     private lateinit var newPost : PostDetail
     private lateinit var writeCommentRVAdapter : CommentRVAdapter
+
 
     private var postIdx : Int = -1
     private var reason : String = ""
@@ -59,6 +61,11 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
         moreBtnDialog.setOnClickedListener(object : WritingMoreBtnDialog.clickListener{
             override fun onReportPost() {
                 reportDialog.MyDig()
+            }
+
+            override fun onEditPost() {
+                val intent = Intent(this@WritingDetailActivity, EditWriteActivity::class.java)
+                startActivity(intent)
             }
 
             override fun onDeletePost() {
@@ -218,9 +225,9 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
             .into(binding.writingDetailUserIconIv)
 
         // 댓글창의 유저 아이콘 이미지
-        Glide.with(this)
-            .load(newPost.userImage)
-            .into(binding.writingDetailCommentUserIconIv)
+//        Glide.with(this)
+//            .load(newPost.userImage)
+//            .into(binding.writingDetailCommentUserIconIv)
 
         // 유저 닉네임
         binding.writingDetailUserNicknameTv.text = newPost.userName

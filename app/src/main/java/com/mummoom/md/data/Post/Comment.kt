@@ -8,5 +8,5 @@ data class Comment(
     @SerializedName("nickName") var nickName : String,
     @SerializedName("content") var content : String,
     @SerializedName("nestedComments") var nestedComments : ArrayList<Comment>,
-    @SerializedName("createAt") var createAt : String
+    @SerializedName("createdAt") var createAt : String
 )

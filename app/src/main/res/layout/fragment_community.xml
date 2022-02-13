@@ -68,15 +68,16 @@
     // 게시글 피드 recyclerview(Grid 형식)
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/community_writing_rv"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
         android:paddingBottom="140dp"
         android:clipToPadding="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/community_hottrend_tv"
         tools:listitem="@layout/item_writing_simple"
-        android:overScrollMode="never"/>
+        android:overScrollMode="never" />
 
     // 더보기 버튼 구현해야 함
 
