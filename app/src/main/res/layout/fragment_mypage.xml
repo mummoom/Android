@@ -125,6 +125,9 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+
+//설정
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/mypage_icon1_cv"
                 android:layout_width="20dp"
@@ -140,17 +143,17 @@
                     android:id="@+id/mypage_icon1_iv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/update" />
+                    android:src="@drawable/myprofile" />
 
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:id="@+id/mypage_update_tv"
+                android:id="@+id/mypage_myprofile_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="17dp"
                 android:fontFamily="@font/applesdgothicneom"
-                android:text="업데이트 및 버전"
+                android:text="내 프로필"
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:textStyle="bold"
@@ -158,7 +161,7 @@
                 app:layout_constraintStart_toEndOf="@id/mypage_icon1_cv"
                 app:layout_constraintTop_toTopOf="@id/mypage_icon1_cv" />
 
-
+            //알람 푸쉬
             <androidx.cardview.widget.CardView
                 android:id="@+id/mypage_icon2_cv"
                 android:layout_width="20dp"
@@ -173,17 +176,17 @@
                     android:id="@+id/mypage_icon2_iv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/push" />
+                    android:src="@drawable/myactivity" />
 
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:id="@+id/mypage_push_tv"
+                android:id="@+id/mypage_my_activity_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="17dp"
                 android:fontFamily="@font/applesdgothicneom"
-                android:text="알람 및 푸쉬 설정"
+                android:text="내 활동"
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:textStyle="bold"
@@ -206,17 +209,17 @@
                     android:id="@+id/mypage_icon3_iv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/ask" />
+                    android:src="@drawable/push" />
 
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:id="@+id/mypage_ask_tv"
+                android:id="@+id/mypage_push_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="17dp"
                 android:fontFamily="@font/applesdgothicneom"
-                android:text="문의하기"
+                android:text="알람 및 푸쉬 설정"
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:textStyle="bold"
@@ -233,23 +236,23 @@
                 app:cardElevation="0dp"
 
                 app:layout_constraintStart_toStartOf="@id/mypage_icon3_cv"
-                app:layout_constraintTop_toBottomOf="@id/mypage_icon3_cv">
+                app:layout_constraintTop_toBottomOf="@id/mypage_line2_view">
 
                 <ImageView
                     android:id="@+id/mypage_icon4_iv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/appinfo" />
+                    android:src="@drawable/ask" />
 
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:id="@+id/mypage_appInfo_tv"
+                android:id="@+id/mypage_ask_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="17dp"
                 android:fontFamily="@font/applesdgothicneom"
-                android:text="앱 정보"
+                android:text="문의하기"
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:textStyle="bold"
@@ -257,13 +260,14 @@
                 app:layout_constraintStart_toEndOf="@id/mypage_icon4_cv"
                 app:layout_constraintTop_toTopOf="@id/mypage_icon4_cv" />
 
+            //구분선
             <View
                 android:id="@+id/mypage_line2_view"
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
                 android:layout_marginTop="20dp"
                 android:background="#EAEAEA"
-                app:layout_constraintTop_toBottomOf="@id/mypage_icon4_cv" />
+                app:layout_constraintTop_toBottomOf="@id/mypage_icon3_cv" />
 
 
             <androidx.cardview.widget.CardView
@@ -273,30 +277,31 @@
                 android:layout_marginTop="20dp"
                 app:cardElevation="0dp"
 
-                app:layout_constraintStart_toStartOf="@id/mypage_icon3_cv"
-                app:layout_constraintTop_toBottomOf="@id/mypage_line2_view">
+                app:layout_constraintStart_toStartOf="@id/mypage_icon4_cv"
+                app:layout_constraintTop_toBottomOf="@id/mypage_icon4_cv">
 
                 <ImageView
                     android:id="@+id/mypage_icon5_iv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/myprofile" />
+                    android:src="@drawable/update" />
 
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:id="@+id/mypage_myprofile_tv"
+                android:id="@+id/mypage_update_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="17dp"
                 android:fontFamily="@font/applesdgothicneom"
-                android:text="내 프로필"
+                android:text="업데이트 및 버전"
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@id/mypage_icon5_cv"
                 app:layout_constraintStart_toEndOf="@id/mypage_icon5_cv"
                 app:layout_constraintTop_toTopOf="@id/mypage_icon5_cv" />
+
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/mypage_icon6_cv"
@@ -311,17 +316,17 @@
                     android:id="@+id/mypage_icon6_iv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/myactivity" />
+                    android:src="@drawable/appinfo" />
 
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:id="@+id/mypage_my_activity_tv"
+                android:id="@+id/mypage_app_info_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="17dp"
                 android:fontFamily="@font/applesdgothicneom"
-                android:text="내 활동"
+                android:text="앱 정보"
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:textStyle="bold"
@@ -329,6 +334,7 @@
                 app:layout_constraintStart_toEndOf="@id/mypage_icon6_cv"
                 app:layout_constraintTop_toTopOf="@id/mypage_icon6_cv" />
 
+            //로그아웃
             <androidx.cardview.widget.CardView
                 android:id="@+id/mypage_icon7_cv"
                 android:layout_width="20dp"
