@@ -7,13 +7,13 @@
 
     <ImageView
         android:id="@+id/dogname_logo_iv"
-        android:layout_width="220dp"
+        android:layout_width="170dp"
         android:layout_height="170dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="110dp"
-        android:src="@drawable/ex_dog1"
+        android:src="@drawable/nickname_img"
         />
     <TextView
         android:id="@+id/nickname_explain1_tv"
