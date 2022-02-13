@@ -27,8 +27,6 @@ class WriteActivity : BaseActivity<ActivityWriteBinding>(ActivityWriteBinding::i
     private var uri: Uri? = null
     private var imgUrl : String = ""
 
-//    private lateinit var newPost: SendPost
-
     private var launcher = registerForActivityResult(ActivityResultContracts.GetContent())
     {
         uri = it

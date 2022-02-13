@@ -1,7 +1,10 @@
 package com.mummoom.md.ui.main.community
 
 import android.content.Intent
+import android.os.Bundle
+import android.os.Parcelable
 import android.util.Log
+import android.widget.GridLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import com.mummoom.md.data.Post.Post
 import com.mummoom.md.data.remote.Post.GetPostsView
@@ -12,6 +15,7 @@ import com.mummoom.md.ui.BaseFragment
 class CommunityFragment(): BaseFragment<FragmentCommunityBinding>(FragmentCommunityBinding::inflate), GetPostsView {
 
     private lateinit var writingSimpleRVAdapter : WritingSimpleRVAdapter
+    private var recyclerViewState : Parcelable? = null
 
     override fun initAfterBinding() {
 
@@ -31,7 +35,6 @@ class CommunityFragment(): BaseFragment<FragmentCommunityBinding>(FragmentCommun
         writingSimpleRVAdapter.setMyItemClickListener(object : WritingSimpleRVAdapter.MyItemClickListener{
             override fun onItemClick(postIdx: Int) {
                 val intent = Intent(activity, WritingDetailActivity::class.java)
-
                 intent.putExtra("postIdx", postIdx)
                 startActivity(intent)
             }
@@ -54,10 +57,22 @@ class CommunityFragment(): BaseFragment<FragmentCommunityBinding>(FragmentCommun
         getPosts()
     }
 
-//    override fun onResume() {
-//        super.onResume()
+    override fun onResume() {
+        super.onResume()
+
+        getPosts()
+    }
+
+
+    // 다른 activity나 fragment로 이동하기 전에 호출해야 하는 함수 => 프래그먼트에서는 동작하지 않는 애랍니다...
+//    private fun saveRecyclerViewState()
+//    {
+//        recyclerViewState = binding.communityWritingRv.layoutManager!!.onSaveInstanceState()
+//    }
 //
-//        getPosts()
+//    private fun setSavedRecyclerViewState()
+//    {
+//        binding.communityWritingRv.layoutManager!!.onRestoreInstanceState(recyclerViewState)
 //    }
 
     // 전체 게시글 피드를 불러오는 함수
