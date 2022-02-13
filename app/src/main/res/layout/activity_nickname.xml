@@ -12,7 +12,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/ex_dog1"
+        android:src="@drawable/bookdog_img"
         android:layout_marginTop="110dp"
         />
     <TextView
@@ -22,9 +22,10 @@
         app:layout_constraintTop_toBottomOf="@id/nickname_logo_iv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:text="어서오세요!멈뭄입니다!"
         android:textSize="13sp"
+        android:fontFamily="@font/applesdgothicneom"
         android:textColor="@color/infoname_tv"/>
     <TextView
         android:id="@+id/nickname_explain2_tv"
@@ -35,6 +36,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="10dp"
         android:textSize="13sp"
+        android:fontFamily="@font/applesdgothicneom"
         android:text="본격적으로 어플을 만나러 가기 전에"
         android:textColor="@color/infoname_tv"/>
     <TextView
@@ -46,6 +48,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="10dp"
         android:text="키우시는 귀여운 강아지에 대해 알고 싶어요!"
+        android:fontFamily="@font/applesdgothicneom"
         android:textSize="13sp"
         android:textColor="@color/infoname_tv"/>
 
@@ -56,10 +59,10 @@
         app:layout_constraintTop_toBottomOf="@id/nickname_explain3_tv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="80dp"
         android:text="견주님의 이름은 무엇인가요?"
+        android:fontFamily="@font/applesdgothicneoh"
         android:textColor="@color/infoname_tv"
-        android:textStyle="bold"
         android:textSize="15sp"/>
     <EditText
         android:id="@+id/nickname_name_et"
@@ -68,6 +71,7 @@
         app:layout_constraintTop_toBottomOf="@id/nickname_name_tv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:fontFamily="@font/applesdgothicneom"
         android:layout_marginTop="10dp"/>
 
     <ImageView
@@ -90,6 +94,7 @@
         android:gravity="center"
         android:background="@drawable/bg_previous_btn"
         android:text="다음"
+        android:fontFamily="@font/applesdgothicneom"
         android:textSize="15sp"
         android:textColor="@color/main_color"/>
 

@@ -13,8 +13,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="100dp"
-        android:src="@drawable/ex_dog1"
+        android:layout_marginBottom="140dp"
+        android:src="@drawable/dogpet"
         />
 
     <TextView
