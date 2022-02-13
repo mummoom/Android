@@ -39,6 +39,7 @@ class CommunityFragment(): BaseFragment<FragmentCommunityBinding>(FragmentCommun
         })
     }
 
+    // 전체 게시글 피드를 조회하는 함수
     private fun getPosts()
     {
         val writingSimpleService = PostService()
@@ -53,8 +54,15 @@ class CommunityFragment(): BaseFragment<FragmentCommunityBinding>(FragmentCommun
         getPosts()
     }
 
+//    override fun onResume() {
+//        super.onResume()
+//
+//        getPosts()
+//    }
+
+    // 전체 게시글 피드를 불러오는 함수
     override fun onGetPostsLoading() {
-        TODO("Not yet implemented")
+
     }
 
     override fun onGetPostsSuccess(posts: ArrayList<Post>) {

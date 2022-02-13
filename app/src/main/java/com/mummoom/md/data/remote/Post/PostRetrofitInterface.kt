@@ -43,4 +43,10 @@ interface PostRetrofitInterface {
         @Path("postIdx") postIdx : Int,
         @Body requestDto : String
     ) : Call<PostResponse>
+
+    @POST("/comment/{postIdx}")
+    fun writeComment(
+        @Path("postIdx") postIdx : Int,
+        @Body requestDto : String
+    ) : Call<PostResponse>
 }

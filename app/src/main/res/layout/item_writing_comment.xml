@@ -10,6 +10,7 @@
         android:id="@+id/writingComment_userName_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="댓글 단 사용자 이름"
         android:textSize="13sp"
         android:textColor="@color/black"
@@ -27,7 +28,18 @@
         android:textSize="13sp"
         android:textStyle="normal"
         app:layout_constraintStart_toEndOf="@id/writingComment_userName_tv"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="@id/writingComment_userName_tv"
+        app:layout_constraintBottom_toBottomOf="@id/writingComment_userName_tv"/>
+
+    <ImageView
+        android:id="@+id/writingComment_moreBtn_iv"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/ic_more_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/writingComment_userName_tv"
+        app:layout_constraintBottom_toBottomOf="@id/writingComment_userName_tv"/>
 
     <TextView
         android:id="@+id/writingComment_content_tv"
@@ -48,6 +60,15 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/writingComment_content_tv"
-        tools:listitem="@layout/item_writing_recomment"/>
+        tools:listitem="@layout/item_writing_recomment"
+        android:visibility="visible"/>
+
+    <View
+        android:id="@+id/writingComment_line_view"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#e9e9e9"
+        app:layout_constraintTop_toBottomOf="@id/writingComment_recomment_rv"
+        android:layout_marginTop="10dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
