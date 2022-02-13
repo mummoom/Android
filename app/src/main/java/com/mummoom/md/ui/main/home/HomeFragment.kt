@@ -137,6 +137,20 @@ class HomeFragment(): BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inf
             startActivity(intent)
         }
 
+        binding.homeSearchEt.setOnEditorActionListener(object : TextView.OnEditorActionListener{
+            override fun onEditorAction(v: TextView?, actionId: Int, event: KeyEvent?): Boolean {
+                if(actionId == EditorInfo.IME_ACTION_SEARCH){
+                    val intent = Intent(activity, SearchActivity::class.java)
+                    val ingredientName = binding.homeSearchEt.text.toString()
+                    intent.putExtra("ingredientName",ingredientName)
+
+                    startActivity(intent)
+                    return true
+                }
+                return false
+            }
+        })
+
         //검색 데이터 보내주기
         binding.homeSearchIv.setOnClickListener{
 
