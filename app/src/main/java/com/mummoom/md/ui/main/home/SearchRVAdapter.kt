@@ -18,9 +18,9 @@ class SearchRVAdapter(val context: Context) : RecyclerView.Adapter<SearchRVAdapt
         fun onItemClick(ingredients : Ingredients)
     }
 
-    private lateinit var myItemClickListener: SearchRVAdapter.MyItemClickListener
+    private lateinit var myItemClickListener: MyItemClickListener
 
-    fun setMyItemClickListener(itemClickListener: SearchRVAdapter.MyItemClickListener){
+    fun setMyItemClickListener(itemClickListener: MyItemClickListener){
         myItemClickListener = itemClickListener
     }
 

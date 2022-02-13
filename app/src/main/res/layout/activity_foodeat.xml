@@ -97,6 +97,11 @@
             android:layout_height="match_parent"
             android:background="@drawable/rounding_line_yellow"
             android:privateImeOptions="defaultInputmode=korean"
+            android:hint="찾고자 하는 식재료를 입력하세요"
+            android:inputType="text"
+            android:textSize="13sp"
+            android:maxLines="1"
+            android:imeOptions="actionSearch"
             android:paddingStart="10dp"/>
 
         <ImageView
