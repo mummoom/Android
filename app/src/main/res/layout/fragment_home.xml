@@ -35,6 +35,11 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/rounding_line_yellow"
                 android:paddingStart="10dp"
+                android:maxLines="1"
+                android:imeOptions="actionSearch"
+                android:hint="찾고자 하는 식재료를 입력하세요."
+                android:textSize="13sp"
+                android:inputType="text"
                 android:fontFamily="@font/applesdgothicneom"/>
 
             <ImageView
