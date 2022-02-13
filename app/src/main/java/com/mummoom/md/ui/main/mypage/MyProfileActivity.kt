@@ -52,6 +52,12 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
         }
 
         // 비밀번호 edittext 부분 눌렀을 때
+
+        binding.myprofilePwdTv.setOnClickListener{
+            val intent = Intent(this, ChangePwdActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.myprofilePwdEt.setOnClickListener {
             val intent = Intent(this, ChangePwdActivity::class.java)
             startActivity(intent)
