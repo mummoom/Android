@@ -7,6 +7,7 @@ import android.view.View
 import com.mummoom.md.databinding.ActivitySignupBinding
 import com.mummoom.md.databinding.ActivitySignupCheckBinding
 import com.mummoom.md.ui.BaseActivity
+import com.mummoom.md.ui.dogname.DognameActivity
 import com.mummoom.md.ui.login.LoginActivity
 import com.mummoom.md.ui.nickname.NicknameActivity
 
@@ -14,7 +15,7 @@ class SignUpCheckActivity : BaseActivity<ActivitySignupCheckBinding>(ActivitySig
 
     override fun initAfterBinding() {
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivityWithClear(LoginActivity::class.java)
+            startActivityWithClear(DognameActivity::class.java)
         }, 2000)
     }
 

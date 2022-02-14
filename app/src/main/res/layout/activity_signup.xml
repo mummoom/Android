@@ -51,7 +51,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
         android:paddingStart="10dp"
-        android:textSize="15sp"
+        android:textSize="13sp"
+        android:maxLines="1"
         android:fontFamily="@font/applesdgothicneom"
         android:background="@drawable/bg_signup_et"
         />
@@ -89,16 +90,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
-        android:textSize="15sp"
+        android:textSize="13sp"
+        android:hint="6~20자리 숫자, 영문, 특수문자가 포함되어야 합니다"
         android:fontFamily="@font/applesdgothicneom"
         android:paddingStart="10dp"
+        android:maxLines="1"
         android:background="@drawable/bg_signup_et"
         />
     <TextView
         android:id="@+id/signup_pw_error_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="비밀번호는 6~20자리 숫자, 영문, 특수문자가 포함되어야 합니다"
         android:textColor="@color/signup_error_tv"
         app:layout_constraintTop_toBottomOf="@id/signup_pw_et"
         app:layout_constraintStart_toStartOf="@id/signup_pw_et"
@@ -127,9 +129,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
-        android:textSize="15sp"
+        android:textSize="13sp"
         android:fontFamily="@font/applesdgothicneom"
         android:paddingStart="10dp"
+        android:maxLines="1"
         android:background="@drawable/bg_signup_et"
         />
 
@@ -155,10 +158,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
-        android:textSize="15sp"
+        android:textSize="13sp"
         android:paddingStart="10dp"
+        android:hint="1~20자를 입력받으며 중복이 되지 않습니다."
+        android:maxLines="1"
         android:background="@drawable/bg_signup_et"
         android:fontFamily="@font/applesdgothicneom"
+        />
+    <TextView
+        android:id="@+id/signup_name_error_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/signup_error_tv"
+        app:layout_constraintTop_toBottomOf="@id/signup_name_et"
+        app:layout_constraintStart_toStartOf="@id/signup_name_et"
+        android:textSize="10sp"
+        android:visibility="gone"
         />
 
     <TextView

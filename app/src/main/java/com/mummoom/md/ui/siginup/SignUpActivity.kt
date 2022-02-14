@@ -81,10 +81,20 @@ class SignUpActivity: BaseActivity<ActivitySignupBinding>(ActivitySignupBinding:
 //        binding.signUpLoadingPb.visibility = View.GONE
 //
         when(code) {
-            401, 402 -> {
+            7007 -> {
+                binding.signupPwErrorTv.visibility = View.VISIBLE
+                binding.signupPwErrorTv.text = message
+
+            }
+            7010-> {                Toast.makeText(this, "정확한 정보를 입력해 주세요", Toast.LENGTH_SHORT).show()
+            }
+            7011 -> {
+                binding.signupNameErrorTv.visibility = View.VISIBLE
+                binding.signupNameErrorTv.text = message
+            }
+            7012 -> {
                 binding.signupEmailErrorTv.visibility = View.VISIBLE
                 binding.signupEmailErrorTv.text = message
-                Toast.makeText(this, "정확한 정보를 입력해 주세요", Toast.LENGTH_SHORT).show()
 
           }
         }
