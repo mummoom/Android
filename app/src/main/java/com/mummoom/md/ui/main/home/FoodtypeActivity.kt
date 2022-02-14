@@ -153,6 +153,7 @@ class FoodtypeActivity : BaseActivity<ActivityFoodtypeBinding>(ActivityFoodtypeB
         binding.foodtypeLoadingIv.visibility = View.GONE
         binding.foodtypeRotateIv.clearAnimation()
         foodtypeRVAdapter.addIngredients(searchIngredients)
+
     }
 
     override fun onSearchFailure(code: Int, message: String) {
