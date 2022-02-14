@@ -68,6 +68,8 @@
         android:id="@+id/nickname_name_et"
         android:layout_width="270dp"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:backgroundTint="@color/main_color"
         app:layout_constraintTop_toBottomOf="@id/nickname_name_tv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

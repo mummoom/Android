@@ -4,6 +4,8 @@ import android.content.Intent
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import com.bumptech.glide.Glide
+import com.mummoom.md.R
 import com.mummoom.md.databinding.ActivityDognameBinding
 import com.mummoom.md.databinding.ActivityNicknameBinding
 import com.mummoom.md.ui.BaseActivity
@@ -14,7 +16,9 @@ class DognameActivity : BaseActivity<ActivityDognameBinding>(ActivityDognameBind
     override fun initAfterBinding() {
         binding.dognameNextBtn.setOnClickListener(this)
 
-
+        Glide.with(this)
+            .load(R.drawable.nickname_img)
+            .into(binding.dognameLogoIv)
     }
 
     override fun onClick(v: View?) {
