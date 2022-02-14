@@ -205,19 +205,21 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d("ONSTATE", "oncreate")
         UserService.getUserByIdx(this)
     }
 
 
     override fun onStart() {
         super.onStart()
-
+        Log.d("ONSTATE", "onstart")
+        UserService.getUserByIdx(this)
         DogService.getDoglist(this)
-
     }
 
     override fun onResume() {
         super.onResume()
+        Log.d("ONSTATE", "onresume")
         UserService.getUserByIdx(this)
     }
 
@@ -324,18 +326,19 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
 
     fun getUser(user: User) {
 
-        if(user.imgUrl != "" || user.imgUrl != null)
-        {
-            Glide.with(this)
-                .load(user.imgUrl)
-                .into(binding.mypageMyImgIv)
-        }
-        else
+        if(user.imgUrl == null || user.imgUrl == "")
         {
             Glide.with(this)
                 .load(R.drawable.ic_no_img2)
                 .into(binding.mypageMyImgIv)
         }
+        else
+        {
+            Glide.with(this)
+                .load(user.imgUrl)
+                .into(binding.mypageMyImgIv)
+        }
+
         binding.mypageNameTv.text=user.nickName
     }
 
