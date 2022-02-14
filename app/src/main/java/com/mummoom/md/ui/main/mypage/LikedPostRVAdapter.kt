@@ -69,6 +69,17 @@ class LikedPostRVAdapter(val context: Context) : RecyclerView.Adapter<LikedPostR
 
             // 글 내용
             binding.writingContentTv.text = post.content
+
+            // 좋아요 개수
+            if(post.likecnt > 0)
+            {
+                binding.writingHeartIv.setImageResource(R.drawable.ic_heart_on)
+            }
+            else
+            {
+                binding.writingHeartIv.setImageResource(R.drawable.ic_heart_off)
+            }
+
         }
     }
 
