@@ -49,4 +49,9 @@ interface PostRetrofitInterface {
         @Path("postIdx") postIdx : Int,
         @Body requestDto : String
     ) : Call<PostResponse>
+
+    @DELETE("/comment/{commentIdx}")
+    fun deleteComment(
+        @Path("commentIdx") commentIdx : Int,
+    ) : Call<DefaultPostResponse>
 }

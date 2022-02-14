@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="110dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/commentMoreBtn_warningIcon_iv"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="20dp"
+        android:src="@drawable/ic_warning"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/commentMoreBtn_warning_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="신고하기"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:fontFamily="@font/applesdgothicneom"
+        app:layout_constraintStart_toEndOf="@id/commentMoreBtn_warningIcon_iv"
+        app:layout_constraintTop_toTopOf="@id/commentMoreBtn_warningIcon_iv"
+        app:layout_constraintBottom_toBottomOf="@id/commentMoreBtn_warningIcon_iv"
+        android:layout_marginStart="10dp"/>
+
+    <View
+        android:id="@+id/commentMoreBtn_line_view"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="10dp"
+        android:background="#EAEAEA"
+        app:layout_constraintTop_toBottomOf="@id/commentMoreBtn_warningIcon_iv" />
+
+
+
+    <ImageView
+        android:id="@+id/commentMoreBtn_deleteIcon_iv"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/ic_trash"
+        app:layout_constraintStart_toStartOf="@id/commentMoreBtn_warningIcon_iv"
+        app:layout_constraintTop_toBottomOf="@id/commentMoreBtn_line_view" />
+
+
+    <TextView
+        android:id="@+id/commentMoreBtn_delete_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="삭제하기"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:fontFamily="@font/applesdgothicneom"
+        app:layout_constraintStart_toEndOf="@id/commentMoreBtn_deleteIcon_iv"
+        app:layout_constraintTop_toTopOf="@id/commentMoreBtn_deleteIcon_iv"
+        app:layout_constraintBottom_toBottomOf="@id/commentMoreBtn_deleteIcon_iv"
+        android:layout_marginStart="10dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

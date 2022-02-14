@@ -17,7 +17,8 @@ class PostService {
     private lateinit var setLikeView : LikeView
     private lateinit var deletePostView : DeletePostView
     private lateinit var reportPostView : ReportPostView
-    private lateinit var writeCommentView: WriteCommentView
+    private lateinit var writeCommentView : WriteCommentView
+    private lateinit var deleteCommentView : DeleteCommentView
 
     // view를 초기에 세팅해주는 함수
     fun setDefaultView(newView: PostDefaultView)
@@ -60,7 +61,40 @@ class PostService {
         writeCommentView = newView
     }
 
+    fun setDeleteCommentView(newView: DeleteCommentView)
+    {
+        deleteCommentView = newView
+    }
+
     // 여기부터는 api마다 함수를 만들어주면 됨
+
+    // comment 삭제하는 API
+    fun deleteComment(commentIdx : Int)
+    {
+        val deleteCommentService = retrofit.create(PostRetrofitInterface::class.java)
+
+        deleteCommentView.onDeleteCommentLoading()
+
+        deleteCommentService.deleteComment(commentIdx).enqueue(object : Callback<DefaultPostResponse>{
+            override fun onResponse(
+                call: Call<DefaultPostResponse>,
+                response: Response<DefaultPostResponse>
+            ) {
+                val resp = response.body()!!
+
+                when(resp.code)
+                {
+                    1000 -> deleteCommentView.onDeleteCommentSuccess()
+                    else -> deleteCommentView.onDeleteCommentFailure(resp.code, resp.message)
+                }
+            }
+
+            override fun onFailure(call: Call<DefaultPostResponse>, t: Throwable) {
+                deleteCommentView.onDeleteCommentFailure(400, "네트워크 오류가 발생했습니다.")
+            }
+
+        })
+    }
 
     // comment 작성하는 API
     fun writeComment(postIdx: Int, content: String)
