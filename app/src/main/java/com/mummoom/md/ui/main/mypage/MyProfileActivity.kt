@@ -245,6 +245,7 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
     override fun onChangenameSuccess() {
         Toast.makeText(this, "이름를 성공적으로 변경되었습니다.", Toast.LENGTH_SHORT).show()
 
+
     }
 
     override fun onChangenameFailure(code: Int, message: String) {

@@ -26,6 +26,7 @@ object DogService {
 
         dogService.dogInfo(dog).enqueue(object : Callback<DogResponse> {
             override fun onResponse(call: Call<DogResponse>, response: Response<DogResponse>) {
+                Log.d("DOG_REPONSE",response.headers().toString())
                 Log.d("DOG_REPONSE",response.body().toString())
 
                 val resp = response.body()!!
