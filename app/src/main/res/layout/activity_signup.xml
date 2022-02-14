@@ -96,6 +96,7 @@
         android:paddingStart="10dp"
         android:maxLines="1"
         android:background="@drawable/bg_signup_et"
+        android:inputType="textPassword"
         />
     <TextView
         android:id="@+id/signup_pw_error_tv"
@@ -134,6 +135,7 @@
         android:paddingStart="10dp"
         android:maxLines="1"
         android:background="@drawable/bg_signup_et"
+        android:inputType="textPassword"
         />
 
     <TextView

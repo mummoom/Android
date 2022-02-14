@@ -29,6 +29,7 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
     private lateinit var googleSingInClient : GoogleSignInClient
 
     private var uri : Uri? = null
+    private var userNickname : String = ""
 
     private var launcher = registerForActivityResult(ActivityResultContracts.GetContent())
     {
@@ -76,7 +77,15 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
                 finish()
             }
 
-//            changeUsername()
+            if(userNickname == binding.myprofileNameContentTv.text.toString())  // 변경된게 없을 때
+            {
+                finish()
+            }
+            else
+            {
+                changeUsername()
+            }
+
         }
 
         // 회원탈퇴 눌렀을 때
@@ -155,21 +164,23 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
     // user 정보를 렌더링 해주는 함수
     fun getUser(user: User) {
 
-        if(user.imgUrl != "" || user.imgUrl != null)
-        {
-            Glide.with(this)
-                .load(user.imgUrl)
-                .into(binding.myprofileProfileImgIv)
-        }
-        else
+        if(user.imgUrl == null || user.imgUrl == "")
         {
             Glide.with(this)
                 .load(R.drawable.ic_no_img2)
                 .into(binding.myprofileProfileImgIv)
         }
+        else
+        {
+            Glide.with(this)
+                .load(user.imgUrl)
+                .into(binding.myprofileProfileImgIv)
+        }
+
         Log.d("user", user.toString())
         binding.myprofileEmailContentTv.setText(user.email)
         binding.myprofileNameContentTv.setText(user.nickName)
+        userNickname = user.nickName
     }
 
     fun changeUserImg(newImgUrl : String)
@@ -190,7 +201,7 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
 
         val nickname = binding.myprofileNameContentTv.text.toString()
 
-        Log.d("NICKNAME",nickname)
+        Log.d("NICKNAME_",nickname)
         val user = User("","", nickname,"","","")
 
         UserService.changeUsername(this, user)
