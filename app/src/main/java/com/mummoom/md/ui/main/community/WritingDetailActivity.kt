@@ -12,13 +12,15 @@ import com.mummoom.md.data.remote.Post.*
 import com.mummoom.md.databinding.ActivityWritingdetailBinding
 import com.mummoom.md.ui.BaseActivity
 
-class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(ActivityWritingdetailBinding::inflate), GetPostView, LikeView, DeletePostView, ReportPostView, WriteCommentView {
+class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(ActivityWritingdetailBinding::inflate), GetPostView, LikeView,
+    DeletePostView, ReportPostView, WriteCommentView, DeleteCommentView {
 
     private lateinit var newPost : PostDetail
     private lateinit var writeCommentRVAdapter : CommentRVAdapter
 
 
     private var postIdx : Int = -1
+    private var commentIdx : Int = -1
     private var reason : String = ""
     private var content : String = ""
     private var isScrap = false
@@ -27,6 +29,7 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
 
         val moreBtnDialog = WritingMoreBtnDialog(this)
         val reportDialog = ReportDialog(this)
+
 
         // 좋아요 버튼
         binding.writingDetailHeartIv.setOnClickListener {
@@ -92,17 +95,41 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
 
     private fun initRecyclerView()
     {
+        val commentMoreBtnDialog = CommentMoreBtnDialog(this)
         writeCommentRVAdapter = CommentRVAdapter(this)
         binding.writingDetailCommentRv.adapter = writeCommentRVAdapter
         binding.writingDetailCommentRv.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
         writeCommentRVAdapter.setMyItemClickListener(object : CommentRVAdapter.MyItemClickListener{
             override fun onItemClick(commentIdx: Int) {
-                // 아직 미지정
+                // 누르면 삭제 메세지 다이얼로그 뜨게 하고 클릭 리스너에 댓글 삭제 API 호출
+                this@WritingDetailActivity.commentIdx = commentIdx
+                commentMoreBtnDialog.MyDig()
             }
 
         })
 
+        // comment dialog의 클릭 리스너
+        commentMoreBtnDialog.setOnClickedListener(object : CommentMoreBtnDialog.clickListener{
+            override fun onWarningComment() {
+                // 댓글 신고 API 함수 호출
+            }
+
+            override fun onDeleteComment() {
+                // 댓글 삭제 API 함수 호출
+                deleteComment()
+            }
+
+        })
+
+    }
+
+    // 댓글 삭제하는 함수
+    private fun deleteComment()
+    {
+        val deleteCommentService = PostService()
+        deleteCommentService.setDeleteCommentView(this)
+        deleteCommentService.deleteComment(commentIdx)
     }
 
     // 댓글 작성하는 함수
@@ -331,6 +358,7 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
         }
     }
 
+    // writeComment API 부분
     override fun onWriteCommentLoading() {
         val animation = AnimationUtils.loadAnimation(this,R.anim.rotate)
         binding.writingDetailRotateIv.visibility = View.VISIBLE
@@ -356,6 +384,37 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
             8000 -> showToast("존재하지 않는 게시글 입니다.")
             8001 -> showToast("회원정보를 찾을 수 없습니다.")
             8006 -> showToast("내용을 입력해주세요.")
+            else -> showToast("오류가 발생하였습니다.")
+        }
+    }
+
+    // deleteComment API 부분
+    override fun onDeleteCommentLoading() {
+        val animation = AnimationUtils.loadAnimation(this,R.anim.rotate)
+        binding.writingDetailRotateIv.visibility = View.VISIBLE
+        binding.writingDetailLoadingIv.visibility = View.VISIBLE
+        binding.writingDetailRotateIv.startAnimation(animation)
+    }
+
+    override fun onDeleteCommentSuccess() {
+        binding.writingDetailRotateIv.animation.cancel()
+        binding.writingDetailRotateIv.visibility = View.GONE
+        binding.writingDetailLoadingIv.visibility = View.GONE
+
+        showToast("삭제가 완료되었습니다.")
+        initWriting()
+    }
+
+    override fun onDeleteCommentFailure(code: Int, message: String) {
+        binding.writingDetailRotateIv.animation.cancel()
+        binding.writingDetailRotateIv.visibility = View.GONE
+        binding.writingDetailLoadingIv.visibility = View.GONE
+
+        when(code)
+        {
+            8001 -> showToast("회원정보를 찾을 수 없습니다.")
+            8002 -> showToast("존재하지 않는 댓글 입니다.")
+            8004 -> showToast("작성자만 삭제할 수 있습니다.")
             else -> showToast("오류가 발생하였습니다.")
         }
     }

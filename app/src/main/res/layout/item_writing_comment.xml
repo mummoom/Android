@@ -36,11 +36,10 @@
         android:id="@+id/writingComment_moreBtn_iv"
         android:layout_width="15dp"
         android:layout_height="15dp"
-        android:layout_marginTop="5dp"
         android:src="@drawable/ic_more_vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/writingComment_userName_tv"
-        app:layout_constraintBottom_toBottomOf="@id/writingComment_userName_tv"/>
+        app:layout_constraintBottom_toBottomOf="@id/writingComment_content_tv"/>
 
     <TextView
         android:id="@+id/writingComment_content_tv"
