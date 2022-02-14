@@ -42,6 +42,7 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSingInClient : GoogleSignInClient
 
+
     var dogIdx :Int = 0
     private var uri : Uri? = null
 
@@ -339,7 +340,6 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
     }
 
     override fun onMyprofileLoading() {
-
 
     }
 
