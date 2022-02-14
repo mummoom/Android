@@ -180,11 +180,15 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
         binding.loginLoadingIv.visibility = View.VISIBLE
         val animation = AnimationUtils.loadAnimation(this,R.anim.rotate)
         binding.loginRotateIv.startAnimation(animation)
+
     }
 
     override fun onLoginSuccess(auth : Auth) {
 //        binding.loginLoadingPb.visibility = View.GONE
-//
+        binding.loginRotateIv.visibility = View.GONE
+        binding.loginLoadingIv.visibility = View.GONE
+        binding.loginRotateIv.clearAnimation()
+
         saveJwt(auth.token)
         Log.d("${TAG}/JWT-CLEAR", auth.token)
         if(auth.dog_exist) {

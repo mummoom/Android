@@ -15,7 +15,7 @@ class SignUpCheckActivity : BaseActivity<ActivitySignupCheckBinding>(ActivitySig
 
     override fun initAfterBinding() {
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivityWithClear(DognameActivity::class.java)
+            startActivityWithClear(LoginActivity::class.java)
         }, 2000)
     }
 
