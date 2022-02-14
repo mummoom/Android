@@ -56,6 +56,10 @@
         <activity
             android:name=".ui.nickname.NicknameActivity"
             android:exported="true"/>
+        <activity
+            android:name=".ui.tos.TosActivity"
+            android:exported="true"/>
+
 
 
         // community 부분

@@ -29,16 +29,21 @@ class DoggenderActivity : BaseActivity<ActivityDoggenderBinding>(ActivityDoggend
         binding.doggenderWIv.setOnClickListener(this)
         binding.doggenderNeuteringCheckOffIv.setOnClickListener(this)
         binding.doggenderNeuteringCheckOnIv.setOnClickListener(this)
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         intent?.let {
             it.getStringExtra("dogInfo")?.let{ content->
                 dogInfo=content
             }
         }
     }
+
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        intent?.let {
+//            it.getStringExtra("dogInfo")?.let{ content->
+//                dogInfo=content
+//            }
+//        }
+//    }
 
     override fun onClick(v: View?) {
         if(v == null) return
@@ -49,14 +54,14 @@ class DoggenderActivity : BaseActivity<ActivityDoggenderBinding>(ActivityDoggend
             binding.doggenderMIv ->
             {
                 dogSex="0"
-                binding.doggenderMIv.setImageResource(R.drawable.m_check)
-                binding.doggenderWIv.setImageResource(R.drawable.w_uncheck)
+                binding.doggenderMIv.setImageResource(R.drawable.m_on)
+                binding.doggenderWIv.setImageResource(R.drawable.w_off)
 
             }
             binding.doggenderWIv -> {
                 dogSex="1"
-                binding.doggenderMIv.setImageResource(R.drawable.m_uncheck)
-                binding.doggenderWIv.setImageResource(R.drawable.w_check)
+                binding.doggenderMIv.setImageResource(R.drawable.m_off)
+                binding.doggenderWIv.setImageResource(R.drawable.w_checking)
 
 
             }

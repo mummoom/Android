@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="140dp"
-        android:src="@drawable/doggender_ing"
+        android:src="@drawable/mm_logo"
         />
 
     <ImageView
@@ -26,7 +26,7 @@
         app:layout_constraintStart_toStartOf="@id/dobgender_logo_iv"
         app:layout_constraintEnd_toStartOf="@id/doggender_w_iv"
         app:layout_constraintTop_toBottomOf="@id/dobgender_logo_iv"
-        android:src="@drawable/m_check" />
+        android:src="@drawable/m_on" />
     <ImageView
         android:id="@+id/doggender_w_iv"
         android:layout_width="60dp"
@@ -36,7 +36,7 @@
         app:layout_constraintEnd_toEndOf="@id/dobgender_logo_iv"
         app:layout_constraintStart_toEndOf="@id/doggender_m_iv"
         app:layout_constraintTop_toBottomOf="@id/dobgender_logo_iv"
-        android:src="@drawable/w_uncheck" />
+        android:src="@drawable/w_off" />
 
 <!--    <TextView-->
 <!--        android:id="@+id/doggender_m_tv"-->

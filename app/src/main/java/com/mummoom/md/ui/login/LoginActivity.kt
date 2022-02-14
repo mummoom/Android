@@ -23,6 +23,7 @@ import com.mummoom.md.ui.BaseActivity
 import com.mummoom.md.ui.dogname.DognameActivity
 import com.mummoom.md.ui.main.MainActivity
 import com.mummoom.md.ui.siginup.SignUpActivity
+import com.mummoom.md.ui.tos.TosActivity
 import com.mummoom.md.utils.saveJwt
 
 
@@ -148,7 +149,7 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
         if(v == null) return
 
         when(v) {
-            binding.loginEmailSignupBtnTv-> startNextActivity(SignUpActivity::class.java) //이메일로 회원가입 버튼
+            binding.loginEmailSignupBtnTv-> startNextActivity(TosActivity::class.java) //이메일로 회원가입 버튼
             binding.loginLoginBtnTv -> login() //로그인 버튼
 
         }
