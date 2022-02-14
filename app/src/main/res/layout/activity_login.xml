@@ -43,7 +43,7 @@
         android:id="@+id/login_id_iv"
         android:layout_width="18dp"
         android:layout_height="18dp"
-        android:src="@drawable/myprofile"
+        android:src="@drawable/myprofile_black"
         app:layout_constraintStart_toStartOf="@id/login_login_btn_tv"
         app:layout_constraintEnd_toStartOf="@id/login_id_et"
         app:layout_constraintTop_toTopOf="@id/login_id_et"
@@ -156,7 +156,7 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@id/login_login_btn_tv"
     android:layout_marginTop="16dp"
-    android:background="@drawable/bg_login_google_btn"
+
     android:fontFamily="@font/applesdgothicneom"/>
 
 
