@@ -77,15 +77,19 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
                 finish()
             }
 
-            if(userNickname == binding.myprofileNameContentTv.text.toString())  // 변경된게 없을 때
-            {
-                finish()
-            }
-            else
-            {
-                changeUsername()
-            }
+//            if(userNickname == binding.myprofileNameContentTv.text.toString())  // 변경된게 없을 때
+//            {
+//                finish()
+//            }
+//            else
+//            {
+//
+//            }
 
+        }
+
+        binding.myprofileSaveTv.setOnClickListener {
+            changeUsername()
         }
 
         // 회원탈퇴 눌렀을 때
@@ -240,7 +244,7 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
 
     override fun onChangenameSuccess() {
         Toast.makeText(this, "이름를 성공적으로 변경되었습니다.", Toast.LENGTH_SHORT).show()
-        finish()
+
     }
 
     override fun onChangenameFailure(code: Int, message: String) {

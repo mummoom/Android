@@ -53,6 +53,19 @@
             android:layout_gravity="start|top"
             android:layout_marginStart="15dp"
             android:layout_marginTop="15dp"/>
+        <TextView
+            android:id="@+id/myprofile_save_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="저장하기"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_gravity="end|top"
+            android:layout_marginEnd="15dp"
+            android:fontFamily="@font/applesdgothicneom"
+            app:layout_constraintTop_toBottomOf="@id/myprofile_name_content_tv"
+            android:layout_marginTop="15dp" />
 
     </FrameLayout>
 
