@@ -35,9 +35,8 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
     {
         uri = it
 
-        Glide.with(this)
-            .load(it)
-            .into(binding.myprofileProfileImgIv)
+        uploadImageToFirebase(uri!!)
+
     }
 
     override fun initAfterBinding() {
@@ -67,25 +66,16 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
         // 뒤로가기 눌렀을 때
         binding.myprofileBackBtnIv.setOnClickListener {
 
-            if(uri != null)  // 이 부분은 이미지를 변경했을 때 진입하는 부분
-            {
-                uploadImageToFirebase(uri!!)
-                finish()
-            }
-            else  // 이미지 변경 안했을 때
-            {
-                finish()
-            }
-
-//            if(userNickname == binding.myprofileNameContentTv.text.toString())  // 변경된게 없을 때
+//            if(uri != null)  // 이 부분은 이미지를 변경했을 때 진입하는 부분
+//            {
+//                uploadImageToFirebase(uri!!)
+//                finish()
+//            }
+//            else  // 이미지 변경 안했을 때
 //            {
 //                finish()
 //            }
-//            else
-//            {
-//
-//            }
-
+            finish()
         }
 
         binding.myprofileSaveTv.setOnClickListener {
@@ -140,6 +130,10 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
 
         imagesRef.putFile(uri!!).addOnSuccessListener {
             it.storage.downloadUrl.addOnSuccessListener {
+                Glide.with(this)
+                    .load(it)
+                    .into(binding.myprofileProfileImgIv)
+
                 changeUserImg(it.toString())
             }
         }.addOnFailureListener{
@@ -230,7 +224,7 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
     }
 
     override fun onChangeprofileSuccess() {
-        finish()
+        Toast.makeText(this, "이미지가 성공적으로 변경되었습니다.", Toast.LENGTH_SHORT).show()
     }
 
     override fun onChangeprofileFailure(code: Int, message: String) {
@@ -243,9 +237,8 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
     }
 
     override fun onChangenameSuccess() {
-        Toast.makeText(this, "이름를 성공적으로 변경되었습니다.", Toast.LENGTH_SHORT).show()
-
-
+        binding.myprofileNameErrorTv.visibility= View.GONE
+        Toast.makeText(this, "수정이 완료되었습니다.", Toast.LENGTH_SHORT).show()
     }
 
     override fun onChangenameFailure(code: Int, message: String) {
