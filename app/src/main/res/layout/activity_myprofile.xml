@@ -136,6 +136,7 @@
         android:id="@+id/myprofile_name_error_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
         android:text="에러"
         android:textColor="@color/signup_error_tv"
         android:textSize="13sp"
