@@ -2,6 +2,8 @@ package com.mummoom.md.ui.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.view.View
 import android.view.animation.AnimationUtils
@@ -33,6 +35,7 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
     private lateinit var client: GoogleSignInClient
     private lateinit var auth: FirebaseAuth
     private lateinit var accessToken : String
+    private var hideState : Boolean = true
 
     private var RC_SIGN_IN = 9001
     private lateinit var authResultLauncher: ActivityResultLauncher<Intent>
@@ -42,6 +45,26 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
         binding.loginLoginBtnTv.setOnClickListener(this)
         binding.loginGoogleBtn.setOnClickListener {
             googleLogin()
+        }
+        binding.loginPwHideIv.setOnClickListener {
+            hidePwd(hideState)
+        }
+
+    }
+
+    private fun hidePwd(newPwdState : Boolean)
+    {
+        hideState = !newPwdState
+
+        if(hideState)  // 숨김 상태
+        {
+            binding.loginPwHideIv.setImageResource(R.drawable.btn_input_password)
+            binding.loginPwEt.transformationMethod = PasswordTransformationMethod.getInstance()
+        }
+        else  // 안 숨김 상태
+        {
+            binding.loginPwHideIv.setImageResource(R.drawable.btn_input_password_off)
+            binding.loginPwEt.transformationMethod = HideReturnsTransformationMethod.getInstance()
         }
     }
 

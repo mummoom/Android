@@ -85,16 +85,14 @@
 
             <TextView
                 android:id="@+id/mypage_name_tv"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginStart="10dp"
                 android:fontFamily="@font/applesdgothicneoh"
                 android:hint="찹쌀이누나"
                 android:textColor="@color/black"
                 android:textSize="17sp"
-                app:layout_constraintStart_toStartOf="@id/mypage_myImg_cv"
-                app:layout_constraintEnd_toEndOf="@id/mypage_myImg_cv"
+                android:gravity="center_horizontal"
                 app:layout_constraintTop_toBottomOf="@id/mypage_myImg_cv" />
 
 

@@ -98,6 +98,17 @@
         android:background="@drawable/bg_signup_et"
         android:inputType="textPassword"
         />
+
+    <ImageView
+        android:id="@+id/signup_hidepw_iv"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="5dp"
+        android:src="@drawable/btn_input_password"
+        app:layout_constraintEnd_toEndOf="@id/signup_pw_et"
+        app:layout_constraintTop_toTopOf="@id/signup_pw_et"
+        app:layout_constraintBottom_toBottomOf="@id/signup_pw_et"/>
+
     <TextView
         android:id="@+id/signup_pw_error_tv"
         android:layout_width="wrap_content"
@@ -137,6 +148,16 @@
         android:background="@drawable/bg_signup_et"
         android:inputType="textPassword"
         />
+
+    <ImageView
+        android:id="@+id/signup_hideCheckpw_iv"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="5dp"
+        android:src="@drawable/btn_input_password"
+        app:layout_constraintEnd_toEndOf="@id/signup_pw_check_et"
+        app:layout_constraintTop_toTopOf="@id/signup_pw_check_et"
+        app:layout_constraintBottom_toBottomOf="@id/signup_pw_check_et"/>
 
     <TextView
         android:id="@+id/signup_name_tv"

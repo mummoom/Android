@@ -4,29 +4,6 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
-        android:id="@+id/login_rotate_iv"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/loading_rotate"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:visibility="gone"
-
-        />
-    <ImageView
-        android:id="@+id/login_loading_iv"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/loading_img"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:visibility="gone"
-        />
 
     <ImageView
         android:id="@+id/login_logo_iv"
@@ -36,8 +13,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="84dp"
-        />
+        android:layout_marginTop="84dp" />
     
     <ImageView
         android:id="@+id/login_id_iv"
@@ -56,12 +32,14 @@
         android:layout_height="wrap_content"
         android:hint="ID"
         android:textSize="15sp"
+        android:backgroundTint="@color/main_color"
         app:layout_constraintStart_toEndOf="@id/login_id_iv"
         app:layout_constraintEnd_toEndOf="@id/login_login_btn_tv"
         app:layout_constraintTop_toBottomOf="@id/login_logo_iv"
         android:layout_marginTop="40dp"
         android:maxLines="1"
         android:fontFamily="@font/applesdgothicneom"/>
+
     <TextView
         android:id="@+id/login_email_error_tv"
         android:layout_width="wrap_content"
@@ -76,6 +54,7 @@
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="@id/login_id_et"
         app:layout_constraintTop_toBottomOf="@id/login_id_et" />
+
     <ImageView
         android:layout_width="20dp"
         android:layout_height="20dp"
@@ -85,11 +64,13 @@
         app:layout_constraintTop_toTopOf="@id/login_pw_et"
         app:layout_constraintBottom_toBottomOf="@id/login_pw_et"
         android:layout_marginEnd="5dp"/>
+
     <EditText
         android:id="@+id/login_pw_et"
         android:layout_width="225dp"
         android:layout_height="wrap_content"
         android:hint="Password"
+        android:backgroundTint="@color/main_color"
         android:textSize="15sp"
         android:inputType="textPassword"
         android:layout_marginStart="3dp"
@@ -99,6 +80,17 @@
         android:layout_marginTop="15dp"
         android:maxLines="1"
         android:fontFamily="@font/applesdgothicneom"/>
+
+    <ImageView
+        android:id="@+id/login_pwHide_iv"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="5dp"
+        android:src="@drawable/btn_input_password"
+        app:layout_constraintEnd_toEndOf="@id/login_pw_et"
+        app:layout_constraintTop_toTopOf="@id/login_pw_et"
+        app:layout_constraintBottom_toBottomOf="@id/login_pw_et"/>
+
     <TextView
         android:id="@+id/login_pw_error_tv"
         android:layout_width="wrap_content"
@@ -190,15 +182,36 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login_google_btn"
-        android:fontFamily="@font/applesdgothicneom"
-        />
+        android:fontFamily="@font/applesdgothicneom" />
+
     <View
         android:layout_width="150dp"
         android:layout_height="1px"
         android:background="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login_email_signup_btn_tv"
-        />
+        app:layout_constraintTop_toBottomOf="@id/login_email_signup_btn_tv" />
+
+    <ImageView
+        android:id="@+id/login_rotate_iv"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/loading_rotate"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/login_loading_iv"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/loading_img"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
