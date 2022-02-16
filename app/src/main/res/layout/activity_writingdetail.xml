@@ -131,16 +131,6 @@
 
 
             <ImageView
-                android:id="@+id/writingDetail_scrap_iv"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="10dp"
-                android:src="@drawable/ic_scrap"
-                app:layout_constraintStart_toEndOf="@id/writingDetail_likeCnt_tv"
-                app:layout_constraintTop_toTopOf="@id/writingDetail_heart_iv"
-                app:layout_constraintBottom_toBottomOf="@id/writingDetail_heart_iv"/>
-
-            <ImageView
                 android:id="@+id/writingDetail_moreBtn_iv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

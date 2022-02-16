@@ -23,9 +23,6 @@ class WritingMoreBtnDialog(context: Context) {
         val warningIcon = dialog.findViewById<ImageView>(R.id.moreBtnDialog_warningIcon_iv)
         val warningTv = dialog.findViewById<TextView>(R.id.moreBtnDialog_warning_tv)
 
-        val editIcon = dialog.findViewById<ImageView>(R.id.moreBtnDialog_editIcon_iv)
-        val editTv = dialog.findViewById<TextView>(R.id.moreBtnDialog_edit_tv)
-
         val deleteIcon = dialog.findViewById<ImageView>(R.id.moreBtnDialog_deleteIcon_iv)
         val deleteTv = dialog.findViewById<TextView>(R.id.moreBtnDialog_delete_tv)
 
@@ -36,16 +33,6 @@ class WritingMoreBtnDialog(context: Context) {
 
         warningTv.setOnClickListener {
             onClickedListener.onReportPost()
-            dialog.dismiss()
-        }
-
-        editIcon.setOnClickListener {
-            onClickedListener.onEditPost()
-            dialog.dismiss()
-        }
-
-        editTv.setOnClickListener {
-            onClickedListener.onEditPost()
             dialog.dismiss()
         }
 
@@ -65,7 +52,6 @@ class WritingMoreBtnDialog(context: Context) {
     // 확인 버튼 누를 때 입력 값들을 처리하기 위한 함수들
     interface clickListener{
         fun onReportPost()
-        fun onEditPost()
         fun onDeletePost()
     }
     private lateinit var onClickedListener : clickListener

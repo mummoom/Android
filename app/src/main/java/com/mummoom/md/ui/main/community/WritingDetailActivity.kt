@@ -23,7 +23,7 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
     private var commentIdx : Int = -1
     private var reason : String = ""
     private var content : String = ""
-    private var isScrap = false
+
 
     override fun initAfterBinding() {
 
@@ -36,20 +36,6 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
             setLike()
         }
 
-        // 스크랩 버튼
-        binding.writingDetailScrapIv.setOnClickListener {
-
-            if(!isScrap)
-            {
-                binding.writingDetailScrapIv.setImageResource(R.drawable.ic_scrap_on)
-                isScrap = !isScrap
-            }
-            else
-            {
-                binding.writingDetailScrapIv.setImageResource(R.drawable.ic_scrap)
-                isScrap = !isScrap
-            }
-        }
 
         // 뒤로가기 버튼
         binding.writingDetailArrowIv.setOnClickListener {
@@ -65,12 +51,7 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
             override fun onReportPost() {
                 reportDialog.MyDig()
             }
-
-            override fun onEditPost() {
-                val intent = Intent(this@WritingDetailActivity, EditWriteActivity::class.java)
-                startActivity(intent)
-            }
-
+            
             override fun onDeletePost() {
                 deletePost()
             }
