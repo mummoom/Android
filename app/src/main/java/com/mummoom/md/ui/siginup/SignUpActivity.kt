@@ -1,15 +1,20 @@
 package com.mummoom.md.ui.siginup
 
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.view.View
 import android.widget.Toast
+import com.mummoom.md.R
 import com.mummoom.md.data.entities.User
 import com.mummoom.md.data.remote.auth.AuthService
 import com.mummoom.md.databinding.ActivitySignupBinding
 import com.mummoom.md.ui.BaseActivity
-import com.mummoom.md.ui.login.LoginActivity
 import com.mummoom.md.ui.signupCheck.SignUpCheckActivity
 
 class SignUpActivity: BaseActivity<ActivitySignupBinding>(ActivitySignupBinding::inflate), SignUpView, View.OnClickListener {
+
+    private var hideStatePw : Boolean = true
+    private var hideStateCheckPw : Boolean = true
 
     override fun initAfterBinding() {
         binding.signupBackBtn.setOnClickListener(this)
@@ -17,7 +22,50 @@ class SignUpActivity: BaseActivity<ActivitySignupBinding>(ActivitySignupBinding:
         binding.signupAgreeCheckOnIv.setOnClickListener(this)
         binding.signupAgreeCheckOffIv.setOnClickListener(this)
 
+        binding.signupHidepwIv.setOnClickListener {
+            hidePwd(hideStatePw)
+        }
+
+        binding.signupHideCheckpwIv.setOnClickListener {
+            hideCheckPwd(hideStateCheckPw)
+        }
     }
+
+    // 비밀번호 숨김 함수
+    private fun hidePwd(newPwdState : Boolean)
+    {
+        hideStatePw = !newPwdState
+
+        if(hideStatePw)  // 숨김 상태
+        {
+            binding.signupHidepwIv.setImageResource(R.drawable.btn_input_password)
+            binding.signupPwEt.transformationMethod = PasswordTransformationMethod.getInstance()
+        }
+        else  // 안 숨김 상태
+        {
+            binding.signupHidepwIv.setImageResource(R.drawable.btn_input_password_off)
+            binding.signupPwEt.transformationMethod = HideReturnsTransformationMethod.getInstance()
+        }
+    }
+
+    // 재확인 비밀번호 숨김 함수
+    private fun hideCheckPwd(newPwdState : Boolean)
+    {
+        hideStateCheckPw = !newPwdState
+
+        if(hideStateCheckPw)  // 숨김 상태
+        {
+            binding.signupHideCheckpwIv.setImageResource(R.drawable.btn_input_password)
+            binding.signupPwCheckEt.transformationMethod = PasswordTransformationMethod.getInstance()
+        }
+        else  // 안 숨김 상태
+        {
+            binding.signupHideCheckpwIv.setImageResource(R.drawable.btn_input_password_off)
+            binding.signupPwCheckEt.transformationMethod = HideReturnsTransformationMethod.getInstance()
+        }
+    }
+
+
 
     override fun onClick(v: View?) {
         if(v == null) return
