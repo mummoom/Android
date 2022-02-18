@@ -138,6 +138,7 @@ class WriteActivity : BaseActivity<ActivityWriteBinding>(ActivityWriteBinding::i
         binding.writeUploadFrm.visibility = View.VISIBLE
         Toast.makeText(this, "업로드가 완료되었습니다.", Toast.LENGTH_LONG).show()
         Log.d("post_upload", data.toString())
+
     }
 
     override fun onPostFailure(code: Int, message: String) {
