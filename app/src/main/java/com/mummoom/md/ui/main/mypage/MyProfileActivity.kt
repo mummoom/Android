@@ -5,6 +5,8 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.util.Log
 import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
@@ -30,18 +32,23 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
 
     private var uri : Uri? = null
     private var userNickname : String = ""
+    private lateinit var animation : Animation
 
     private var launcher = registerForActivityResult(ActivityResultContracts.GetContent())
     {
         uri = it
 
-        uploadImageToFirebase(uri!!)
-
+        if(uri != null)
+        {
+            uploadImageToFirebase(uri!!)
+        }
     }
 
     override fun initAfterBinding() {
 
         val changeImageDialog = ChangeImageCustomDialog(this)
+
+        animation = AnimationUtils.loadAnimation(this,R.anim.rotate)
 
         ActivityCompat.requestPermissions(this,
             arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE), 1)
@@ -123,6 +130,10 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
     // Firebase Storage에 이미지를 업로드 하는 함수
     private fun uploadImageToFirebase(uri: Uri)
     {
+        binding.myprofileRotateIv.visibility = View.VISIBLE
+        binding.myprofileLoadingIv.visibility = View.VISIBLE
+        binding.myprofileRotateIv.startAnimation(animation)
+
         val storage : FirebaseStorage? = FirebaseStorage.getInstance()
 
         var fileName = "IMAGE_${SimpleDateFormat("yyyymmdd_HHmmss").format(Date())}_.png"
@@ -218,17 +229,23 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
 
     }
 
-
+    // user 이미지 변경하는 API
     override fun onChangeprofileLoading() {
 
     }
 
     override fun onChangeprofileSuccess() {
+        binding.myprofileRotateIv.animation.cancel()
+        binding.myprofileRotateIv.visibility = View.GONE
+        binding.myprofileLoadingIv.visibility = View.GONE
+
         Toast.makeText(this, "이미지가 성공적으로 변경되었습니다.", Toast.LENGTH_SHORT).show()
     }
 
     override fun onChangeprofileFailure(code: Int, message: String) {
-
+        binding.myprofileRotateIv.animation.cancel()
+        binding.myprofileRotateIv.visibility = View.GONE
+        binding.myprofileLoadingIv.visibility = View.GONE
     }
 
 

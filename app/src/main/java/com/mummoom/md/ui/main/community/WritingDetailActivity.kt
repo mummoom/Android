@@ -209,15 +209,26 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
 
     // post 눌렀을 때 상세페이지 조회하는 부분
     override fun onGetPostLoading() {
-
+        val animation = AnimationUtils.loadAnimation(this,R.anim.rotate)
+        binding.writingDetailRotateIv.visibility = View.VISIBLE
+        binding.writingDetailLoadingIv.visibility = View.VISIBLE
+        binding.writingDetailRotateIv.startAnimation(animation)
     }
 
     override fun onGetPostSuccess(post: PostDetail) {
+        binding.writingDetailRotateIv.animation.cancel()
+        binding.writingDetailRotateIv.visibility = View.GONE
+        binding.writingDetailLoadingIv.visibility = View.GONE
+
         newPost = post
         setView()
     }
 
     override fun onGetPostFailure(code: Int, message: String) {
+        binding.writingDetailRotateIv.animation.cancel()
+        binding.writingDetailRotateIv.visibility = View.GONE
+        binding.writingDetailLoadingIv.visibility = View.GONE
+
         when(code)
         {
             400 -> Log.d("getPost_fail", message)
@@ -242,9 +253,19 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
 
 
         // 글 사진
-        Glide.with(this)
-            .load(newPost.imgUrl)
-            .into(binding.writingDetailWritingImgIv)
+        if(newPost.imgUrl == "" || newPost.imgUrl == null)
+        {
+            Glide.with(this)
+                .load(R.drawable.ic_basic_img)
+                .into(binding.writingDetailWritingImgIv)
+        }
+        else
+        {
+            Glide.with(this)
+                .load(newPost.imgUrl)
+                .into(binding.writingDetailWritingImgIv)
+        }
+
 
         // 글 제목
         binding.writingDetailWritingTitleTv.text = newPost.title

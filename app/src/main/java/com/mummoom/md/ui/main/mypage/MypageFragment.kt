@@ -1,12 +1,12 @@
 package com.mummoom.md.ui.main.mypage
 
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -41,6 +41,9 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
     private lateinit var dogRVdadapter : DogprofileRVAdapter
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSingInClient : GoogleSignInClient
+    private lateinit var animation : Animation
+
+//    val animation = AnimationUtils.loadAnimation(requireContext(),R.anim.rotate)
 
 
     var dogIdx :Int = 0
@@ -50,7 +53,11 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
     {
         uri = it
 
-        uploadImageToFirebase(uri!!)
+        if(uri != null)
+        {
+            uploadImageToFirebase(uri!!)
+        }
+
     }
 
     override fun initAfterBinding() {
@@ -59,6 +66,8 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
         val plusDialog = MypageCustomDialog(requireContext())
         val modifyDialog = ModifyProfileCustomDialog(requireContext())
         val changeImageDialog = ChangeImageCustomDialog(requireContext())
+
+        animation = AnimationUtils.loadAnimation(requireContext(),R.anim.rotate)
 
         // 강아지 프로필 추가
         binding.mypageDogprofilePlusIv.setOnClickListener {
@@ -185,6 +194,10 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
     // Firebase Storage에 이미지를 업로드 하는 함수
     private fun uploadImageToFirebase(uri: Uri)
     {
+        binding.mypageRotateIv.visibility = View.VISIBLE
+        binding.mypageLoadingIv.visibility = View.VISIBLE
+        binding.mypageRotateIv.startAnimation(animation)
+
         val storage : FirebaseStorage? = FirebaseStorage.getInstance()
 
         var fileName = "IMAGE_${SimpleDateFormat("yyyymmdd_HHmmss").format(Date())}_.png"
@@ -196,6 +209,7 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
                 Glide.with(this)
                     .load(it)
                     .into(binding.mypageMyImgIv)
+
                 changeUserImg(it.toString())
             }
         }.addOnFailureListener{
@@ -212,6 +226,7 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
 
     override fun onStart() {
         super.onStart()
+
         Log.d("ONSTATE", "onstart")
         UserService.getUserByIdx(this)
         DogService.getDoglist(this)
@@ -342,6 +357,7 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
         binding.mypageNameTv.text=user.nickName
     }
 
+    // 프로필 불러오는 API
     override fun onMyprofileLoading() {
 
     }
@@ -354,17 +370,24 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
 
     }
 
-
+    // 프로필 이미지 수정하는 API
     override fun onChangeprofileLoading() {
 
+//        binding.mypageRotateIv.visibility = View.VISIBLE
+//        binding.mypageLoadingIv.visibility = View.VISIBLE
+//        binding.mypageRotateIv.startAnimation(animation)
     }
 
     override fun onChangeprofileSuccess() {
-
+        binding.mypageRotateIv.animation.cancel()
+        binding.mypageRotateIv.visibility = View.GONE
+        binding.mypageLoadingIv.visibility = View.GONE
     }
 
     override fun onChangeprofileFailure(code: Int, message: String) {
-
+        binding.mypageRotateIv.animation.cancel()
+        binding.mypageRotateIv.visibility = View.GONE
+        binding.mypageLoadingIv.visibility = View.GONE
     }
 
 

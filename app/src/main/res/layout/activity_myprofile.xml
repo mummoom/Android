@@ -207,5 +207,27 @@
         app:layout_constraintStart_toStartOf="@id/myprofile_withdraw_tv"
         app:layout_constraintEnd_toEndOf="@id/myprofile_withdraw_tv"/>
 
+    <ImageView
+        android:id="@+id/myprofile_rotate_iv"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/loading_rotate"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/myprofile_loading_iv"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/loading_img"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

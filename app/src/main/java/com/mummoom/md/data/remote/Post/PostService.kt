@@ -280,6 +280,8 @@ class PostService {
         val getPostService = retrofit.create(PostRetrofitInterface::class.java)
         Log.d("postIdx_2", postIdx.toString())
 
+        getPostView.onGetPostLoading()
+
         getPostService.getPostByPostIdx(postIdx).enqueue(object : Callback<GetPostResponse>{
             override fun onResponse(
                 call: Call<GetPostResponse>,
@@ -308,7 +310,7 @@ class PostService {
         val getPostsService = retrofit.create(PostRetrofitInterface::class.java)
 
         // 로딩 걸기
-//        getPostsView.onGetPostsLoading()
+        getPostsView.onGetPostsLoading()
 
         getPostsService.getPosts().enqueue(object : Callback<GetPostsResponse>{
             override fun onResponse(
