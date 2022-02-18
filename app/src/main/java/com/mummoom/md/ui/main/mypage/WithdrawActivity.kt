@@ -83,7 +83,6 @@ class WithdrawActivity : BaseActivity<ActivityWithdrawBinding>(ActivityWithdrawB
     }
 
     override fun onWithdrawSuccess() {
-        //deleteUser()
         startActivityWithClear(WithdrawalActivity::class.java)
 
     }
