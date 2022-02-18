@@ -71,7 +71,6 @@
             android:layout_marginStart="8dp"
             android:fontFamily="@font/applesdgothicneoeb"
             android:text="좋은 음식"
-            android:fontFamily="@font/applesdgothicneoeb"
             android:textSize="15sp"
             android:gravity="center"
             android:textColor="@color/black"/>

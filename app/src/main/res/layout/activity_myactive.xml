@@ -27,11 +27,12 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"/>
 
-    <View
+    <ImageView
         android:id="@+id/myactive_line_view"
         android:layout_width="match_parent"
         android:layout_height="5dp"
-        android:background="#EAEAEA"
+        android:scaleType="fitXY"
+        android:src="@drawable/shadow"
         app:layout_constraintTop_toBottomOf="@id/myactive_title_tv"
         android:layout_marginTop="15dp"/>
 
@@ -40,12 +41,20 @@
         android:id="@+id/myactive_content_tb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabIndicatorColor="#ffd231"
+        app:tabIndicatorColor="@color/tab_indicator_selected"
         app:tabIndicatorFullWidth="true"
         app:tabRippleColor="@color/transparent"
-        app:tabSelectedTextColor="#edc06d"
-        app:tabTextColor="#000000"
+        app:tabSelectedTextColor="@color/tab_text_selected"
+        app:tabTextColor="@color/tab_text_unselected"
         app:layout_constraintTop_toBottomOf="@id/myactive_line_view"/>
+
+<!--    <View-->
+<!--        android:id="@+id/myactive_line2_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="2dp"-->
+<!--        android:background="#e9e9e9"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/myactive_content_vp"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/myactive_content_tb" />-->
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/myactive_content_vp"

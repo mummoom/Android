@@ -52,4 +52,9 @@
     <!--프로필-->
     <color name="item_dogprofile_tv">#EDC06D</color>
 
+    <!--내 활동 탭 레이아웃-->
+    <color name="tab_text_selected">#EDC06D</color>
+    <color name="tab_text_unselected">#E9E9E9</color>
+    <color name="tab_indicator_selected">#ffd231</color>
+
 </resources>
