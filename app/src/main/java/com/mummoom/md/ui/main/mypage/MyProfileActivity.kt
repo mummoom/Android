@@ -22,10 +22,11 @@ import com.mummoom.md.data.entities.User
 import com.mummoom.md.data.remote.User.UserService
 import com.mummoom.md.databinding.ActivityMyprofileBinding
 import com.mummoom.md.ui.BaseActivity
+import com.mummoom.md.ui.login.LoginActivity
 import java.text.SimpleDateFormat
 import java.util.*
 
-class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofileBinding::inflate),MyprofileView,ChangeImgView ,ChangenameView{
+class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofileBinding::inflate),MyprofileView,ChangeImgView ,ChangenameView,OauthWithdrawView{
 
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSingInClient : GoogleSignInClient
@@ -91,11 +92,10 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
 
         // 회원탈퇴 눌렀을 때
         binding.myprofileWithdrawTv.setOnClickListener {
-            //deleteUser()
-//            Toast.makeText(this, "계정이 삭제 되었습니다.", Toast.LENGTH_LONG).show()
-//            finish()
+            deleteUser()
 
-            startActivityWithClear(WithdrawActivity::class.java)
+
+
         }
 
 
@@ -162,12 +162,18 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
         googleSingInClient = GoogleSignIn.getClient(this, gso)
         auth = FirebaseAuth.getInstance()
         val user = auth.currentUser
+        if(user!=null) {
 
-        auth.signOut()
-        googleSingInClient?.signOut()
+            auth.signOut()
+            googleSingInClient?.signOut()
 
-        user?.delete()
-        googleSingInClient.revokeAccess()
+            user?.delete()
+            googleSingInClient.revokeAccess()
+            UserService.oauthwithdrawUser(this)
+
+
+        }
+        else  startActivityWithClear(WithdrawActivity::class.java)
     }
 
     // user 정보를 렌더링 해주는 함수
@@ -266,6 +272,20 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
             }
 
         }
+
+    }
+
+    override fun onOauthWithdrawLoading() {
+
+    }
+
+    override fun onOauthWithdrawSuccess() {
+        Toast.makeText(this, "계정이 삭제 되었습니다.", Toast.LENGTH_LONG).show()
+        startActivityWithClear(LoginActivity::class.java)
+
+    }
+
+    override fun onOauthWithdrawFailure(code: Int, message: String) {
 
     }
 

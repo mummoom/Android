@@ -23,4 +23,7 @@ interface UserRetrofitInterface {
 
     @HTTP(method = "DELETE", path = "/api/users/withdraw", hasBody = true)
     fun withdrawUser(@Body wIthdrawUser: WIthdrawUser): Call<PwdResponse>
+
+    @HTTP(method = "DELETE", path = "/api/users/oauthwithdraw", hasBody = true)
+    fun oauthwithdrawUser(): Call<PwdResponse>
 }

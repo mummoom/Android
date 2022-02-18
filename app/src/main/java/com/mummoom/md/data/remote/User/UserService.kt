@@ -135,5 +135,30 @@ object UserService {
 
     }
 
+    fun  oauthwithdrawUser(oauthWithdrawView: OauthWithdrawView) {
+        val userService = retrofit.create(UserRetrofitInterface::class.java)
+
+        oauthWithdrawView.onOauthWithdrawLoading()
+
+        userService.oauthwithdrawUser().enqueue(object : Callback<PwdResponse> {
+            override fun onResponse(call: Call<PwdResponse>, response: Response<PwdResponse>) {
+
+                val resp = response.body()!!
+
+                when(resp.code){
+                    1000 -> oauthWithdrawView.onOauthWithdrawSuccess()
+                    else -> oauthWithdrawView.onOauthWithdrawFailure(resp.code, resp.message)
+                }
+            }
+
+            override fun onFailure(call: Call<PwdResponse>, t: Throwable) {
+                Log.d("$TAG/API-ERROR", t.message.toString())
+
+                oauthWithdrawView.onOauthWithdrawFailure(400, "네트워크 오류가 발생했습니다.")
+            }
+        })
+
+    }
+
 
 }

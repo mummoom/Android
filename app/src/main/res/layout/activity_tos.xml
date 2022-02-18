@@ -86,7 +86,7 @@
                 app:layout_constraintTop_toBottomOf="@id/tos_line_v"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="@id/tos_line2_v"
-                android:layout_marginTop="20dp"
+                android:layout_marginStart="30dp"
                 android:visibility="invisible"
                 />
 
