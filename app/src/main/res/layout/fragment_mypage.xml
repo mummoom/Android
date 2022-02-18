@@ -17,29 +17,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/mypage_rotate_iv"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/loading_rotate"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/mypage_loading_iv"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/loading_img"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/mypage_myImg_cv"
                 android:layout_width="110dp"
@@ -364,5 +341,27 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
+
+    <ImageView
+        android:id="@+id/mypage_rotate_iv"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/loading_rotate"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/mypage_loading_iv"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/loading_img"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
