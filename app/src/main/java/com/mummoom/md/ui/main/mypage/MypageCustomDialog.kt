@@ -91,7 +91,7 @@ class MypageCustomDialog(context : Context) {
     private fun typeSpinner() {
 
         val typeSpinner =dialog.findViewById<Spinner>(R.id.mypageDialog_type_sp)
-        typeSpinner.adapter= ArrayAdapter.createFromResource(dialog.context, R.array.breed,android.R.layout.simple_spinner_dropdown_item)
+        typeSpinner.adapter= ArrayAdapter.createFromResource(dialog.context, R.array.breed,R.layout.item_spinner)
 
         typeSpinner.onItemSelectedListener = object  : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
@@ -107,7 +107,7 @@ class MypageCustomDialog(context : Context) {
     private fun yearSpinner() {
 
         val yearSpinner =dialog.findViewById<Spinner>(R.id.mypageDialog_year_sp)
-        yearSpinner.adapter= ArrayAdapter.createFromResource(dialog.context,R.array.year,android.R.layout.simple_spinner_dropdown_item)
+        yearSpinner.adapter= ArrayAdapter.createFromResource(dialog.context,R.array.year,R.layout.item_spinner)
 
         yearSpinner.onItemSelectedListener = object  : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
@@ -123,7 +123,7 @@ class MypageCustomDialog(context : Context) {
     private fun monthSpinner() {
 
         val monthSpinner =dialog.findViewById<Spinner>(R.id.mypageDialog_month_sp)
-        monthSpinner.adapter= ArrayAdapter.createFromResource(dialog.context,R.array.month,android.R.layout.simple_spinner_item)
+        monthSpinner.adapter= ArrayAdapter.createFromResource(dialog.context,R.array.month,R.layout.item_spinner)
 
         monthSpinner.onItemSelectedListener = object  : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
@@ -139,7 +139,7 @@ class MypageCustomDialog(context : Context) {
     private fun daySpinner() {
 
         val daySpinner =dialog.findViewById<Spinner>(R.id.mypageDialog_day_sp)
-        daySpinner.adapter= ArrayAdapter.createFromResource(dialog.context,R.array.day,android.R.layout.simple_spinner_item)
+        daySpinner.adapter= ArrayAdapter.createFromResource(dialog.context,R.array.day,R.layout.item_spinner)
 
         daySpinner.onItemSelectedListener = object  : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="310dp"
-    android:layout_height="160dp"
+    android:layout_height="180dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
@@ -10,7 +10,6 @@
         android:layout_height="wrap_content"
         android:text="이미지 변경하기"
         android:fontFamily="@font/applesdgothicneob"
-        android:textStyle="bold"
         android:textSize="18sp"
         android:textColor="#EDC06D"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,9 +30,10 @@
 
     <ImageView
         android:id="@+id/changeimageCustom_icon1_iv"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_marginTop="15dp"
+        android:layout_marginStart="15dp"
         android:src="@drawable/album"
         app:layout_constraintStart_toStartOf="@id/changeimageDialog_line_view"
         app:layout_constraintTop_toBottomOf="@id/changeimageDialog_line_view" />
@@ -45,8 +45,7 @@
         android:text="앨범에서 사진 가져오기"
         android:textSize="15sp"
         android:textColor="@color/black"
-        android:textStyle="bold"
-        android:fontFamily="@font/applesdgothicneom"
+        android:fontFamily="@font/applesdgothicneob"
         app:layout_constraintStart_toEndOf="@id/changeimageCustom_icon1_iv"
         app:layout_constraintTop_toTopOf="@id/changeimageCustom_icon1_iv"
         app:layout_constraintBottom_toBottomOf="@id/changeimageCustom_icon1_iv"
@@ -54,9 +53,10 @@
 
     <ImageView
         android:id="@+id/changeimageCustom_icon2_iv"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_marginTop="15dp"
+
         android:src="@drawable/illust"
         app:layout_constraintStart_toStartOf="@id/changeimageCustom_icon1_iv"
         app:layout_constraintTop_toBottomOf="@id/changeimageCustom_icon1_iv"/>
@@ -68,8 +68,7 @@
         android:text="기본 일러스트 선택"
         android:textSize="15sp"
         android:textColor="@color/black"
-        android:textStyle="bold"
-        android:fontFamily="@font/applesdgothicneom"
+        android:fontFamily="@font/applesdgothicneob"
         app:layout_constraintStart_toEndOf="@id/changeimageCustom_icon2_iv"
         app:layout_constraintTop_toTopOf="@id/changeimageCustom_icon2_iv"
         app:layout_constraintBottom_toBottomOf="@id/changeimageCustom_icon2_iv"

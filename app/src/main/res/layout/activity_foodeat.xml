@@ -69,10 +69,10 @@
             android:layout_height="match_parent"
             app:layout_constraintStart_toEndOf="@id/foodeat_ic_iv"
             android:layout_marginStart="8dp"
+            android:fontFamily="@font/applesdgothicneoeb"
             android:text="좋은 음식"
             android:fontFamily="@font/applesdgothicneoeb"
             android:textSize="15sp"
-            android:textStyle="bold"
             android:gravity="center"
             android:textColor="@color/black"/>
 
@@ -99,6 +99,7 @@
             android:background="@drawable/rounding_line_yellow"
             android:privateImeOptions="defaultInputmode=korean"
             android:hint="찾고자 하는 식재료를 입력하세요"
+            android:fontFamily="@font/applesdgothicneom"
             android:inputType="text"
             android:textSize="13sp"
             android:maxLines="1"

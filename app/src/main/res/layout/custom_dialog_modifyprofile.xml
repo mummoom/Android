@@ -79,7 +79,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/bg_spinner"
         android:dropDownWidth="50dp"
-        android:textSize="12sp"
+        android:textSize="8sp"
         android:fontFamily="@font/applesdgothicneom"/>
 
     <ImageView

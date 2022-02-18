@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/login_logo_iv"
-        android:layout_width="234dp"
-        android:layout_height="166dp"
+        android:layout_width="250dp"
+        android:layout_height="179dp"
         android:src="@drawable/logo_img_mm"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,7 +31,7 @@
         android:layout_width="225dp"
         android:layout_height="wrap_content"
         android:hint="ID"
-        android:textSize="15sp"
+        android:textSize="12sp"
         android:backgroundTint="@color/main_color"
         app:layout_constraintStart_toEndOf="@id/login_id_iv"
         app:layout_constraintEnd_toEndOf="@id/login_login_btn_tv"
@@ -71,7 +71,7 @@
         android:layout_height="wrap_content"
         android:hint="Password"
         android:backgroundTint="@color/main_color"
-        android:textSize="15sp"
+        android:textSize="12sp"
         android:inputType="textPassword"
         android:layout_marginStart="3dp"
         app:layout_constraintStart_toEndOf="@id/login_id_iv"
@@ -110,11 +110,11 @@
         android:id="@+id/login_login_btn_tv"
         android:layout_width="260dp"
         android:layout_height="35dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="80dp"
         android:gravity="center"
         android:text="Login"
         android:fontFamily="@font/applesdgothicneom"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textStyle="bold"
         android:textAlignment="center"
         android:textSize="15sp"
@@ -168,29 +168,31 @@
 <!--        app:layout_constraintStart_toStartOf="parent"-->
 <!--        app:layout_constraintTop_toBottomOf="@id/login_kakao_login_btn_tv" />-->
 
+    <View
+        android:layout_width="0dp"
+        android:layout_height="2px"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="@id/login_email_signup_btn_tv"
+        app:layout_constraintStart_toStartOf="@id/login_email_signup_btn_tv"
+        app:layout_constraintTop_toBottomOf="@id/login_email_signup_btn_tv" />
+
     <TextView
         android:id="@+id/login_email_signup_btn_tv"
-        android:layout_width="250dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:text="이메일로 회원가입하기"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:textAlignment="center"
-        android:textSize="15sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login_google_btn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="50dp"
         android:fontFamily="@font/applesdgothicneom" />
 
-    <View
-        android:layout_width="150dp"
-        android:layout_height="1px"
-        android:background="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login_email_signup_btn_tv" />
+
 
     <ImageView
         android:id="@+id/login_rotate_iv"
