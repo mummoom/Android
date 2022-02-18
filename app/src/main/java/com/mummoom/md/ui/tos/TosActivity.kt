@@ -79,7 +79,7 @@ class TosActivity: BaseActivity<ActivityTosBinding>(ActivityTosBinding::inflate)
             binding.tosPrivacyMoreBtn -> {
                 if(binding.tosPrivacyContentCl.visibility==View.INVISIBLE) {
                     binding.tosPrivacyContentCl.visibility = View.VISIBLE
-                    binding.tosUseMoreBtn.animate().setDuration(200).rotation(180f)
+                    binding.tosPrivacyMoreBtn.animate().setDuration(200).rotation(180f)
                 }
                 else
                 {

@@ -60,10 +60,9 @@
             android:text="저장하기"
             android:textColor="@color/white"
             android:textSize="15sp"
-            android:textStyle="bold"
             android:layout_gravity="end|top"
             android:layout_marginEnd="15dp"
-            android:fontFamily="@font/applesdgothicneom"
+            android:fontFamily="@font/applesdgothicneoeb"
             app:layout_constraintTop_toBottomOf="@id/myprofile_name_content_tv"
             android:layout_marginTop="15dp" />
 

@@ -101,10 +101,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/foodinfo_img_cv"
             android:layout_marginTop="17dp"
+            android:fontFamily="@font/applesdgothicneoh"
             android:text="사과"
             android:textSize="17sp"
             android:textColor="@color/black"
-            android:textStyle="bold"
             android:maxLines="1"
             android:ellipsize="end"/>
 
@@ -118,6 +118,7 @@
             app:layout_constraintTop_toBottomOf="@id/foodinfo_name_tv"
             android:layout_marginTop="10dp"
             android:text="10g 당 5.21kcal"
+            android:fontFamily="@font/applesdgothicneom"
             android:textSize="13sp"
             android:textColor="@color/black"
             android:maxLines="1"
@@ -154,6 +155,7 @@
                     android:layout_marginStart="12dp"
                     android:gravity="center"
                     android:text="식재료 영양 정보"
+                    android:fontFamily="@font/applesdgothicneom"
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
@@ -205,6 +207,7 @@
                     android:text="0.07"
                     android:textSize="13sp"
                     android:textColor="@color/black"
+                    android:fontFamily="@font/applesdgothicneom"
                     />
 
                 <TextView
@@ -218,6 +221,7 @@
                     android:text="탄수화물"
                     android:textSize="13sp"
                     android:textColor="@color/black"
+                    android:fontFamily="@font/applesdgothicneom"
                     />
 
 //단백질
@@ -242,6 +246,7 @@
                     android:text="0.07"
                     android:textSize="13sp"
                     android:textColor="@color/black"
+                    android:fontFamily="@font/applesdgothicneom"
                     />
 
                 <TextView
@@ -255,6 +260,7 @@
                     android:text="단백질"
                     android:textSize="13sp"
                     android:textColor="@color/black"
+                    android:fontFamily="@font/applesdgothicneom"
                     />
 
 //지방
@@ -279,6 +285,7 @@
                     android:text="0.07"
                     android:textSize="13sp"
                     android:textColor="@color/black"
+                    android:fontFamily="@font/applesdgothicneom"
                     />
 
                 <TextView
@@ -292,6 +299,7 @@
                     android:text="지방"
                     android:textSize="13sp"
                     android:textColor="@color/black"
+                    android:fontFamily="@font/applesdgothicneom"
                     />
 
 //무기질
@@ -316,6 +324,7 @@
                     android:text="0.07"
                     android:textSize="13sp"
                     android:textColor="@color/black"
+                    android:fontFamily="@font/applesdgothicneom"
                     />
 
                 <TextView
@@ -329,6 +338,7 @@
                     android:text="무기질"
                     android:textSize="13sp"
                     android:textColor="@color/black"
+                    android:fontFamily="@font/applesdgothicneom"
                     />
 
 //수분
@@ -353,6 +363,7 @@
                     android:text="0.07"
                     android:textSize="13sp"
                     android:textColor="@color/black"
+                    android:fontFamily="@font/applesdgothicneom"
                     />
 
                 <TextView
@@ -366,6 +377,7 @@
                     android:text="수분"
                     android:textSize="13sp"
                     android:textColor="@color/black"
+                    android:fontFamily="@font/applesdgothicneom"
                     />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -381,6 +393,7 @@
                 android:layout_marginTop="15dp"
                 android:text="섭취 시 유의해야할 점"
                 android:paddingLeft="12dp"
+                android:fontFamily="@font/applesdgothicneom"
                 android:gravity="center|left"
                 android:textStyle="bold"
                 android:textSize="15sp"
@@ -396,6 +409,7 @@
                 android:layout_marginEnd="24dp"
                 android:layout_marginTop="15dp"
                 android:text="bla"
+                android:fontFamily="@font/applesdgothicneom"
                 android:textSize="13sp"
                 android:textColor="@color/black"/>
 
@@ -408,6 +422,7 @@
                 android:text="식재료 특징"
                 android:paddingLeft="12dp"
                 android:gravity="center|left"
+                android:fontFamily="@font/applesdgothicneom"
                 android:textStyle="bold"
                 android:textSize="15sp"
                 android:textColor="@color/black"
@@ -421,6 +436,7 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginTop="15dp"
+                android:fontFamily="@font/applesdgothicneom"
                 android:text="bla"
                 android:textSize="13sp"
                 android:textColor="@color/black"/>
@@ -434,6 +450,7 @@
                 android:text="효과"
                 android:paddingLeft="12dp"
                 android:gravity="center|left"
+                android:fontFamily="@font/applesdgothicneom"
                 android:textStyle="bold"
                 android:textSize="15sp"
                 android:textColor="@color/black"
@@ -449,6 +466,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="15dp"
                 android:text="bla"
+                android:fontFamily="@font/applesdgothicneom"
                 android:textSize="13sp"
                 android:textColor="@color/black"/>
 

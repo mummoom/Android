@@ -42,9 +42,9 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/mypage_myImg_cv"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:layout_marginTop="30dp"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="50dp"
                 app:cardCornerRadius="65dp"
                 app:cardElevation="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -54,8 +54,8 @@
 
                 <ImageView
                     android:id="@+id/mypage_myImg_iv"
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
                     android:src="@drawable/ic_no_img2"
                     android:scaleType="centerCrop"
                     />
@@ -78,7 +78,7 @@
             <ImageView
                 android:id="@+id/mypage_rv_bg_iv"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="120dp"
                 android:layout_marginTop="20dp"
                 android:background="#80E9E9E9"
                 app:layout_constraintTop_toBottomOf="@id/mypage_name_tv" />
@@ -101,36 +101,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:layout_marginTop="20dp"
                 android:orientation="horizontal"
                 android:paddingEnd="20dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/mypage_name_tv"
+                app:layout_constraintTop_toTopOf="@id/mypage_rv_bg_iv"
+                app:layout_constraintBottom_toBottomOf="@id/mypage_rv_bg_iv"
                 tools:listitem="@layout/item_dogprofile" />
 
-            <TextView
+            <ImageView
                 android:id="@+id/mypage_dogprofile_plus_iv"
                 android:layout_width="100dp"
                 android:layout_height="27dp"
-                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_dog_plus"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/bg_plusdogprofile_btn"
-                android:fontFamily="@font/applesdgothicneom"
-                android:gravity="center"
-                android:text="+ 강아지추가"
-                android:textColor="@color/black"
-                android:textSize="13sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
 
 //설정
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/mypage_icon1_cv"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
                 android:layout_marginStart="27dp"
                 android:layout_marginTop="20dp"
                 app:cardElevation="0dp"
@@ -151,11 +145,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="17dp"
-                android:fontFamily="@font/applesdgothicneom"
+                android:fontFamily="@font/applesdgothicneob"
                 android:text="내 프로필"
                 android:textColor="@color/black"
-                android:textSize="15sp"
-                android:textStyle="bold"
+                android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@id/mypage_icon1_cv"
                 app:layout_constraintStart_toEndOf="@id/mypage_icon1_cv"
                 app:layout_constraintTop_toTopOf="@id/mypage_icon1_cv" />
@@ -163,8 +156,8 @@
             //알람 푸쉬
             <androidx.cardview.widget.CardView
                 android:id="@+id/mypage_icon2_cv"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
                 android:layout_marginTop="22dp"
                 app:cardElevation="0dp"
 
@@ -184,11 +177,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="17dp"
-                android:fontFamily="@font/applesdgothicneom"
+                android:fontFamily="@font/applesdgothicneob"
                 android:text="내 활동"
                 android:textColor="@color/black"
-                android:textSize="15sp"
-                android:textStyle="bold"
+                android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@id/mypage_icon2_cv"
                 app:layout_constraintStart_toEndOf="@id/mypage_icon2_cv"
                 app:layout_constraintTop_toTopOf="@id/mypage_icon2_cv" />
@@ -196,8 +188,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/mypage_icon3_cv"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
                 android:layout_marginTop="22dp"
                 app:cardElevation="0dp"
 
@@ -217,11 +209,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="17dp"
-                android:fontFamily="@font/applesdgothicneom"
+                android:fontFamily="@font/applesdgothicneob"
                 android:text="알람 및 푸쉬 설정"
                 android:textColor="@color/black"
-                android:textSize="15sp"
-                android:textStyle="bold"
+                android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@id/mypage_icon3_cv"
                 app:layout_constraintStart_toEndOf="@id/mypage_icon3_cv"
                 app:layout_constraintTop_toTopOf="@id/mypage_icon3_cv" />
@@ -229,8 +220,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/mypage_icon4_cv"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
                 android:layout_marginTop="22dp"
                 app:cardElevation="0dp"
 
@@ -250,11 +241,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="17dp"
-                android:fontFamily="@font/applesdgothicneom"
+                android:fontFamily="@font/applesdgothicneob"
                 android:text="문의하기"
                 android:textColor="@color/black"
-                android:textSize="15sp"
-                android:textStyle="bold"
+                android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@id/mypage_icon4_cv"
                 app:layout_constraintStart_toEndOf="@id/mypage_icon4_cv"
                 app:layout_constraintTop_toTopOf="@id/mypage_icon4_cv" />
@@ -271,8 +261,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/mypage_icon5_cv"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
                 android:layout_marginTop="20dp"
                 app:cardElevation="0dp"
 
@@ -292,11 +282,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="17dp"
-                android:fontFamily="@font/applesdgothicneom"
+                android:fontFamily="@font/applesdgothicneob"
                 android:text="업데이트 및 버전"
                 android:textColor="@color/black"
-                android:textSize="15sp"
-                android:textStyle="bold"
+                android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@id/mypage_icon5_cv"
                 app:layout_constraintStart_toEndOf="@id/mypage_icon5_cv"
                 app:layout_constraintTop_toTopOf="@id/mypage_icon5_cv" />
@@ -304,8 +293,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/mypage_icon6_cv"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
                 android:layout_marginTop="22dp"
                 app:cardElevation="0dp"
                 app:layout_constraintStart_toStartOf="@id/mypage_icon5_cv"
@@ -324,11 +313,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="17dp"
-                android:fontFamily="@font/applesdgothicneom"
+                android:fontFamily="@font/applesdgothicneob"
                 android:text="앱 정보"
                 android:textColor="@color/black"
-                android:textSize="15sp"
-                android:textStyle="bold"
+                android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@id/mypage_icon6_cv"
                 app:layout_constraintStart_toEndOf="@id/mypage_icon6_cv"
                 app:layout_constraintTop_toTopOf="@id/mypage_icon6_cv" />
@@ -336,8 +324,8 @@
             //로그아웃
             <androidx.cardview.widget.CardView
                 android:id="@+id/mypage_icon7_cv"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
                 android:layout_marginTop="22dp"
                 android:layout_marginBottom="22dp"
                 app:cardElevation="0dp"
@@ -358,14 +346,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="17dp"
-                android:fontFamily="@font/applesdgothicneom"
+                android:fontFamily="@font/applesdgothicneob"
                 android:text="로그아웃"
                 android:textColor="@color/black"
-                android:textSize="15sp"
-                android:textStyle="bold"
+                android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@id/mypage_icon7_cv"
                 app:layout_constraintStart_toEndOf="@id/mypage_icon7_cv"
                 app:layout_constraintTop_toTopOf="@id/mypage_icon7_cv" />
+            <View
+                android:id="@+id/mypage_line3_view"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginTop="20dp"
+                android:background="#EAEAEA"
+                app:layout_constraintTop_toBottomOf="@id/mypage_icon7_cv" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -19,10 +19,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="알람 및 푸쉬 설정"
-        android:textStyle="bold"
         android:textColor="@color/black"
         android:textSize="16sp"
-        android:fontFamily="@font/applesdgothicneob"
+        android:fontFamily="@font/applesdgothicneoeb"
         app:layout_constraintStart_toEndOf="@id/push_setting_backarrow_btn"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="10dp"
@@ -55,7 +54,6 @@
         android:layout_height="wrap_content"
         android:text="전체 알림 동의"
         android:textColor="@color/black"
-        android:textStyle="bold"
         android:textSize="15sp"
         android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,7 +88,7 @@
         android:layout_height="2dp"
         android:background="#EAEAEA"
         app:layout_constraintTop_toBottomOf="@id/push_setting_all_notifications_tv"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginTop="30dp"/>
     <TextView
         android:id="@+id/push_setting_event_or_benefit_tv"
         android:layout_width="wrap_content"
@@ -102,7 +100,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/push_setting_line_view2"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="15dp"/>
 
     <ImageView
         android:id="@+id/push_setting_event_or_benefit_off_iv"
@@ -112,7 +110,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="20dp"
         app:layout_constraintTop_toBottomOf="@id/push_setting_line_view2"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         />
     <ImageView
         android:id="@+id/push_setting_event_or_benefit_on_iv"
@@ -123,7 +121,7 @@
         android:layout_marginEnd="20dp"
         app:layout_constraintTop_toBottomOf="@id/push_setting_line_view2"
         android:visibility="invisible"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="15dp"/>
 
     <View
         android:id="@+id/push_setting_line_view4"
@@ -143,7 +141,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/push_setting_line_view4"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="15dp"/>
 
     <ImageView
         android:id="@+id/push_setting_post_off_iv"
@@ -153,7 +151,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="20dp"
         app:layout_constraintTop_toBottomOf="@id/push_setting_line_view4"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         />
     <ImageView
         android:id="@+id/push_setting_post_on_iv"
@@ -164,7 +162,7 @@
         android:layout_marginEnd="20dp"
         app:layout_constraintTop_toBottomOf="@id/push_setting_line_view4"
         android:visibility="invisible"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="15dp"/>
 
     <View
         android:id="@+id/push_setting_line_view5"
