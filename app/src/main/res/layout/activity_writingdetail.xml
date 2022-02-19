@@ -32,7 +32,7 @@
         android:id="@+id/writingDetail_line_view"
         android:layout_width="match_parent"
         android:layout_height="5dp"
-        android:background="#EAEAEA"
+        android:background="@drawable/shadow"
         app:layout_constraintTop_toBottomOf="@id/writingDetail_title_tv"
         android:layout_marginTop="10dp"/>
 
@@ -139,15 +139,7 @@
                 app:layout_constraintStart_toEndOf="@id/writingDetail_writingImg_cv"
                 app:layout_constraintTop_toTopOf="@id/writingDetail_userIcon_cv"/>
 
-            <View
-                android:id="@+id/writingDetail_line2_view"
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:background="#e9e9e9"
-                app:layout_constraintTop_toBottomOf="@id/writingDetail_heart_iv"
-                android:layout_marginTop="10dp"/>
+
 
             // 글 제목
             <TextView
@@ -156,12 +148,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="제목"
-                android:textSize="18sp"
+                android:textSize="17sp"
                 android:textColor="@color/black"
                 android:textStyle="bold"
-                android:fontFamily="@font/applesdgothicneosb"
+                android:fontFamily="@font/applesdgothicneoeb"
                 app:layout_constraintStart_toStartOf="@id/writingDetail_heart_iv"
-                app:layout_constraintTop_toBottomOf="@id/writingDetail_line2_view"/>
+                app:layout_constraintTop_toBottomOf="@id/writingDetail_heart_iv"/>
 
             // 글 내용
             <TextView
@@ -186,7 +178,7 @@
                 android:layout_height="2dp"
                 android:background="#e9e9e9"
                 app:layout_constraintTop_toBottomOf="@id/writingDetail_writingContent_tv"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="20dp"/>
 
             // 댓글 탭
             <ImageView

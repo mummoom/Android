@@ -21,16 +21,16 @@
         app:layout_constraintBottom_toTopOf="@+id/main_bottom_navigation"/>
 
 
-    <ImageView
-        android:id="@+id/main_v"
-        android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:layout_marginTop="30dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/navi_shadow"
-        app:layout_constraintBottom_toTopOf="@id/main_bottom_navigation"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+<!--    <ImageView-->
+<!--        android:id="@+id/main_v"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="25dp"-->
+<!--        android:layout_marginTop="30dp"-->
+<!--        android:scaleType="fitXY"-->
+<!--        android:src="@drawable/navi_shadow"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/main_bottom_navigation"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"/>-->
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

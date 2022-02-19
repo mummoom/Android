@@ -225,7 +225,9 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
     }
 
     override fun onLoginFailure(code: Int, message: String) {
-        //binding.loginLoadingPb.visibility = View.GONE
+        binding.loginRotateIv.visibility = View.GONE
+        binding.loginLoadingIv.visibility = View.GONE
+        binding.loginRotateIv.clearAnimation()
 
         when(code) {
             7003,7004-> {
