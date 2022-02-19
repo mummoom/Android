@@ -110,13 +110,12 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
             }
 
             override fun onIllustClicked() {
-//                val intent = Intent(requireContext(), IllustrationActivity::class.java)
-//                startActivity(intent)
+                binding.mypageRotateIv.visibility = View.VISIBLE
+                binding.mypageLoadingIv.visibility = View.VISIBLE
+                binding.mypageRotateIv.startAnimation(animation)
+
                 binding.mypageMyImgIv.setImageResource(R.drawable.ic_no_img2)
-//                url : "https://ifh.cc/g/Qmk5h1.png"
-//user한테 접근해서 imgUrl에 null 값을 넣어준다면
-
-
+                changeUserImg("")
             }
         })
 
@@ -379,7 +378,7 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
         binding.mypageNameTv.text=user.nickName
     }
 
-    // 프로필 불러오는 API
+    // 프로필 정보를 불러오는 API
     override fun onMyprofileLoading() {
 
     }
