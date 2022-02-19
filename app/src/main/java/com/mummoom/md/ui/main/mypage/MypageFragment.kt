@@ -95,8 +95,13 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
             }
 
             override fun onIllustClicked() {
-                val intent = Intent(requireContext(), IllustrationActivity::class.java)
-                startActivity(intent)
+//                val intent = Intent(requireContext(), IllustrationActivity::class.java)
+//                startActivity(intent)
+                binding.mypageMyImgIv.setImageResource(R.drawable.ic_no_img2)
+//                url : "https://ifh.cc/g/Qmk5h1.png"
+//user한테 접근해서 imgUrl에 null 값을 넣어준다면
+
+
             }
 
         })

@@ -125,7 +125,7 @@
                 android:fontFamily="@font/applesdgothicneob"
                 android:text="내 프로필"
                 android:textColor="@color/black"
-                android:textSize="13sp"
+                android:textSize="15dp"
                 app:layout_constraintBottom_toBottomOf="@id/mypage_icon1_cv"
                 app:layout_constraintStart_toEndOf="@id/mypage_icon1_cv"
                 app:layout_constraintTop_toTopOf="@id/mypage_icon1_cv" />
@@ -157,7 +157,7 @@
                 android:fontFamily="@font/applesdgothicneob"
                 android:text="내 활동"
                 android:textColor="@color/black"
-                android:textSize="13sp"
+                android:textSize="15dp"
                 app:layout_constraintBottom_toBottomOf="@id/mypage_icon2_cv"
                 app:layout_constraintStart_toEndOf="@id/mypage_icon2_cv"
                 app:layout_constraintTop_toTopOf="@id/mypage_icon2_cv" />
@@ -189,7 +189,7 @@
                 android:fontFamily="@font/applesdgothicneob"
                 android:text="알람 및 푸쉬 설정"
                 android:textColor="@color/black"
-                android:textSize="13sp"
+                android:textSize="15dp"
                 app:layout_constraintBottom_toBottomOf="@id/mypage_icon3_cv"
                 app:layout_constraintStart_toEndOf="@id/mypage_icon3_cv"
                 app:layout_constraintTop_toTopOf="@id/mypage_icon3_cv" />
@@ -221,7 +221,7 @@
                 android:fontFamily="@font/applesdgothicneob"
                 android:text="문의하기"
                 android:textColor="@color/black"
-                android:textSize="13sp"
+                android:textSize="15dp"
                 app:layout_constraintBottom_toBottomOf="@id/mypage_icon4_cv"
                 app:layout_constraintStart_toEndOf="@id/mypage_icon4_cv"
                 app:layout_constraintTop_toTopOf="@id/mypage_icon4_cv" />
@@ -262,7 +262,7 @@
                 android:fontFamily="@font/applesdgothicneob"
                 android:text="업데이트 및 버전"
                 android:textColor="@color/black"
-                android:textSize="13sp"
+                android:textSize="15dp"
                 app:layout_constraintBottom_toBottomOf="@id/mypage_icon5_cv"
                 app:layout_constraintStart_toEndOf="@id/mypage_icon5_cv"
                 app:layout_constraintTop_toTopOf="@id/mypage_icon5_cv" />
@@ -293,7 +293,7 @@
                 android:fontFamily="@font/applesdgothicneob"
                 android:text="앱 정보"
                 android:textColor="@color/black"
-                android:textSize="13sp"
+                android:textSize="15dp"
                 app:layout_constraintBottom_toBottomOf="@id/mypage_icon6_cv"
                 app:layout_constraintStart_toEndOf="@id/mypage_icon6_cv"
                 app:layout_constraintTop_toTopOf="@id/mypage_icon6_cv" />
@@ -326,7 +326,7 @@
                 android:fontFamily="@font/applesdgothicneob"
                 android:text="로그아웃"
                 android:textColor="@color/black"
-                android:textSize="13sp"
+                android:textSize="15dp"
                 app:layout_constraintBottom_toBottomOf="@id/mypage_icon7_cv"
                 app:layout_constraintStart_toEndOf="@id/mypage_icon7_cv"
                 app:layout_constraintTop_toTopOf="@id/mypage_icon7_cv" />

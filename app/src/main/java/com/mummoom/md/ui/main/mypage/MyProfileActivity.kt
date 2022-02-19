@@ -115,7 +115,8 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
             }
 
             override fun onIllustClicked() {
-                startActivityWithClear(IllustrationActivity::class.java)
+                binding.myprofileProfileImgIv.setImageResource(R.drawable.ic_no_img2)
+//                startActivityWithClear(IllustrationActivity::class.java)
             }
 
         })
