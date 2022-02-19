@@ -6,8 +6,8 @@ import com.mummoom.md.data.entities.Dog
 
 
 data class ChangeDogResponse(
-    @SerializedName("isSuccess") val isSuccess: Boolean,
     @SerializedName("code") val code: Int,
+    @SerializedName("data") val data: String,
+    @SerializedName("isSuccess") val isSuccess: Boolean,
     @SerializedName("message") val message: String,
-    @SerializedName("data") val data: String
 )

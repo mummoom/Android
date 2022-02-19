@@ -39,11 +39,15 @@ class DogprofileRVAdapter() : RecyclerView.Adapter<DogprofileRVAdapter.ViewHolde
     override fun onBindViewHolder(holder: DogprofileRVAdapter.ViewHolder, position: Int) {
         Log.d("bindviewholder","success")
         holder.bind(dogList[position])
-        holder.itemView.setOnClickListener{
+//        holder.itemView.setOnClickListener{
+//            myItemClickListener.onItemClick(dogList[position])
+//        }
+        holder.binding.itemDogprofileMoreBtnIv.setOnClickListener {
             myItemClickListener.onItemClick(dogList[position])
         }
 
     }
+
     //전체 아이템 개수 리턴
     override fun getItemCount(): Int = dogList.size
 
@@ -56,14 +60,14 @@ class DogprofileRVAdapter() : RecyclerView.Adapter<DogprofileRVAdapter.ViewHolde
 
     inner class ViewHolder(val binding: ItemDogprofileBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(dog: Dog){
+
             binding.itemDogprofileDogNameTv.text=dog.dogName
             binding.itemDogprofileDogbirthTv.text=dog.dogBirth
             binding.itemDogprofileDogtypeTv.text=dog.dogType
+
             if(dog.dogSex=="0")
                 binding.itemDogprofileDogGenderTv.text="남아"
             else if(dog.dogSex=="1") binding.itemDogprofileDogGenderTv.text="여아"
-
-
 
         }
     }
