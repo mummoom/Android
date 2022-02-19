@@ -17,6 +17,47 @@ import retrofit2.Callback
 import retrofit2.Response
 
 object DogService {
+
+    private lateinit var mypageDogChangeView: MypageDogChangeView
+    private lateinit var deleteDogView: DeleteDogView
+
+    fun setMypageDogChangeView(view: MypageDogChangeView)
+    {
+        mypageDogChangeView = view
+    }
+
+    fun setDeleteDogView(newView : DeleteDogView)
+    {
+        deleteDogView = newView
+    }
+
+    // 강아지 프로필 삭제하는 API
+    fun deleteDog(dogIdx: Int)
+    {
+        val deleteDogService = retrofit.create(DogRetrofitInterface::class.java)
+
+        deleteDogView.onDeleteDogLoading()
+
+        deleteDogService.deleteDog(dogIdx).enqueue(object : Callback<ChangeDogResponse>{
+            override fun onResponse(
+                call: Call<ChangeDogResponse>,
+                response: Response<ChangeDogResponse>
+            ) {
+                val resp = response.body()!!
+
+                when(resp.code)
+                {
+                    1000 -> deleteDogView.onDeleteDogSuccess()
+                    else -> deleteDogView.onDeleteDogFailure(resp.code, resp.message)
+                }
+            }
+
+            override fun onFailure(call: Call<ChangeDogResponse>, t: Throwable) {
+                deleteDogView.onDeleteDogFailure(400, "네트워크 오류가 발생했습니다.")
+            }
+        })
+    }
+
     fun dogInfo(dogInfoView: DogInfoView, dog : Dog) {
         val dogService = retrofit.create(DogRetrofitInterface::class.java)
 
@@ -44,6 +85,7 @@ object DogService {
             }
         })
     }
+
     fun getDoglist(mypageView: MypageView) {
         val dogService = retrofit.create(DogRetrofitInterface::class.java)
 
@@ -67,16 +109,6 @@ object DogService {
                 mypageView.onMypageFailure(400, "네트워크 오류가 발생했습니다.")
             }
         })
-
-
-
-
-    }
-
-    private lateinit var mypageDogChangeView: MypageDogChangeView
-    fun setMypageDogChangeView( view: MypageDogChangeView)
-    {
-        mypageDogChangeView = view
     }
 
     fun changeDog(dogIdx: Int,dog: Dog) {
@@ -102,10 +134,6 @@ object DogService {
                 mypageDogChangeView.onMypageDogchangeFailure(400, "네트워크 오류가 발생했습니다.")
             }
         })
-
-
-
-
     }
 
 

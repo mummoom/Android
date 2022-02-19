@@ -7,7 +7,9 @@ import retrofit2.http.*
 
 interface DogRetrofitInterface {
     @POST("/api/dog/save") //save
-    fun dogInfo(@Body dog: Dog): Call<DogResponse>
+    fun dogInfo(
+        @Body dog: Dog
+    ): Call<DogResponse>
 
     @GET("/api/dog/list") //get dog by Idx
     fun getDoglist(): Call<DogListResponse>
@@ -15,12 +17,12 @@ interface DogRetrofitInterface {
     @PATCH("/api/dog/update/{dogIdx}") //update dog
     fun changeDog(
         @Path ("dogIdx")dogIdx:Int,
-        @Body dog: Dog): Call<ChangeDogResponse>
+        @Body dog: Dog
+    ): Call<ChangeDogResponse>
 
-
-
-//    @PATCH("/api/dog/{dodIdx}") // delete dog
-//    fun autoLogin(): Call<DogResponse>
-//
+    @PATCH("/api/dog/{dogIdx}")  //delete dog
+    fun deleteDog(
+        @Path("dogIdx") dogIdx : Int
+    ) : Call<ChangeDogResponse>
 
 }

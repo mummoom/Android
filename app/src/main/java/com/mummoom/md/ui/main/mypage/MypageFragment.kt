@@ -24,6 +24,7 @@ import com.mummoom.md.ApplicationClass.Companion.X_AUTH_TOKEN
 import com.mummoom.md.R
 import com.mummoom.md.data.entities.Dog
 import com.mummoom.md.data.entities.User
+import com.mummoom.md.data.remote.Dog.DeleteDogView
 import com.mummoom.md.data.remote.Dog.DogService
 import com.mummoom.md.data.remote.User.UserService
 import com.mummoom.md.databinding.FragmentMypageBinding
@@ -36,7 +37,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBinding::inflate) ,MypageView,DogInfoView,MypageDogChangeView,MyprofileView,ChangeImgView{
+class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBinding::inflate) ,MypageView,DogInfoView,MypageDogChangeView,
+    MyprofileView, ChangeImgView, DeleteDogView{
 
     private lateinit var dogRVdadapter : DogprofileRVAdapter
     private lateinit var auth: FirebaseAuth
@@ -66,19 +68,32 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
         val plusDialog = MypageCustomDialog(requireContext())
         val modifyDialog = ModifyProfileCustomDialog(requireContext())
         val changeImageDialog = ChangeImageCustomDialog(requireContext())
+        val dogProfileDialog = DogProfileMoreBtnDialog(requireContext())
 
         animation = AnimationUtils.loadAnimation(requireContext(),R.anim.rotate)
 
-        // 강아지 프로필 추가
+        // 강아지 프로필 추가 버튼 눌렀을 때
         binding.mypageDogprofilePlusIv.setOnClickListener {
             plusDialog.MyDig()
         }
 
-        // 내 프로필 사진 변경
+        // 강아지 프로필 추가 다이얼로그에서 입력 값 처리 부분 코드
+        plusDialog.setOnClickedListener(object : MypageCustomDialog.TextClickListener{
+            override fun onClicked(
+                dogName : String, dogType : String, dogSex : String, dogBirth : String
+            ) {
+
+                dogInfo(Dog(dogBirth, dogIdx = 0,dogName,dogSex,dogType, surgery = "Y"))
+
+            }
+        })
+
+        // 내 프로필 사진 변경 버튼(톱니바퀴) 눌렀을 때
         binding.mypageMysettingIv.setOnClickListener {
             changeImageDialog.MyDig()
         }
 
+        // 프로필 수정 다이얼로그에서 선택지 따른 코드 부분(갤러리에서 선택 / 기본 일러스트 선택)
         changeImageDialog.setOnClickedListener(object : ChangeImageCustomDialog.clickListener{
             override fun onPictureClicked() {
                 if(ContextCompat.checkSelfPermission(this@MypageFragment.requireActivity(),
@@ -98,44 +113,39 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
                 val intent = Intent(requireContext(), IllustrationActivity::class.java)
                 startActivity(intent)
             }
-
         })
 
 
-
-        // 강아지 프로필 수정
-//        binding.mypageMoreBtnIv.setOnClickListener {
-//            val items = getResources().getStringArray(R.array.year)
-
-//        }
-
-
-        // 확인 버튼 눌렀을 때 처리 코드들
-        plusDialog.setOnClickedListener(object : MypageCustomDialog.TextClickListener{
-            override fun onClicked(
-                dogName : String, dogType : String, dogSex : String, dogBirth : String
-            ) {
-
-                dogInfo(Dog(dogBirth, dogIdx = 0,dogName,dogSex,dogType, surgery = "Y"))
-
+        //강아지 프로필 리싸이클러뷰
+        dogRVdadapter = DogprofileRVAdapter()
+        dogRVdadapter.setMyItemClickListener(object  : DogprofileRVAdapter.MyItemClickListener{
+            //강아지 피드의 더보기 버튼 클릭했을 때
+            override fun onItemClick(dog: Dog) {
+                // 더보기 버튼 다이얼로그 띄우고 선택지에 따른 리스너 작성하기(강아지 수정/강아지 삭제)
+                dogIdx = dog.dogIdx
+                dogProfileDialog.MyDig()
             }
         })
 
+        dogProfileDialog.setOnClickedListener(object : DogProfileMoreBtnDialog.clickListener{
+            // 다이얼로그 중 강아지 수정 클릭했을 때
+            override fun onEditProfile() {
+                modifyDialog.MyDig()
+            }
+
+            // 다이얼로그 중 강아지 삭제 클릭했을 때
+            override fun onDeleteProfile() {
+                deleteDog()
+            }
+
+        })
+
+        // 강아지 수정 다이얼로그에서 입력 값 처리 부분
         modifyDialog.setOnClickedListener(object : ModifyProfileCustomDialog.TextClickListener{
             override fun onClicked(
                 dogName : String, dogType : String, dogSex : String, dogBirth : String
             ) {
                 changedogInfo(Dog(dogBirth, dogIdx,dogName,dogSex,dogType, surgery = "Y"))
-            }
-        })
-
-        //강아지 프로필 리싸이클러뷰
-        dogRVdadapter = DogprofileRVAdapter()
-        dogRVdadapter.setMyItemClickListener(object  : DogprofileRVAdapter.MyItemClickListener{
-            override fun onItemClick(dog: Dog) {
-                modifyDialog.MyDig()
-                dogIdx=dog.dogIdx
-
             }
         })
 
@@ -180,6 +190,13 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
             signOut()
         }
 
+    }
+
+    fun deleteDog()
+    {
+        val deleteDogService = DogService
+        deleteDogService.setDeleteDogView(this)
+        deleteDogService.deleteDog(dogIdx)
     }
 
     fun changeUserImg(newImgUrl : String)
@@ -388,6 +405,26 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
         binding.mypageRotateIv.animation.cancel()
         binding.mypageRotateIv.visibility = View.GONE
         binding.mypageLoadingIv.visibility = View.GONE
+    }
+
+    // dog를 delete하는 API 부분
+    override fun onDeleteDogLoading() {
+
+    }
+
+    override fun onDeleteDogSuccess() {
+        showToast("강아지 정보가 삭제되었습니다.")
+        DogService.getDoglist(this)
+    }
+
+    override fun onDeleteDogFailure(code: Int, message: String) {
+        when(code)
+        {
+            3000 -> showToast("오류가 발생하였습니다.")
+            6005 -> showToast("존재하지 않는 강아지 정보입니다.")
+            6006 -> showToast("유효하지 않은 유저입니다.")
+            else -> showToast("오류가 발생하였습니다.")
+        }
     }
 
 
