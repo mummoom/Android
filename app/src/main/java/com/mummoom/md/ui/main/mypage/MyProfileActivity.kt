@@ -73,16 +73,6 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
 
         // 뒤로가기 눌렀을 때
         binding.myprofileBackBtnIv.setOnClickListener {
-
-//            if(uri != null)  // 이 부분은 이미지를 변경했을 때 진입하는 부분
-//            {
-//                uploadImageToFirebase(uri!!)
-//                finish()
-//            }
-//            else  // 이미지 변경 안했을 때
-//            {
-//                finish()
-//            }
             finish()
         }
 
@@ -93,9 +83,6 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
         // 회원탈퇴 눌렀을 때
         binding.myprofileWithdrawTv.setOnClickListener {
             deleteUser()
-
-
-
         }
 
 
@@ -115,8 +102,12 @@ class MyProfileActivity : BaseActivity<ActivityMyprofileBinding>(ActivityMyprofi
             }
 
             override fun onIllustClicked() {
+                binding.myprofileRotateIv.visibility = View.VISIBLE
+                binding.myprofileLoadingIv.visibility = View.VISIBLE
+                binding.myprofileRotateIv.startAnimation(animation)
+
                 binding.myprofileProfileImgIv.setImageResource(R.drawable.ic_no_img2)
-//                startActivityWithClear(IllustrationActivity::class.java)
+                changeUserImg("")
             }
 
         })
