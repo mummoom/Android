@@ -46,7 +46,7 @@
             android:fontFamily="@font/applesdgothicneom"
             app:layout_constraintTop_toTopOf="@id/writing_Img_cv"
             app:layout_constraintStart_toEndOf="@id/writing_Img_cv"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="1dp"
             android:maxLines="1"
             android:ellipsize="end"/>

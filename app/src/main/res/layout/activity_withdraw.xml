@@ -67,11 +67,13 @@
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginEnd="30dp"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/withdraw_pw_tv"
         app:layout_constraintTop_toBottomOf="@id/withdraw_pw_tv"
         android:background="@drawable/bg_changepw_et"
         android:textSize="15sp"
+        android:maxLines="1"
         android:fontFamily="@font/applesdgothicneom"
         android:layout_marginTop="10dp"
         android:paddingStart="10dp"/>
@@ -88,7 +90,8 @@
         android:visibility="invisible"
         android:fontFamily="@font/applesdgothicneom"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/withdraw_pw_et" />
+        app:layout_constraintTop_toBottomOf="@id/withdraw_pw_et"
+        android:paddingStart="10dp"/>
 
     <TextView
         android:id="@+id/withdraw_checkpw_tv"
@@ -113,9 +116,11 @@
         app:layout_constraintStart_toStartOf="@id/withdraw_checkpw_tv"
         app:layout_constraintTop_toBottomOf="@id/withdraw_checkpw_tv"
         android:background="@drawable/bg_changepw_et"
+        android:inputType="textPassword"
         android:textSize="15sp"
         android:fontFamily="@font/applesdgothicneom"
         android:layout_marginTop="10dp"
+        android:maxLines="1"
         android:paddingStart="10dp"
         />
 
