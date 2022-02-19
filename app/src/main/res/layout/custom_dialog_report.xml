@@ -8,7 +8,7 @@
         android:id="@+id/reportDialog_addProfile_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="게시글 신고하기"
+        android:text="신고하기"
         android:textStyle="bold"
         android:textSize="18sp"
         android:textColor="#EDC06D"
