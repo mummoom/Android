@@ -13,7 +13,7 @@ import com.mummoom.md.databinding.ActivityWritingdetailBinding
 import com.mummoom.md.ui.BaseActivity
 
 class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(ActivityWritingdetailBinding::inflate), GetPostView, LikeView,
-    DeletePostView, ReportPostView, WriteCommentView, DeleteCommentView {
+    DeletePostView, ReportPostView, WriteCommentView, DeleteCommentView, ReportCommentView {
 
     private lateinit var newPost : PostDetail
     private lateinit var writeCommentRVAdapter : CommentRVAdapter
@@ -77,6 +77,8 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
     private fun initRecyclerView()
     {
         val commentMoreBtnDialog = CommentMoreBtnDialog(this)
+        val reportDialog = ReportDialog(this)
+
         writeCommentRVAdapter = CommentRVAdapter(this)
         binding.writingDetailCommentRv.adapter = writeCommentRVAdapter
         binding.writingDetailCommentRv.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
@@ -94,6 +96,7 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
         commentMoreBtnDialog.setOnClickedListener(object : CommentMoreBtnDialog.clickListener{
             override fun onWarningComment() {
                 // 댓글 신고 API 함수 호출
+                reportDialog.MyDig()
             }
 
             override fun onDeleteComment() {
@@ -103,6 +106,21 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
 
         })
 
+        reportDialog.setOnClickedListener(object : ReportDialog.clickListener{
+            override fun onClicked(reason: String) {
+                this@WritingDetailActivity.reason = reason
+                reportComment()
+            }
+
+        })
+
+    }
+
+    private fun reportComment()
+    {
+        val reportCommentService = PostService()
+        reportCommentService.setReportCommentView(this)
+        reportCommentService.reportComment(commentIdx, reason)
     }
 
     // 댓글 삭제하는 함수
@@ -417,6 +435,26 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
             8001 -> showToast("회원정보를 찾을 수 없습니다.")
             8002 -> showToast("존재하지 않는 댓글 입니다.")
             8004 -> showToast("작성자만 삭제할 수 있습니다.")
+            else -> showToast("오류가 발생하였습니다.")
+        }
+    }
+
+    // reportComment API 부분
+    override fun onReportCommentLoading() {
+
+    }
+
+    override fun onReportCommentSuccess() {
+        showToast("신고가 완료되었습니다.")
+        finish()
+    }
+
+    override fun onReportCommentFailure(code: Int, message: String) {
+        when(code)
+        {
+            3000 -> showToast("오류가 발생하였습니다.")
+            8001 -> showToast("회원정보를 찾을 수 없습니다.")
+            8002 -> showToast("존재하지 않는 댓글 입니다.")
             else -> showToast("오류가 발생하였습니다.")
         }
     }
