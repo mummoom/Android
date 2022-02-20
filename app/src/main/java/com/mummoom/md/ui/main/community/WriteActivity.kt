@@ -4,6 +4,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.util.Log
 import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
@@ -56,6 +57,19 @@ class WriteActivity : BaseActivity<ActivityWriteBinding>(ActivityWriteBinding::i
 
         // 업로드 버튼 눌렀을 때
         binding.writeUploadBtnTv.setOnClickListener {
+
+            val animation = AnimationUtils.loadAnimation(this,R.anim.rotate)
+            binding.writeRotateIv.visibility = View.VISIBLE
+            binding.writeLoadingIv.visibility = View.VISIBLE
+            binding.writeRotateIv.startAnimation(animation)
+
+            if(binding.writeContentEt.text.toString().isEmpty() || binding.writeTitleEt.text.toString().isEmpty())
+            {
+                showToast("제목이나 내용이 없습니다.")
+                finish()
+                return@setOnClickListener
+            }
+
             if(uri != null)
             {
                 uploadImageToFirebase(uri!!)
@@ -64,9 +78,6 @@ class WriteActivity : BaseActivity<ActivityWriteBinding>(ActivityWriteBinding::i
             {
                 uploading(this.imgUrl)
             }
-
-            // 성공했을 때 finish()가 실행되도록 합시당
-            finish()
         }
 
         plusImage.setOnClickedListener(object : PlusImageCustomDialog.clickListener{
@@ -86,21 +97,12 @@ class WriteActivity : BaseActivity<ActivityWriteBinding>(ActivityWriteBinding::i
 
     }
 
+    // post를 작성하는 API 부분
     private fun uploading(imgUrl : String)
     {
-
         content = binding.writeContentEt.text.toString()
         title = binding.writeTitleEt.text.toString()
         this.imgUrl = imgUrl
-//        if(this.imgUrl == null)
-//        {
-//            this.imgUrl = ""
-//        }
-//        else
-//        {
-//            this.imgUrl = imgUrl
-//        }
-
 
         val newPost = SendPost(content, this.imgUrl, title)
         val savePostService = PostService()
@@ -108,7 +110,6 @@ class WriteActivity : BaseActivity<ActivityWriteBinding>(ActivityWriteBinding::i
         savePostService.setPostView(this)
         savePostService.posting(newPost)
     }
-
 
 
     // Firebase Storage에 이미지를 업로드 하는 함수
@@ -122,28 +123,35 @@ class WriteActivity : BaseActivity<ActivityWriteBinding>(ActivityWriteBinding::i
         imagesRef.putFile(uri!!).addOnSuccessListener {
             it.storage.downloadUrl.addOnSuccessListener {
                 uploading(it.toString())
-
             }
-            Toast.makeText(this, "업로드가 완료되었습니다.", Toast.LENGTH_LONG).show()
         }.addOnFailureListener{
             // 이미지 업로드 실패
+            showToast("업로드를 실패하였습니다.")
         }
     }
 
+    // writePost API 부분
     override fun onPostLoading() {
-        binding.writeUploadFrm.visibility = View.GONE
+
     }
 
     override fun onPostSuccess(data: Int) {
-        binding.writeUploadFrm.visibility = View.VISIBLE
-        Toast.makeText(this, "업로드가 완료되었습니다.", Toast.LENGTH_LONG).show()
-        Log.d("post_upload", data.toString())
+        binding.writeRotateIv.animation.cancel()
+        binding.writeRotateIv.visibility = View.GONE
+        binding.writeLoadingIv.visibility = View.GONE
 
+        showToast("업로드가 완료되었습니다.")
+        Log.d("post_upload", data.toString())
+        finish()
     }
 
     override fun onPostFailure(code: Int, message: String) {
-        binding.writeUploadFrm.visibility = View.GONE
-        Toast.makeText(this, "업로드가 실패하였습니다.", Toast.LENGTH_LONG).show()
+        binding.writeRotateIv.animation.cancel()
+        binding.writeRotateIv.visibility = View.GONE
+        binding.writeLoadingIv.visibility = View.GONE
+
+        showToast("업로드를 실패하였습니다.")
+        finish()
     }
 
 }
