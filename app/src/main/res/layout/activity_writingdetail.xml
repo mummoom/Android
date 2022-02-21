@@ -81,7 +81,16 @@
                 app:layout_constraintBottom_toBottomOf="@id/writingDetail_userIcon_cv"
                 app:layout_constraintStart_toEndOf="@id/writingDetail_userIcon_cv"/>
 
-
+            <TextView
+                android:id="@+id/writingDetail_date_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="0000.00.00"
+                android:textSize="12sp"
+                android:maxLength="10"
+                app:layout_constraintStart_toEndOf="@id/writingDetail_userNickname_tv"
+                app:layout_constraintBottom_toBottomOf="@id/writingDetail_userNickname_tv"/>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/writingDetail_writingImg_cv"
