@@ -94,6 +94,7 @@
             android:textColor="#c4c4c4"
             android:textSize="12sp"
             android:layout_marginStart="10dp"
+            android:paddingBottom="2dp"
             app:layout_constraintBottom_toBottomOf="@id/item_dogprofile_dogName_tv"
             app:layout_constraintStart_toEndOf="@id/item_dogprofile_dogName_tv"
              />
