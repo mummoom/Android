@@ -261,6 +261,9 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
             .load(newPost.userImage)
             .into(binding.writingDetailUserIconIv)
 
+        // 작성 날짜
+        binding.writingDetailDateTv.text = newPost.createdAt
+
         // 댓글창의 유저 아이콘 이미지
 //        Glide.with(this)
 //            .load(newPost.userImage)
@@ -268,7 +271,6 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
 
         // 유저 닉네임
         binding.writingDetailUserNicknameTv.text = newPost.userName
-
 
         // 글 사진
         if(newPost.imgUrl == "" || newPost.imgUrl == null)
