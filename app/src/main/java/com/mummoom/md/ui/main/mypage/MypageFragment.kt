@@ -10,6 +10,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -71,6 +72,9 @@ class MypageFragment(): BaseFragment<FragmentMypageBinding>(FragmentMypageBindin
         val dogProfileDialog = DogProfileMoreBtnDialog(requireContext())
 
         animation = AnimationUtils.loadAnimation(requireContext(),R.anim.rotate)
+
+        ActivityCompat.requestPermissions(requireActivity(),
+            arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE), 1)
 
         // 강아지 프로필 추가 버튼 눌렀을 때
         binding.mypageDogprofilePlusIv.setOnClickListener {
