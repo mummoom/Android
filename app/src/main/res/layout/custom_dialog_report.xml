@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="300dp"
     android:layout_height="400dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -26,20 +27,189 @@
         android:background="#EAEAEA"
         app:layout_constraintTop_toBottomOf="@id/reportDialog_addProfile_tv" />
 
+    <ImageView
+        android:id="@+id/reportDialog_abuse_iv_on"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:src="@drawable/report_check_on"
+        app:layout_constraintStart_toStartOf="@id/reportDialog_line_view"
+        app:layout_constraintTop_toBottomOf="@id/reportDialog_line_view"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"/>
+    <ImageView
+        android:id="@+id/reportDialog_abuse_iv_off"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:src="@drawable/report_check_off"
+        app:layout_constraintStart_toStartOf="@id/reportDialog_line_view"
+        app:layout_constraintTop_toBottomOf="@id/reportDialog_line_view"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/reportDialog_abuse_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/reportDialog_abuse_iv_on"
+        app:layout_constraintTop_toBottomOf="@id/reportDialog_line_view"
+        android:text="욕설과 명예회손"
+        android:textSize="12sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/applesdgothicneom"
+        android:layout_marginStart="15dp"
+        />
+    <ImageView
+        android:id="@+id/reportDialog_promotion_iv_on"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:src="@drawable/report_check_on"
+        app:layout_constraintStart_toStartOf="@id/reportDialog_line_view"
+        app:layout_constraintTop_toBottomOf="@id/reportDialog_abuse_iv_on"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:visibility="invisible"/>
+    <ImageView
+        android:id="@+id/reportDialog_promotion_iv_off"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:src="@drawable/report_check_off"
+        app:layout_constraintStart_toStartOf="@id/reportDialog_line_view"
+        app:layout_constraintTop_toBottomOf="@id/reportDialog_abuse_iv_on"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"/>
+
+
+    <TextView
+        android:id="@+id/reportDialog_promotion_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/reportDialog_promotion_iv_on"
+        app:layout_constraintTop_toBottomOf="@id/reportDialog_abuse_iv_on"
+        android:text="홍보성"
+        android:textSize="12sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/applesdgothicneom"
+        android:layout_marginStart="15dp"
+        />
+    <ImageView
+        android:id="@+id/reportDialog_obscenity_iv_on"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:src="@drawable/report_check_on"
+        app:layout_constraintStart_toStartOf="@id/reportDialog_line_view"
+        app:layout_constraintTop_toBottomOf="@id/reportDialog_promotion_iv_on"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:visibility="invisible"/>
+    <ImageView
+        android:id="@+id/reportDialog_obscenity_iv_off"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:src="@drawable/report_check_off"
+        app:layout_constraintStart_toStartOf="@id/reportDialog_line_view"
+        app:layout_constraintTop_toBottomOf="@id/reportDialog_promotion_iv_on"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"/>
+
+    <TextView
+        android:id="@+id/reportDialog_obscenity_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/reportDialog_obscenity_iv_on"
+        app:layout_constraintTop_toBottomOf="@id/reportDialog_promotion_iv_on"
+        android:text="음란성"
+        android:textSize="12sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/applesdgothicneom"
+        android:layout_marginStart="15dp"
+        />
+    <ImageView
+        android:id="@+id/reportDialog_repeat_iv_on"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:src="@drawable/report_check_on"
+        app:layout_constraintStart_toStartOf="@id/reportDialog_line_view"
+        app:layout_constraintTop_toBottomOf="@id/reportDialog_obscenity_iv_on"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:visibility="invisible"/>
+    <ImageView
+        android:id="@+id/reportDialog_repeat_iv_off"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:src="@drawable/report_check_off"
+        app:layout_constraintStart_toStartOf="@id/reportDialog_line_view"
+        app:layout_constraintTop_toBottomOf="@id/reportDialog_obscenity_iv_on"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"/>
+
+    <TextView
+        android:id="@+id/reportDialog_repeat_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/reportDialog_abuse_iv_on"
+        app:layout_constraintTop_toBottomOf="@id/reportDialog_obscenity_iv_on"
+        android:text="같은 내용 반복 (도배)"
+        android:textSize="12sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/applesdgothicneom"
+        android:layout_marginStart="15dp"
+        />
+    <ImageView
+        android:id="@+id/reportDialog_other_iv_on"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:src="@drawable/report_check_on"
+        app:layout_constraintStart_toStartOf="@id/reportDialog_line_view"
+        app:layout_constraintTop_toBottomOf="@id/reportDialog_repeat_iv_on"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:visibility="invisible"/>
+    <ImageView
+        android:id="@+id/reportDialog_other_iv_off"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:src="@drawable/report_check_off"
+        app:layout_constraintStart_toStartOf="@id/reportDialog_line_view"
+        app:layout_constraintTop_toBottomOf="@id/reportDialog_repeat_iv_on"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"/>
+
+    <TextView
+        android:id="@+id/reportDialog_other_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/reportDialog_abuse_iv_on"
+        app:layout_constraintTop_toBottomOf="@id/reportDialog_repeat_iv_on"
+        android:text="기타"
+        android:textSize="12sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/applesdgothicneom"
+        android:layout_marginStart="15dp"
+        />
+
+
     <EditText
         android:id="@+id/reportDialog_reason_et"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         app:layout_constraintStart_toStartOf="@id/reportDialog_line_view"
         app:layout_constraintEnd_toEndOf="@id/reportDialog_line_view"
-        app:layout_constraintTop_toBottomOf="@id/reportDialog_line_view"
+        app:layout_constraintTop_toBottomOf="@id/reportDialog_other_iv_on"
         android:hint="이곳에 신고 사유를 입력해주세요."
+        android:paddingStart="20dp"
         android:textColorHint="#c4c4c4"
-        android:textSize="15sp"
+        android:textSize="13sp"
         android:backgroundTint="@color/transparent"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="15dp"/>
 
 
     <androidx.cardview.widget.CardView
