@@ -125,8 +125,6 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
 
         auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
-
-      //  Log.d("TOKEN",Idtoken)
         updateUI(currentUser)
     }
 
