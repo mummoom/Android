@@ -29,7 +29,7 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
 
         val moreBtnDialog = WritingMoreBtnDialog(this)
         val reportDialog = ReportDialog(this)
-
+        val blockDialog = BlockDialog(this)
 
         // 좋아요 버튼
         binding.writingDetailHeartIv.setOnClickListener {
@@ -58,13 +58,22 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
 
         })
 
+        // 신고하기 다이얼로그에서 확인 버튼 눌렀을 때
         reportDialog.setOnClickedListener(object : ReportDialog.clickListener{
             override fun onClicked(reason: String) {
                 // reason 값으로 신고 API 호출
                 this@WritingDetailActivity.reason = reason
                 reportPost()
+                blockDialog.MyDig()
             }
 
+        })
+
+        // 사용자 차단하기 다이얼로그에서 확인 버튼 눌렀을 때
+        blockDialog.setOnClickedListener(object : BlockDialog.clickListener{
+            override fun onClicked() {
+                // 사용자 차단 API 호출
+            }
         })
 
         // 댓글 전송 버튼
@@ -116,6 +125,7 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
 
     }
 
+    // 댓글 신고하는 함수
     private fun reportComment()
     {
         val reportCommentService = PostService()
@@ -367,7 +377,6 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
 
     override fun onReportPostSuccess() {
         showToast("신고가 완료되었습니다.")
-        finish()
     }
 
     override fun onReportPostFailure(code: Int, message: String) {

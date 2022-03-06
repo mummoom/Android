@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="105dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <TextView
+        android:id="@+id/blockDialog_block_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="사용자를 차단할까요?"
+        android:textSize="16sp"
+        android:textColor="#EDC06D"
+        android:fontFamily="@font/applesdgothicneob"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="15dp"/>
+
+    <View
+        android:id="@+id/blockDialog_line_view"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="#EAEAEA"
+        app:layout_constraintTop_toBottomOf="@id/blockDialog_block_tv" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/blockDialog_cancelBtn_cv"
+        android:layout_width="110dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/blockDialog_doneBtn_cv"
+        app:layout_constraintTop_toBottomOf="@id/blockDialog_line_view"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:layout_marginEnd="15dp">
+
+        <TextView
+            android:id="@+id/blockDialog_cancelBtn_btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#c4c4c4"
+            android:gravity="center"
+            android:text="취소"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:fontFamily="@font/applesdgothicneom"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/blockDialog_doneBtn_cv"
+        android:layout_width="110dp"
+        android:layout_height="30dp"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintStart_toEndOf="@id/blockDialog_cancelBtn_cv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/blockDialog_cancelBtn_cv"
+        app:layout_constraintBottom_toBottomOf="@id/blockDialog_cancelBtn_cv">
+
+        <TextView
+            android:id="@+id/blockDialog_doneBtn_btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffd231"
+            android:gravity="center"
+            android:text="확인"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:fontFamily="@font/applesdgothicneom"/>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
