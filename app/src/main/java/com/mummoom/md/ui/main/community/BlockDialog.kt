@@ -22,6 +22,7 @@ class BlockDialog(context: Context) {
         val doneBtn = dialog.findViewById<TextView>(R.id.blockDialog_cancelBtn_btn)
         val cancelBtn = dialog.findViewById<TextView>(R.id.blockDialog_doneBtn_btn)
 
+
         // 확인 버튼 눌렀을 때
         doneBtn.setOnClickListener {
             onClickedListener.onClicked()
