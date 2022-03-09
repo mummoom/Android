@@ -60,4 +60,15 @@ interface PostRetrofitInterface {
         @Path("commentIdx") commentIdx : Int,
         @Body requestDto : String
     ) : Call<PostResponse>
+
+    @POST("/block/{reportIdx}")
+    fun blockUser(
+        @Path("reportIdx") reportIdx : Int
+    ) : Call<DefaultPostResponse>
+
+    @POST("/report/user/{postIdx}")
+    fun reportUser(
+        @Path("postIdx") postIdx : Int,
+        @Body requestDto : String
+    ) : Call<PostResponse>
 }

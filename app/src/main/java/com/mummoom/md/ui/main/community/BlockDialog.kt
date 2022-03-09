@@ -19,18 +19,19 @@ class BlockDialog(context: Context) {
         dialog.setCanceledOnTouchOutside(true)
         dialog.setCancelable(true)
 
-        val doneBtn = dialog.findViewById<TextView>(R.id.blockDialog_cancelBtn_btn)
-        val cancelBtn = dialog.findViewById<TextView>(R.id.blockDialog_doneBtn_btn)
+        val doneBtn = dialog.findViewById<TextView>(R.id.blockDialog_doneBtn_btn)
+        val cancelBtn = dialog.findViewById<TextView>(R.id.blockDialog_cancelBtn_btn)
 
 
         // 확인 버튼 눌렀을 때
         doneBtn.setOnClickListener {
-            onClickedListener.onClicked()
+            onClickedListener.onDoneClicked()
             dialog.dismiss()
         }
 
         // 취소 버튼 눌렀을 때
         cancelBtn.setOnClickListener {
+            onClickedListener.onCancelClicked()
             dialog.dismiss()
         }
 
@@ -38,7 +39,8 @@ class BlockDialog(context: Context) {
     }
 
     interface clickListener{
-        fun onClicked()
+        fun onDoneClicked()
+        fun onCancelClicked()
     }
 
     private lateinit var onClickedListener : clickListener

@@ -20,6 +20,8 @@ class PostService {
     private lateinit var writeCommentView : WriteCommentView
     private lateinit var deleteCommentView : DeleteCommentView
     private lateinit var reportCommentView : ReportCommentView
+    private lateinit var reportUserView : ReportUserView
+    private lateinit var blockUserView : BlockUserView
 
     // view를 초기에 세팅해주는 함수
     fun setDefaultView(newView: PostDefaultView)
@@ -72,7 +74,72 @@ class PostService {
         reportCommentView = newView
     }
 
+    fun setReportUserView(newView: ReportUserView)
+    {
+        reportUserView = newView
+    }
+
+    fun setBlockUserView(newView: BlockUserView)
+    {
+        blockUserView = newView
+    }
+
     // 여기부터는 api마다 함수를 만들어주면 됨
+
+    // user를 차단하는 API
+    fun blockUser(reportIdx : Int)
+    {
+        val blockUserService = retrofit.create(PostRetrofitInterface::class.java)
+
+        blockUserView.onBlockUserLoading()
+
+        blockUserService.blockUser(reportIdx).enqueue(object : Callback<DefaultPostResponse>{
+            override fun onResponse(
+                call: Call<DefaultPostResponse>,
+                response: Response<DefaultPostResponse>
+            ) {
+                val resp = response.body()!!
+
+                when(resp.code)
+                {
+                    1000 -> blockUserView.onBlockUserSuccess()
+                    else -> blockUserView.onBlockUserFailure(resp.code, resp.message)
+                }
+            }
+
+            override fun onFailure(call: Call<DefaultPostResponse>, t: Throwable) {
+                blockUserView.onBlockUserFailure(400, "네트워크 오류가 발생했습니다.")
+            }
+
+        })
+
+    }
+
+    // user를 신고하는 API
+    fun reportUser(postIdx: Int, reason: String)
+    {
+        val reportUserService = retrofit.create(PostRetrofitInterface::class.java)
+
+        reportUserView.onReportUserLoading()
+
+        reportUserService.reportUser(postIdx, reason).enqueue(object : Callback<PostResponse>{
+            override fun onResponse(call: Call<PostResponse>, response: Response<PostResponse>) {
+                val resp = response.body()!!
+
+                when(resp.code)
+                {
+                    1000 -> reportUserView.onReportUserSuccess(resp.data)
+                    else -> reportUserView.onReportUserFailure(resp.code, resp.message)
+                }
+            }
+
+            override fun onFailure(call: Call<PostResponse>, t: Throwable) {
+                reportUserView.onReportUserFailure(400, "네트워크 오류가 발생했습니다.")
+            }
+
+        })
+
+    }
 
     // comment 신고하는 API
     fun reportComment(commentIdx: Int, reason: String)
