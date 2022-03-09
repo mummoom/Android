@@ -13,7 +13,7 @@ import com.mummoom.md.databinding.ActivityWritingdetailBinding
 import com.mummoom.md.ui.BaseActivity
 
 class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(ActivityWritingdetailBinding::inflate), GetPostView, LikeView,
-    DeletePostView, ReportPostView, WriteCommentView, DeleteCommentView, ReportCommentView {
+    DeletePostView, ReportPostView, WriteCommentView, DeleteCommentView, ReportCommentView, ReportUserView, BlockUserView {
 
     private lateinit var newPost : PostDetail
     private lateinit var writeCommentRVAdapter : CommentRVAdapter
@@ -23,6 +23,7 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
     private var commentIdx : Int = -1
     private var reason : String = ""
     private var content : String = ""
+    private var reportIdx : Int = -1
 
 
     override fun initAfterBinding() {
@@ -71,8 +72,14 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
 
         // 사용자 차단하기 다이얼로그에서 확인 버튼 눌렀을 때
         blockDialog.setOnClickedListener(object : BlockDialog.clickListener{
-            override fun onClicked() {
-                // 사용자 차단 API 호출
+            override fun onDoneClicked() {
+                // 사용자 신고하기 호출 후 사용자 차단하기 호출
+                Log.d("REPORT_BLOCKDIG", "BlockDialog 진입")
+                reportUser()
+            }
+
+            override fun onCancelClicked() {
+                finish()
             }
         })
 
@@ -123,6 +130,22 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
 
         })
 
+    }
+
+    // 유저 차단하는 함수
+    private fun blockUser()
+    {
+        val blockUserService = PostService()
+        blockUserService.setBlockUserView(this)
+        blockUserService.blockUser(reportIdx)
+    }
+
+    // 유저 신고하는 함수
+    private fun reportUser()
+    {
+        val reportUserService = PostService()
+        reportUserService.setReportUserView(this)
+        reportUserService.reportUser(postIdx, reason)
     }
 
     // 댓글 신고하는 함수
@@ -468,6 +491,48 @@ class WritingDetailActivity : BaseActivity<ActivityWritingdetailBinding>(Activit
             8002 -> showToast("존재하지 않는 댓글 입니다.")
             else -> showToast("오류가 발생하였습니다.")
         }
+    }
+
+    // reportUser API 부분
+    override fun onReportUserLoading() {
+
+    }
+
+    override fun onReportUserSuccess(data: Int) {
+        reportIdx = data
+        Log.d("REPORT_IDX", reportIdx.toString())
+        showToast("사용자 신고가 완료되었습니다.")
+        blockUser()
+    }
+
+    override fun onReportUserFailure(code: Int, message: String) {
+        when(code)
+        {
+            3000 -> showToast("오류가 발생하였습니다.")
+            8000 -> showToast("존재하지 않는 게시글입니다.")
+            8001 -> showToast("회원정보를 찾을 수 없습니다.")
+            else -> showToast("오류가 발생하였습니다.")
+        }
+    }
+
+    // blockUser API 부분
+    override fun onBlockUserLoading() {
+
+    }
+
+    override fun onBlockUserSuccess() {
+        showToast("사용자가 차단되었습니다.")
+        finish()
+    }
+
+    override fun onBlockUserFailure(code: Int, message: String) {
+        when(code)
+        {
+            8000 -> showToast("존재하지 않는 게시글입니다.")
+            8001 -> showToast("회원정보를 찾을 수 없습니다.")
+            else -> showToast("오류가 발생하였습니다.")
+        }
+        finish()
     }
 
 

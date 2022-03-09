@@ -9,7 +9,7 @@
         android:id="@+id/blockDialog_block_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="사용자를 차단할까요?"
+        android:text="사용자를 신고하고 차단할까요?"
         android:textSize="16sp"
         android:textColor="#EDC06D"
         android:fontFamily="@font/applesdgothicneob"

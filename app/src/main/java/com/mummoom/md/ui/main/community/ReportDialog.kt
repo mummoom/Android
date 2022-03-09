@@ -55,13 +55,19 @@ class ReportDialog(context : Context) {
                 R.id.reportDialog_other_rb ->
                 {
                     reasonEt.visibility = View.VISIBLE
-                    reason = reasonEt.text.toString()
+                    reason = ""
                 }
             }
         }
 
         // 확인 버튼 눌렀을 때
         doneBtn.setOnClickListener {
+
+            if(reasonEt.visibility == View.VISIBLE)
+            {
+                reason = reasonEt.text.toString()
+            }
+
             Log.d("REPORT_Reason", reason)
             onClickedListener.onClicked(reason)
             dialog.dismiss()
