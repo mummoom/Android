@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/applesdgothicneoh"
-                android:hint="찹쌀이누나"
+                android:hint="강아지 이름"
                 android:textColor="@color/black"
                 android:textSize="17sp"
                 android:gravity="center_horizontal"
@@ -266,7 +266,6 @@
                 app:layout_constraintBottom_toBottomOf="@id/mypage_icon5_cv"
                 app:layout_constraintStart_toEndOf="@id/mypage_icon5_cv"
                 app:layout_constraintTop_toTopOf="@id/mypage_icon5_cv" />
-
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/mypage_icon6_cv"

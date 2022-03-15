@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:fontFamily="@font/applesdgothicneom"
-        android:text="게시글 신고하기"
+        android:text="게시글 신고 및 사용자 차단하기"
         android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="bold"

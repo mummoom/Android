@@ -39,7 +39,7 @@
         android:id="@+id/update_content_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="버전 1.0"
+        android:text="버전 1.1.2"
         android:textSize="15sp"
         android:fontFamily="@font/applesdgothicneom"
         android:textColor="@color/push_setting_content_tv"
